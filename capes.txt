@@ -1,3 +1,4 @@
-poppypoppop:http://tehnut.info/images/nutemtcape.png
-speedynutty68:http://i.imgur.com/GYpbdno.png
-tombenpotter:http://tehnut.info/images/nutemtcape.png
+poppypoppop:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/cape.png
+speedynutty68:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/cape.png
+tombenpotter:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/cape.png
+z3r0theblade:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/cape.png
