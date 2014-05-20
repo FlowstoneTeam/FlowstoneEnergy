@@ -1,0 +1,70 @@
+CREATIVETAB
+itemGroup.FlowstoneEnergy=Flowstone Energy
+
+Machines
+tile.flowstoneenergy.EnergizedOreTumbler.name=Energized Ore Tumbler
+tile.flowstoneenergy.HeatedOven.name=Heated Oven
+tile.flowstoneenergy.MachineBox.name=Machine Box
+tile.flowstoneenergy.FlowstoneBottler.name=Flowstone Bottler
+tile.flowstoneenergy.MetalMixer.name=Metal Mixer
+tile.flowstoneenergy.AutoCraftingTable.name=Auto Crafting Table
+
+BLOCKS
+tile.flowstoneenergy.CopperBlock.name=Copper Block
+tile.flowstoneenergy.TinBlock.name=Tin Block
+tile.flowstoneenergy.LeadBlock.name=Lead Block
+tile.flowstoneenergy.SilverBlock.name=Silver Block
+tile.flowstoneenergy.NickelBlock.name=Nickel Block
+tile.flowstoneenergy.InvarBlock.name=Invar Block
+tile.flowstoneenergy.ElectrumBlock.name=Electrum Block
+tile.flowstoneenergy.EnderBlock.name=Ender Block
+
+TOOLS
+item.flowstoneenergy.flowwrench.name=Flow Wrench
+item.flowstoneenergy.pneumatic.flowwrench.name=Pneumatic Flow Wrench
+
+ORES
+tile.flowstoneenergy.CopperOre.name=Copper Ore
+tile.flowstoneenergy.TinOre.name=Tin Ore
+tile.flowstoneenergy.LeadOre.name=Lead Ore
+tile.flowstoneenergy.SilverOre.name=Silver Ore
+tile.flowstoneenergy.NickelOre.name=Nickel Ore
+
+INGOTS
+item.itemMetadataResourceIngot.itemIngotCopper.name=Copper Ingot
+item.itemMetadataResourceIngot.itemIngotTin.name=Tin Ingot
+item.itemMetadataResourceIngot.itemIngotLead.name=Lead Ingot
+item.itemMetadataResourceIngot.itemIngotSilver.name=Silver Ingot
+item.itemMetadataResourceIngot.itemIngotEnder.name=Ender Ingot
+item.itemMetadataResourceIngot.itemIngotNickel.name=Nickel Ingot
+item.itemMetadataResourceIngot.itemIngotInvar.name=Invar Ingot
+item.itemMetadataResourceIngot.itemIngotElectrum.name=Electrum Ingot
+
+
+DUSTS
+item.itemMetadataResourceDust.itemDustCoal.name=Coal Dust
+item.itemMetadataResourceDust.itemDustIron.name=Iron Dust
+item.itemMetadataResourceDust.itemDustGold.name=Gold Dust
+item.itemMetadataResourceDust.itemDustCopper.name=Copper Dust
+item.itemMetadataResourceDust.itemDustTin.name=Tin Dust
+item.itemMetadataResourceDust.itemDustLead.name=Lead Dust
+item.itemMetadataResourceDust.itemDustSilver.name=Silver Dust
+item.itemMetadataResourceDust.itemDustEnder.name=Ender Dust
+item.itemMetadataResourceDust.itemDustEnderSmall.name=Small Ender Dust
+
+GEARS
+item.itemMetadataResourceGear.itemGearWood.name=Wooden Gear
+item.itemMetadataResourceGear.itemGearStone.name=Stone Gear
+item.itemMetadataResourceGear.itemGearIron.name=Iron Gear
+item.itemMetadataResourceGear.itemGearGold.name=Gold Gear
+item.itemMetadataResourceGear.itemGearQuartz.name=Quartz Gear
+item.itemMetadataResourceGear.itemGearDiamond.name=Diamond Gear
+item.itemMetadataResourceGear.itemGearCopper.name=Copper Gear
+item.itemMetadataResourceGear.itemGearTin.name=Tin Gear
+item.itemMetadataResourceGear.itemGearLead.name=Lead Gear
+item.itemMetadataResourceGear.itemGearSilver.name=Silver Gear
+item.itemMetadataResourceGear.itemGearEnder.name=Ender Gear
+
+FOOD
+item.flowstoneenergy.cooked.bacon.name=Cooked Bacon
+item.flowstoneenergy.raw.bacon.name=Raw Bacon (Ew)
