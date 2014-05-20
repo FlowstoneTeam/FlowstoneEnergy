@@ -10,14 +10,14 @@ tile.flowstoneenergy.MetalMixer.name=Metal Mixer
 tile.flowstoneenergy.AutoCraftingTable.name=Auto Crafting Table
 
 BLOCKS
-tile.flowstoneenergy.CopperBlock.name=Copper Block
-tile.flowstoneenergy.TinBlock.name=Tin Block
-tile.flowstoneenergy.LeadBlock.name=Lead Block
-tile.flowstoneenergy.SilverBlock.name=Silver Block
-tile.flowstoneenergy.NickelBlock.name=Nickel Block
-tile.flowstoneenergy.InvarBlock.name=Invar Block
-tile.flowstoneenergy.ElectrumBlock.name=Electrum Block
-tile.flowstoneenergy.EnderBlock.name=Ender Block
+tile.blockIngotStorage.copper.name=Copper Block
+tile.blockIngotStorage.tin.name=Tin Block
+tile.blockIngotStorage.lead.name=Lead Block
+tile.blockIngotStorage.silver.name=Silver Block
+tile.blockIngotStorage.nickel.name=Nickel Block
+tile.blockIngotStorage.invar.name=Invar Block
+tile.blockIngotStorage.electrum.name=Electrum Block
+tile.blockIngotStorage.ender.name=Ender Block
 
 TOOLS
 item.flowstoneenergy.flowwrench.name=Flow Wrench
