@@ -12,23 +12,23 @@ import net.minecraft.world.World;
 
 public class ItemToolFlowwrench extends Item {
 
-	public ItemToolFlowwrench() {
-		super();
-		this.setUnlocalizedName(ModInfo.MODID+".flowwrench");
-		this.setTextureName(ModInfo.MODID+":tools/flowwrench");
-	}
-	
-	@Override
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
-		Block block = world.getBlock(x, y, z);
-		if (player.isSneaking()) {
-			if (block instanceof IWrenchable) {
-				world.setBlock(x, y, z, Blocks.air);
-				if (!world.isRemote) {
-					world.spawnEntityInWorld(new EntityItem(world, (double)x, (double)y, (double)z, new ItemStack(block)));
-				}
-			}
-		}
-		return true;
-	}
+    public ItemToolFlowwrench() {
+        super();
+        this.setUnlocalizedName(ModInfo.MODID + ".flowwrench");
+        this.setTextureName(ModInfo.MODID + ":tools/flowwrench");
+    }
+
+    @Override
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
+        Block block = world.getBlock(x, y, z);
+        if (player.isSneaking()) {
+            if (block instanceof IWrenchable) {
+                world.setBlock(x, y, z, Blocks.air);
+                if (!world.isRemote) {
+                    world.spawnEntityInWorld(new EntityItem(world, (double) x, (double) y, (double) z, new ItemStack(block)));
+                }
+            }
+        }
+        return true;
+    }
 }

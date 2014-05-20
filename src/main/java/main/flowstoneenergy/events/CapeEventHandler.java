@@ -1,7 +1,11 @@
 package main.flowstoneenergy.events;
 
-import java.awt.Graphics;
-import java.awt.Image;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraftforge.client.event.RenderPlayerEvent;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,14 +17,7 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.ImageIcon;
-
-import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraftforge.client.event.RenderPlayerEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-
-public class CapeEventHandler
-{
+public class CapeEventHandler {
 
     private final String serverLocation = "https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes.txt";
     private final int timeout = 1000;
@@ -29,29 +26,24 @@ public class CapeEventHandler
     private HashMap<String, String> cloaks = new HashMap<String, String>();
     private ArrayList<AbstractClientPlayer> capePlayers = new ArrayList<AbstractClientPlayer>();
     @SuppressWarnings("unused")
-	private boolean textureUploaded;
+    private boolean textureUploaded;
 
     public static CapeEventHandler instance;
 
-    public CapeEventHandler()
-    {
+    public CapeEventHandler() {
         buildCloakURLDatabase();
         instance = this;
     }
 
     @SubscribeEvent
-    public void onPreRenderSpecials (RenderPlayerEvent.Specials.Pre event)
-    {
-        if (event.entityPlayer instanceof AbstractClientPlayer)
-        {
+    public void onPreRenderSpecials(RenderPlayerEvent.Specials.Pre event) {
+        if (event.entityPlayer instanceof AbstractClientPlayer) {
             AbstractClientPlayer abstractClientPlayer = (AbstractClientPlayer) event.entityPlayer;
 
-            if (!capePlayers.contains(abstractClientPlayer))
-            {
+            if (!capePlayers.contains(abstractClientPlayer)) {
                 String cloakURL = cloaks.get(event.entityPlayer.getDisplayName().toLowerCase());
 
-                if (cloakURL == null)
-                {
+                if (cloakURL == null) {
                     return;
                 }
 
@@ -64,11 +56,9 @@ public class CapeEventHandler
         }
     }
 
-    public void buildCloakURLDatabase ()
-    {
+    public void buildCloakURLDatabase() {
         URL url;
-        try
-        {
+        try {
             url = new URL(serverLocation);
             URLConnection con = url.openConnection();
             con.setConnectTimeout(timeout);
@@ -78,20 +68,15 @@ public class CapeEventHandler
 
             String str;
             @SuppressWarnings("unused")
-			int linetracker = 1;
-            while ((str = br.readLine()) != null)
-            {
-                if (!str.startsWith("--"))
-                {
-                    if (str.contains(":"))
-                    {
+            int linetracker = 1;
+            while ((str = br.readLine()) != null) {
+                if (!str.startsWith("--")) {
+                    if (str.contains(":")) {
                         String nick = str.substring(0, str.indexOf(":"));
                         String link = str.substring(str.indexOf(":") + 1);
                         new Thread(new CloakPreload(link)).start();
                         cloaks.put(nick, link);
-                    }
-                    else
-                    {
+                    } else {
                         //TConstruct.logger.error("[SkinLoader] Syntax error on line " + linetracker + ": " + str);
                     }
                 }
@@ -99,71 +84,54 @@ public class CapeEventHandler
             }
 
             br.close();
-        }
-        catch (MalformedURLException e)
-        {
+        } catch (MalformedURLException e) {
             e.printStackTrace();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private class CloakThread implements Runnable
-    {
+    private class CloakThread implements Runnable {
 
         AbstractClientPlayer abstractClientPlayer;
         String cloakURL;
 
-        public CloakThread(AbstractClientPlayer player, String cloak)
-        {
+        public CloakThread(AbstractClientPlayer player, String cloak) {
             abstractClientPlayer = player;
             cloakURL = cloak;
         }
 
         @Override
-        public void run ()
-        {
-            try
-            {
+        public void run() {
+            try {
                 Image cape = new ImageIcon(new URL(cloakURL)).getImage();
                 BufferedImage bo = new BufferedImage(cape.getWidth(null), cape.getHeight(null), BufferedImage.TYPE_INT_ARGB);
                 bo.getGraphics().drawImage(cape, 0, 0, null);
                 abstractClientPlayer.getTextureCape().setBufferedImage(bo);
-            }
-            catch (MalformedURLException e)
-            {
+            } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private class CloakPreload implements Runnable
-    {
+    private class CloakPreload implements Runnable {
         String cloakURL;
 
-        public CloakPreload(String link)
-        {
+        public CloakPreload(String link) {
             cloakURL = link;
         }
 
         @Override
-        public void run ()
-        {
-            try
-            {
+        public void run() {
+            try {
                 TEST_GRAPHICS.drawImage(new ImageIcon(new URL(cloakURL)).getImage(), 0, 0, null);
-            }
-            catch (MalformedURLException e)
-            {
+            } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void refreshCapes ()
-    {
+    public void refreshCapes() {
         cloaks.clear();
         capePlayers.clear();
         buildCloakURLDatabase();

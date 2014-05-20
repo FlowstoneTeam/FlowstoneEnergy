@@ -1,5 +1,6 @@
 package main.flowstoneenergy.utils;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.items.FAKEITEM;
 import main.flowstoneenergy.items.ItemMetaResourceDust;
 import main.flowstoneenergy.items.ItemMetaResourceGears;
@@ -15,7 +16,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemUtils {
     //fake item
@@ -29,7 +29,7 @@ public class ItemUtils {
     public static Item metaResourceDust;
     public static Item metaResourceIngot;
     public static Item metaResourceGear;
-    
+
     //food
     public static Item rawBacon;
     public static Item cookedBacon;
@@ -136,10 +136,10 @@ public class ItemUtils {
         RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockUtils.silverOre), new ItemStack(metaResourceDust, 2, 6), 200);
         RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.ender_pearl), new ItemStack(metaResourceDust, 1, 7), 300);
     }
-    
+
     private static void registerMixerRecipes() {
-    	RecipesMetalMixer.AddRecipe(new ItemStack(metaResourceIngot, 2, 0), new ItemStack(metaResourceIngot, 1, 5), new ItemStack(metaResourceIngot, 3, 6), 300);
-    	RecipesMetalMixer.AddRecipe(new ItemStack(Items.gold_ingot), new ItemStack(metaResourceIngot, 2, 3), new ItemStack(metaResourceIngot, 2, 7), 300);
+        RecipesMetalMixer.AddRecipe(new ItemStack(metaResourceIngot, 2, 0), new ItemStack(metaResourceIngot, 1, 5), new ItemStack(metaResourceIngot, 3, 6), 300);
+        RecipesMetalMixer.AddRecipe(new ItemStack(Items.gold_ingot), new ItemStack(metaResourceIngot, 2, 3), new ItemStack(metaResourceIngot, 2, 7), 300);
     }
 
     public static void registerFullBlocks() {

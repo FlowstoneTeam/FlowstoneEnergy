@@ -64,16 +64,16 @@ public class ItemMetaResourceDust extends Item {
                 break;
             }
             case 9: {
-            	name = "itemDustNickle";
-            	break;
+                name = "itemDustNickle";
+                break;
             }
             case 10: {
-            	name = "itemDustInvar";
-            	break;
+                name = "itemDustInvar";
+                break;
             }
             case 11: {
-            	name = "itemDustElectrum";
-            	break;
+                name = "itemDustElectrum";
+                break;
             }
 
             default:
