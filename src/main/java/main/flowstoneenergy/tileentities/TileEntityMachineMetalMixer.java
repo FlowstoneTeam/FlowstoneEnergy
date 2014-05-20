@@ -2,12 +2,9 @@ package main.flowstoneenergy.tileentities;
 
 import main.flowstoneenergy.tileentities.recipes.Recipe2_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityMachineMetalMixer extends TileEntity implements ISidedInventory {
+public class TileEntityMachineMetalMixer extends TileEntityMachineBox {
 
     private ItemStack[] items = new ItemStack[4];
     public static final int INV_SIZE = 2;
@@ -16,60 +13,6 @@ public class TileEntityMachineMetalMixer extends TileEntity implements ISidedInv
 
     @SuppressWarnings("unused")
     private String field_145958_o;
-
-    @Override
-    public int getSizeInventory() {
-        return items.length;
-    }
-
-    @Override
-    public ItemStack getStackInSlot(int slot) {
-        return items[slot];
-    }
-
-    @Override
-    public ItemStack decrStackSize(int i, int j) {
-        if (this.items[i] != null) {
-            ItemStack itemstack;
-
-            if (this.items[i].stackSize <= j) {
-                itemstack = this.items[i];
-                this.items[i] = null;
-                return itemstack;
-            } else {
-                itemstack = this.items[i].splitStack(j);
-
-                if (this.items[i].stackSize == 0) {
-                    this.items[i] = null;
-                }
-
-                return itemstack;
-            }
-        } else {
-            return null;
-        }
-    }
-
-    @Override
-    public ItemStack getStackInSlotOnClosing(int i) {
-        if (this.items[i] != null) {
-            ItemStack itemstack = this.items[i];
-            this.items[i] = null;
-            return itemstack;
-        } else {
-        }
-
-        return null;
-    }
-
-    @Override
-    public void setInventorySlotContents(int i, ItemStack itemstack) {
-        this.items[i] = itemstack;
-
-        if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit()) {
-            itemstack.stackSize = this.getInventoryStackLimit();
-        }
-    }
 
     @Override
     public String getInventoryName() {
@@ -82,32 +25,12 @@ public class TileEntityMachineMetalMixer extends TileEntity implements ISidedInv
     }
 
     @Override
-    public int getInventoryStackLimit() {
-        return 64;
-    }
-
-    @Override
-    public boolean isUseableByPlayer(EntityPlayer var1) {
-        return true;
-    }
-
-    @Override
-    public void openInventory() {
-    }
-
-    @Override
-    public void closeInventory() {
-    }
-
-    @Override
     public boolean isItemValidForSlot(int var1, ItemStack var2) {
-        // TODO Auto-generated method stub
         return true;
     }
 
     @Override
     public int[] getAccessibleSlotsFromSide(int var1) {
-        // TODO Auto-generated method stub
         return null;
     }
 

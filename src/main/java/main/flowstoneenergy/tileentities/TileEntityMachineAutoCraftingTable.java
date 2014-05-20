@@ -2,12 +2,9 @@ package main.flowstoneenergy.tileentities;
 
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesHeatedOven;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityMachineAutoCraftingTable extends TileEntity implements ISidedInventory {
+public class TileEntityMachineAutoCraftingTable extends TileEntityMachineBox {
     private ItemStack[] items = new ItemStack[10];
     public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
@@ -17,60 +14,6 @@ public class TileEntityMachineAutoCraftingTable extends TileEntity implements IS
     private String field_145958_o;
 
     @Override
-    public int getSizeInventory() {
-        return items.length;
-    }
-
-    @Override
-    public ItemStack getStackInSlot(int slot) {
-        return items[slot];
-    }
-
-    @Override
-    public ItemStack decrStackSize(int i, int j) {
-        if (this.items[i] != null) {
-            ItemStack itemstack;
-
-            if (this.items[i].stackSize <= j) {
-                itemstack = this.items[i];
-                this.items[i] = null;
-                return itemstack;
-            } else {
-                itemstack = this.items[i].splitStack(j);
-
-                if (this.items[i].stackSize == 0) {
-                    this.items[i] = null;
-                }
-
-                return itemstack;
-            }
-        } else {
-            return null;
-        }
-    }
-
-    @Override
-    public ItemStack getStackInSlotOnClosing(int i) {
-        if (this.items[i] != null) {
-            ItemStack itemstack = this.items[i];
-            this.items[i] = null;
-            return itemstack;
-        } else {
-        }
-
-        return null;
-    }
-
-    @Override
-    public void setInventorySlotContents(int i, ItemStack itemstack) {
-        this.items[i] = itemstack;
-
-        if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit()) {
-            itemstack.stackSize = this.getInventoryStackLimit();
-        }
-    }
-
-    @Override
     public String getInventoryName() {
         return null;
     }
@@ -78,24 +21,6 @@ public class TileEntityMachineAutoCraftingTable extends TileEntity implements IS
     @Override
     public boolean hasCustomInventoryName() {
         return true;
-    }
-
-    @Override
-    public int getInventoryStackLimit() {
-        return 64;
-    }
-
-    @Override
-    public boolean isUseableByPlayer(EntityPlayer var1) {
-        return true;
-    }
-
-    @Override
-    public void openInventory() {
-    }
-
-    @Override
-    public void closeInventory() {
     }
 
     @Override
@@ -165,5 +90,4 @@ public class TileEntityMachineAutoCraftingTable extends TileEntity implements IS
         if (maxTicks == 0) return 0;
         return ticksLeft * scale / maxTicks;
     }
-
 }
