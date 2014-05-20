@@ -22,7 +22,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class CapeEventHandler
 {
 
-    private final String serverLocation = "https://www.dropbox.com/s/eeg4afdcpa30zzf/capes.txt";
+    private final String serverLocation = "https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes.txt";
     private final int timeout = 1000;
 
     private static final Graphics TEST_GRAPHICS = new BufferedImage(128, 128, BufferedImage.TYPE_INT_RGB).getGraphics();
@@ -48,7 +48,7 @@ public class CapeEventHandler
 
             if (!capePlayers.contains(abstractClientPlayer))
             {
-                String cloakURL = cloaks.get(event.entityPlayer.getDisplayName());
+                String cloakURL = cloaks.get(event.entityPlayer.getDisplayName().toLowerCase());
 
                 if (cloakURL == null)
                 {
