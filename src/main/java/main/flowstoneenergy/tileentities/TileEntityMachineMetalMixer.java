@@ -5,14 +5,16 @@ import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityMachineMetalMixer extends TileEntityMachineBox {
-
-    private ItemStack[] items = new ItemStack[4];
     public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
     private int maxTicks = 0;
 
     @SuppressWarnings("unused")
     private String field_145958_o;
+
+    public TileEntityMachineMetalMixer() {
+        items = new ItemStack[4];
+    }
 
     @Override
     public String getInventoryName() {

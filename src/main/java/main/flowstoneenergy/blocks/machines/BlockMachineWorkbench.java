@@ -6,8 +6,6 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IWrenchable;
 import main.flowstoneenergy.tileentities.TileEntityMachineWorkbench;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +17,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockMachineWorkbench extends BlockContainer implements IWrenchable {
+public class BlockMachineWorkbench extends BlockMachineBox implements IWrenchable {
 
     private IIcon top;
     private IIcon frontOn;
@@ -29,7 +27,6 @@ public class BlockMachineWorkbench extends BlockContainer implements IWrenchable
     private static boolean canBreak;
 
     public BlockMachineWorkbench() {
-        super(Material.iron);
         this.setHardness(12);
         this.setBlockName(ModInfo.MODID + ".MachineWorkbench");
         this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side");

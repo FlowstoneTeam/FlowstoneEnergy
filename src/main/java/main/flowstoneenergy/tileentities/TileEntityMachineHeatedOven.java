@@ -9,13 +9,16 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
-    private ItemStack[] items = new ItemStack[2];
     public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
     private int maxTicks = 0;
 
     @SuppressWarnings("unused")
     private String field_145958_o;
+
+    public TileEntityMachineHeatedOven() {
+        items = new ItemStack[2];
+    }
 
     @Override
     public String getInventoryName() {

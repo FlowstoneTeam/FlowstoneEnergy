@@ -5,13 +5,16 @@ import main.flowstoneenergy.tileentities.recipes.RecipesHeatedOven;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityMachineAutoCraftingTable extends TileEntityMachineBox {
-    private ItemStack[] items = new ItemStack[10];
     public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
     private int maxTicks = 0;
 
     @SuppressWarnings("unused")
     private String field_145958_o;
+
+    public TileEntityMachineAutoCraftingTable() {
+        items = new ItemStack[10];
+    }
 
     @Override
     public String getInventoryName() {

@@ -7,8 +7,6 @@ import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IWrenchable;
 import main.flowstoneenergy.tileentities.TileEntityMachineMetalMixer;
 import main.flowstoneenergy.tileentities.TileEntityMachineOreTumbler;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,7 +18,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockMachineMetalMixer extends BlockContainer implements IWrenchable {
+public class BlockMachineMetalMixer extends BlockMachineBox implements IWrenchable {
 
     private IIcon top;
     private IIcon frontOn;
@@ -30,7 +28,6 @@ public class BlockMachineMetalMixer extends BlockContainer implements IWrenchabl
     private static boolean canBreak;
 
     public BlockMachineMetalMixer() {
-        super(Material.iron);
         this.setHardness(12);
         this.setBlockName(ModInfo.MODID + ".MetalMixer");
         this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side");

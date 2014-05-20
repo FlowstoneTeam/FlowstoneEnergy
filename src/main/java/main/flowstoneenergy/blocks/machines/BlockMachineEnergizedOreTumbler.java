@@ -6,8 +6,6 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IWrenchable;
 import main.flowstoneenergy.tileentities.TileEntityMachineOreTumbler;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +17,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockMachineEnergizedOreTumbler extends BlockContainer implements IWrenchable {
+public class BlockMachineEnergizedOreTumbler extends BlockMachineBox implements IWrenchable {
 
     private IIcon top;
     private IIcon frontOn;
@@ -28,7 +26,6 @@ public class BlockMachineEnergizedOreTumbler extends BlockContainer implements I
     public static boolean canBreak;
 
     public BlockMachineEnergizedOreTumbler() {
-        super(Material.iron);
         this.setHardness(12);
         this.setBlockName(ModInfo.MODID + ".EnergizedOreTumbler");
         this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side");

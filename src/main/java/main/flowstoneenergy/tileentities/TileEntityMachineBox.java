@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public abstract class TileEntityMachineBox extends TileEntity implements ISidedInventory {
-    private ItemStack[] items;
+    public ItemStack[] items;
 
     @Override
     public void openInventory() {
