@@ -2,8 +2,7 @@ package main.flowstoneenergy.items;
 
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.utils.BlockUtils;
-import main.flowstoneenergy.utils.ItemUtils;
+import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,21 +21,22 @@ public class FAKEITEM extends Item {
     @Override
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void getSubItems(Item item, CreativeTabs tab, List l) {
-        l.add(new ItemStack(ItemUtils.flowwrench));
-        l.add(new ItemStack(ItemUtils.pneumaticFlowwrench));
-        l.add(new ItemStack(BlockUtils.machineBox));
-        l.add(new ItemStack(BlockUtils.heatedOven));
-        l.add(new ItemStack(BlockUtils.energizedOreTumbler));
-        l.add(new ItemStack(BlockUtils.flowstoneBottler));
-        l.add(new ItemStack(BlockUtils.metalMixer));
-        l.add(new ItemStack(BlockUtils.machineWorkbench));
-        l.add(new ItemStack(BlockUtils.autoCrafter));
-        l.add(new ItemStack(BlockUtils.copperOre));
-        l.add(new ItemStack(BlockUtils.tinOre));
-        l.add(new ItemStack(BlockUtils.leadOre));
-        l.add(new ItemStack(BlockUtils.silverOre));
-        l.add(new ItemStack(BlockUtils.nickelOre));
-        l.add(new ItemStack(ItemUtils.cookedBacon));
-        l.add(new ItemStack(ItemUtils.rawBacon));
+        l.add(new ItemStack(ItemRegistry.flowwrench));
+        l.add(new ItemStack(ItemRegistry.pneumaticFlowwrench));
+        l.add(new ItemStack(BlockRegistry.machineBox));
+        l.add(new ItemStack(BlockRegistry.heatedOven));
+        l.add(new ItemStack(BlockRegistry.energizedOreTumbler));
+        l.add(new ItemStack(BlockRegistry.flowstoneBottler));
+        l.add(new ItemStack(BlockRegistry.metalMixer));
+        l.add(new ItemStack(BlockRegistry.machineWorkbench));
+        l.add(new ItemStack(BlockRegistry.machineLumberMill));
+        l.add(new ItemStack(BlockRegistry.autoCrafter));
+        l.add(new ItemStack(BlockRegistry.copperOre));
+        l.add(new ItemStack(BlockRegistry.tinOre));
+        l.add(new ItemStack(BlockRegistry.leadOre));
+        l.add(new ItemStack(BlockRegistry.silverOre));
+        l.add(new ItemStack(BlockRegistry.nickelOre));
+        l.add(new ItemStack(ItemRegistry.cookedBacon));
+        l.add(new ItemStack(ItemRegistry.rawBacon));
     }
 }

@@ -7,7 +7,7 @@ public class BlockOreCopper extends BlockOre {
     public BlockOreCopper() {
         super();
         this.setHardness(3);
-        this.setBlockName(ModInfo.MODID + ".LeadOre");
-        this.setBlockTextureName(ModInfo.MODID + ":ores/leadOre");
+        this.setBlockName(ModInfo.MODID + ".CopperOre");
+        this.setBlockTextureName(ModInfo.MODID + ":ores/copperOre");
     }
 }

@@ -1,6 +1,7 @@
 package main.flowstoneenergy.utils;
 
 import cpw.mods.fml.common.IWorldGenerator;
+import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -29,9 +30,9 @@ public class WorldGenerator implements IWorldGenerator {
             int copperY = rand.nextInt(64);
             int leadY = rand.nextInt(30);
 
-            (new WorldGenMinable(BlockUtils.copperOre, 13)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
-            (new WorldGenMinable(BlockUtils.tinOre, 13)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
-            (new WorldGenMinable(BlockUtils.leadOre, 13)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
+            (new WorldGenMinable(BlockRegistry.copperOre, 13)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
+            (new WorldGenMinable(BlockRegistry.tinOre, 13)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
+            (new WorldGenMinable(BlockRegistry.leadOre, 13)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
         }
 
     }

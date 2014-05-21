@@ -7,7 +7,7 @@ public class BlockOreLead extends BlockOre {
     public BlockOreLead() {
         super();
         this.setHardness(7);
-        this.setBlockName(ModInfo.MODID + ".CopperOre");
-        this.setBlockTextureName(ModInfo.MODID + ":ores/copperOre");
+        this.setBlockName(ModInfo.MODID + ".LeadOre");
+        this.setBlockTextureName(ModInfo.MODID + ":ores/leadOre");
     }
 }

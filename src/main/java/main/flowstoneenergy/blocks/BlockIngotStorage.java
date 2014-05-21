@@ -42,7 +42,8 @@ public class BlockIngotStorage extends Block {
         return this.icon[meta];
     }
 
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
         for (int i = 0; i < 8; i++) {

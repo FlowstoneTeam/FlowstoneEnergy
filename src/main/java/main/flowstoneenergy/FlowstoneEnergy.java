@@ -9,12 +9,12 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
+import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.events.CapeEventHandler;
 import main.flowstoneenergy.gui.GuiHandler;
+import main.flowstoneenergy.items.ItemRegistry;
+import main.flowstoneenergy.tileentities.TERegistry;
 import main.flowstoneenergy.tileentities.recipes.RecipesHeatedOven;
-import main.flowstoneenergy.utils.BlockUtils;
-import main.flowstoneenergy.utils.ItemUtils;
-import main.flowstoneenergy.utils.TileEntityUtils;
 import main.flowstoneenergy.utils.WorldGenerator;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -36,9 +36,9 @@ public class FlowstoneEnergy {
     public void preinit(FMLPreInitializationEvent event) {
         config = new Configuration(event.getSuggestedConfigurationFile());
         ConfigOptions.configOptions(config);
-        BlockUtils.registerFullBlocks();
-        ItemUtils.registerFullBlocks();
-        TileEntityUtils.registerTileEntities();
+        BlockRegistry.registerFullBlocks();
+        ItemRegistry.registerFullBlocks();
+        TERegistry.registerTileEntities();
         GameRegistry.registerWorldGenerator(new WorldGenerator(), 10);
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
     }

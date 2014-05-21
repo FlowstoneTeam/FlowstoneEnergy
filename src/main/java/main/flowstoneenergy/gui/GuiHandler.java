@@ -1,11 +1,11 @@
 package main.flowstoneenergy.gui;
 
-import cpw.mods.fml.common.network.IGuiHandler;
 import main.flowstoneenergy.containers.*;
 import main.flowstoneenergy.tileentities.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
     @Override
@@ -24,6 +24,8 @@ public class GuiHandler implements IGuiHandler {
                     return new ContainerMachineMetalMixer(player, (TileEntityMachineMetalMixer) entity);
                 case 4:
                     return new ContainerMachineWorkbench(player, (TileEntityMachineWorkbench) entity);
+                case 5:
+                	return new ContainerMachineLumberMill(player, (TileEntityMachineLumberMill) entity);
             }
         }
         return null;
@@ -45,6 +47,8 @@ public class GuiHandler implements IGuiHandler {
                     return new BlockGuiMetalMixer(player, (TileEntityMachineMetalMixer) entity);
                 case 4:
                     return new BlockGuiMachineWorkbench(player, (TileEntityMachineWorkbench) entity);
+                case 5:
+                	return new BlockGuiLumberMill(player, (TileEntityMachineLumberMill) entity);
             }
         }
         return null;

@@ -2,7 +2,7 @@ package main.flowstoneenergy;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import main.flowstoneenergy.utils.ItemUtils;
+import main.flowstoneenergy.items.ItemRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -14,6 +14,6 @@ public class CreativeTab extends CreativeTabs {
     @Override
     @SideOnly(Side.CLIENT)
     public Item getTabIconItem() {
-        return ItemUtils.pneumaticFlowwrench;
+        return ItemRegistry.pneumaticFlowwrench;
     }
 }
