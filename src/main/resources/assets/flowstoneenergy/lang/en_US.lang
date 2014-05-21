@@ -22,11 +22,11 @@ tile.blockIngotStorage.electrum.name=Electrum Block
 tile.blockIngotStorage.ender.name=Ender Block
 
 BATTERIES
-item.flowstoneenergy.flowstone.battery.tier.one.name=Flowstone Battery Tier: 1
-item.flowstoneenergy.flowstone.battery.tier.two.name=Flowstone Battery Tier: 2
-item.flowstoneenergy.flowstone.battery.tier.three.name=Flowstone Battery Tier: 3
-item.flowstoneenergy.flowstone.battery.tier.four.name=Flowstone Battery Tier: 4
-item.flowstoneenergy.flowstone.battery.tier.five.name=Flowstone Battery Tier: 5
+item.flowstoneenergy.flowstone.battery.tier.one.name=Flowstone Battery [Tier: 1]
+item.flowstoneenergy.flowstone.battery.tier.two.name=Flowstone Battery [Tier: 2]
+item.flowstoneenergy.flowstone.battery.tier.three.name=Flowstone Battery [Tier: 3]
+item.flowstoneenergy.flowstone.battery.tier.four.name=Flowstone Battery [Tier: 4]
+item.flowstoneenergy.flowstone.battery.tier.five.name=Flowstone Battery [Tier: 5]
 
 TOOLS
 item.flowstoneenergy.flowwrench.name=Flow Wrench
@@ -58,6 +58,7 @@ item.itemMetadataResourceIngot.itemIngotEnder.name=Ender Ingot
 item.itemMetadataResourceIngot.itemIngotNickel.name=Nickel Ingot
 item.itemMetadataResourceIngot.itemIngotInvar.name=Invar Ingot
 item.itemMetadataResourceIngot.itemIngotElectrum.name=Electrum Ingot
+item.itemMetadataResourceIngot.nothing.name=YOU SHOULD NOT HAVE THIS
 
 
 DUSTS
@@ -70,6 +71,7 @@ item.itemMetadataResourceDust.itemDustLead.name=Lead Dust
 item.itemMetadataResourceDust.itemDustSilver.name=Silver Dust
 item.itemMetadataResourceDust.itemDustEnder.name=Ender Dust
 item.itemMetadataResourceDust.itemDustEnderSmall.name=Small Ender Dust
+item.itemMetadataResourceDust.nothing.name=YOU SHOULD NOT HAVE THIS
 
 GEARS
 item.itemMetadataResourceGear.itemGearWood.name=Wooden Gear
@@ -83,6 +85,7 @@ item.itemMetadataResourceGear.itemGearTin.name=Tin Gear
 item.itemMetadataResourceGear.itemGearLead.name=Lead Gear
 item.itemMetadataResourceGear.itemGearSilver.name=Silver Gear
 item.itemMetadataResourceGear.itemGearEnder.name=Ender Gear
+item.itemMetadataResourceGear.nothing.name=YOU SHOULD NOT HAVE THIS
 
 FOOD
 item.flowstoneenergy.cooked.bacon.name=Cooked Bacon

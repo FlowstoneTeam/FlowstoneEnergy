@@ -11,11 +11,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.events.CapeEventHandler;
+import main.flowstoneenergy.gui.CreativeTab;
 import main.flowstoneenergy.gui.GuiHandler;
 import main.flowstoneenergy.items.ItemRegistry;
+import main.flowstoneenergy.items.RecipeRegistry;
 import main.flowstoneenergy.tileentities.TERegistry;
 import main.flowstoneenergy.tileentities.recipes.RecipesHeatedOven;
 import main.flowstoneenergy.utils.GenerationHandler;
+import main.flowstoneenergy.utils.oreDictHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -37,8 +40,10 @@ public class FlowstoneEnergy {
         config = new Configuration(event.getSuggestedConfigurationFile());
         ConfigHandler.configOptions(config);
         BlockRegistry.registerFullBlocks();
-        ItemRegistry.registerFullBlocks();
+        ItemRegistry.registerItems();
+	    RecipeRegistry.registerRecipes();
         TERegistry.registerTileEntities();
+	    oreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 10);
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
     }
