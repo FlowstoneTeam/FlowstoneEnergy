@@ -15,7 +15,7 @@ import main.flowstoneenergy.gui.GuiHandler;
 import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.tileentities.TERegistry;
 import main.flowstoneenergy.tileentities.recipes.RecipesHeatedOven;
-import main.flowstoneenergy.utils.WorldGenerator;
+import main.flowstoneenergy.utils.GenerationHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -39,7 +39,7 @@ public class FlowstoneEnergy {
         BlockRegistry.registerFullBlocks();
         ItemRegistry.registerFullBlocks();
         TERegistry.registerTileEntities();
-        GameRegistry.registerWorldGenerator(new WorldGenerator(), 10);
+        GameRegistry.registerWorldGenerator(new GenerationHandler(), 10);
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
     }
 
