@@ -1,4 +1,5 @@
 poppypoppop:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/cape.png
 speedynutty68:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/cape.png
 tombenpotter:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/cape.png
+MrComputerGhost:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/compcape.png
 z3r0theblade:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/cape.png
