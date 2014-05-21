@@ -29,7 +29,7 @@ public class FAKEITEM extends Item {
         l.add(new ItemStack(BlockRegistry.flowstoneBottler));
         l.add(new ItemStack(BlockRegistry.metalMixer));
         l.add(new ItemStack(BlockRegistry.machineWorkbench));
-        l.add(new ItemStack(BlockRegistry.machineLumberMill));
+        l.add(new ItemStack(BlockRegistry.lumberMill));
         l.add(new ItemStack(BlockRegistry.autoCrafter));
         l.add(new ItemStack(BlockRegistry.copperOre));
         l.add(new ItemStack(BlockRegistry.tinOre));

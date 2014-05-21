@@ -16,7 +16,7 @@ public class BlockGuiLumberMill extends GuiContainer {
     @SuppressWarnings("unused")
     private ContainerMachineLumberMill container;
     private TileEntityMachineLumberMill te;
-    String containerName = "Heated Oven";
+    String containerName = "Lumber Mill";
 
     public BlockGuiLumberMill(EntityPlayer player, TileEntityMachineLumberMill tile) {
         super(new ContainerMachineLumberMill(player, tile));

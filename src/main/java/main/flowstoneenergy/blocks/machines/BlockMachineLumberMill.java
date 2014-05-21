@@ -48,8 +48,8 @@ public class BlockMachineLumberMill extends BlockContainer implements IWrenchabl
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
         this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
-        this.frontOn = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front_Active");
-        this.frontOff = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front");
+        this.frontOn = icon.registerIcon(ModInfo.MODID + ":machines/lumberMill_Front_Active");
+        this.frontOff = icon.registerIcon(ModInfo.MODID + ":machines/lumberMill_Front");
         this.top = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
     }
 
@@ -106,7 +106,7 @@ public class BlockMachineLumberMill extends BlockContainer implements IWrenchabl
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (!world.isRemote) {
-            player.openGui(FlowstoneEnergy.instance, 0, world, x, y, z);
+            player.openGui(FlowstoneEnergy.instance, 5, world, x, y, z);
         }
         return true;
     }

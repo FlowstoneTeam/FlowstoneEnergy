@@ -15,6 +15,10 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBox{
 
     @SuppressWarnings("unused")
     private String field_145958_o;
+    
+    public TileEntityMachineLumberMill() {
+        items = new ItemStack[2];
+    }
 	
 	@Override
 	public int[] getAccessibleSlotsFromSide(int var1) {

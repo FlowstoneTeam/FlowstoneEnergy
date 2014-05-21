@@ -1,15 +1,26 @@
 package main.flowstoneenergy.blocks;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.ConfigOptions;
-import main.flowstoneenergy.blocks.machines.*;
-import main.flowstoneenergy.blocks.ore.*;
+import main.flowstoneenergy.blocks.machines.BlockMachineAutoCraftingTable;
+import main.flowstoneenergy.blocks.machines.BlockMachineBox;
+import main.flowstoneenergy.blocks.machines.BlockMachineEnergizedOreTumbler;
+import main.flowstoneenergy.blocks.machines.BlockMachineFlowstoneBottler;
+import main.flowstoneenergy.blocks.machines.BlockMachineHeatedOven;
+import main.flowstoneenergy.blocks.machines.BlockMachineLumberMill;
+import main.flowstoneenergy.blocks.machines.BlockMachineMetalMixer;
+import main.flowstoneenergy.blocks.machines.BlockMachineWorkbench;
+import main.flowstoneenergy.blocks.ore.BlockOreCopper;
+import main.flowstoneenergy.blocks.ore.BlockOreLead;
+import main.flowstoneenergy.blocks.ore.BlockOreNickel;
+import main.flowstoneenergy.blocks.ore.BlockOreSilver;
+import main.flowstoneenergy.blocks.ore.BlockOreTin;
 import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.items.blocks.ItemBlockIngotStorage;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockRegistry {
 
@@ -21,7 +32,7 @@ public class BlockRegistry {
 	public static Block autoCrafter;
 	public static Block machineBox;
 	public static Block machineWorkbench;
-	public static Block machineLumberMill;
+	public static Block lumberMill;
 
 	public static Block ingotStorage;
 
@@ -48,8 +59,8 @@ public class BlockRegistry {
 		GameRegistry.registerBlock(machineBox, machineBox.getUnlocalizedName());
 		machineWorkbench = new BlockMachineWorkbench();
 		GameRegistry.registerBlock(machineWorkbench, machineWorkbench.getUnlocalizedName());
-		machineLumberMill = new BlockMachineLumberMill();
-		GameRegistry.registerBlock(machineLumberMill, machineLumberMill.getUnlocalizedName());
+		lumberMill = new BlockMachineLumberMill();
+		GameRegistry.registerBlock(lumberMill, lumberMill.getUnlocalizedName());
 
 		//blocks
 		ingotStorage = new BlockIngotStorage().setBlockName("blockIngotStorage");
