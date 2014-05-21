@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 public class CapeEventHandler {
 
-    private final String serverLocation = "https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes.txt";
+    private final String serverLocation = "https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/capes.txt";
     private final int timeout = 1000;
 
     private static final Graphics TEST_GRAPHICS = new BufferedImage(128, 128, BufferedImage.TYPE_INT_RGB).getGraphics();
