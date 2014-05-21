@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineOreTumbler extends Container {
@@ -25,7 +26,7 @@ public class ContainerMachineOreTumbler extends Container {
 
     private void createSlots(TileEntityMachineOreTumbler tile, EntityPlayer player) {
         addSlotToContainer(new Slot(tile, 0, 52, 16));
-        addSlotToContainer(new Slot(tile, 1, 129, 34));
+        addSlotToContainer(new SlotFurnace(player, tile, 1, 129, 34));
     }
 
     private void bindPlayerInventory(InventoryPlayer inv) {

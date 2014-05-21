@@ -1,8 +1,7 @@
 package main.flowstoneenergy.tileentities;
 
-import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesHeatedOven;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -11,7 +10,7 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
     public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
-    private int maxTicks = 0;
+    private int maxTicks = 150;
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -56,40 +55,49 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
 
     @Override
     public void updateEntity() {
-        if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesHeatedOven.GetRecipeFromStack(items[0]);
-            if (r != null) {
-                maxTicks = r.getTime();
-            }
-        }
-        if (ticksLeft < maxTicks && RecipesHeatedOven.GetRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesHeatedOven.GetRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
+        if (items[0] != null) {
+
+            if (this.canSmelt()) {
                 ticksLeft++;
             } else {
                 ticksLeft = 0;
             }
-        }
-        if (RecipesHeatedOven.GetRecipeFromStack(items[0]) == null && ticksLeft > 0) {
-            ticksLeft = 0;
-        }
-        if (ticksLeft == maxTicks) {
-            ticksLeft = 0;
-            smelt();
+
+            if (ticksLeft == maxTicks) {
+                ticksLeft = 0;
+                smelt();
+            }
         }
     }
 
-    private void smelt() {
-        if (RecipesHeatedOven.GetRecipeFromStack(items[0]) == null) return;
-        ItemStack res = RecipesHeatedOven.GetRecipeFromStack(items[0]).getOutput();
-        if (items[1] == null)
-            items[1] = res.copy();
-        else
-            items[1].stackSize += res.stackSize;
+    public void smelt() {
+        if (this.canSmelt()) {
+            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
 
+            if (this.items[1] == null) {
+                this.items[1] = itemstack.copy();
+            } else if (this.items[1].getItem() == itemstack.getItem()) {
+                this.items[1].stackSize += itemstack.stackSize;
+            }
 
-        items[0].stackSize--;
-        if (items[0].stackSize <= 0) {
-            items[0] = null;
+            --this.items[0].stackSize;
+
+            if (this.items[0].stackSize <= 0) {
+                this.items[0] = null;
+            }
+        }
+    }
+
+    private boolean canSmelt() {
+        if (this.items[0] == null) {
+            return false;
+        } else {
+            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
+            if (itemstack == null) return false;
+            if (this.items[1] == null) return true;
+            if (!this.items[1].isItemEqual(itemstack)) return false;
+            int result = items[1].stackSize + itemstack.stackSize;
+            return result <= getInventoryStackLimit() && result <= this.items[1].getMaxStackSize();
         }
     }
 

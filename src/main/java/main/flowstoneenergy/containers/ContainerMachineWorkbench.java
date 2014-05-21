@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineWorkbench extends Container {
@@ -26,7 +27,7 @@ public class ContainerMachineWorkbench extends Container {
         addSlotToContainer(new Slot(tile, 0, 29, 16));
         addSlotToContainer(new Slot(tile, 1, 52, 16));
         addSlotToContainer(new Slot(tile, 2, 75, 16));
-        addSlotToContainer(new Slot(tile, 3, 129, 34));
+        addSlotToContainer(new SlotFurnace(player, tile, 3, 129, 34));
     }
 
     private void bindPlayerInventory(InventoryPlayer inv) {

@@ -16,17 +16,11 @@ import main.flowstoneenergy.gui.GuiHandler;
 import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.items.RecipeRegistry;
 import main.flowstoneenergy.tileentities.TERegistry;
-import main.flowstoneenergy.tileentities.recipes.RecipesHeatedOven;
 import main.flowstoneenergy.utils.GenerationHandler;
 import main.flowstoneenergy.utils.oreDictHandler;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-
-import java.util.Map;
-import java.util.Map.Entry;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION)
 public class FlowstoneEnergy {
@@ -57,11 +51,5 @@ public class FlowstoneEnergy {
 
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-        Map<?, ?> smelting = FurnaceRecipes.smelting().getSmeltingList();
-        for (Entry<?, ?> kvp : smelting.entrySet()) {
-            ItemStack output = (ItemStack) kvp.getValue();
-            ItemStack input = (ItemStack) kvp.getKey();
-            RecipesHeatedOven.AddRecipe(input, output, 200);
-        }
     }
 }

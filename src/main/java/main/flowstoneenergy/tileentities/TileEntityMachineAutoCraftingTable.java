@@ -1,7 +1,5 @@
 package main.flowstoneenergy.tileentities;
 
-import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesHeatedOven;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityMachineAutoCraftingTable extends TileEntityMachineBox {
@@ -52,35 +50,16 @@ public class TileEntityMachineAutoCraftingTable extends TileEntityMachineBox {
 
     @Override
     public void updateEntity() {
-        if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesHeatedOven.GetRecipeFromStack(items[0]);
-            if (r != null) {
-                maxTicks = r.getTime();
-            }
-        }
-        if (ticksLeft < maxTicks && RecipesHeatedOven.GetRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesHeatedOven.GetRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
-                ticksLeft++;
-            } else {
-                ticksLeft = 0;
-            }
-        }
-        if (RecipesHeatedOven.GetRecipeFromStack(items[0]) == null && ticksLeft > 0) {
-            ticksLeft = 0;
-        }
-        if (ticksLeft == maxTicks) {
-            ticksLeft = 0;
-            craft();
-        }
+
     }
 
     private void craft() {
-        if (RecipesHeatedOven.GetRecipeFromStack(items[0]) == null) return;
-        ItemStack res = RecipesHeatedOven.GetRecipeFromStack(items[0]).getOutput();
-        if (items[1] == null)
-            items[1] = res.copy();
-        else
-            items[1].stackSize += res.stackSize;
+        // if (RecipesHeatedOven.GetRecipeFromStack(items[0]) == null) return;
+        // ItemStack res = RecipesHeatedOven.GetRecipeFromStack(items[0]).getOutput();
+        //  if (items[1] == null)
+       // items[1] = res.copy();
+        //   else
+        //      items[1].stackSize += res.stackSize;
 
 
         items[0].stackSize--;
