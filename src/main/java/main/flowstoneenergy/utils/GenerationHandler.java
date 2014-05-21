@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class WorldGenerator implements IWorldGenerator {
+public class GenerationHandler implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.dimensionId) {
@@ -29,10 +29,14 @@ public class WorldGenerator implements IWorldGenerator {
             int tinY = rand.nextInt(40);
             int copperY = rand.nextInt(64);
             int leadY = rand.nextInt(30);
+	        int silverY = rand.nextInt(30);
+	        int nickelY = rand.nextInt(22);
 
             (new WorldGenMinable(BlockRegistry.copperOre, 13)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
             (new WorldGenMinable(BlockRegistry.tinOre, 13)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
             (new WorldGenMinable(BlockRegistry.leadOre, 13)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
+	        (new WorldGenMinable(BlockRegistry.silverOre, 13)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
+	        (new WorldGenMinable(BlockRegistry.nickelOre, 13)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
         }
 
     }
