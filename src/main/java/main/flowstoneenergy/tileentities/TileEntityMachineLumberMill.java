@@ -15,11 +15,11 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBox{
 
     @SuppressWarnings("unused")
     private String field_145958_o;
-    
+
     public TileEntityMachineLumberMill() {
         items = new ItemStack[2];
     }
-	
+
 	@Override
 	public int[] getAccessibleSlotsFromSide(int var1) {
 		// TODO Auto-generated method stub
@@ -55,7 +55,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBox{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	public void func_145951_a(String displayName) {
         this.field_145958_o = displayName;
     }

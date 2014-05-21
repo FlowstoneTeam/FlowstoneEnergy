@@ -1,26 +1,64 @@
 package main.flowstoneenergy.items;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierFive;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierFour;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierOne;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierThree;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierTwo;
 import main.flowstoneenergy.items.food.FoodBacon;
 import main.flowstoneenergy.items.food.FoodCookedBacon;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import main.flowstoneenergy.items.tools.ItemToolPneumaticFlowwrench;
+import main.flowstoneenergy.items.tools.electrum.ItemAxeElectrum;
+import main.flowstoneenergy.items.tools.electrum.ItemHoeElectrum;
+import main.flowstoneenergy.items.tools.electrum.ItemPickElectrum;
+import main.flowstoneenergy.items.tools.electrum.ItemShovelElectrum;
+import main.flowstoneenergy.items.tools.electrum.ItemSwordElectrum;
+import main.flowstoneenergy.items.tools.ender.ItemAxeEnder;
+import main.flowstoneenergy.items.tools.ender.ItemHoeEnder;
+import main.flowstoneenergy.items.tools.ender.ItemPickEnder;
+import main.flowstoneenergy.items.tools.ender.ItemShovelEnder;
+import main.flowstoneenergy.items.tools.ender.ItemSwordEnder;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemRegistry {
+	//Tool Materials
+	public static final ToolMaterial ender = EnumHelper.addToolMaterial("ender", 3, 500, 8.0F, 0, 25);
+	public static final ToolMaterial electrum = EnumHelper.addToolMaterial("electrum", 2, 250, 4.0F, 0, 15);
+
 	//fake item
 	public static Item fakeItem;
+
+	//batteries
+	public static Item tierOne;
+	public static Item tierTwo;
+	public static Item tierThree;
+	public static Item tierFour;
+	public static Item tierFive;
 
 	//tools
 	public static Item flowwrench;
 	public static Item pneumaticFlowwrench;
+	public static Item enderSword;
+	public static Item enderHoe;
+	public static Item enderAxe;
+	public static Item enderPick;
+	public static Item enderShovel;
+	public static Item electrumSword;
+	public static Item electrumHoe;
+	public static Item electrumAxe;
+	public static Item electrumPick;
+	public static Item electrumShovel;
 
 	//Metadata item replacing all the resources
 	public static Item metaResourceDust;
@@ -33,22 +71,54 @@ public class ItemRegistry {
 
 	private static void registerItems() {
 		//fake item
-		fakeItem = new main.flowstoneenergy.items.FAKEITEM();
+		fakeItem = new FAKEITEM();
 		GameRegistry.registerItem(fakeItem, fakeItem.getUnlocalizedName());
 
 		//Metadata Item
-		metaResourceDust = new main.flowstoneenergy.items.ItemMetaResourceDust().setUnlocalizedName("itemMetadataResourceDust");
+		metaResourceDust = new ItemMetaResourceDust().setUnlocalizedName("itemMetadataResourceDust");
 		GameRegistry.registerItem(metaResourceDust, "ItemMetadataResourceDust");
-		metaResourceIngot = new main.flowstoneenergy.items.ItemMetaResourceIngots().setUnlocalizedName("itemMetadataResourceIngot");
+		metaResourceIngot = new ItemMetaResourceIngots().setUnlocalizedName("itemMetadataResourceIngot");
 		GameRegistry.registerItem(metaResourceIngot, "ItemMetadataResourceIngot");
-		metaResourceGear = new main.flowstoneenergy.items.ItemMetaResourceGears().setUnlocalizedName("itemMetadataResourceGear");
+		metaResourceGear = new ItemMetaResourceGears().setUnlocalizedName("itemMetadataResourceGear");
 		GameRegistry.registerItem(metaResourceGear, "ItemMetadataResourceGear");
+
+		//batteries
+		tierOne = new ItemBatteryFlowstoneTierOne();
+		GameRegistry.registerItem(tierOne, tierOne.getUnlocalizedName());
+		tierTwo = new ItemBatteryFlowstoneTierTwo();
+		GameRegistry.registerItem(tierTwo, tierTwo.getUnlocalizedName());
+		tierThree = new ItemBatteryFlowstoneTierThree();
+		GameRegistry.registerItem(tierThree, tierThree.getUnlocalizedName());
+		tierFour = new ItemBatteryFlowstoneTierFour();
+		GameRegistry.registerItem(tierFour, tierFour.getUnlocalizedName());
+		tierFive = new ItemBatteryFlowstoneTierFive();
+		GameRegistry.registerItem(tierFive, tierFive.getUnlocalizedName());
 
 		//tools
 		flowwrench = new ItemToolFlowwrench();
 		GameRegistry.registerItem(flowwrench, flowwrench.getUnlocalizedName());
 		pneumaticFlowwrench = new ItemToolPneumaticFlowwrench();
 		GameRegistry.registerItem(pneumaticFlowwrench, pneumaticFlowwrench.getUnlocalizedName());
+		enderSword = new ItemSwordEnder(ender);
+		GameRegistry.registerItem(enderSword, enderSword.getUnlocalizedName());
+		enderPick = new ItemPickEnder(ender);
+		GameRegistry.registerItem(enderPick, enderPick.getUnlocalizedName());
+		enderHoe = new ItemHoeEnder(ender);
+		GameRegistry.registerItem(enderHoe, enderHoe.getUnlocalizedName());
+		enderShovel = new ItemShovelEnder(ender);
+		GameRegistry.registerItem(enderShovel, enderShovel.getUnlocalizedName());
+		enderAxe = new ItemAxeEnder(ender);
+		GameRegistry.registerItem(enderAxe, enderAxe.getUnlocalizedName());
+		electrumSword = new ItemSwordElectrum(electrum);
+		GameRegistry.registerItem(electrumSword, electrumSword.getUnlocalizedName());
+		electrumPick = new ItemPickElectrum(electrum);
+		GameRegistry.registerItem(electrumPick, electrumPick.getUnlocalizedName());
+		electrumHoe = new ItemHoeElectrum(electrum);
+		GameRegistry.registerItem(electrumHoe, electrumHoe.getUnlocalizedName());
+		electrumShovel = new ItemShovelElectrum(electrum);
+		GameRegistry.registerItem(electrumShovel, electrumShovel.getUnlocalizedName());
+		electrumAxe = new ItemAxeElectrum(electrum);
+		GameRegistry.registerItem(electrumAxe, electrumAxe.getUnlocalizedName());
 
 		//food
 		cookedBacon = new FoodCookedBacon();
@@ -60,6 +130,16 @@ public class ItemRegistry {
 	private static void registerShapedRecipes() {
 		//tool recipes (vanilla crafting recipe)
 		GameRegistry.addRecipe(new ItemStack(flowwrench), "L L", " I ", " L ", 'L', new ItemStack(metaResourceIngot, 1, 2), 'I', new ItemStack(metaResourceGear, 1, 18));
+		GameRegistry.addRecipe(new ItemStack(enderSword), " E ", " E ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 4), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(electrumSword), " E ", " E ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 7), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(enderPick), "EEE", " S ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 4), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(electrumPick), "EEE", " S ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 7), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(enderAxe), "EE ", "ES ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 4), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(electrumAxe), "EE ", "ES ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 7), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(enderShovel), " E ", " S ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 4), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(electrumShovel), " E ", " S ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 7), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(enderHoe), "EE ", " S ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 4), 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(electrumHoe), "EE ", " S ", " S ", 'E', new ItemStack(metaResourceIngot, 1, 7), 'S', Items.stick);
 
 		//gear recipes (vanilla crafting recipe)
 		GameRegistry.addRecipe(new ItemStack(metaResourceGear, 1, 0), " S ", "SSS", " S ", 'S', Items.stick);
@@ -133,7 +213,7 @@ public class ItemRegistry {
 		RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.silverOre), new ItemStack(metaResourceDust, 2, 6), 200);
 		RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.ender_pearl), new ItemStack(metaResourceDust, 1, 7), 300);
 	}
-	
+
 	private static void registerMixerRecipes() {
 		RecipesMetalMixer.AddRecipe(new ItemStack(Items.iron_ingot), new ItemStack(metaResourceIngot, 1, 5), new ItemStack(metaResourceIngot, 3, 6), 300);
 		RecipesMetalMixer.AddRecipe(new ItemStack(Items.gold_ingot), new ItemStack(metaResourceIngot, 2, 3), new ItemStack(metaResourceIngot, 2, 7), 300);

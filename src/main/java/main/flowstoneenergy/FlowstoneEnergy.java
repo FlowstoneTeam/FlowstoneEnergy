@@ -35,7 +35,7 @@ public class FlowstoneEnergy {
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
         config = new Configuration(event.getSuggestedConfigurationFile());
-        ConfigOptions.configOptions(config);
+        ConfigHandler.configOptions(config);
         BlockRegistry.registerFullBlocks();
         ItemRegistry.registerFullBlocks();
         TERegistry.registerTileEntities();
@@ -45,7 +45,7 @@ public class FlowstoneEnergy {
 
     @EventHandler
     public void load(FMLInitializationEvent event) {
-        if (event.getSide() == Side.CLIENT && ConfigOptions.capesOn) {
+        if (event.getSide() == Side.CLIENT && ConfigHandler.capesOn) {
             MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
         }
     }

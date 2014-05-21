@@ -1,6 +1,6 @@
 package main.flowstoneenergy.blocks;
 
-import main.flowstoneenergy.ConfigOptions;
+import main.flowstoneenergy.ConfigHandler;
 import main.flowstoneenergy.blocks.machines.BlockMachineAutoCraftingTable;
 import main.flowstoneenergy.blocks.machines.BlockMachineBox;
 import main.flowstoneenergy.blocks.machines.BlockMachineEnergizedOreTumbler;
@@ -68,15 +68,15 @@ public class BlockRegistry {
 
 		//ores
 		copperOre = new BlockOreCopper();
-		if (ConfigOptions.useFECopper) GameRegistry.registerBlock(copperOre, copperOre.getLocalizedName());
+		if (ConfigHandler.useFECopper) GameRegistry.registerBlock(copperOre, copperOre.getLocalizedName());
 		tinOre = new BlockOreTin();
-		if (ConfigOptions.useFETin) GameRegistry.registerBlock(tinOre, tinOre.getUnlocalizedName());
+		if (ConfigHandler.useFETin) GameRegistry.registerBlock(tinOre, tinOre.getUnlocalizedName());
 		leadOre = new BlockOreLead();
-		if (ConfigOptions.useFELead) GameRegistry.registerBlock(leadOre, leadOre.getUnlocalizedName());
+		if (ConfigHandler.useFELead) GameRegistry.registerBlock(leadOre, leadOre.getUnlocalizedName());
 		silverOre = new BlockOreSilver();
-		if (ConfigOptions.useFESilver) GameRegistry.registerBlock(silverOre, silverOre.getUnlocalizedName());
+		if (ConfigHandler.useFESilver) GameRegistry.registerBlock(silverOre, silverOre.getUnlocalizedName());
 		nickelOre = new BlockOreNickel();
-		if (ConfigOptions.useFENickel) GameRegistry.registerBlock(nickelOre, nickelOre.getUnlocalizedName());
+		if (ConfigHandler.useFENickel) GameRegistry.registerBlock(nickelOre, nickelOre.getUnlocalizedName());
 	}
 
 	private static void registerShapedRecipes() {

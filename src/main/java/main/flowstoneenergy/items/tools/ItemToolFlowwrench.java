@@ -19,7 +19,7 @@ public class ItemToolFlowwrench extends ItemTool {
 		this.setUnlocalizedName(ModInfo.MODID + ".flowwrench");
         this.setTextureName(ModInfo.MODID + ":tools/flowwrench");
 	}
-    
+
     @Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase) {
     	return false;

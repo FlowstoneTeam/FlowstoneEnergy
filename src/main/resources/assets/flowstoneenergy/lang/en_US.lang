@@ -8,6 +8,7 @@ tile.flowstoneenergy.MachineBox.name=Machine Box
 tile.flowstoneenergy.FlowstoneBottler.name=Flowstone Bottler
 tile.flowstoneenergy.MetalMixer.name=Metal Mixer
 tile.flowstoneenergy.LumberMill.name=Lumber Mill
+tile.flowstoneenergy.MachineWorkbench.name=Machine Workbench
 tile.flowstoneenergy.AutoCraftingTable.name=Auto Crafting Table
 
 BLOCKS
@@ -20,9 +21,26 @@ tile.blockIngotStorage.invar.name=Invar Block
 tile.blockIngotStorage.electrum.name=Electrum Block
 tile.blockIngotStorage.ender.name=Ender Block
 
+BATTERIES
+item.flowstoneenergy.flowstone.battery.tier.one.name=Flowstone Battery Tier: 1
+item.flowstoneenergy.flowstone.battery.tier.two.name=Flowstone Battery Tier: 2
+item.flowstoneenergy.flowstone.battery.tier.three.name=Flowstone Battery Tier: 3
+item.flowstoneenergy.flowstone.battery.tier.four.name=Flowstone Battery Tier: 4
+item.flowstoneenergy.flowstone.battery.tier.five.name=Flowstone Battery Tier: 5
+
 TOOLS
 item.flowstoneenergy.flowwrench.name=Flow Wrench
 item.flowstoneenergy.pneumatic.flowwrench.name=Pneumatic Flow Wrench
+item.flowstoneenergy.ender.sword.name=Ender Sword
+item.flowstoneenergy.ender.pickaxe.name=Ender Pickaxe
+item.flowstoneenergy.ender.hoe.name=Ender Hoe
+item.flowstoneenergy.ender.axe.name=Ender Axe
+item.flowstoneenergy.ender.shovel.name=Ender Shovel
+item.flowstoneenergy.electrum.sword.name=Electrum Sword
+item.flowstoneenergy.electrum.pickaxe.name=Electrum Pickaxe
+item.flowstoneenergy.electrum.hoe.name=Electrum Hoe
+item.flowstoneenergy.electrum.shovel.name=Electrum Shovel
+item.flowstoneenergy.electrum.axe.name=Electrum Axe
 
 ORES
 tile.flowstoneenergy.CopperOre.name=Copper Ore

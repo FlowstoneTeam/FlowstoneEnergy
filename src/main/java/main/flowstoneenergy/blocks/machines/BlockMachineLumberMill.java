@@ -26,7 +26,7 @@ public class BlockMachineLumberMill extends BlockContainer implements IWrenchabl
     private IIcon frontOff;
     private boolean onOff = false;
     public static boolean canBreak;
-	
+
 	public BlockMachineLumberMill() {
 		super(Material.iron);
 		this.setHardness(12F);
