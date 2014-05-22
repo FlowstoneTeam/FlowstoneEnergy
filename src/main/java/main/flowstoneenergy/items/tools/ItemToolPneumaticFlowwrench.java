@@ -1,8 +1,13 @@
 package main.flowstoneenergy.items.tools;
 
-import java.util.Random;
-
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.utils.KeyboardHelper;
+import main.flowstoneenergy.utils.TextHelper;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+
+import java.util.List;
+import java.util.Random;
 
 public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
 	Random rand = new Random();

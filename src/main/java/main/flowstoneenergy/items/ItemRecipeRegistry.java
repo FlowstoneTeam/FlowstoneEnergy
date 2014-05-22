@@ -8,7 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-public class RecipeRegistry {
+public class ItemRecipeRegistry {
 
 	private static void registerShapedRecipes() {
 		//tool recipes (vanilla crafting recipe)
@@ -70,6 +70,8 @@ public class RecipeRegistry {
 		RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.silverOre), new ItemStack(ItemRegistry.metaResourceDust, 2, 6), 200);
 		RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300);
 		RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.nickelOre), new ItemStack(ItemRegistry.metaResourceDust, 2, 9), 200);
+		RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200);
+		RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200);
 	}
 
 	private static void registerMixerRecipes() {

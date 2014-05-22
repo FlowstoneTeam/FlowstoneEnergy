@@ -1,7 +1,13 @@
 package main.flowstoneenergy.items.battery;
 
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.utils.KeyboardHelper;
+import main.flowstoneenergy.utils.TextHelper;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
+import java.util.List;
 
 public class ItemBatteryFlowstoneTierOne extends Item {
 	private int maxFE = 100;
