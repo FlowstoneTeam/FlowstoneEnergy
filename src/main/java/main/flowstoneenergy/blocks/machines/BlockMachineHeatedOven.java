@@ -36,11 +36,26 @@ public class BlockMachineHeatedOven extends BlockMachineBox implements IWrenchab
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (!onOff) {
-            return side == 3 ? this.frontOff : (side == 0 ? this.top : (side != meta ? this.blockIcon : this.frontOff));
+        if (meta != 1) {
+        	if (side == 1) {
+        		return this.top;
+        	} else if (side == 0) {
+        			return this.top;
+        	} else if (side != meta) {
+        		return this.blockIcon;
+        	} else {
+        		return this.frontOff;
+        	}
         } else {
-            return side == 3 ? this.frontOn : (side == 0 ? this.top : (side != meta ? this.blockIcon : this.frontOn));
-        }
+	        } if (side == 1) {
+	        	return this.top;
+	        } else if (side == 0) {
+	        	return this.top;
+	        } else if (side != meta) {
+	        	return this.blockIcon;
+	        } else {
+	        	return this.frontOn;
+	    }
     }
 
     @Override
