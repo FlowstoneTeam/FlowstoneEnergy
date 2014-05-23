@@ -11,6 +11,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import main.flowstoneenergy.blocks.BlockRecipeRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.entities.FEEntityRegistry;
 import main.flowstoneenergy.events.CapeEventHandler;
 import main.flowstoneenergy.gui.CreativeTab;
 import main.flowstoneenergy.gui.GuiHandler;
@@ -49,6 +50,7 @@ public class FlowstoneEnergy {
         if (event.getSide() == Side.CLIENT && ConfigHandler.capesOn) {
             MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
         }
+	    FEEntityRegistry.init();
     }
 
     @EventHandler

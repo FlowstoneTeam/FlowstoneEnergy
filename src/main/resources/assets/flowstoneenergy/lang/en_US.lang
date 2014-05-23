@@ -43,11 +43,11 @@ item.flowstoneenergy.electrum.shovel.name=Electrum Shovel
 item.flowstoneenergy.electrum.axe.name=Electrum Axe
 
 ORES
-tile.flowstoneenergy.CopperOre.name=Copper Ore
-tile.flowstoneenergy.TinOre.name=Tin Ore
-tile.flowstoneenergy.LeadOre.name=Lead Ore
-tile.flowstoneenergy.SilverOre.name=Silver Ore
-tile.flowstoneenergy.NickelOre.name=Nickel Ore
+tile.flowstoneenergy.ores.copper.name=Copper Ore
+tile.flowstoneenergy.ores.tin.name=Tin Ore
+tile.flowstoneenergy.ores.lead.name=Lead Ore
+tile.flowstoneenergy.ores.silver.name=Silver Ore
+tile.flowstoneenergy.ores.nickel.name=Nickel Ore
 
 INGOTS
 item.itemMetadataResourceIngot.itemIngotCopper.name=Copper Ingot
