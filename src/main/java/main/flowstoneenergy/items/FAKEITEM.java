@@ -29,11 +29,6 @@ public class FAKEITEM extends Item {
         l.add(new ItemStack(BlockRegistry.machineWorkbench));
         l.add(new ItemStack(BlockRegistry.lumberMill));
         l.add(new ItemStack(BlockRegistry.autoCrafter));
-        l.add(new ItemStack(BlockRegistry.copperOre));
-        l.add(new ItemStack(BlockRegistry.tinOre));
-        l.add(new ItemStack(BlockRegistry.leadOre));
-        l.add(new ItemStack(BlockRegistry.silverOre));
-        l.add(new ItemStack(BlockRegistry.nickelOre));
         l.add(new ItemStack(ItemRegistry.flowwrench));
         l.add(new ItemStack(ItemRegistry.pneumaticFlowwrench));
         l.add(new ItemStack(ItemRegistry.tierOne));

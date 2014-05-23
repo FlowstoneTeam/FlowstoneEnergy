@@ -3,6 +3,7 @@ package main.flowstoneenergy.utils;
 import cpw.mods.fml.common.IWorldGenerator;
 import main.flowstoneenergy.ConfigHandler;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -30,14 +31,19 @@ public class GenerationHandler implements IWorldGenerator {
             int tinY = rand.nextInt(40);
             int copperY = rand.nextInt(64);
             int leadY = rand.nextInt(30);
-	        int silverY = rand.nextInt(30);
-	        int nickelY = rand.nextInt(22);
-	        
-            if (ConfigHandler.useFECopper) (new WorldGenMinable(BlockRegistry.copperOre, 13)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
-            if (ConfigHandler.useFETin) (new WorldGenMinable(BlockRegistry.tinOre, 13)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
-            if (ConfigHandler.useFELead) (new WorldGenMinable(BlockRegistry.leadOre, 13)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
-            if (ConfigHandler.useFESilver) (new WorldGenMinable(BlockRegistry.silverOre, 13)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
-            if (ConfigHandler.useFENickel) (new WorldGenMinable(BlockRegistry.nickelOre, 13)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
+            int silverY = rand.nextInt(30);
+            int nickelY = rand.nextInt(22);
+
+            if (ConfigHandler.useFECopper)
+                (new WorldGenMinable(BlockRegistry.blockOres, 0, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
+            if (ConfigHandler.useFETin)
+                (new WorldGenMinable(BlockRegistry.blockOres, 1, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
+            if (ConfigHandler.useFELead)
+                (new WorldGenMinable(BlockRegistry.blockOres, 2, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
+            if (ConfigHandler.useFESilver)
+                (new WorldGenMinable(BlockRegistry.blockOres, 3, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
+            if (ConfigHandler.useFENickel)
+                (new WorldGenMinable(BlockRegistry.blockOres, 4, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
         }
 
     }
