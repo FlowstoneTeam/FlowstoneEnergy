@@ -1,5 +1,6 @@
 package main.flowstoneenergy.tileentities;
 
+import main.flowstoneenergy.blocks.machines.BlockMachineHeatedOven;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
@@ -97,12 +98,17 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
             if (this.items[1] == null) return true;
             if (!this.items[1].isItemEqual(itemstack)) return false;
             int result = items[1].stackSize + itemstack.stackSize;
+            BlockMachineHeatedOven.onOff = true;
             return result <= getInventoryStackLimit() && result <= this.items[1].getMaxStackSize();
         }
     }
 
     public int getScaledProgress(int scale) {
-        if (maxTicks == 0) return 0;
+        if (maxTicks == 0) {
+        	BlockMachineHeatedOven.onOff = false;
+        	return 0;
+        }
+        BlockMachineHeatedOven.onOff = true;
         return ticksLeft * scale / maxTicks;
     }
 
@@ -129,7 +135,6 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
         if (worldObj.isRemote) {
             return;
         }
-        System.out.println();
         this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
     }
 }
