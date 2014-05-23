@@ -68,15 +68,15 @@ public class BlockRegistry {
 
 		//ores
 		copperOre = new BlockOreCopper();
-		if (ConfigHandler.useFECopper) GameRegistry.registerBlock(copperOre, copperOre.getLocalizedName());
+		GameRegistry.registerBlock(copperOre, copperOre.getLocalizedName());
 		tinOre = new BlockOreTin();
-		if (ConfigHandler.useFETin) GameRegistry.registerBlock(tinOre, tinOre.getUnlocalizedName());
+		GameRegistry.registerBlock(tinOre, tinOre.getUnlocalizedName());
 		leadOre = new BlockOreLead();
-		if (ConfigHandler.useFELead) GameRegistry.registerBlock(leadOre, leadOre.getUnlocalizedName());
+		GameRegistry.registerBlock(leadOre, leadOre.getUnlocalizedName());
 		silverOre = new BlockOreSilver();
-		if (ConfigHandler.useFESilver) GameRegistry.registerBlock(silverOre, silverOre.getUnlocalizedName());
+		GameRegistry.registerBlock(silverOre, silverOre.getUnlocalizedName());
 		nickelOre = new BlockOreNickel();
-		if (ConfigHandler.useFENickel) GameRegistry.registerBlock(nickelOre, nickelOre.getUnlocalizedName());
+		GameRegistry.registerBlock(nickelOre, nickelOre.getUnlocalizedName());
 	}
 
 	private static void registerShapedRecipes() {
