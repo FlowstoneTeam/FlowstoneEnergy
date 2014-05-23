@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IWrenchable;
+import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import main.flowstoneenergy.tileentities.TileEntityMachineOreTumbler;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -103,9 +104,11 @@ public class BlockMachineEnergizedOreTumbler extends BlockMachineBox implements 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (!world.isRemote) {
-            player.openGui(FlowstoneEnergy.instance, 0, world, x, y, z);
+            if (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemToolFlowwrench) {
+            } else
+                player.openGui(FlowstoneEnergy.instance, 0, world, x, y, z);
         }
-        return true;
+        return super.onBlockActivated(world, x, y, z, player, p_149727_6_, p_149727_7_, p_149727_8_, p_149727_9_);
     }
 
     @Override

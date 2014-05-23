@@ -1,7 +1,9 @@
 package main.flowstoneenergy.blocks.machines;
 
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.interfaces.IRotatable;
 import main.flowstoneenergy.interfaces.IWrenchable;
+import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -15,7 +17,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockMachineBox extends BlockContainer implements IWrenchable {
+public class BlockMachineBox extends BlockContainer implements IWrenchable, IRotatable {
 
     public BlockMachineBox() {
         super(Material.iron);
@@ -30,7 +32,11 @@ public class BlockMachineBox extends BlockContainer implements IWrenchable {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        return true;
+        if (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemToolFlowwrench) {
+            return false;
+        } else{
+            return true;
+        }
     }
 
     @Override

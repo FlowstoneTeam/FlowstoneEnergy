@@ -1,6 +1,7 @@
 package main.flowstoneenergy.items.tools;
 
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.interfaces.IRotatable;
 import main.flowstoneenergy.interfaces.IWrenchable;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,20 +15,21 @@ import net.minecraft.world.World;
 public class ItemToolFlowwrench extends ItemTool {
 
     public ItemToolFlowwrench() {
-		super(-1F, ToolMaterial.IRON, null);
-		this.setMaxDamage(49);
-		this.setUnlocalizedName(ModInfo.MODID + ".flowwrench");
+        super(-1F, ToolMaterial.IRON, null);
+        this.setMaxDamage(49);
+        this.setUnlocalizedName(ModInfo.MODID + ".flowwrench");
         this.setTextureName(ModInfo.MODID + ":tools/flowwrench");
-	}
+    }
 
     @Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase) {
-    	return false;
+        return false;
     }
 
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
         Block block = world.getBlock(x, y, z);
+
         if (player.isSneaking()) {
             if (block instanceof IWrenchable) {
                 world.setBlock(x, y, z, Blocks.air);
@@ -35,6 +37,18 @@ public class ItemToolFlowwrench extends ItemTool {
                     world.spawnEntityInWorld(new EntityItem(world, (double) x, (double) y, (double) z, new ItemStack(block)));
                 }
                 itemStack.damageItem(1, player);
+            }
+        } else {
+            if (block instanceof IRotatable) {
+                if (!world.isRemote) {
+                    if (world.getBlockMetadata(x, y, z) < 5) {
+                        int meta = world.getBlockMetadata(x, y, z);
+                        meta++;
+                        world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+                    } else {
+                        world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+                    }
+                }
             }
         }
         return true;
