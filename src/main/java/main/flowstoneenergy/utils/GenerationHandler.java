@@ -1,6 +1,7 @@
 package main.flowstoneenergy.utils;
 
 import cpw.mods.fml.common.IWorldGenerator;
+import main.flowstoneenergy.ConfigHandler;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -31,12 +32,12 @@ public class GenerationHandler implements IWorldGenerator {
             int leadY = rand.nextInt(30);
 	        int silverY = rand.nextInt(30);
 	        int nickelY = rand.nextInt(22);
-
-            (new WorldGenMinable(BlockRegistry.copperOre, 13)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
-            (new WorldGenMinable(BlockRegistry.tinOre, 13)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
-            (new WorldGenMinable(BlockRegistry.leadOre, 13)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
-	        (new WorldGenMinable(BlockRegistry.silverOre, 13)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
-	        (new WorldGenMinable(BlockRegistry.nickelOre, 13)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
+	        
+            if (ConfigHandler.useFECopper) (new WorldGenMinable(BlockRegistry.copperOre, 13)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
+            if (ConfigHandler.useFETin) (new WorldGenMinable(BlockRegistry.tinOre, 13)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
+            if (ConfigHandler.useFELead) (new WorldGenMinable(BlockRegistry.leadOre, 13)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
+            if (ConfigHandler.useFESilver) (new WorldGenMinable(BlockRegistry.silverOre, 13)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
+            if (ConfigHandler.useFENickel) (new WorldGenMinable(BlockRegistry.nickelOre, 13)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
         }
 
     }
