@@ -3,6 +3,10 @@ package main.flowstoneenergy.tileentities;
 import main.flowstoneenergy.tileentities.recipes.Recipe2_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class TileEntityMachineMetalMixer extends TileEntityMachineBox {
     public static final int INV_SIZE = 2;
@@ -102,6 +106,23 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBox {
     public int getScaledProgress(int scale) {
         if (maxTicks == 0) return 0;
         return ticksLeft * scale / maxTicks;
+    }
+
+    @Override
+    public final Packet getDescriptionPacket() {
+        NBTTagCompound nbt = new NBTTagCompound();
+        writeToNBT(nbt);
+
+        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
+
+        return packet;
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        NBTTagCompound nbt = pkt.func_148857_g();
+
+        readFromNBT(nbt);
     }
 
 }

@@ -4,6 +4,9 @@ import main.flowstoneenergy.tileentities.recipes.Recipe3_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class TileEntityMachineWorkbench extends TileEntityMachineBox {
     public static final int INV_SIZE = 2;
@@ -99,22 +102,28 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBox {
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound nbt) {
-        super.readFromNBT(nbt);
-    }
-
-    @Override
-    public void writeToNBT(NBTTagCompound nbt) {
-        super.writeToNBT(nbt);
-        nbt.setBoolean("onOff", false);
-    }
-
-    @Override
     public void markDirty() {
         super.markDirty(); // Mark dirty for gamesave
         if (worldObj.isRemote) {
             return;
         }
         this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
+    }
+
+    @Override
+    public final Packet getDescriptionPacket() {
+        NBTTagCompound nbt = new NBTTagCompound();
+        writeToNBT(nbt);
+
+        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
+
+        return packet;
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        NBTTagCompound nbt = pkt.func_148857_g();
+
+        readFromNBT(nbt);
     }
 }

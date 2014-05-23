@@ -1,8 +1,8 @@
 package main.flowstoneenergy.items.tools;
 
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.interfaces.IRotatable;
 import main.flowstoneenergy.interfaces.IWrenchable;
+import main.flowstoneenergy.tileentities.TileEntityMachineBox;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -29,6 +29,7 @@ public class ItemToolFlowwrench extends ItemTool {
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
         Block block = world.getBlock(x, y, z);
+        TileEntityMachineBox tile = (TileEntityMachineBox) world.getTileEntity(x, y, z);
 
         if (player.isSneaking()) {
             if (block instanceof IWrenchable) {
@@ -37,18 +38,6 @@ public class ItemToolFlowwrench extends ItemTool {
                     world.spawnEntityInWorld(new EntityItem(world, (double) x, (double) y, (double) z, new ItemStack(block)));
                 }
                 itemStack.damageItem(1, player);
-            }
-        } else {
-            if (block instanceof IRotatable) {
-                if (!world.isRemote) {
-                    if (world.getBlockMetadata(x, y, z) < 5) {
-                        int meta = world.getBlockMetadata(x, y, z);
-                        meta++;
-                        world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-                    } else {
-                        world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-                    }
-                }
             }
         }
         return true;

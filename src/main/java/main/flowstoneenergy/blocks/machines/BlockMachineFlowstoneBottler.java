@@ -6,15 +6,13 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IWrenchable;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
+import main.flowstoneenergy.tileentities.TileEntityMachineBox;
 import main.flowstoneenergy.tileentities.TileEntityMachineFlowstoneBottler;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -34,11 +32,15 @@ public class BlockMachineFlowstoneBottler extends BlockMachineBox implements IWr
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-        if (!onOff) {
-            return side == 3 ? this.frontOff : (side == 0 ? this.top : (side != meta ? this.blockIcon : this.frontOff));
+    public IIcon getIcon(IBlockAccess access, int x, int y, int z, int side) {
+        TileEntityMachineBox tile = (TileEntityMachineBox) access.getTileEntity(x, y, z);
+
+        if (side == 0 || side == 1) {
+            return this.top;
+        } else if (side != tile.facing) {
+            return this.blockIcon;
         } else {
-            return side == 3 ? this.frontOn : (side == 0 ? this.top : (side != meta ? this.blockIcon : this.frontOn));
+            return this.frontOff;
         }
     }
 
@@ -72,31 +74,6 @@ public class BlockMachineFlowstoneBottler extends BlockMachineBox implements IWr
     }
 
     @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack) {
-        int l = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-
-        if (l == 0) {
-            world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-        }
-
-        if (l == 1) {
-            world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-        }
-
-        if (l == 2) {
-            world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-        }
-
-        if (l == 3) {
-            world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-        }
-
-        if (itemStack.hasDisplayName()) {
-            ((TileEntityMachineFlowstoneBottler) world.getTileEntity(x, y, z)).func_145951_a(itemStack.getDisplayName());
-        }
-    }
-
-    @Override
     public TileEntity createNewTileEntity(World var1, int var2) {
         return new TileEntityMachineFlowstoneBottler();
     }
@@ -115,11 +92,4 @@ public class BlockMachineFlowstoneBottler extends BlockMachineBox implements IWr
     public boolean canWrenchRemove() {
         return true;
     }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(IBlockAccess access, int i, int j, int k, int side) {
-        return super.getIcon(access, i, j, k, side);
-    }
-
 }

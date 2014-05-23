@@ -6,16 +6,13 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IWrenchable;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
+import main.flowstoneenergy.tileentities.TileEntityMachineBox;
 import main.flowstoneenergy.tileentities.TileEntityMachineHeatedOven;
-import main.flowstoneenergy.tileentities.TileEntityMachineOreTumbler;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -36,37 +33,25 @@ public class BlockMachineHeatedOven extends BlockMachineBox implements IWrenchab
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-        if (meta != 1) {
-            if (side == 1) {
-                return this.top;
-            } else if (side == 0) {
-                return this.top;
-            } else if (side != meta) {
-                return this.blockIcon;
-            } else {
-                return this.frontOff;
-            }
-        } else {
-        }
-        if (side == 1) {
-            return this.top;
-        } else if (side == 0) {
-            return this.top;
-        } else if (side != meta) {
-            return this.blockIcon;
-        } else {
-            return this.frontOn;
-        }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
         this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
         this.frontOn = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
         this.frontOff = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
         this.top = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(IBlockAccess access, int x, int y, int z, int side) {
+        TileEntityMachineBox tile = (TileEntityMachineBox) access.getTileEntity(x, y, z);
+
+        if (side == 0 || side == 1) {
+            return this.top;
+        } else if (side != tile.facing) {
+            return this.blockIcon;
+        } else {
+            return this.frontOff;
+        }
     }
 
     public static void updateFurnaceBlockState(boolean onOff, World world, int x, int y, int z) {
@@ -90,31 +75,6 @@ public class BlockMachineHeatedOven extends BlockMachineBox implements IWrenchab
     }
 
     @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack) {
-        int l = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-
-        if (l == 0) {
-            world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-        }
-
-        if (l == 1) {
-            world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-        }
-
-        if (l == 2) {
-            world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-        }
-
-        if (l == 3) {
-            world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-        }
-
-        if (itemStack.hasDisplayName()) {
-            ((TileEntityMachineOreTumbler) world.getTileEntity(x, y, z)).func_145951_a(itemStack.getDisplayName());
-        }
-    }
-
-    @Override
     public TileEntity createNewTileEntity(World var1, int var2) {
         return new TileEntityMachineHeatedOven();
     }
@@ -132,11 +92,5 @@ public class BlockMachineHeatedOven extends BlockMachineBox implements IWrenchab
     @Override
     public boolean canWrenchRemove() {
         return true;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(IBlockAccess access, int i, int j, int k, int side) {
-        return super.getIcon(access, i, j, k, side);
     }
 }

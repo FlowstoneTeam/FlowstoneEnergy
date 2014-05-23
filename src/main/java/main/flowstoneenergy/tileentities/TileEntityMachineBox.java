@@ -9,6 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public abstract class TileEntityMachineBox extends TileEntity implements ISidedInventory {
     public ItemStack[] items;
+    public int facing;
 
     @Override
     public void openInventory() {
@@ -87,6 +88,8 @@ public abstract class TileEntityMachineBox extends TileEntity implements ISidedI
         NBTTagList nbttaglist = tagCompound.getTagList("Items", 10);
         this.items = new ItemStack[this.getSizeInventory()];
 
+        facing = tagCompound.getInteger("facing");
+
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
             NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
             byte b0 = nbttagcompound1.getByte("Slot");
@@ -111,5 +114,6 @@ public abstract class TileEntityMachineBox extends TileEntity implements ISidedI
             }
         }
         tagCompound.setTag("Items", nbttaglist);
+        tagCompound.setInteger("facing", facing);
     }
 }
