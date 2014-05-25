@@ -1,16 +1,30 @@
 package main.flowstoneenergy.items;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import main.flowstoneenergy.items.battery.*;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierFive;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierFour;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierOne;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierThree;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierTwo;
 import main.flowstoneenergy.items.food.FoodBacon;
 import main.flowstoneenergy.items.food.FoodCookedBacon;
+import main.flowstoneenergy.items.food.FoodTea;
+import main.flowstoneenergy.items.food.ItemMetaResourceUtensil;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import main.flowstoneenergy.items.tools.ItemToolPneumaticFlowwrench;
-import main.flowstoneenergy.items.tools.electrum.*;
-import main.flowstoneenergy.items.tools.ender.*;
+import main.flowstoneenergy.items.tools.electrum.ItemAxeElectrum;
+import main.flowstoneenergy.items.tools.electrum.ItemHoeElectrum;
+import main.flowstoneenergy.items.tools.electrum.ItemPickElectrum;
+import main.flowstoneenergy.items.tools.electrum.ItemShovelElectrum;
+import main.flowstoneenergy.items.tools.electrum.ItemSwordElectrum;
+import main.flowstoneenergy.items.tools.ender.ItemAxeEnder;
+import main.flowstoneenergy.items.tools.ender.ItemHoeEnder;
+import main.flowstoneenergy.items.tools.ender.ItemPickEnder;
+import main.flowstoneenergy.items.tools.ender.ItemShovelEnder;
+import main.flowstoneenergy.items.tools.ender.ItemSwordEnder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemRegistry {
 	//Tool Materials
@@ -49,6 +63,13 @@ public class ItemRegistry {
 	//food
 	public static Item rawBacon;
 	public static Item cookedBacon;
+	public static Item tea;
+	
+	//utensils
+	public static Item metaResourceUtensil;
+	
+	//random shit
+	public static Item spawnEgg;
 
 	public static void registerItems() {
 		//fake item
@@ -106,5 +127,15 @@ public class ItemRegistry {
 		GameRegistry.registerItem(cookedBacon, cookedBacon.getUnlocalizedName());
 		rawBacon = new FoodBacon();
 		GameRegistry.registerItem(rawBacon, rawBacon.getUnlocalizedName());
+		tea = new FoodTea();
+		GameRegistry.registerItem(tea, tea.getUnlocalizedName());
+		
+		//utensils
+		metaResourceUtensil = new ItemMetaResourceUtensil().setUnlocalizedName("itemMetadataResourceUtensil");
+		GameRegistry.registerItem(metaResourceUtensil, "ItemMetadataResourceUtensil");
+		
+		//random shit
+		spawnEgg = new ItemSpawnEggRobot();
+		GameRegistry.registerItem(spawnEgg, spawnEgg.getUnlocalizedName());
 	}
 }

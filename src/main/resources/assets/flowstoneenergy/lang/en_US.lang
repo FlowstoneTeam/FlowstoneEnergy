@@ -58,7 +58,7 @@ item.itemMetadataResourceIngot.itemIngotEnder.name=Ender Ingot
 item.itemMetadataResourceIngot.itemIngotNickel.name=Nickel Ingot
 item.itemMetadataResourceIngot.itemIngotInvar.name=Invar Ingot
 item.itemMetadataResourceIngot.itemIngotElectrum.name=Electrum Ingot
-item.itemMetadataResourceIngot.nothing.name=YOU SHOULD NOT HAVE THIS
+item.itemMetadataResourceIngot.nothing.name=Anti-Derp Protocol [YOU SHOULD NOT HAVE THIS]
 
 
 DUSTS
@@ -71,7 +71,7 @@ item.itemMetadataResourceDust.itemDustLead.name=Lead Dust
 item.itemMetadataResourceDust.itemDustSilver.name=Silver Dust
 item.itemMetadataResourceDust.itemDustEnder.name=Ender Dust
 item.itemMetadataResourceDust.itemDustEnderSmall.name=Small Ender Dust
-item.itemMetadataResourceDust.nothing.name=YOU SHOULD NOT HAVE THIS
+item.itemMetadataResourceDust.nothing.name=Anti-Derp Protocol [YOU SHOULD NOT HAVE THIS]
 
 GEARS
 item.itemMetadataResourceGear.itemGearWood.name=Wooden Gear
@@ -85,8 +85,16 @@ item.itemMetadataResourceGear.itemGearTin.name=Tin Gear
 item.itemMetadataResourceGear.itemGearLead.name=Lead Gear
 item.itemMetadataResourceGear.itemGearSilver.name=Silver Gear
 item.itemMetadataResourceGear.itemGearEnder.name=Ender Gear
-item.itemMetadataResourceGear.nothing.name=YOU SHOULD NOT HAVE THIS
+item.itemMetadataResourceGear.nothing.name=Anti-Derp Protocol [YOU SHOULD NOT HAVE THIS]
 
 FOOD
 item.flowstoneenergy.cooked.bacon.name=Cooked Bacon
 item.flowstoneenergy.raw.bacon.name=Raw Bacon (Eww)
+item.flowstoneenergy.tea.name=Tea
+
+UTENSILS
+item.itemMetadataResourceUtensil.teaCup.name=Tea Cup
+item.itemMetadataResourceUtensil.teaBag.name=Tea Bag
+item.itemMetadataResourceUtensil.spoon.name=Spoon
+item.itemMetadataResourceUtensil.saucer.name=Saucer
+item.itemMetadataResourceUtensil.cup.name=Cup

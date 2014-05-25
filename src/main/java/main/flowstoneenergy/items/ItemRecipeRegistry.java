@@ -32,6 +32,14 @@ public class ItemRecipeRegistry {
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 4), " T ", "TGT", " T ", 'T', new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 5), " L ", "LGL", " L ", 'L', new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 6), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        
+        //food recipes
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), "C C", " C ", "   ", 'C', Items.clay_ball);
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3), "   ", "   ", "CCC", 'C', Items.clay_ball);
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), " C ", " S ", "   ", 'C', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), 'S', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 1), " S ", "S S", "  C", 'S', Items.string, 'C', new ItemStack(Items.dye, 1, 3));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 2), " I ", " I ", " I ", 'I', Items.iron_ingot);
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.tea), " S ", " U ", "MCT", 'S', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 2), 'U', Items.sugar, 'M', Items.milk_bucket, 'C', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), 'T', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 1));
     }
 
     private static void registerShapelessRecipes() {

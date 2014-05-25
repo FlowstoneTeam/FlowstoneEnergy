@@ -38,6 +38,12 @@ public class FAKEITEM extends Item {
         l.add(new ItemStack(ItemRegistry.tierFive));
         l.add(new ItemStack(ItemRegistry.cookedBacon));
         l.add(new ItemStack(ItemRegistry.rawBacon));
+	    l.add(new ItemStack(ItemRegistry.tea));
+	    l.add(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0));
+	    l.add(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 1));
+	    l.add(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 2));
+	    l.add(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3));
+	    l.add(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4));
         l.add(new ItemStack(ItemRegistry.enderSword));
         l.add(new ItemStack(ItemRegistry.enderPick));
         l.add(new ItemStack(ItemRegistry.enderAxe));
