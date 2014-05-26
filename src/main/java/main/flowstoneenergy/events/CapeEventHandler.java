@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 public class CapeEventHandler {
 
-    private final String serverLocation = "https://github.com/FlowstoneTeam/FlowstoneEnergy/master/capes/capes.txt";
+    private final String serverLocation = "https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/capes.txt";
     private final int timeout = 1000;
 
     private static final Graphics TEST_GRAPHICS = new BufferedImage(128, 128, BufferedImage.TYPE_INT_RGB).getGraphics();
@@ -77,7 +77,7 @@ public class CapeEventHandler {
                         new Thread(new CloakPreload(link)).start();
                         cloaks.put(nick, link);
                     } else {
-                        //TConstruct.logger.error("[SkinLoader] Syntax error on line " + linetracker + ": " + str);
+	                    System.out.println("[FlowstoneEnergy] :( - sadfaic.gif");
                     }
                 }
                 linetracker++;
