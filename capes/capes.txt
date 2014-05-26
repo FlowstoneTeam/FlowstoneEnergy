@@ -1,5 +1,5 @@
-poppypoppop:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/cape.png
-speedynutty68:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/cape.png
-tombenpotter:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/cape.png
-mrcomputerghost:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/compcape.png
-z3r0theblade:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/cape.png
+poppypoppop:https://github.com/FlowstoneTeam/FlowstoneEnergy/tree/master/capes/cape.png
+speedynutty68:https://github.com/FlowstoneTeam/FlowstoneEnergy/tree/master/capes/cape.png
+tombenpotter:https://github.com/FlowstoneTeam/FlowstoneEnergy/tree/master/capes/cape.png
+mrcomputerghost:https://github.com/FlowstoneTeam/FlowstoneEnergy/tree/master/capes/compcape.png
+z3r0theblade:https://github.com/FlowstoneTeam/FlowstoneEnergy/tree/master/capes/cape.png
