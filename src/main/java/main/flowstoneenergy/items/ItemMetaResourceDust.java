@@ -64,7 +64,7 @@ public class ItemMetaResourceDust extends Item {
                 break;
             }
             case 9: {
-                name = "itemDustNickle";
+                name = "itemDustNickel";
                 break;
             }
             case 10: {
@@ -94,6 +94,9 @@ public class ItemMetaResourceDust extends Item {
         this.icon[6] = ri.registerIcon(ModInfo.MODID + ":dusts/silverDust");
         this.icon[7] = ri.registerIcon(ModInfo.MODID + ":dusts/smallEnderDust");
         this.icon[8] = ri.registerIcon(ModInfo.MODID + ":dusts/enderDust");
+        this.icon[9] = ri.registerIcon(ModInfo.MODID + ":dusts/nickelDust");
+        this.icon[10] = ri.registerIcon(ModInfo.MODID + ":dusts/invarDust");
+        this.icon[11] = ri.registerIcon(ModInfo.MODID + ":dusts/electrumDust");
     }
 
     @SideOnly(Side.CLIENT)
@@ -104,7 +107,7 @@ public class ItemMetaResourceDust extends Item {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List list) {
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i <= 11; i++) {
             list.add(new ItemStack(this, 1, i));
         }
     }

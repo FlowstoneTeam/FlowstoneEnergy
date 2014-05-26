@@ -9,7 +9,6 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class TileEntityMachineLumberMill extends TileEntityMachineBox{
-	public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
     private int maxTicks = 0;
 
@@ -17,27 +16,15 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBox{
     private String field_145958_o;
 
     public TileEntityMachineLumberMill() {
-        items = new ItemStack[2];
+        
     }
-
+	
 	@Override
-	public int[] getAccessibleSlotsFromSide(int var1) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean canInsertItem(int var1, ItemStack var2, int var3) {
+	public boolean hasCustomInventoryName() {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	@Override
-	public boolean canExtractItem(int var1, ItemStack var2, int var3) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	
 	@Override
 	public String getInventoryName() {
 		// TODO Auto-generated method stub
@@ -45,16 +32,28 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBox{
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    public boolean isItemValidForSlot(int slot, ItemStack stack) {
+        if (slot != 0) return false;
+        for (Recipe1_1 r : RecipesLumberMill.recipe11List) {
+        	if (r.getInput().getItem().equals(stack.getItem())) return true;
+        }
+        return false;
+    }
 
-	@Override
-	public boolean isItemValidForSlot(int var1, ItemStack var2) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public int[] getAccessibleSlotsFromSide(int side) {
+        return new int[] { 0, 1 };
+    }
+
+    @Override
+    public boolean canInsertItem(int slot, ItemStack stack, int side) {
+        return true;
+    }
+
+    @Override
+    public boolean canExtractItem(int slot, ItemStack stack, int side) {
+        return slot == 1;
+    }
 
 	public void func_145951_a(String displayName) {
         this.field_145958_o = displayName;

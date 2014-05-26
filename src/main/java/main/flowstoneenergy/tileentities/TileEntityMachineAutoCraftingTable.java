@@ -53,7 +53,8 @@ public class TileEntityMachineAutoCraftingTable extends TileEntityMachineBox {
 
     }
 
-    private void craft() {
+    @SuppressWarnings("unused")
+	private void craft() {
         // if (RecipesHeatedOven.GetRecipeFromStack(items[0]) == null) return;
         // ItemStack res = RecipesHeatedOven.GetRecipeFromStack(items[0]).getOutput();
         //  if (items[1] == null)

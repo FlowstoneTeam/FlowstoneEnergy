@@ -31,5 +31,9 @@ public class oreDictHandler {
 		OreDictionary.registerOre("gearTin", new ItemStack(ItemRegistry.metaResourceGear, 1, 7));
 		OreDictionary.registerOre("gearLead", new ItemStack(ItemRegistry.metaResourceGear, 1, 8));
 		OreDictionary.registerOre("gearSilver", new ItemStack(ItemRegistry.metaResourceGear, 1, 9));
+		
+		//tools
+		OreDictionary.registerOre("toolWrench", ItemRegistry.flowwrench);
+		OreDictionary.registerOre("toolWrench", ItemRegistry.pneumaticFlowwrench);
 	}
 }

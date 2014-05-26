@@ -25,6 +25,7 @@ public class BlockMachineBox extends BlockContainer implements IWrenchable {
         super(Material.iron);
         this.setBlockName(ModInfo.MODID + ".MachineBox");
         this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side");
+        this.setStepSound(soundTypeMetal);
     }
 
     @Override

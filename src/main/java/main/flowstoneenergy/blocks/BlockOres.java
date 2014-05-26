@@ -27,9 +27,9 @@ public class BlockOres extends BlockOre {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister ir) {
         this.icon[0] = ir.registerIcon(ModInfo.MODID + ":ores/copperOre");
-        this.icon[1] = ir.registerIcon(ModInfo.MODID + ":ores/TinOre");
+        this.icon[1] = ir.registerIcon(ModInfo.MODID + ":ores/tinOre");
         this.icon[2] = ir.registerIcon(ModInfo.MODID + ":ores/leadOre");
-        this.icon[3] = ir.registerIcon(ModInfo.MODID + ":ores/SilverOre");
+        this.icon[3] = ir.registerIcon(ModInfo.MODID + ":ores/silverOre");
         this.icon[4] = ir.registerIcon(ModInfo.MODID + ":ores/nickelOre");
     }
 
@@ -39,7 +39,8 @@ public class BlockOres extends BlockOre {
         return this.icon[meta];
     }
 
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
         for (int i = 0; i < 5; i++) {

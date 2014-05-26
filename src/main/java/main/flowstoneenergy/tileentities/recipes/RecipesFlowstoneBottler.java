@@ -13,9 +13,10 @@ public class RecipesFlowstoneBottler {
     }
 
     public static Recipe1_1 GetRecipeFromStack(ItemStack stack) {
-        if (stack == null) return null;
-        for (Recipe1_1 r : recipe11List) {
-            if (r.getInput().getItem().equals(stack.getItem())) return r;
+    	if (stack == null) return null;
+        for (Recipe1_1 r : recipe11List)
+        {
+            if (r.getInput().getItem().equals(stack.getItem())&&r.getInput().getItemDamage()==stack.getItemDamage()) return r;
         }
         return null;
     }

@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 public class BlockRecipeRegistry {
 
 	private static void registerBlockRecipes() {
-		GameRegistry.addRecipe(new ItemStack(BlockRegistry.machineBox), "III", "I I", "III", 'I', new ItemStack(ItemRegistry.metaResourceIngot, 1, 6));
+		GameRegistry.addRecipe(new ItemStack(BlockRegistry.machineBox), "III", "I I", "III", 'I', new ItemStack(ItemRegistry.metaResourceIngot, 1, 0));
 	}
 
 	private static void registerWorkbenchRecipes() {

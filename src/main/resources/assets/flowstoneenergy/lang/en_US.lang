@@ -98,3 +98,6 @@ item.itemMetadataResourceUtensil.teaBag.name=Tea Bag
 item.itemMetadataResourceUtensil.spoon.name=Spoon
 item.itemMetadataResourceUtensil.saucer.name=Saucer
 item.itemMetadataResourceUtensil.cup.name=Cup
+
+ENCHANTMENTS
+enchantment.flowstoneenergy.randomTeleport=Teleport

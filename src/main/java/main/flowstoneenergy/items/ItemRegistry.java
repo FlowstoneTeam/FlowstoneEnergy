@@ -5,6 +5,7 @@ import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierFour;
 import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierOne;
 import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierThree;
 import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneTierTwo;
+import main.flowstoneenergy.items.flowarmor.ItemArmorFlowBoots;
 import main.flowstoneenergy.items.food.FoodBacon;
 import main.flowstoneenergy.items.food.FoodCookedBacon;
 import main.flowstoneenergy.items.food.FoodTea;
@@ -23,6 +24,7 @@ import main.flowstoneenergy.items.tools.ender.ItemShovelEnder;
 import main.flowstoneenergy.items.tools.ender.ItemSwordEnder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -30,6 +32,9 @@ public class ItemRegistry {
 	//Tool Materials
 	public static final ToolMaterial ender = EnumHelper.addToolMaterial("ender", 3, 500, 8.0F, 0, 25);
 	public static final ToolMaterial electrum = EnumHelper.addToolMaterial("electrum", 2, 250, 4.0F, 0, 15);
+	
+	//armour materials
+	public static final ArmorMaterial flow = EnumHelper.addArmorMaterial("flow", -1, new int[] {1, 2, 3, 4}, 0);
 
 	//fake item
 	public static Item fakeItem;
@@ -54,6 +59,9 @@ public class ItemRegistry {
 	public static Item electrumAxe;
 	public static Item electrumPick;
 	public static Item electrumShovel;
+	
+	//armour
+	public static Item flowBoots;
 
 	//Metadata item replacing all the resources
 	public static Item metaResourceDust;
@@ -121,6 +129,10 @@ public class ItemRegistry {
 		GameRegistry.registerItem(electrumShovel, electrumShovel.getUnlocalizedName());
 		electrumAxe = new ItemAxeElectrum(electrum);
 		GameRegistry.registerItem(electrumAxe, electrumAxe.getUnlocalizedName());
+		
+		//armour
+		flowBoots = new ItemArmorFlowBoots(flow, 0, 3);
+		GameRegistry.registerItem(flowBoots, flowBoots.getUnlocalizedName());
 
 		//food
 		cookedBacon = new FoodCookedBacon();

@@ -7,6 +7,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 
 public class ContainerMachineHeatedOven extends Container {
 
@@ -47,38 +48,60 @@ public class ContainerMachineHeatedOven extends Container {
 
     @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int par2) {
-        ItemStack itemstack = null;
-        Slot slot = (Slot) this.inventorySlots.get(par2);
+    	ItemStack itemstack = null;
+        Slot slot = (Slot)this.inventorySlots.get(par2);
 
-        if (slot != null && slot.getHasStack()) {
+        if (slot != null && slot.getHasStack())
+        {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 == 0) {
-                if (!this.mergeItemStack(itemstack1, 10, 46, true)) {
+            if (par2 == 2)
+            {
+                if (!this.mergeItemStack(itemstack1, 3, 39, true))
+                {
                     return null;
                 }
 
                 slot.onSlotChange(itemstack1, itemstack);
-            } else if (par2 >= 10 && par2 < 37) {
-                if (!this.mergeItemStack(itemstack1, 37, 46, false)) {
+            }
+            else if (par2 != 1 && par2 != 0)
+            {
+                if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null)
+                {
+                    if (!this.mergeItemStack(itemstack1, 0, 1, false))
+                    {
+                        return null;
+                    }
+                }
+                else if (par2 >= 3 && par2 < 30)
+                {
+                    if (!this.mergeItemStack(itemstack1, 30, 39, false))
+                    {
+                        return null;
+                    }
+                }
+                else if (par2 >= 30 && par2 < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+                {
                     return null;
                 }
-            } else if (par2 >= 37 && par2 < 46) {
-                if (!this.mergeItemStack(itemstack1, 10, 37, false)) {
-                    return null;
-                }
-            } else if (!this.mergeItemStack(itemstack1, 10, 46, false)) {
+            }
+            else if (!this.mergeItemStack(itemstack1, 3, 39, false))
+            {
                 return null;
             }
 
-            if (itemstack1.stackSize == 0) {
-                slot.putStack((ItemStack) null);
-            } else {
+            if (itemstack1.stackSize == 0)
+            {
+                slot.putStack((ItemStack)null);
+            }
+            else
+            {
                 slot.onSlotChanged();
             }
 
-            if (itemstack1.stackSize == itemstack.stackSize) {
+            if (itemstack1.stackSize == itemstack.stackSize)
+            {
                 return null;
             }
 

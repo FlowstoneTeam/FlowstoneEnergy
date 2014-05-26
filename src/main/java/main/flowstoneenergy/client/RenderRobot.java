@@ -8,7 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderRobot extends Render{
-	/**
 	protected ModelRobot model;
 	
 	public RenderRobot() {
@@ -39,4 +38,4 @@ public class RenderRobot extends Render{
 		return null;
 	}
 }
-	*/
+*/

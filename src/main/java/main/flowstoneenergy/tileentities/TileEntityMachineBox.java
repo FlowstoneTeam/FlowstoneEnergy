@@ -8,7 +8,8 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public abstract class TileEntityMachineBox extends TileEntity implements ISidedInventory {
-    public ItemStack[] items;
+	public static final int INV_SIZE = 2;
+    public ItemStack[] items = new ItemStack[INV_SIZE];
     public int facing;
 
     @Override
@@ -21,7 +22,7 @@ public abstract class TileEntityMachineBox extends TileEntity implements ISidedI
 
     @Override
     public int getSizeInventory() {
-        return items.length;
+        return INV_SIZE;
     }
 
     @Override
@@ -30,8 +31,9 @@ public abstract class TileEntityMachineBox extends TileEntity implements ISidedI
     }
 
     @Override
-    public ItemStack getStackInSlot(int par1) {
-        return this.items[par1];
+    public ItemStack getStackInSlot(int var1) {
+    	if (var1 > INV_SIZE) return null;
+        return items[var1];
     }
 
     @Override
@@ -117,3 +119,4 @@ public abstract class TileEntityMachineBox extends TileEntity implements ISidedI
         tagCompound.setInteger("facing", facing);
     }
 }
+

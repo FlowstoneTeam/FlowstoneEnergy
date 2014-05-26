@@ -1,6 +1,8 @@
 package main.flowstoneenergy.tileentities;
 
 import main.flowstoneenergy.blocks.machines.BlockMachineHeatedOven;
+import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
+import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
@@ -9,7 +11,6 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
-    public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
     private int maxTicks = 150;
 
@@ -17,7 +18,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
     private String field_145958_o;
 
     public TileEntityMachineHeatedOven() {
-        items = new ItemStack[2];
+		
     }
 
     @Override
@@ -31,13 +32,17 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
     }
 
     @Override
-    public boolean isItemValidForSlot(int var1, ItemStack var2) {
-        return true;
+    public boolean isItemValidForSlot(int slot, ItemStack stack) {
+        if (slot != 0) return false;
+        for (Recipe1_1 r : RecipesEnergizedOreTumbler.recipe11List) {
+        	if (r.getInput().getItem().equals(stack.getItem())) return true;
+        }
+        return false;
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int var1) {
-        return null;
+    public int[] getAccessibleSlotsFromSide(int side) {
+        return new int[] { 0, 1 };
     }
 
     @Override
@@ -46,8 +51,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
     }
 
     @Override
-    public boolean canExtractItem(int var1, ItemStack var2, int var3) {
-        return true;
+    public boolean canExtractItem(int slot, ItemStack stack, int side) {
+        return slot == 1;
     }
 
     public void func_145951_a(String displayName) {
@@ -105,10 +110,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
 
     public int getScaledProgress(int scale) {
         if (maxTicks == 0) {
-        	BlockMachineHeatedOven.onOff = false;
         	return 0;
         }
-        BlockMachineHeatedOven.onOff = true;
         return ticksLeft * scale / maxTicks;
     }
 

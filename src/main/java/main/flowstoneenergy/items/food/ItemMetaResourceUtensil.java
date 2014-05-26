@@ -1,7 +1,10 @@
 package main.flowstoneenergy.items.food;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -9,13 +12,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-import java.util.List;
-
-public class ItemMetaResourceUtensil extends Item {
+public class ItemMetaResourceUtensil extends Item{
 	public IIcon[] icon = new IIcon[500];
 	
     public ItemMetaResourceUtensil() {
-//        this.setCreativeTab(FlowstoneEnergy.tab);
+    	this.setCreativeTab(FlowstoneEnergy.tab);
+        this.setCreativeTab(FlowstoneEnergy.tab);
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
     }

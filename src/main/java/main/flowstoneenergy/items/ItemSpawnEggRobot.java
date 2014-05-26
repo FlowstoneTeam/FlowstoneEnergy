@@ -1,6 +1,8 @@
 package main.flowstoneenergy.items;
 
+import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.entities.EntityRobot;
+import main.flowstoneenergy.gui.CreativeTab;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -8,7 +10,9 @@ import net.minecraft.world.World;
 
 public class ItemSpawnEggRobot extends Item{
 	public ItemSpawnEggRobot() {
-		
+		this.setUnlocalizedName(ModInfo.MODID+".robot.spawn.egg");
+		this.setTextureName(ModInfo.MODID+":spawnRobot");
+		this.setCreativeTab(CreativeTab.tabMisc);
 	}
 	
 	@Override

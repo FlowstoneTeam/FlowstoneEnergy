@@ -36,7 +36,7 @@ public class ItemRecipeRegistry {
         //food recipes
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), "C C", " C ", "   ", 'C', Items.clay_ball);
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3), "   ", "   ", "CCC", 'C', Items.clay_ball);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), " C ", " S ", "   ", 'C', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), 'S', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3));
+//        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), " C ", " S ", "   ", 'C', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), 'S', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 1), " S ", "S S", "  C", 'S', Items.string, 'C', new ItemStack(Items.dye, 1, 3));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 2), " I ", " I ", " I ", 'I', Items.iron_ingot);
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.tea), " S ", " U ", "MCT", 'S', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 2), 'U', Items.sugar, 'M', Items.milk_bucket, 'C', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), 'T', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 1));
@@ -45,6 +45,7 @@ public class ItemRecipeRegistry {
     private static void registerShapelessRecipes() {
         //ender dust recipe
         GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceDust, 1, 8), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), new ItemStack(ItemRegistry.metaResourceDust, 1, 7));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3));
     }
 
     private static void registerSmeltingRecipes() {
@@ -61,8 +62,8 @@ public class ItemRecipeRegistry {
         GameRegistry.addSmelting(new ItemStack(ItemRegistry.metaResourceDust, 1, 4), new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), 0.35F);
         GameRegistry.addSmelting(new ItemStack(ItemRegistry.metaResourceDust, 1, 5), new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 0.5F);
         GameRegistry.addSmelting(new ItemStack(ItemRegistry.metaResourceDust, 1, 6), new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 0.5F);
-        GameRegistry.addSmelting(new ItemStack(ItemRegistry.metaResourceDust, 1, 7), new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 1.0F);
-
+        GameRegistry.addSmelting(new ItemStack(ItemRegistry.metaResourceDust, 1, 8), new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 1.0F);
+		GameRegistry.addSmelting(new ItemStack(ItemRegistry.metaResourceDust, 1, 9), new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), 0.5F);
 
         //raw to cooked smelting recipes (vanilla furnace)
         GameRegistry.addSmelting(ItemRegistry.rawBacon, new ItemStack(ItemRegistry.cookedBacon), 0.35F);

@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class EntityRobot extends Entity implements IEntityAdditionalSpawnData {
+public class EntityRobot extends Entity implements IEntityAdditionalSpawnData{
 	
 	private boolean charged;
 
