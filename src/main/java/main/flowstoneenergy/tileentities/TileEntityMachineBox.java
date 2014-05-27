@@ -9,7 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public abstract class TileEntityMachineBox extends TileEntity implements ISidedInventory {
 
-    public static final int INV_SIZE = 2;
+    public static final int INV_SIZE = 50;
     public ItemStack[] items = new ItemStack[INV_SIZE];
     public int facing;
 

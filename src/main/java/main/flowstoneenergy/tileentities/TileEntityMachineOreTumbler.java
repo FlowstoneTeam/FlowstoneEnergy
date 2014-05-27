@@ -4,6 +4,9 @@ import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class TileEntityMachineOreTumbler extends TileEntityMachineBox {
     private int ticksLeft = 0;
@@ -13,7 +16,7 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBox {
     private String field_145958_o;
 
     public TileEntityMachineOreTumbler() {
-    	
+
     }
 
     @Override
@@ -30,14 +33,14 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBox {
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
         if (slot != 0) return false;
         for (Recipe1_1 r : RecipesEnergizedOreTumbler.recipe11List) {
-        	if (r.getInput().getItem().equals(stack.getItem())) return true;
+            if (r.getInput().getItem().equals(stack.getItem())) return true;
         }
         return false;
     }
 
     @Override
     public int[] getAccessibleSlotsFromSide(int side) {
-        return new int[] { 0, 1 };
+        return new int[]{0, 1};
     }
 
     @Override
@@ -117,4 +120,22 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBox {
         }
         this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
     }
+
+
+    @Override
+    public final Packet getDescriptionPacket() {
+        NBTTagCompound nbt = new NBTTagCompound();
+        writeToNBT(nbt);
+
+        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
+
+        return packet;
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        NBTTagCompound nbt = pkt.func_148857_g();
+        readFromNBT(nbt);
+    }
+
 }
