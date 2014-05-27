@@ -13,17 +13,19 @@ import java.util.Random;
 public class EnchantRandTeleHandler {
     @SubscribeEvent
     public void RandomTeleport(LivingAttackEvent event) {
-        EntityPlayer attacker = (EntityPlayer) event.source.getEntity();
-        Entity defender = event.entity;
-        World world = event.entity.worldObj;
-        if (world.isRemote) return;
-        if (event.source.getEntity() == null) return;
-        if (!(event.source.getEntity() instanceof EntityPlayer)) return;
-        if (attacker.getHeldItem() == null) return;
-        if (!attacker.getHeldItem().isItemEnchanted()) ;
-        if (!(EnchantmentHelper.getEnchantments(attacker.getHeldItem()).containsKey(EnchantRegistry.randTeleEnchant.effectId)))
-            return;
-        teleport(world, defender);
+    	if (event.source.getEntity() instanceof EntityPlayer) {
+	        EntityPlayer attacker = (EntityPlayer) event.source.getEntity();
+	        Entity defender = event.entity;
+	        World world = event.entity.worldObj;
+	        if (world.isRemote) return;
+	        if (event.source.getEntity() == null) return;
+	        if (!(event.source.getEntity() instanceof EntityPlayer)) return;
+	        if (attacker.getHeldItem() == null) return;
+	        if (!attacker.getHeldItem().isItemEnchanted()) ;
+	        if (!(EnchantmentHelper.getEnchantments(attacker.getHeldItem()).containsKey(EnchantRegistry.randTeleEnchant.effectId)))
+	            return;
+	        teleport(world, defender);
+    	}
     }
 
     public void teleport(World world, Entity entity) {
