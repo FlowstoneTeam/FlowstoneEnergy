@@ -25,9 +25,6 @@ public class ItemRegistry {
     //armour materials
     public static final ArmorMaterial flow = EnumHelper.addArmorMaterial("flow", -1, new int[]{1, 2, 3, 4}, 0);
 
-    //fake item
-    public static Item fakeItem;
-
     //batteries
     public static Item tierOne;
     public static Item tierTwo;
@@ -65,13 +62,10 @@ public class ItemRegistry {
     //utensils
     public static Item metaResourceUtensil;
 
-    //random shit
-    public static Item spawnEgg;
+    //misc
+
 
     public static void registerItems() {
-        //fake item
-        fakeItem = new FAKEITEM();
-        GameRegistry.registerItem(fakeItem, fakeItem.getUnlocalizedName());
 
         //Metadata Item
         metaResourceDust = new ItemMetaResourceDust().setUnlocalizedName("itemMetadataResourceDust");
@@ -135,8 +129,6 @@ public class ItemRegistry {
         metaResourceUtensil = new ItemMetaResourceUtensil().setUnlocalizedName("itemMetadataResourceUtensil");
         GameRegistry.registerItem(metaResourceUtensil, "ItemMetadataResourceUtensil");
 
-        //random shit
-        spawnEgg = new ItemSpawnEggRobot();
-        GameRegistry.registerItem(spawnEgg, spawnEgg.getUnlocalizedName());
+        //misc
     }
 }
