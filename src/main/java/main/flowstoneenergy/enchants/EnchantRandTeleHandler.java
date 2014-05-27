@@ -4,13 +4,22 @@ import java.util.Random;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EnchantRandTeleHandler {
 	@SubscribeEvent
-	public void RandomTeleport(LivingHurtEvent event) {
-		World world = event.entity.worldObj;
+	public void RandomTeleport(LivingAttackEvent event) {
+		if(event.entity.worldObj.isRemote) return;
+        if(event.source.getEntity() == null) return;
+        if(!(event.source.getEntity() instanceof EntityPlayer)) return;
+        teleport(world, (EntityPlayer) event.source.getEntity());
+	}
+	
+	public void teleport(World world, Entity , double x, double y, double z) {
+		if(entity.getHeldItem() == null) return;
+        if(!entity.getHeldItem().isItemEnchanted());
+        if(!(EnchantmentHelper.getEnchantments(entity.getHeldItem()).containsKey(HackeryMod.enchantVirus.effectId))) return;
 		Random rand = new Random();
 		if (rand.nextBoolean()) event.entity.posX += rand.nextDouble() + (rand.nextInt(5 - 0) + 0); else event.entity.posX -= rand.nextDouble() + (rand.nextInt(5 - 0) + 0);
 		event.entity.posY += 40;
