@@ -3,3 +3,4 @@ speedynutty68:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/ma
 tombenpotter:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
 mrcomputerghost:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/compcape.png
 z3r0theblade:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
+Othlon:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
