@@ -5,13 +5,18 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public abstract class TileEntityMachineBox extends TileEntity implements ISidedInventory {
+public abstract class TileEntityMachineBase extends TileEntity implements ISidedInventory {
 
-    public static final int INV_SIZE = 50;
+    public static final int INV_SIZE = 500;
     public ItemStack[] items = new ItemStack[INV_SIZE];
     public int facing;
+    public int ticksLeft = 0;
+    public int maxTicks = 0;
 
     @Override
     public void openInventory() {
@@ -40,6 +45,11 @@ public abstract class TileEntityMachineBox extends TileEntity implements ISidedI
     @Override
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
         return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
+    }
+
+    public void resetTimeAndTexture() {
+        ticksLeft = 0;
+        worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
     }
 
     @Override
@@ -118,6 +128,31 @@ public abstract class TileEntityMachineBox extends TileEntity implements ISidedI
         }
         tagCompound.setTag("Items", nbttaglist);
         tagCompound.setInteger("facing", facing);
+    }
+
+    @Override
+    public final Packet getDescriptionPacket() {
+        NBTTagCompound nbt = new NBTTagCompound();
+        writeToNBT(nbt);
+
+        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
+
+        return packet;
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        NBTTagCompound nbt = pkt.func_148857_g();
+        readFromNBT(nbt);
+    }
+
+    @Override
+    public void markDirty() {
+        super.markDirty(); // Mark dirty for gamesave
+        if (worldObj.isRemote) {
+            return;
+        }
+        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
     }
 }
 

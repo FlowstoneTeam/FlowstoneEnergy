@@ -6,42 +6,22 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
-import main.flowstoneenergy.tileentities.TileEntityMachineBox;
 import main.flowstoneenergy.tileentities.TileEntityMachineLumberMill;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockMachineLumberMill extends BlockMachineBox implements IFlowWrenchable {
+public class BlockMachineLumberMill extends BlockMachineSidedTexure implements IFlowWrenchable {
 
-	private IIcon top;
-    private IIcon frontOn;
-    private IIcon frontOff;
     private boolean onOff = false;
     public static boolean canBreak;
 
-	public BlockMachineLumberMill() {
-		this.setHardness(12F);
-		this.setBlockName(ModInfo.MODID+".LumberMill");
-		this.setBlockTextureName(ModInfo.MODID+":machines/lumberMill");
-	}
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(IBlockAccess access, int x, int y, int z, int side) {
-        TileEntityMachineBox tile = (TileEntityMachineBox) access.getTileEntity(x, y, z);
-
-        if (side == 0 || side == 1) {
-            return this.top;
-        } else if (side != tile.facing) {
-            return this.blockIcon;
-        } else {
-            return this.frontOff;
-        }
+    public BlockMachineLumberMill() {
+        this.setHardness(12F);
+        this.setBlockName(ModInfo.MODID + ".LumberMill");
+        this.setBlockTextureName(ModInfo.MODID + ":machines/lumberMill");
     }
 
     @Override

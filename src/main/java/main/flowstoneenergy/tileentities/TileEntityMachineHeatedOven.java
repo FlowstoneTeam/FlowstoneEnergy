@@ -5,21 +5,14 @@ import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
-public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
-
-    private int ticksLeft = 0;
-    private int maxTicks = 150;
+public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
 
     public TileEntityMachineHeatedOven() {
-
+        maxTicks = 150;
     }
 
     @Override
@@ -66,14 +59,20 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
 
             if (this.canSmelt()) {
                 ticksLeft++;
+                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
                 ticksLeft = 0;
+                resetTimeAndTexture();
             }
 
             if (ticksLeft == maxTicks) {
                 ticksLeft = 0;
                 smelt();
             }
+        }
+
+        if (this.items[0] == null && ticksLeft > 0) {
+            resetTimeAndTexture();
         }
     }
 
@@ -114,31 +113,5 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
             return 0;
         }
         return ticksLeft * scale / maxTicks;
-    }
-
-    @Override
-    public final Packet getDescriptionPacket() {
-        NBTTagCompound nbt = new NBTTagCompound();
-        writeToNBT(nbt);
-
-        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
-
-        return packet;
-    }
-
-    @Override
-    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-        NBTTagCompound nbt = pkt.func_148857_g();
-
-        readFromNBT(nbt);
-    }
-
-    @Override
-    public void markDirty() {
-        super.markDirty(); // Mark dirty for gamesave
-        if (worldObj.isRemote) {
-            return;
-        }
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
     }
 }

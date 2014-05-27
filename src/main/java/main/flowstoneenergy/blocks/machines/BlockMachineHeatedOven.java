@@ -6,21 +6,15 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
-import main.flowstoneenergy.tileentities.TileEntityMachineBox;
 import main.flowstoneenergy.tileentities.TileEntityMachineHeatedOven;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockMachineHeatedOven extends BlockMachineBox implements IFlowWrenchable {
+public class BlockMachineHeatedOven extends BlockMachineSidedTexure implements IFlowWrenchable {
 
-    private IIcon top;
-    private IIcon frontOn;
-    private IIcon frontOff;
     public static boolean onOff;
     @SuppressWarnings("unused")
     private static boolean canBreak;
@@ -38,20 +32,6 @@ public class BlockMachineHeatedOven extends BlockMachineBox implements IFlowWren
         this.frontOn = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
         this.frontOff = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
         this.top = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(IBlockAccess access, int x, int y, int z, int side) {
-        TileEntityMachineBox tile = (TileEntityMachineBox) access.getTileEntity(x, y, z);
-
-        if (side == 0 || side == 1) {
-            return this.top;
-        } else if (side != tile.facing) {
-            return this.blockIcon;
-        } else {
-            return this.frontOff;
-        }
     }
 
     public static void updateFurnaceBlockState(boolean onOff, World world, int x, int y, int z) {

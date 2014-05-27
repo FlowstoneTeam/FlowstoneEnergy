@@ -6,20 +6,15 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
-import main.flowstoneenergy.tileentities.TileEntityMachineBox;
 import main.flowstoneenergy.tileentities.TileEntityMachineFlowstoneBottler;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockMachineFlowstoneBottler extends BlockMachineBox implements IFlowWrenchable {
-    private IIcon top;
-    private IIcon frontOn;
-    private IIcon frontOff;
+public class BlockMachineFlowstoneBottler extends BlockMachineSidedTexure implements IFlowWrenchable {
+
     private boolean onOff;
     @SuppressWarnings("unused")
     private static boolean canBreak;
@@ -28,20 +23,6 @@ public class BlockMachineFlowstoneBottler extends BlockMachineBox implements IFl
         this.setHardness(12);
         this.setBlockName(ModInfo.MODID + ".FlowstoneBottler");
         this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side");
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(IBlockAccess access, int x, int y, int z, int side) {
-        TileEntityMachineBox tile = (TileEntityMachineBox) access.getTileEntity(x, y, z);
-
-        if (side == 0 || side == 1) {
-            return this.top;
-        } else if (side != tile.facing) {
-            return this.blockIcon;
-        } else {
-            return this.frontOff;
-        }
     }
 
     @Override

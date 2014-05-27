@@ -5,11 +5,7 @@ import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class TileEntityMachineWorkbench extends TileEntityMachineBox {
-
-    public static final int INV_SIZE = 2;
-    private int ticksLeft = 0;
-    private int maxTicks = 0;
+public class TileEntityMachineWorkbench extends TileEntityMachineBase {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -54,23 +50,25 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBox {
 
     @Override
     public void updateEntity() {
-        //Something in input and nothing currently processing
         if (items[0] != null && items[1] != null && ticksLeft == 0) {
             Recipe3_1 r = RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]);
             if (r != null) {
                 maxTicks = r.getTime();
             }
         }
-        //Actual processing
+
         if (ticksLeft < maxTicks && RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]) != null) {
             if (items[2] == null || RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]).getOutput().getItem().equals(items[2].getItem())) {
                 ticksLeft++;
+                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
                 ticksLeft = 0;
+                resetTimeAndTexture();
             }
         }
         if (RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]) == null && ticksLeft > 0) {
             ticksLeft = 0;
+            resetTimeAndTexture();
         }
         if (ticksLeft == maxTicks && maxTicks != 0) {
             ticksLeft = 0;
@@ -108,14 +106,5 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBox {
     public void writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
         nbt.setBoolean("onOff", false);
-    }
-
-    @Override
-    public void markDirty() {
-        super.markDirty(); // Mark dirty for gamesave
-        if (worldObj.isRemote) {
-            return;
-        }
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
     }
 }

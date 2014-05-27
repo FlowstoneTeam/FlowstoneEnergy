@@ -3,32 +3,22 @@ package main.flowstoneenergy.tileentities;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
-public class TileEntityMachineLumberMill extends TileEntityMachineBox {
-
-    private int ticksLeft = 0;
-    private int maxTicks = 0;
+public class TileEntityMachineLumberMill extends TileEntityMachineBase {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
 
     public TileEntityMachineLumberMill() {
-
     }
 
     @Override
     public boolean hasCustomInventoryName() {
-        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public String getInventoryName() {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -71,12 +61,15 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBox {
         if (ticksLeft < maxTicks && RecipesLumberMill.GetRecipeFromStack(items[0]) != null) {
             if (items[1] == null || RecipesLumberMill.GetRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
                 ticksLeft++;
+                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
                 ticksLeft = 0;
+                resetTimeAndTexture();
             }
         }
         if (RecipesLumberMill.GetRecipeFromStack(items[0]) == null && ticksLeft > 0) {
             ticksLeft = 0;
+            resetTimeAndTexture();
         }
         if (ticksLeft == maxTicks) {
             ticksLeft = 0;
@@ -103,32 +96,4 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBox {
         if (maxTicks == 0) return 0;
         return ticksLeft * scale / maxTicks;
     }
-
-    @Override
-    public final Packet getDescriptionPacket() {
-        NBTTagCompound nbt = new NBTTagCompound();
-        writeToNBT(nbt);
-
-        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
-
-        return packet;
-    }
-
-    @Override
-    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-        NBTTagCompound nbt = pkt.func_148857_g();
-
-        readFromNBT(nbt);
-    }
-
-    @Override
-    public void markDirty() {
-        super.markDirty(); // Mark dirty for gamesave
-        if (worldObj.isRemote) {
-            return;
-        }
-        System.out.println();
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
-    }
-
 }

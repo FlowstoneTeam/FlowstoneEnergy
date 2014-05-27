@@ -8,7 +8,6 @@ public class RecipesEnergizedOreTumbler {
 
     public static ArrayList<Recipe1_1> recipe11List = new ArrayList<Recipe1_1>();
 
-
     public static void AddRecipe(ItemStack input, ItemStack output, int time) {
         Recipe1_1 r = new Recipe1_1(input, output, time);
         recipe11List.add(r);

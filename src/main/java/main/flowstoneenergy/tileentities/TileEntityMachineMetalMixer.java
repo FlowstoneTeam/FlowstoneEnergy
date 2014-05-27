@@ -3,15 +3,8 @@ package main.flowstoneenergy.tileentities;
 import main.flowstoneenergy.tileentities.recipes.Recipe2_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
-public class TileEntityMachineMetalMixer extends TileEntityMachineBox {
-    public static final int INV_SIZE = 4;
-    private int ticksLeft = 0;
-    private int maxTicks = 0;
+public class TileEntityMachineMetalMixer extends TileEntityMachineBase {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -34,14 +27,15 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBox {
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
         if (slot != 0 || slot != 1) return false;
         for (Recipe2_1 r : RecipesMetalMixer.recipe21List) {
-        	if (r.getInput1().getItem().equals(stack.getItem())||r.getInput2().getItem().equals(stack.getItem())) return true;
+            if (r.getInput1().getItem().equals(stack.getItem()) || r.getInput2().getItem().equals(stack.getItem()))
+                return true;
         }
         return false;
     }
 
     @Override
     public int[] getAccessibleSlotsFromSide(int side) {
-        return new int[] { 0, 1, 2, 3 };
+        return new int[]{0, 1, 2, 3};
     }
 
     @Override
@@ -60,23 +54,26 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBox {
 
     @Override
     public void updateEntity() {
-        //Something in input and nothing currently processing
+
         if (items[0] != null && items[1] != null && ticksLeft == 0) {
             Recipe2_1 r = RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]);
             if (r != null) {
                 maxTicks = r.getTime();
             }
         }
-        //Actual processing
+
         if (ticksLeft < maxTicks && RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]) != null) {
             if (items[2] == null || RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]).getOutput().getItem().equals(items[2].getItem())) {
                 ticksLeft++;
+                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
                 ticksLeft = 0;
+                resetTimeAndTexture();
             }
         }
         if (RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]) == null && ticksLeft > 0) {
             ticksLeft = 0;
+            resetTimeAndTexture();
         }
         if (ticksLeft == maxTicks && maxTicks != 0) {
             ticksLeft = 0;
@@ -111,22 +108,4 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBox {
         if (maxTicks == 0) return 0;
         return ticksLeft * scale / maxTicks;
     }
-
-
-    @Override
-    public final Packet getDescriptionPacket() {
-        NBTTagCompound nbt = new NBTTagCompound();
-        writeToNBT(nbt);
-
-        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
-
-        return packet;
-    }
-
-    @Override
-    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-        NBTTagCompound nbt = pkt.func_148857_g();
-        readFromNBT(nbt);
-    }
-
 }
