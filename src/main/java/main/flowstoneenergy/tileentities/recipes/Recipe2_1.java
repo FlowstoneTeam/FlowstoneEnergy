@@ -3,6 +3,7 @@ package main.flowstoneenergy.tileentities.recipes;
 import net.minecraft.item.ItemStack;
 
 public class Recipe2_1 {
+
     private ItemStack input1;
     private ItemStack input2;
     private ItemStack output;

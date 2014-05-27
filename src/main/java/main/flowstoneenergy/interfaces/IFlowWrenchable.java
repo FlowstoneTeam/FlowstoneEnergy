@@ -1,5 +1,6 @@
 package main.flowstoneenergy.interfaces;
 
-public interface IWrenchable {
+public interface IFlowWrenchable {
+
     public boolean canWrenchRemove();
 }

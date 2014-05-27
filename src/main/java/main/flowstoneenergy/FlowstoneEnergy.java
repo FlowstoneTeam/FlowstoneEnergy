@@ -1,5 +1,15 @@
 package main.flowstoneenergy;
 
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 import main.flowstoneenergy.blocks.BlockRecipeRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.enchants.EnchantRandTeleHandler;
@@ -13,20 +23,10 @@ import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.proxies.CommonProxy;
 import main.flowstoneenergy.tileentities.TERegistry;
 import main.flowstoneenergy.utils.GenerationHandler;
-import main.flowstoneenergy.utils.oreDictHandler;
+import main.flowstoneenergy.utils.OreDictHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION)
 public class FlowstoneEnergy {
@@ -34,7 +34,7 @@ public class FlowstoneEnergy {
     @Instance
     public static FlowstoneEnergy instance;
     Configuration config;
-    
+
     @SidedProxy(clientSide = "main.flowstoneenergy.proxies.ClientProxy", serverSide = "main.flowstoneenergy.proxies.CommonProxy")
     public static CommonProxy proxy;
 
@@ -42,16 +42,22 @@ public class FlowstoneEnergy {
     public void preinit(FMLPreInitializationEvent event) {
         config = new Configuration(event.getSuggestedConfigurationFile());
         ConfigHandler.configOptions(config);
+
         MinecraftForge.EVENT_BUS.register(new EnchantRandTeleHandler());
         EnchantRegistry.initEnchants();
-        BlockRegistry.registerFullBlocks();
+
+        BlockRegistry.registerBlocks();
         ItemRegistry.registerItems();
-	    ItemRecipeRegistry.registerRecipes();
-	    BlockRecipeRegistry.registerBlockFullRecipes();
         TERegistry.registerTileEntities();
-	    oreDictHandler.registerOreDict();
-	    GameRegistry.registerWorldGenerator(new GenerationHandler(), 10);
+
+        ItemRecipeRegistry.registerRecipes();
+        BlockRecipeRegistry.registerBlockFullRecipes();
+
+        OreDictHandler.registerOreDict();
+        GameRegistry.registerWorldGenerator(new GenerationHandler(), 10);
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
+
+        proxy.load();
     }
 
     @EventHandler

@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 
 public class RecipesMachineWorkbench {
+
     public static ArrayList<Recipe3_1> recipe51List = new ArrayList<Recipe3_1>();
 
     public static void AddRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output, int time) {

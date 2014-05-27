@@ -11,6 +11,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
+
     private int ticksLeft = 0;
     private int maxTicks = 150;
 
@@ -18,7 +19,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
     private String field_145958_o;
 
     public TileEntityMachineHeatedOven() {
-		
+
     }
 
     @Override
@@ -35,14 +36,14 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
         if (slot != 0) return false;
         for (Recipe1_1 r : RecipesEnergizedOreTumbler.recipe11List) {
-        	if (r.getInput().getItem().equals(stack.getItem())) return true;
+            if (r.getInput().getItem().equals(stack.getItem())) return true;
         }
         return false;
     }
 
     @Override
     public int[] getAccessibleSlotsFromSide(int side) {
-        return new int[] { 0, 1 };
+        return new int[]{0, 1};
     }
 
     @Override
@@ -110,7 +111,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBox {
 
     public int getScaledProgress(int scale) {
         if (maxTicks == 0) {
-        	return 0;
+            return 0;
         }
         return ticksLeft * scale / maxTicks;
     }

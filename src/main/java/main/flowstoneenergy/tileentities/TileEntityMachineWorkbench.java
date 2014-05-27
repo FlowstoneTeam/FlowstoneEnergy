@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class TileEntityMachineWorkbench extends TileEntityMachineBox {
+
     public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
     private int maxTicks = 0;

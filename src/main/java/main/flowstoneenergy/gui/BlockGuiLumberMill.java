@@ -8,11 +8,11 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-
 import org.lwjgl.opengl.GL11;
 
 public class BlockGuiLumberMill extends GuiContainer {
-	public static final ResourceLocation oreTumblerGui = new ResourceLocation(ModInfo.MODID, "textures/guis/heatedOvenGui.png");
+
+    public static final ResourceLocation oreTumblerGui = new ResourceLocation(ModInfo.MODID, "textures/guis/heatedOvenGui.png");
     @SuppressWarnings("unused")
     private ContainerMachineLumberMill container;
     private TileEntityMachineLumberMill te;

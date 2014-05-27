@@ -1,7 +1,7 @@
 package main.flowstoneenergy.blocks.machines;
 
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.interfaces.IWrenchable;
+import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import main.flowstoneenergy.tileentities.TileEntityMachineBox;
 import net.minecraft.block.Block;
@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockMachineBox extends BlockContainer implements IWrenchable {
+public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
 
     public BlockMachineBox() {
         super(Material.iron);

@@ -13,6 +13,7 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class ItemMetaResourceGears extends Item {
+
     public IIcon[] icon = new IIcon[500];
 
     public ItemMetaResourceGears() {

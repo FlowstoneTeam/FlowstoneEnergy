@@ -4,7 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockOres extends ItemBlock{
+public class ItemBlockOres extends ItemBlock {
+
     public ItemBlockOres(Block block) {
         super(block);
         setHasSubtypes(true);

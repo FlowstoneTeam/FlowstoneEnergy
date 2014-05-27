@@ -4,11 +4,12 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import net.minecraft.item.ItemSpade;
 
-public class ItemShovelEnder extends ItemSpade{
-	public ItemShovelEnder(ToolMaterial material) {
-		super(material);
-		this.setCreativeTab(FlowstoneEnergy.tab);
-		this.setUnlocalizedName(ModInfo.MODID+".ender.shovel");
-		this.setTextureName(ModInfo.MODID + ":tools/enderShovel");
-	}
+public class ItemShovelEnder extends ItemSpade {
+
+    public ItemShovelEnder(ToolMaterial material) {
+        super(material);
+        this.setCreativeTab(FlowstoneEnergy.tab);
+        this.setUnlocalizedName(ModInfo.MODID + ".ender.shovel");
+        this.setTextureName(ModInfo.MODID + ":tools/enderShovel");
+    }
 }

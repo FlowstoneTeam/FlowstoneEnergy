@@ -3,6 +3,7 @@ package main.flowstoneenergy.tileentities;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityMachineAutoCraftingTable extends TileEntityMachineBox {
+
     public static final int INV_SIZE = 2;
     private int ticksLeft = 0;
     private int maxTicks = 0;
@@ -54,11 +55,11 @@ public class TileEntityMachineAutoCraftingTable extends TileEntityMachineBox {
     }
 
     @SuppressWarnings("unused")
-	private void craft() {
+    private void craft() {
         // if (RecipesHeatedOven.GetRecipeFromStack(items[0]) == null) return;
         // ItemStack res = RecipesHeatedOven.GetRecipeFromStack(items[0]).getOutput();
         //  if (items[1] == null)
-       // items[1] = res.copy();
+        // items[1] = res.copy();
         //   else
         //      items[1].stackSize += res.stackSize;
 

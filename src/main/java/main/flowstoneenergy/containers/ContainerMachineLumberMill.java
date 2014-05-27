@@ -8,9 +8,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
-public class ContainerMachineLumberMill extends Container{
+public class ContainerMachineLumberMill extends Container {
 
-	public ContainerMachineLumberMill(EntityPlayer player, TileEntityMachineLumberMill entity) {
+    public ContainerMachineLumberMill(EntityPlayer player, TileEntityMachineLumberMill entity) {
         bindPlayerInventory(player.inventory);
         createSlots(entity, player);
     }

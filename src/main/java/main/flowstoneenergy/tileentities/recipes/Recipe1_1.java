@@ -3,10 +3,10 @@ package main.flowstoneenergy.tileentities.recipes;
 import net.minecraft.item.ItemStack;
 
 public class Recipe1_1 {
+
     private ItemStack input;
     private ItemStack output;
     private int time;
-
 
     /**
      * Creates a recipe with 1 input and one output

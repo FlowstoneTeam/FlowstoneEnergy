@@ -1,13 +1,14 @@
 package main.flowstoneenergy.gui;
 
+import cpw.mods.fml.common.network.IGuiHandler;
 import main.flowstoneenergy.containers.*;
 import main.flowstoneenergy.tileentities.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
+
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         TileEntity entity = world.getTileEntity(x, y, z);
@@ -25,7 +26,7 @@ public class GuiHandler implements IGuiHandler {
                 case 4:
                     return new ContainerMachineWorkbench(player, (TileEntityMachineWorkbench) entity);
                 case 5:
-                	return new ContainerMachineLumberMill(player, (TileEntityMachineLumberMill) entity);
+                    return new ContainerMachineLumberMill(player, (TileEntityMachineLumberMill) entity);
             }
         }
         return null;
@@ -48,7 +49,7 @@ public class GuiHandler implements IGuiHandler {
                 case 4:
                     return new BlockGuiMachineWorkbench(player, (TileEntityMachineWorkbench) entity);
                 case 5:
-                	return new BlockGuiLumberMill(player, (TileEntityMachineLumberMill) entity);
+                    return new BlockGuiLumberMill(player, (TileEntityMachineLumberMill) entity);
             }
         }
         return null;

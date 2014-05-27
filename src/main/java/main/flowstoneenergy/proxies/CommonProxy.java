@@ -2,14 +2,15 @@ package main.flowstoneenergy.proxies;
 
 public class CommonProxy {
 
-	public void initSounds() {
-		// TODO Auto-generated method stub
-		
-	}
+    public void load() {
+        initRenderers();
+        initSounds();
+    }
 
-	public void initRenderers() {
-		// TODO Auto-generated method stub
-		
-	}
+    public void initSounds() {
+    }
+
+    public void initRenderers() {
+    }
 
 }

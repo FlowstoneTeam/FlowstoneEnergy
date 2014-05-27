@@ -3,13 +3,13 @@ package main.flowstoneenergy.blocks.machines;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.interfaces.IWrenchable;
+import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockMachineAutoCraftingTable extends BlockMachineBox implements IWrenchable {
+public class BlockMachineAutoCraftingTable extends BlockMachineBox implements IFlowWrenchable {
     private IIcon top;
     private IIcon bottom;
 

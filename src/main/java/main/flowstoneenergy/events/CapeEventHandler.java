@@ -77,7 +77,7 @@ public class CapeEventHandler {
                         new Thread(new CloakPreload(link)).start();
                         cloaks.put(nick, link);
                     } else {
-	                    System.out.println("[FlowstoneEnergy] :( - sadfaic.gif");
+                        System.out.println("[FlowstoneEnergy] :( - sadfaic.gif");
                     }
                 }
                 linetracker++;

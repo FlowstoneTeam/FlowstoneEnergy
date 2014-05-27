@@ -30,7 +30,6 @@ public class RenderRobot extends Render{
 	
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override

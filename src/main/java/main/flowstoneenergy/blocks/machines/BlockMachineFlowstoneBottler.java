@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.interfaces.IWrenchable;
+import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import main.flowstoneenergy.tileentities.TileEntityMachineBox;
 import main.flowstoneenergy.tileentities.TileEntityMachineFlowstoneBottler;
@@ -16,7 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockMachineFlowstoneBottler extends BlockMachineBox implements IWrenchable {
+public class BlockMachineFlowstoneBottler extends BlockMachineBox implements IFlowWrenchable {
     private IIcon top;
     private IIcon frontOn;
     private IIcon frontOff;

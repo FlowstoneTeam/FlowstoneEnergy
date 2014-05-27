@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 
 public class RecipesFlowstoneBottler {
+
     public static ArrayList<Recipe1_1> recipe11List = new ArrayList<Recipe1_1>();
 
     public static void AddRecipe(ItemStack input, ItemStack output, int time) {
@@ -13,10 +14,10 @@ public class RecipesFlowstoneBottler {
     }
 
     public static Recipe1_1 GetRecipeFromStack(ItemStack stack) {
-    	if (stack == null) return null;
-        for (Recipe1_1 r : recipe11List)
-        {
-            if (r.getInput().getItem().equals(stack.getItem())&&r.getInput().getItemDamage()==stack.getItemDamage()) return r;
+        if (stack == null) return null;
+        for (Recipe1_1 r : recipe11List) {
+            if (r.getInput().getItem().equals(stack.getItem()) && r.getInput().getItemDamage() == stack.getItemDamage())
+                return r;
         }
         return null;
     }

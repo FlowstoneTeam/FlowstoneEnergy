@@ -7,7 +7,6 @@ public class BlockStorageFlowstoneCapacitor extends Block {
 
     protected BlockStorageFlowstoneCapacitor(Material material) {
         super(material);
-        // TODO Auto-generated constructor stub
     }
 
 }
