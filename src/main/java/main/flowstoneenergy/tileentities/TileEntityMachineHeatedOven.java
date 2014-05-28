@@ -1,6 +1,5 @@
 package main.flowstoneenergy.tileentities;
 
-import main.flowstoneenergy.blocks.machines.BlockMachineHeatedOven;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.item.ItemStack;
@@ -103,7 +102,6 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
             if (this.items[1] == null) return true;
             if (!this.items[1].isItemEqual(itemstack)) return false;
             int result = items[1].stackSize + itemstack.stackSize;
-            BlockMachineHeatedOven.onOff = true;
             return result <= getInventoryStackLimit() && result <= this.items[1].getMaxStackSize();
         }
     }

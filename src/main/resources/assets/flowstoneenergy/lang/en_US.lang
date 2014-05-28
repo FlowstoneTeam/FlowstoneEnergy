@@ -2,13 +2,13 @@ CREATIVETAB
 itemGroup.FlowstoneEnergy=Flowstone Energy
 
 Machines
-tile.flowstoneenergy.EnergizedOreTumbler.name=Energized Ore Tumbler
-tile.flowstoneenergy.HeatedOven.name=Heated Oven
+tile.blockMachines.oreTumbler.name=Energized Ore Tumbler
+tile.blockMachines.heatedOven.name=Heated Oven
 tile.flowstoneenergy.MachineBox.name=Machine Box
-tile.flowstoneenergy.FlowstoneBottler.name=Flowstone Bottler
-tile.flowstoneenergy.MetalMixer.name=Metal Mixer
-tile.flowstoneenergy.LumberMill.name=Lumber Mill
-tile.flowstoneenergy.MachineWorkbench.name=Machine Workbench
+tile.blockMachines.flowstoneBottler.name=Flowstone Bottler
+tile.blockMachines.metalMixer.name=Metal Mixer
+tile.blockMachines.lumberMill.name=Lumber Mill
+tile.blockMachines.machineWorkbench.name=Machine Workbench
 tile.flowstoneenergy.AutoCraftingTable.name=Auto Crafting Table
 
 BLOCKS

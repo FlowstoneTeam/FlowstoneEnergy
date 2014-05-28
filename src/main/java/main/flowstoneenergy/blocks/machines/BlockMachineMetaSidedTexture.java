@@ -20,11 +20,11 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public abstract class BlockMachineSidedTexure extends BlockMachineBox {
+public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
 
     public IIcon top;
-    public IIcon frontOn;
-    public IIcon frontOff;
+    public IIcon frontOn[];
+    public IIcon frontOff[];
 
 
     @Override
@@ -41,15 +41,16 @@ public abstract class BlockMachineSidedTexure extends BlockMachineBox {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(IBlockAccess access, int x, int y, int z, int side) {
         TileEntityMachineBase tile = (TileEntityMachineBase) access.getTileEntity(x, y, z);
+        int i = access.getBlockMetadata(x, y, z);
 
         if (side == 0 || side == 1) {
             return this.top;
         } else if (side != tile.facing) {
             return this.blockIcon;
         } else if (tile.ticksLeft != 0) {
-            return this.frontOn;
+            return this.frontOn[i];
         } else {
-            return this.frontOff;
+            return this.frontOff[i];
         }
 
     }
@@ -103,5 +104,10 @@ public abstract class BlockMachineSidedTexure extends BlockMachineBox {
                 item.stackSize = 0;
             }
         }
+    }
+
+    @Override
+    public int damageDropped(int meta) {
+        return meta;
     }
 }

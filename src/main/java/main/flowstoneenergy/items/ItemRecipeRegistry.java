@@ -2,7 +2,7 @@ package main.flowstoneenergy.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
-import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
+import main.flowstoneenergy.tileentities.recipes.RecipesMachines;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -70,17 +70,17 @@ public class ItemRecipeRegistry {
     }
 
     private static void registerTumblerRecipes() {
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.coal), new ItemStack(ItemRegistry.metaResourceDust, 1, 0), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Blocks.iron_ore), new ItemStack(ItemRegistry.metaResourceDust, 2, 1), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Blocks.gold_ore), new ItemStack(ItemRegistry.metaResourceDust, 2, 2), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 0), new ItemStack(ItemRegistry.metaResourceDust, 2, 3), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 1), new ItemStack(ItemRegistry.metaResourceDust, 2, 4), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 2), new ItemStack(ItemRegistry.metaResourceDust, 2, 5), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 3), new ItemStack(ItemRegistry.metaResourceDust, 2, 6), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 4), new ItemStack(ItemRegistry.metaResourceDust, 2, 9), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200);
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200);
+        RecipesMachines.AddRecipe(new ItemStack(Items.coal), new ItemStack(ItemRegistry.metaResourceDust, 1, 0), 200);
+        RecipesMachines.AddRecipe(new ItemStack(Blocks.iron_ore), new ItemStack(ItemRegistry.metaResourceDust, 2, 1), 200);
+        RecipesMachines.AddRecipe(new ItemStack(Blocks.gold_ore), new ItemStack(ItemRegistry.metaResourceDust, 2, 2), 200);
+        RecipesMachines.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 0), new ItemStack(ItemRegistry.metaResourceDust, 2, 3), 200);
+        RecipesMachines.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 1), new ItemStack(ItemRegistry.metaResourceDust, 2, 4), 200);
+        RecipesMachines.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 2), new ItemStack(ItemRegistry.metaResourceDust, 2, 5), 200);
+        RecipesMachines.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 3), new ItemStack(ItemRegistry.metaResourceDust, 2, 6), 200);
+        RecipesMachines.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 4), new ItemStack(ItemRegistry.metaResourceDust, 2, 9), 200);
+        RecipesMachines.AddRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300);
+        RecipesMachines.AddRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200);
+        RecipesMachines.AddRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200);
     }
 
     private static void registerMixerRecipes() {

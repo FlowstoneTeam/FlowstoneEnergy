@@ -1,5 +1,6 @@
 package main.flowstoneenergy.blocks.machines;
 
+import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import net.minecraft.block.BlockContainer;
@@ -14,6 +15,8 @@ public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
         this.setBlockName(ModInfo.MODID + ".MachineBox");
         this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side");
         this.setStepSound(soundTypeMetal);
+        this.setCreativeTab(FlowstoneEnergy.tab);
+        this.setHardness(7);
     }
 
     @Override

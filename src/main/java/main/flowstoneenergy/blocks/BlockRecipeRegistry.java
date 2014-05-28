@@ -7,16 +7,16 @@ import net.minecraft.item.ItemStack;
 
 public class BlockRecipeRegistry {
 
-	private static void registerBlockRecipes() {
-		GameRegistry.addRecipe(new ItemStack(BlockRegistry.machineBox), "III", "I I", "III", 'I', new ItemStack(ItemRegistry.metaResourceIngot, 1, 0));
-	}
+    private static void registerBlockRecipes() {
+        GameRegistry.addRecipe(new ItemStack(BlockRegistry.machineBox), "III", "I I", "III", 'I', new ItemStack(ItemRegistry.metaResourceIngot, 1, 0));
+    }
 
-	private static void registerWorkbenchRecipes() {
-		RecipesMachineWorkbench.AddRecipe(new ItemStack(BlockRegistry.machineBox), new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new ItemStack(BlockRegistry.heatedOven), 200);
-	}
+    private static void registerWorkbenchRecipes() {
+        RecipesMachineWorkbench.AddRecipe(new ItemStack(BlockRegistry.machineBox), new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new ItemStack(BlockRegistry.machines, 1, 3), 200);
+    }
 
-	public static void registerBlockFullRecipes() {
-		registerBlockRecipes();
-		registerWorkbenchRecipes();
-	}
+    public static void registerBlockFullRecipes() {
+        registerBlockRecipes();
+        registerWorkbenchRecipes();
+    }
 }
