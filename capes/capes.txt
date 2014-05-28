@@ -4,3 +4,4 @@ tombenpotter:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/mas
 mrcomputerghost:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/compcape.png
 z3r0theblade:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
 othlon:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
+founderio:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
