@@ -3,6 +3,9 @@ package main.flowstoneenergy.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.items.battery.*;
 import main.flowstoneenergy.items.flowarmor.ItemArmorFlowBoots;
+import main.flowstoneenergy.items.flowarmor.ItemArmorFlowChestplate;
+import main.flowstoneenergy.items.flowarmor.ItemArmorFlowHelm;
+import main.flowstoneenergy.items.flowarmor.ItemArmorFlowLeggings;
 import main.flowstoneenergy.items.food.FoodBacon;
 import main.flowstoneenergy.items.food.FoodCookedBacon;
 import main.flowstoneenergy.items.food.FoodTea;
@@ -48,6 +51,9 @@ public class ItemRegistry {
 
     //armour
     public static Item flowBoots;
+	public static Item flowLeggings;
+	public static Item flowChestplate;
+	public static Item flowHelm;
 
     //resources
     public static Item metaResourceDust;
@@ -116,6 +122,12 @@ public class ItemRegistry {
         //armour
         flowBoots = new ItemArmorFlowBoots(flow, 0, 3);
         GameRegistry.registerItem(flowBoots, flowBoots.getUnlocalizedName());
+	    flowLeggings = new ItemArmorFlowLeggings(flow, 0, 2);
+	    GameRegistry.registerItem(flowLeggings, flowLeggings.getUnlocalizedName());
+	    flowChestplate = new ItemArmorFlowChestplate(flow, 0, 1);
+	    GameRegistry.registerItem(flowChestplate, flowChestplate.getUnlocalizedName());
+	    flowHelm = new ItemArmorFlowHelm(flow, 0, 0);
+	    GameRegistry.registerItem(flowHelm, flowHelm.getUnlocalizedName());
 
         //food
         cookedBacon = new FoodCookedBacon();

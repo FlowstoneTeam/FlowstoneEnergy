@@ -18,14 +18,17 @@ public class Recipe3_1 {
         this.time = time;
     }
 
+	//Center
     public ItemStack getInput1() {
         return input1;
     }
 
+	//Left
     public ItemStack getInput2() {
         return input2;
     }
 
+	//Right
     public ItemStack getInput3() {
         return input3;
     }

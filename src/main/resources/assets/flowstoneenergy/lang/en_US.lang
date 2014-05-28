@@ -42,6 +42,12 @@ item.flowstoneenergy.electrum.hoe.name=Electrum Hoe
 item.flowstoneenergy.electrum.shovel.name=Electrum Shovel
 item.flowstoneenergy.electrum.axe.name=Electrum Axe
 
+ARMOR
+item.flowstoneenergy.flow.boots.name=Flow Boots
+item.flowstoneenergy.flow.leggings.name=Flow Leggings
+item.flowstoneenergy.flow.chestplate.name=Flow Chestplate
+item.flowstoneenergy.flow.helm.name=Flow Helm
+
 ORES
 tile.flowstoneenergy.ores.copper.name=Copper Ore
 tile.flowstoneenergy.ores.tin.name=Tin Ore
@@ -71,6 +77,9 @@ item.itemMetadataResourceDust.itemDustLead.name=Lead Dust
 item.itemMetadataResourceDust.itemDustSilver.name=Silver Dust
 item.itemMetadataResourceDust.itemDustEnder.name=Ender Dust
 item.itemMetadataResourceDust.itemDustEnderSmall.name=Small Ender Dust
+item.itemMetadataResourceDust.itemDustInvar.name=Invar Dust
+item.itemMetadataResourceDust.itemDustElectrum.name=Electrum Dust
+item.itemMetadataResourceDust.itemDustNickel.name=Nickel Dust
 item.itemMetadataResourceDust.nothing.name=Anti-Derp Protocol [YOU SHOULD NOT HAVE THIS]
 
 GEARS
