@@ -10,10 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 
 public class ContainerMachineHeatedOven extends Container {
-
     public ContainerMachineHeatedOven(EntityPlayer player, TileEntityMachineHeatedOven entity) {
-        bindPlayerInventory(player.inventory);
         createSlots(entity, player);
+        bindPlayerInventory(player.inventory);
     }
 
     @Override
@@ -30,24 +29,8 @@ public class ContainerMachineHeatedOven extends Container {
         addSlotToContainer(new SlotFurnace(player, tile, 1, 129, 34));
     }
 
-    private void bindPlayerInventory(InventoryPlayer inv) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 9; j++) {
-                addSlotToContainer(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-            }
-        }
-        for (int i = 0; i < 9; i++) {
-            addSlotToContainer(new Slot(inv, i, 8 + i * 18, 142));
-        }
-    }
-
     @Override
-    protected boolean mergeItemStack(ItemStack par1ItemStack, int par2, int par3, boolean par4) {
-        return true;
-    }
-
-    @Override
-    public ItemStack transferStackInSlot(EntityPlayer player, int par2) {
+    public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2) {
         ItemStack itemstack = null;
         Slot slot = (Slot) this.inventorySlots.get(par2);
 
@@ -55,25 +38,25 @@ public class ContainerMachineHeatedOven extends Container {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 == 2) {
-                if (!this.mergeItemStack(itemstack1, 3, 39, true)) {
+            if (par2 == 1) {
+                if (!this.mergeItemStack(itemstack1, 2, 38, true)) {
                     return null;
                 }
 
                 slot.onSlotChange(itemstack1, itemstack);
-            } else if (par2 != 1 && par2 != 0) {
+            } else if (par2 != 0) {
                 if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return null;
                     }
-                } else if (par2 >= 3 && par2 < 30) {
-                    if (!this.mergeItemStack(itemstack1, 30, 39, false)) {
+                } else if (par2 >= 2 && par2 < 29) {
+                    if (!this.mergeItemStack(itemstack1, 29, 38, false)) {
                         return null;
                     }
-                } else if (par2 >= 30 && par2 < 39 && !this.mergeItemStack(itemstack1, 3, 30, false)) {
+                } else if (par2 >= 29 && par2 < 38 && !this.mergeItemStack(itemstack1, 2, 29, false)) {
                     return null;
                 }
-            } else if (!this.mergeItemStack(itemstack1, 3, 39, false)) {
+            } else if (!this.mergeItemStack(itemstack1, 2, 38, false)) {
                 return null;
             }
 
@@ -87,9 +70,20 @@ public class ContainerMachineHeatedOven extends Container {
                 return null;
             }
 
-            slot.onPickupFromSlot(player, itemstack1);
+            slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
         }
 
         return itemstack;
+    }
+
+    public void bindPlayerInventory(InventoryPlayer inv) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 9; j++) {
+                addSlotToContainer(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            addSlotToContainer(new Slot(inv, i, 8 + i * 18, 142));
+        }
     }
 }

@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerMachineFlowstoneBottler extends Container {
     public ContainerMachineFlowstoneBottler(EntityPlayer player, TileEntityMachineFlowstoneBottler entity) {
-        bindPlayerInventory(player.inventory);
         createSlots(entity, player);
+        bindPlayerInventory(player.inventory);
     }
 
     @Override
@@ -28,24 +28,8 @@ public class ContainerMachineFlowstoneBottler extends Container {
         addSlotToContainer(new SlotFurnace(player, tile, 1, 129, 34));
     }
 
-    private void bindPlayerInventory(InventoryPlayer inv) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 9; j++) {
-                addSlotToContainer(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-            }
-        }
-        for (int i = 0; i < 9; i++) {
-            addSlotToContainer(new Slot(inv, i, 8 + i * 18, 142));
-        }
-    }
-
     @Override
-    protected boolean mergeItemStack(ItemStack par1ItemStack, int par2, int par3, boolean par4) {
-        return true;
-    }
-
-    @Override
-    public ItemStack transferStackInSlot(EntityPlayer player, int par2) {
+    public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2) {
         ItemStack itemstack = null;
         Slot slot = (Slot) this.inventorySlots.get(par2);
 
@@ -53,21 +37,25 @@ public class ContainerMachineFlowstoneBottler extends Container {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 == 0) {
-                if (!this.mergeItemStack(itemstack1, 10, 46, true)) {
+            if (par2 == 1) {
+                if (!this.mergeItemStack(itemstack1, 2, 38, true)) {
                     return null;
                 }
 
                 slot.onSlotChange(itemstack1, itemstack);
-            } else if (par2 >= 10 && par2 < 37) {
-                if (!this.mergeItemStack(itemstack1, 37, 46, false)) {
+            } else if (par2 != 0) {
+                if (slot.isItemValid(itemstack1)) {
+                    if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
+                        return null;
+                    }
+                } else if (par2 >= 2 && par2 < 29) {
+                    if (!this.mergeItemStack(itemstack1, 29, 38, false)) {
+                        return null;
+                    }
+                } else if (par2 >= 29 && par2 < 38 && !this.mergeItemStack(itemstack1, 2, 29, false)) {
                     return null;
                 }
-            } else if (par2 >= 37 && par2 < 46) {
-                if (!this.mergeItemStack(itemstack1, 10, 37, false)) {
-                    return null;
-                }
-            } else if (!this.mergeItemStack(itemstack1, 10, 46, false)) {
+            } else if (!this.mergeItemStack(itemstack1, 2, 38, false)) {
                 return null;
             }
 
@@ -81,9 +69,20 @@ public class ContainerMachineFlowstoneBottler extends Container {
                 return null;
             }
 
-            slot.onPickupFromSlot(player, itemstack1);
+            slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
         }
 
         return itemstack;
+    }
+
+    public void bindPlayerInventory(InventoryPlayer inv) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 9; j++) {
+                addSlotToContainer(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            addSlotToContainer(new Slot(inv, i, 8 + i * 18, 142));
+        }
     }
 }
