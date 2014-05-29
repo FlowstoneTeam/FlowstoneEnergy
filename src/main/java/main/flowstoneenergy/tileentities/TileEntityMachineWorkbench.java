@@ -3,7 +3,6 @@ package main.flowstoneenergy.tileentities;
 import main.flowstoneenergy.tileentities.recipes.Recipe3_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class TileEntityMachineWorkbench extends TileEntityMachineBase {
 
@@ -11,7 +10,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
     private String field_145958_o;
 
     public TileEntityMachineWorkbench() {
-        items = new ItemStack[10];
+        items = new ItemStack[4];
     }
 
     @Override
@@ -50,7 +49,8 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
 
     @Override
     public void updateEntity() {
-        if (items[0] != null && items[1] != null && ticksLeft == 0) {
+
+        if (items[0] != null && items[1] != null && items[2] != null && ticksLeft == 0) {
             Recipe3_1 r = RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]);
             if (r != null) {
                 maxTicks = r.getTime();
@@ -58,7 +58,8 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
         }
 
         if (ticksLeft < maxTicks && RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]) != null) {
-            if (items[2] == null || RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItem().equals(items[2].getItem())) {
+            if (items[3] == null || (RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItem().equals(items[3].getItem())
+                    && RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItemDamage() == items[3].getItemDamage())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -70,7 +71,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
             ticksLeft = 0;
             resetTimeAndTexture();
         }
-        if (ticksLeft == maxTicks && maxTicks != 0) {
+        if (ticksLeft == maxTicks) {
             ticksLeft = 0;
             createMachine();
         }
@@ -84,7 +85,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
         else
             items[3].stackSize += res.stackSize;
 
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 0; i <= 2; i++) {
             items[i].stackSize--;
             if (items[i].stackSize <= 0) {
                 items[i] = null;
@@ -95,16 +96,5 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
     public int getScaledProgress(int scale) {
         if (maxTicks == 0) return 0;
         return ticksLeft * scale / maxTicks;
-    }
-
-    @Override
-    public void readFromNBT(NBTTagCompound nbt) {
-        super.readFromNBT(nbt);
-    }
-
-    @Override
-    public void writeToNBT(NBTTagCompound nbt) {
-        super.writeToNBT(nbt);
-        nbt.setBoolean("onOff", false);
     }
 }

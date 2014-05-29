@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "flowstoneenergy",
+  "name": "Flowstone Energy",
+  "description": "The newest energy mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["poppypoppop, Tombenpotter, TehNut, Mr_ComputerGhost"],
+  "credits": "Othlon, FounderIO and poppy's mum for the textures",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

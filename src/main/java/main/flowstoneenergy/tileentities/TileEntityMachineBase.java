@@ -101,6 +101,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
         this.items = new ItemStack[this.getSizeInventory()];
 
         facing = tagCompound.getInteger("facing");
+        ticksLeft = tagCompound.getInteger("ticksLeft");
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
             NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
@@ -127,6 +128,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
         }
         tagCompound.setTag("Items", nbttaglist);
         tagCompound.setInteger("facing", facing);
+        tagCompound.setInteger("ticksLeft", ticksLeft);
     }
 
     @Override

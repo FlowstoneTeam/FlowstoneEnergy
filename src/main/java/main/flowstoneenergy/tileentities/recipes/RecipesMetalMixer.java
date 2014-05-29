@@ -21,7 +21,7 @@ public class RecipesMetalMixer {
                     && r.getInput1().getItemDamage() == stack1.getItemDamage() && r.getInput2().getItemDamage() == stack2.getItemDamage())
                 return r;
             if (r.getInput2().getItem().equals(stack1.getItem()) && r.getInput1().getItem().equals(stack2.getItem())
-                    && r.getInput2().getItemDamage() == stack2.getItemDamage() && r.getInput1().getItemDamage() == stack1.getItemDamage())
+                    && r.getInput2().getItemDamage() == stack1.getItemDamage() && r.getInput1().getItemDamage() == stack2.getItemDamage())
                 return r;
         }
         return null;

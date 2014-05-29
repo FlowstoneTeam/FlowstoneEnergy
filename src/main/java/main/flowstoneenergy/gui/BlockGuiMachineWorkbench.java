@@ -31,8 +31,7 @@ public class BlockGuiMachineWorkbench extends GuiContainer {
     }
 
     @Override
-    protected void drawGuiContainerBackgroundLayer(float var1, int var2,
-                                                   int var3) {
+    protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
         GL11.glColor4f(1F, 1F, 1F, 1F);
 
         Minecraft.getMinecraft().getTextureManager().bindTexture(metalMixerGui);
@@ -43,7 +42,7 @@ public class BlockGuiMachineWorkbench extends GuiContainer {
         this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
 
         int i1 = this.te.getScaledProgress(24);
-        this.drawTexturedModalRect(xStart + 81, yStart + 34, 176, 14, i1 + 1, 16);
+        this.drawTexturedModalRect(xStart + 96, yStart + 35, 176, 14, i1 + 1, 16);
 
     }
 }
