@@ -1,6 +1,7 @@
 package main.flowstoneenergy.containers;
 
 import main.flowstoneenergy.tileentities.TileEntityMachineLumberMill;
+import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -45,7 +46,7 @@ public class ContainerMachineLumberMill extends Container {
 
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (par2 != 0) {
-                if (slot.isItemValid(itemstack1)) {
+                if (RecipesLumberMill.getRecipeFromStack(itemstack1) != null) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return null;
                     }

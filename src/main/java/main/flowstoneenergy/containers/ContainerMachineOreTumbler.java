@@ -1,6 +1,7 @@
 package main.flowstoneenergy.containers;
 
 import main.flowstoneenergy.tileentities.TileEntityMachineOreTumbler;
+import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -45,7 +46,7 @@ public class ContainerMachineOreTumbler extends Container {
 
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (par2 != 0) {
-                if (slot.isItemValid(itemstack1)) {
+                if (RecipesEnergizedOreTumbler.getRecipeFromStack(itemstack1) != null) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return null;
                     }

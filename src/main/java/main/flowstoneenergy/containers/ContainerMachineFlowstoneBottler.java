@@ -1,6 +1,7 @@
 package main.flowstoneenergy.containers;
 
 import main.flowstoneenergy.tileentities.TileEntityMachineFlowstoneBottler;
+import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -44,7 +45,7 @@ public class ContainerMachineFlowstoneBottler extends Container {
 
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (par2 != 0) {
-                if (slot.isItemValid(itemstack1)) {
+                if (RecipesFlowstoneBottler.getRecipeFromStack(itemstack1) != null) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return null;
                     }
