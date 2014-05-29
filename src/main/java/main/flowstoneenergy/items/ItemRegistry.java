@@ -2,10 +2,7 @@ package main.flowstoneenergy.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.items.battery.*;
-import main.flowstoneenergy.items.flowarmor.ItemArmorFlowBoots;
-import main.flowstoneenergy.items.flowarmor.ItemArmorFlowChestplate;
-import main.flowstoneenergy.items.flowarmor.ItemArmorFlowHelm;
-import main.flowstoneenergy.items.flowarmor.ItemArmorFlowLeggings;
+import main.flowstoneenergy.items.flowarmor.*;
 import main.flowstoneenergy.items.food.FoodBacon;
 import main.flowstoneenergy.items.food.FoodCookedBacon;
 import main.flowstoneenergy.items.food.FoodTea;

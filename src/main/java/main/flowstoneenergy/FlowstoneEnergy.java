@@ -44,14 +44,14 @@ public class FlowstoneEnergy {
         ConfigHandler.configOptions(config);
 
         MinecraftForge.EVENT_BUS.register(new EnchantRandTeleHandler());
-        EnchantRegistry.initEnchants();
+        EnchantRegistry.registerEnchants();
 
         BlockRegistry.registerBlocks();
         ItemRegistry.registerItems();
         TERegistry.registerTileEntities();
 
-        ItemRecipeRegistry.registerRecipes();
-        BlockRecipeRegistry.registerBlockFullRecipes();
+        ItemRecipeRegistry.registerFullRecipes();
+        BlockRecipeRegistry.registerFullRecipes();
 
         OreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 10);

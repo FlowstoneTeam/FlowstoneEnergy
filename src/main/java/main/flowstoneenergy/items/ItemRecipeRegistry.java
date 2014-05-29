@@ -28,10 +28,14 @@ public class ItemRecipeRegistry {
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 0), " S ", "SSS", " S ", 'S', Items.stick);
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 1), " S ", "SGS", " S ", 'S', Blocks.stone, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 2), " I ", "IGI", " I ", 'I', Items.iron_ingot, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 3), " C ", "CGC", " C ", 'C', new ItemStack(ItemRegistry.metaResourceIngot, 1, 0), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 4), " T ", "TGT", " T ", 'T', new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 5), " L ", "LGL", " L ", 'L', new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 6), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 3), " C ", "CGC", " C ", 'C', Items.gold_ingot, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 4), " T ", "TGT", " T ", 'T', Items.quartz, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 5), " L ", "LGL", " L ", 'L', Items.diamond, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 6), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 0), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+	    GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 7), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+	    GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 8), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+	    GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 9), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+	    GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 10), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
 
         //food recipes
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), "C C", " C ", "   ", 'C', Items.clay_ball);
@@ -47,6 +51,18 @@ public class ItemRecipeRegistry {
         GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceDust, 1, 8), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), new ItemStack(ItemRegistry.metaResourceDust, 1, 7));
         GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3));
     }
+
+	private static void registerReverseStorageRecipes() {
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 0), new ItemStack(BlockRegistry.ingotStorage, 1, 0));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 1), new ItemStack(BlockRegistry.ingotStorage, 1, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 2), new ItemStack(BlockRegistry.ingotStorage, 1, 2));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 3), new ItemStack(BlockRegistry.ingotStorage, 1, 3));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 4), new ItemStack(BlockRegistry.ingotStorage, 1, 4));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 5), new ItemStack(BlockRegistry.ingotStorage, 1, 5));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 6), new ItemStack(BlockRegistry.ingotStorage, 1, 6));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 7), new ItemStack(BlockRegistry.ingotStorage, 1, 7));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 8), new ItemStack(BlockRegistry.ingotStorage, 1, 8));
+	}
 
     private static void registerSmeltingRecipes() {
         //Block to ingot smelting recipes (vanilla furnace)
@@ -98,9 +114,10 @@ public class ItemRecipeRegistry {
         RecipesMetalMixer.AddRecipe(new ItemStack(Items.gold_ingot), new ItemStack(ItemRegistry.metaResourceIngot, 2, 3), new ItemStack(ItemRegistry.metaResourceIngot, 2, 7), 300);
     }
 
-    public static void registerRecipes() {
+    public static void registerFullRecipes() {
         registerSmeltingRecipes();
         registerShapedRecipes();
+	    registerReverseStorageRecipes();
         registerShapelessRecipes();
         registerTumblerRecipes();
         registerMixerRecipes();
