@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerMachineWorkbench extends Container {
     public ContainerMachineWorkbench(EntityPlayer player, TileEntityMachineWorkbench tile) {
-        bindPlayerInventory(player.inventory);
         createSlots(tile, player);
+        bindPlayerInventory(player.inventory);
     }
 
     @Override
@@ -42,11 +42,6 @@ public class ContainerMachineWorkbench extends Container {
     }
 
     @Override
-    protected boolean mergeItemStack(ItemStack par1ItemStack, int par2, int par3, boolean par4) {
-        return true;
-    }
-
-    @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int par2) {
         ItemStack itemstack = null;
         Slot slot = (Slot) this.inventorySlots.get(par2);
@@ -55,21 +50,25 @@ public class ContainerMachineWorkbench extends Container {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 == 0) {
-                if (!this.mergeItemStack(itemstack1, 10, 46, true)) {
+            if (par2 == 3) {
+                if (!this.mergeItemStack(itemstack1, 4, 40, true)) {
                     return null;
                 }
 
                 slot.onSlotChange(itemstack1, itemstack);
-            } else if (par2 >= 10 && par2 < 37) {
-                if (!this.mergeItemStack(itemstack1, 37, 46, false)) {
+            } else if (par2 != 0 && par2 != 1 && par2 != 2) {
+                if (slot.isItemValid(itemstack1)) {
+                    if (!this.mergeItemStack(itemstack1, 0, 4, false)) {
+                        return null;
+                    }
+                } else if (par2 >= 4 && par2 < 31) {
+                    if (!this.mergeItemStack(itemstack1, 31, 40, false)) {
+                        return null;
+                    }
+                } else if (par2 >= 31 && par2 < 40 && !this.mergeItemStack(itemstack1, 3, 31, false)) {
                     return null;
                 }
-            } else if (par2 >= 37 && par2 < 46) {
-                if (!this.mergeItemStack(itemstack1, 10, 37, false)) {
-                    return null;
-                }
-            } else if (!this.mergeItemStack(itemstack1, 10, 46, false)) {
+            } else if (!this.mergeItemStack(itemstack1, 4, 40, false)) {
                 return null;
             }
 
@@ -88,5 +87,4 @@ public class ContainerMachineWorkbench extends Container {
 
         return itemstack;
     }
-
 }

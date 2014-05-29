@@ -79,16 +79,18 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
 
     private void createMachine() {
         if (items[0] == null || items[1] == null || items[2] == null) return;
-        ItemStack res = RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput();
-        if (items[3] == null)
-            items[3] = res.copy();
-        else
-            items[3].stackSize += res.stackSize;
+        if (RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]) != null) {
+            ItemStack res = RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput();
+            if (items[3] == null)
+                items[3] = res.copy();
+            else
+                items[3].stackSize += res.stackSize;
 
-        for (int i = 0; i <= 2; i++) {
-            items[i].stackSize--;
-            if (items[i].stackSize <= 0) {
-                items[i] = null;
+            for (int i = 0; i <= 2; i++) {
+                items[i].stackSize--;
+                if (items[i].stackSize <= 0) {
+                    items[i] = null;
+                }
             }
         }
     }
