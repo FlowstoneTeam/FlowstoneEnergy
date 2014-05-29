@@ -32,10 +32,10 @@ public class ItemRecipeRegistry {
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 4), " T ", "TGT", " T ", 'T', Items.quartz, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 5), " L ", "LGL", " L ", 'L', Items.diamond, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 6), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 0), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-	    GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 7), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-	    GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 8), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-	    GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 9), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-	    GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 10), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 7), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 8), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 9), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 10), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
 
         //food recipes
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), "C C", " C ", "   ", 'C', Items.clay_ball);
@@ -52,17 +52,17 @@ public class ItemRecipeRegistry {
         GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3));
     }
 
-	private static void registerReverseStorageRecipes() {
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 0), new ItemStack(BlockRegistry.ingotStorage, 1, 0));
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 1), new ItemStack(BlockRegistry.ingotStorage, 1, 1));
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 2), new ItemStack(BlockRegistry.ingotStorage, 1, 2));
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 3), new ItemStack(BlockRegistry.ingotStorage, 1, 3));
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 4), new ItemStack(BlockRegistry.ingotStorage, 1, 4));
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 5), new ItemStack(BlockRegistry.ingotStorage, 1, 5));
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 6), new ItemStack(BlockRegistry.ingotStorage, 1, 6));
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 7), new ItemStack(BlockRegistry.ingotStorage, 1, 7));
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 8), new ItemStack(BlockRegistry.ingotStorage, 1, 8));
-	}
+    private static void registerReverseStorageRecipes() {
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 0), new ItemStack(BlockRegistry.ingotStorage, 1, 0));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 1), new ItemStack(BlockRegistry.ingotStorage, 1, 1));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 2), new ItemStack(BlockRegistry.ingotStorage, 1, 2));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 3), new ItemStack(BlockRegistry.ingotStorage, 1, 3));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 4), new ItemStack(BlockRegistry.ingotStorage, 1, 4));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 5), new ItemStack(BlockRegistry.ingotStorage, 1, 5));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 6), new ItemStack(BlockRegistry.ingotStorage, 1, 6));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 7), new ItemStack(BlockRegistry.ingotStorage, 1, 7));
+        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 8), new ItemStack(BlockRegistry.ingotStorage, 1, 8));
+    }
 
     private static void registerSmeltingRecipes() {
         //Block to ingot smelting recipes (vanilla furnace)
@@ -86,38 +86,38 @@ public class ItemRecipeRegistry {
     }
 
     private static void registerTumblerRecipes() {
-        RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.coal), new ItemStack(ItemRegistry.metaResourceDust, 1, 0), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Blocks.iron_ore), new ItemStack(ItemRegistry.metaResourceDust, 2, 1), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Blocks.gold_ore), new ItemStack(ItemRegistry.metaResourceDust, 2, 2), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 0), new ItemStack(ItemRegistry.metaResourceDust, 2, 3), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 1), new ItemStack(ItemRegistry.metaResourceDust, 2, 4), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 2), new ItemStack(ItemRegistry.metaResourceDust, 2, 5), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 3), new ItemStack(ItemRegistry.metaResourceDust, 2, 6), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(BlockRegistry.blockOres, 1, 4), new ItemStack(ItemRegistry.metaResourceDust, 2, 9), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.coal), new ItemStack(ItemRegistry.metaResourceDust, 1, 0), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Blocks.iron_ore), new ItemStack(ItemRegistry.metaResourceDust, 2, 1), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Blocks.gold_ore), new ItemStack(ItemRegistry.metaResourceDust, 2, 2), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(BlockRegistry.blockOres, 1, 0), new ItemStack(ItemRegistry.metaResourceDust, 2, 3), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(BlockRegistry.blockOres, 1, 1), new ItemStack(ItemRegistry.metaResourceDust, 2, 4), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(BlockRegistry.blockOres, 1, 2), new ItemStack(ItemRegistry.metaResourceDust, 2, 5), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(BlockRegistry.blockOres, 1, 3), new ItemStack(ItemRegistry.metaResourceDust, 2, 6), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(BlockRegistry.blockOres, 1, 4), new ItemStack(ItemRegistry.metaResourceDust, 2, 9), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200);
 
-	    //Ingot to dust
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 0), new ItemStack(ItemRegistry.metaResourceDust, 1, 3), 100);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), new ItemStack(ItemRegistry.metaResourceDust, 1, 4), 100);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), new ItemStack(ItemRegistry.metaResourceDust, 1, 5), 100);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), new ItemStack(ItemRegistry.metaResourceDust, 1, 6), 100);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), new ItemStack(ItemRegistry.metaResourceDust, 1, 8), 100);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), new ItemStack(ItemRegistry.metaResourceDust, 1, 9), 100);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 6), new ItemStack(ItemRegistry.metaResourceDust, 1, 10), 100);
-	    RecipesEnergizedOreTumbler.AddRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), new ItemStack(ItemRegistry.metaResourceDust, 1, 11), 100);
+        //Ingot to dust
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 0), new ItemStack(ItemRegistry.metaResourceDust, 1, 3), 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), new ItemStack(ItemRegistry.metaResourceDust, 1, 4), 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), new ItemStack(ItemRegistry.metaResourceDust, 1, 5), 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), new ItemStack(ItemRegistry.metaResourceDust, 1, 6), 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), new ItemStack(ItemRegistry.metaResourceDust, 1, 8), 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), new ItemStack(ItemRegistry.metaResourceDust, 1, 9), 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 6), new ItemStack(ItemRegistry.metaResourceDust, 1, 10), 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), new ItemStack(ItemRegistry.metaResourceDust, 1, 11), 100);
     }
 
     private static void registerMixerRecipes() {
-        RecipesMetalMixer.AddRecipe(new ItemStack(Items.iron_ingot), new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), new ItemStack(ItemRegistry.metaResourceIngot, 3, 6), 300);
-        RecipesMetalMixer.AddRecipe(new ItemStack(Items.gold_ingot), new ItemStack(ItemRegistry.metaResourceIngot, 2, 3), new ItemStack(ItemRegistry.metaResourceIngot, 2, 7), 300);
+        RecipesMetalMixer.addRecipe(new ItemStack(Items.iron_ingot), new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), new ItemStack(ItemRegistry.metaResourceIngot, 3, 6), 300);
+        RecipesMetalMixer.addRecipe(new ItemStack(Items.gold_ingot), new ItemStack(ItemRegistry.metaResourceIngot, 2, 3), new ItemStack(ItemRegistry.metaResourceIngot, 2, 7), 300);
     }
 
     public static void registerFullRecipes() {
         registerSmeltingRecipes();
         registerShapedRecipes();
-	    registerReverseStorageRecipes();
+        registerReverseStorageRecipes();
         registerShapelessRecipes();
         registerTumblerRecipes();
         registerMixerRecipes();

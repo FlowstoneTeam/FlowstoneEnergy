@@ -23,7 +23,7 @@ public class BlockRecipeRegistry {
 	}
 
     private static void registerWorkbenchRecipes() {
-        RecipesMachineWorkbench.AddRecipe(new ItemStack(BlockRegistry.machineBox), new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new ItemStack(BlockRegistry.machines, 1, 3), 200);
+        RecipesMachineWorkbench.addRecipe(new ItemStack(BlockRegistry.machineBox), new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new ItemStack(BlockRegistry.machines, 1, 3), 200);
     }
 
     public static void registerFullRecipes() {

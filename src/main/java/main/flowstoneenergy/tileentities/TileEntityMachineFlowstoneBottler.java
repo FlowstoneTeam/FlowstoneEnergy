@@ -10,7 +10,7 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
     private String field_145958_o;
 
     public TileEntityMachineFlowstoneBottler() {
-
+        items = new ItemStack[2];
     }
 
     @Override
@@ -54,13 +54,13 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
     @Override
     public void updateEntity() {
         if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesFlowstoneBottler.GetRecipeFromStack(items[0]);
+            Recipe1_1 r = RecipesFlowstoneBottler.getRecipeFromStack(items[0]);
             if (r != null) {
                 maxTicks = r.getTime();
             }
         }
-        if (ticksLeft < maxTicks && RecipesFlowstoneBottler.GetRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesFlowstoneBottler.GetRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
+        if (ticksLeft < maxTicks && RecipesFlowstoneBottler.getRecipeFromStack(items[0]) != null) {
+            if (items[1] == null || RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -68,7 +68,7 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
                 resetTimeAndTexture();
             }
         }
-        if (RecipesFlowstoneBottler.GetRecipeFromStack(items[0]) == null && ticksLeft > 0) {
+        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();
         }
@@ -79,8 +79,8 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
     }
 
     private void smelt() {
-        if (RecipesFlowstoneBottler.GetRecipeFromStack(items[0]) == null) return;
-        ItemStack res = RecipesFlowstoneBottler.GetRecipeFromStack(items[0]).getOutput();
+        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null) return;
+        ItemStack res = RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput();
         if (items[1] == null)
             items[1] = res.copy();
         else

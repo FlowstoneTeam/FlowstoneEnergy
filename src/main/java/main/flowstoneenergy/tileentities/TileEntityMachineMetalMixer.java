@@ -10,7 +10,7 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase {
     private String field_145958_o;
 
     public TileEntityMachineMetalMixer() {
-        items = new ItemStack[INV_SIZE];
+        items = new ItemStack[4];
     }
 
     @Override
@@ -56,14 +56,14 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase {
     public void updateEntity() {
 
         if (items[0] != null && items[1] != null && ticksLeft == 0) {
-            Recipe2_1 r = RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]);
+            Recipe2_1 r = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]);
             if (r != null) {
                 maxTicks = r.getTime();
             }
         }
 
-        if (ticksLeft < maxTicks && RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]) != null) {
-            if (items[2] == null || RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]).getOutput().getItem().equals(items[2].getItem())) {
+        if (ticksLeft < maxTicks && RecipesMetalMixer.getRecipeFromStack(items[0], items[1]) != null) {
+            if (items[2] == null || RecipesMetalMixer.getRecipeFromStack(items[0], items[1]).getOutput().getItem().equals(items[2].getItem())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -71,7 +71,7 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase {
                 resetTimeAndTexture();
             }
         }
-        if (RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]) == null && ticksLeft > 0) {
+        if (RecipesMetalMixer.getRecipeFromStack(items[0], items[1]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();
         }
@@ -83,7 +83,7 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase {
 
     private void mixMetals() {
         if (items[0] == null || items[1] == null) return;
-        ItemStack res = RecipesMetalMixer.GetRecipeFromStack(items[0], items[1]).getOutput();
+        ItemStack res = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]).getOutput();
         if (items[2] == null)
             items[2] = res.copy();
         else if (items[2].stackSize == res.getMaxStackSize())

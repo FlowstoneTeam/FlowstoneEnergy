@@ -9,12 +9,12 @@ public class RecipesMetalMixer {
 
     public static List<Recipe2_1> recipe21List = new ArrayList<Recipe2_1>();
 
-    public static void AddRecipe(ItemStack input1, ItemStack input2, ItemStack output, int time) {
+    public static void addRecipe(ItemStack input1, ItemStack input2, ItemStack output, int time) {
         Recipe2_1 r = new Recipe2_1(input1, input2, output, time);
         recipe21List.add(r);
     }
 
-    public static Recipe2_1 GetRecipeFromStack(ItemStack stack1, ItemStack stack2) {
+    public static Recipe2_1 getRecipeFromStack(ItemStack stack1, ItemStack stack2) {
         if (stack1 == null || stack2 == null) return null;
         for (Recipe2_1 r : recipe21List) {
             if (r.getInput1().getItem().equals(stack1.getItem()) && r.getInput2().getItem().equals(stack2.getItem())
@@ -27,7 +27,7 @@ public class RecipesMetalMixer {
         return null;
     }
 
-    public static Recipe2_1[] GetRecipesFromStack(ItemStack stack) {
+    public static Recipe2_1[] getRecipesFromStack(ItemStack stack) {
         List<Recipe2_1> out = new ArrayList<Recipe2_1>();
         if (stack == null) return null;
         for (Recipe2_1 r : recipe21List) {

@@ -12,8 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public abstract class TileEntityMachineBase extends TileEntity implements ISidedInventory {
 
-    public static final int INV_SIZE = 500;
-    public ItemStack[] items = new ItemStack[INV_SIZE];
+    public ItemStack[] items;
     public int facing;
     public int ticksLeft = 0;
     public int maxTicks = 0;
@@ -28,7 +27,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
 
     @Override
     public int getSizeInventory() {
-        return INV_SIZE;
+        return items.length;
     }
 
     @Override
@@ -38,7 +37,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
 
     @Override
     public ItemStack getStackInSlot(int var1) {
-        if (var1 > INV_SIZE) return null;
+        if (var1 > items.length) return null;
         return items[var1];
     }
 

@@ -51,14 +51,14 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
     @Override
     public void updateEntity() {
         if (items[0] != null && items[1] != null && ticksLeft == 0) {
-            Recipe3_1 r = RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]);
+            Recipe3_1 r = RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]);
             if (r != null) {
                 maxTicks = r.getTime();
             }
         }
 
-        if (ticksLeft < maxTicks && RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]) != null) {
-            if (items[2] == null || RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]).getOutput().getItem().equals(items[2].getItem())) {
+        if (ticksLeft < maxTicks && RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]) != null) {
+            if (items[2] == null || RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItem().equals(items[2].getItem())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -66,7 +66,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
                 resetTimeAndTexture();
             }
         }
-        if (RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]) == null && ticksLeft > 0) {
+        if (RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();
         }
@@ -78,7 +78,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
 
     private void createMachine() {
         if (items[0] == null || items[1] == null || items[2] == null) return;
-        ItemStack res = RecipesMachineWorkbench.GetRecipeFromStack(items[0], items[1], items[2]).getOutput();
+        ItemStack res = RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput();
         if (items[3] == null)
             items[3] = res.copy();
         else

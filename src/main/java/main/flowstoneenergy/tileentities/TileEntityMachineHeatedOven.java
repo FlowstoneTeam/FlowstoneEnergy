@@ -11,6 +11,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
     private String field_145958_o;
 
     public TileEntityMachineHeatedOven() {
+        items = new ItemStack[2];
         maxTicks = 150;
     }
 

@@ -10,6 +10,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
     private String field_145958_o;
 
     public TileEntityMachineLumberMill() {
+        items = new ItemStack[2];
     }
 
     @Override
@@ -53,13 +54,13 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
     @Override
     public void updateEntity() {
         if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesLumberMill.GetRecipeFromStack(items[0]);
+            Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
             if (r != null) {
                 maxTicks = r.getTime();
             }
         }
-        if (ticksLeft < maxTicks && RecipesLumberMill.GetRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesLumberMill.GetRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
+        if (ticksLeft < maxTicks && RecipesLumberMill.getRecipeFromStack(items[0]) != null) {
+            if (items[1] == null || RecipesLumberMill.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -67,7 +68,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
                 resetTimeAndTexture();
             }
         }
-        if (RecipesLumberMill.GetRecipeFromStack(items[0]) == null && ticksLeft > 0) {
+        if (RecipesLumberMill.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();
         }
@@ -78,8 +79,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
     }
 
     private void smelt() {
-        if (RecipesLumberMill.GetRecipeFromStack(items[0]) == null) return;
-        ItemStack res = RecipesLumberMill.GetRecipeFromStack(items[0]).getOutput();
+        if (RecipesLumberMill.getRecipeFromStack(items[0]) == null) return;
+        ItemStack res = RecipesLumberMill.getRecipeFromStack(items[0]).getOutput();
         if (items[1] == null)
             items[1] = res.copy();
         else
