@@ -107,6 +107,13 @@ public class ItemRecipeRegistry {
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), new ItemStack(ItemRegistry.metaResourceDust, 1, 9), 100);
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 6), new ItemStack(ItemRegistry.metaResourceDust, 1, 10), 100);
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), new ItemStack(ItemRegistry.metaResourceDust, 1, 11), 100);
+
+        //Other things
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Blocks.stone), new ItemStack(Blocks.cobblestone), 150);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Blocks.glass), new ItemStack(Blocks.sand), 150);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.sand), 150);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.gravel), 150);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Blocks.gravel), new ItemStack(Items.flint), 200);
     }
 
     private static void registerMixerRecipes() {

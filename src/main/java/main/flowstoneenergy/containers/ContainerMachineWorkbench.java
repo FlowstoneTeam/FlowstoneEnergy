@@ -58,7 +58,7 @@ public class ContainerMachineWorkbench extends Container {
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (par2 != 0 && par2 != 1 && par2 != 2) {
                 if (slot.isItemValid(itemstack1)) {
-                    if (!this.mergeItemStack(itemstack1, 0, 4, false)) {
+                    if (!this.mergeItemStack(itemstack1, 0, 3, false)) {
                         return null;
                     }
                 } else if (par2 >= 4 && par2 < 31) {
