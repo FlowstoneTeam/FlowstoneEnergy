@@ -36,6 +36,16 @@ public class RecipesMachineWorkbench {
                     && r.getInput3().getItemDamage() == stack1.getItemDamage()) {
                 return r;
             }
+            if (r.getInput1().getItem().equals(stack3.getItem()) && r.getInput2().getItem().equals(stack1.getItem()) && r.getInput3().getItem().equals(stack2.getItem())
+                    && r.getInput1().getItemDamage() == stack3.getItemDamage() && r.getInput2().getItemDamage() == stack1.getItemDamage()
+                    && r.getInput3().getItemDamage() == stack2.getItemDamage()) {
+                return r;
+            }
+            if (r.getInput1().getItem().equals(stack2.getItem()) && r.getInput2().getItem().equals(stack3.getItem()) && r.getInput3().getItem().equals(stack1.getItem())
+                    && r.getInput1().getItemDamage() == stack2.getItemDamage() && r.getInput3().getItemDamage() == stack3.getItemDamage()
+                    && r.getInput3().getItemDamage() == stack1.getItemDamage()) {
+                return r;
+            }
         }
         return null;
     }
