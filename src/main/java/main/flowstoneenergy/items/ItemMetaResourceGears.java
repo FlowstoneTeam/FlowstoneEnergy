@@ -70,6 +70,18 @@ public class ItemMetaResourceGears extends Item {
                 name = "itemGearEnder";
                 break;
             }
+            case 11: {
+            	name = "itemGearElectrum";
+            	break;
+            }
+            case 12: {
+            	name = "itemGearNickel";
+            	break;
+            }
+            case 13: {
+            	name = "itemGearInvar";
+            	break;
+            }
 
             default:
                 name = "nothing";
@@ -96,12 +108,15 @@ public class ItemMetaResourceGears extends Item {
         this.icon[8] = ri.registerIcon(ModInfo.MODID + ":gears/gearLead");
         this.icon[9] = ri.registerIcon(ModInfo.MODID + ":gears/gearSilver");
         this.icon[10] = ri.registerIcon(ModInfo.MODID + ":gears/gearEnder");
+        this.icon[11] = ri.registerIcon(ModInfo.MODID + ":gears/gearElectrum");
+        this.icon[12] = ri.registerIcon(ModInfo.MODID + ":gears/gearNickel");
+        this.icon[13] = ri.registerIcon(ModInfo.MODID + ":gears/gearInvar");
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List list) {
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 13; i++) {
             list.add(new ItemStack(this, 1, i));
         }
     }
