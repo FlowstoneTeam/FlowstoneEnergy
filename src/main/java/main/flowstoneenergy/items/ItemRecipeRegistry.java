@@ -36,6 +36,9 @@ public class ItemRecipeRegistry {
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 8), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 9), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 10), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 11), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 12), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 13), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 6), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
 
         //food recipes
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), "C C", " C ", "   ", 'C', Items.clay_ball);

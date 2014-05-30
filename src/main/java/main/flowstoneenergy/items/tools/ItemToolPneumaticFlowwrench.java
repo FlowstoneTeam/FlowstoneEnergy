@@ -1,6 +1,5 @@
 package main.flowstoneenergy.items.tools;
 
-import buildcraft.api.tools.IToolWrench;
 import ic2.api.tile.IWrenchable;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
@@ -20,7 +19,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.*;
 
-public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench implements IToolWrench {
+public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
 
     Random rand = new Random();
     private int maxFE = 10000;

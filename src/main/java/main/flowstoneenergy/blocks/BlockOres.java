@@ -39,12 +39,17 @@ public class BlockOres extends BlockOre {
         return this.icon[meta];
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
         for (int i = 0; i < 5; i++) {
             list.add(new ItemStack(id, 1, i));
         }
+    }
+
+    @Override
+    public int damageDropped(int meta) {
+        return meta;
     }
 }
