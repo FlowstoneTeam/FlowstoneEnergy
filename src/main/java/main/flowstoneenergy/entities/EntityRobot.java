@@ -1,14 +1,16 @@
 package main.flowstoneenergy.entities;
 
-import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 
-public class EntityRobot extends Entity implements IEntityAdditionalSpawnData {
+public class EntityRobot extends EntityAnimal implements IEntityAdditionalSpawnData {
 
     private boolean charged;
 
@@ -23,6 +25,14 @@ public class EntityRobot extends Entity implements IEntityAdditionalSpawnData {
 
     public void setCharged() {
         charged = true;
+    }
+    
+    @Override
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.7D);
     }
 
     @Override
@@ -65,26 +75,17 @@ public class EntityRobot extends Entity implements IEntityAdditionalSpawnData {
     }
 
     @Override
-    public boolean interactFirst(EntityPlayer player) {
-        if (!worldObj.isRemote && riddenByEntity == null) {
-            player.mountEntity(this);
-        }
-
-        return true;
-    }
-
-    @Override
     protected void entityInit() {
 
     }
 
     @Override
-    protected void readEntityFromNBT(NBTTagCompound nbt) {
+	public void readEntityFromNBT(NBTTagCompound nbt) {
         charged = nbt.getBoolean("Charged");
     }
 
     @Override
-    protected void writeEntityToNBT(NBTTagCompound nbt) {
+	public void writeEntityToNBT(NBTTagCompound nbt) {
         nbt.setBoolean("Charged", charged);
     }
 
@@ -97,5 +98,10 @@ public class EntityRobot extends Entity implements IEntityAdditionalSpawnData {
     public void readSpawnData(ByteBuf data) {
         charged = data.readBoolean();
     }
+
+	@Override
+	public EntityAgeable createChild(EntityAgeable var1) {
+		return null;
+	}
 
 }
