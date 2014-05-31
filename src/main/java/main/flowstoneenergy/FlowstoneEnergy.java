@@ -54,7 +54,7 @@ public class FlowstoneEnergy {
         BlockRecipeRegistry.registerFullRecipes();
 
         OreDictHandler.registerOreDict();
-        GameRegistry.registerWorldGenerator(new GenerationHandler(), 10);
+        GameRegistry.registerWorldGenerator(new GenerationHandler(), 2);
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
 
         proxy.load();
