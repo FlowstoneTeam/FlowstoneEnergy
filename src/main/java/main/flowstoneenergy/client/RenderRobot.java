@@ -1,18 +1,23 @@
 package main.flowstoneenergy.client;
-/**
+
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.entities.EntityRobot;
-import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderRobot extends Render{
-	protected ModelRobot model;
+@SideOnly(Side.CLIENT)
+public class RenderRobot extends RenderLiving{
+	protected FlowstoneRobot model;
 	
-	public RenderRobot() {
+	public RenderRobot(FlowstoneRobot model, float par2) {
+		super(model, par2);
 		shadowSize = 0.5F;
-		model = new ModelRobot();
+		model = new FlowstoneRobot();
 	}
 	
 	public void renderRobot(EntityRobot robot, double x, double y, double z, float yaw, float partialTickTime) {
@@ -21,20 +26,19 @@ public class RenderRobot extends Render{
 		GL11.glRotatef(180.0F - yaw, 0.0F, 1.0F, 0.0F);
 		GL11.glScalef(-1.0F, -1.0F, 1.0F);
 		
-		func_110777_b(robot);
-		
 		model.render(robot, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 		
 		GL11.glPopMatrix();
 	}
 	
+
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime) {
+		super.doRender(entity, x, y, z, yaw, partialTickTime);
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
-		return null;
-	}
+    protected ResourceLocation getEntityTexture (Entity entity){
+        return new ResourceLocation(ModInfo.MODID + ":textures/models/FlowstoneRobot.png");
+    }
 }
-*/
