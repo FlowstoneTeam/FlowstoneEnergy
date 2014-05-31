@@ -35,15 +35,15 @@ public class GenerationHandler implements IWorldGenerator {
             int nickelY = rand.nextInt(22);
 
             if (ConfigHandler.useFECopper)
-                (new WorldGenMinable(BlockRegistry.blockOres, 0, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres, 0, 2, Blocks.stone)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
             if (ConfigHandler.useFETin)
-                (new WorldGenMinable(BlockRegistry.blockOres, 1, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres, 1, 2, Blocks.stone)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
             if (ConfigHandler.useFELead)
-                (new WorldGenMinable(BlockRegistry.blockOres, 2, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres, 2, 2, Blocks.stone)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
             if (ConfigHandler.useFESilver)
-                (new WorldGenMinable(BlockRegistry.blockOres, 3, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres, 3, 2, Blocks.stone)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
             if (ConfigHandler.useFENickel)
-                (new WorldGenMinable(BlockRegistry.blockOres, 4, 13, Blocks.stone)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres, 4, 2, Blocks.stone)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
         }
 
     }
