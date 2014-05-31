@@ -13,7 +13,6 @@ public class RecipesEnergizedOreTumbler {
         recipe11List.add(r);
     }
 
-
     public static Recipe1_1 getRecipeFromStack(ItemStack stack) {
         if (stack == null) return null;
         for (Recipe1_1 r : recipe11List) {

@@ -3,7 +3,6 @@ package main.flowstoneenergy.tileentities;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
 
@@ -80,33 +79,23 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
     }
 
     private void oreDouble() {
-        if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) == null) return;
-        ItemStack res = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput();
-        if (items[1] == null)
-            items[1] = res.copy();
-        else
-            items[1].stackSize += res.stackSize;
+        if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
+            ItemStack res = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput();
+            if (items[1] == null)
+                items[1] = res.copy();
+            else
+                items[1].stackSize += res.stackSize;
 
 
-        items[0].stackSize--;
-        if (items[0].stackSize <= 0) {
-            items[0] = null;
+            items[0].stackSize--;
+            if (items[0].stackSize <= 0) {
+                items[0] = null;
+            }
         }
     }
 
     public int getScaledProgress(int scale) {
         if (maxTicks == 0) return 0;
         return ticksLeft * scale / maxTicks;
-    }
-
-    @Override
-    public void readFromNBT(NBTTagCompound nbt) {
-        super.readFromNBT(nbt);
-    }
-
-    @Override
-    public void writeToNBT(NBTTagCompound nbt) {
-        super.writeToNBT(nbt);
-        nbt.setBoolean("onOff", false);
     }
 }

@@ -1,11 +1,18 @@
 package main.flowstoneenergy.utils;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
+import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
+import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
+import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
+import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
 
 public class OreDictHandler {
 
@@ -57,14 +64,68 @@ public class OreDictHandler {
         OreDictionary.registerOre("toolWrench", ItemRegistry.flowwrench);
         OreDictionary.registerOre("toolWrench", ItemRegistry.pneumaticFlowwrench);
 
-        //vanilla stuff that should be registered IMO
-        OreDictionary.registerOre("blockStone", Blocks.stone);
-        OreDictionary.registerOre("blockCobblestone", Blocks.cobblestone);
-        OreDictionary.registerOre("blockGravel", Blocks.gravel);
-        OreDictionary.registerOre("blockSand", Blocks.sand);
+        //vanilla blocks that should be registered IMO
+        OreDictionary.registerOre("gravel", Blocks.gravel);
+        OreDictionary.registerOre("sand", Blocks.sand);
+        OreDictionary.registerOre("glass", Blocks.glass);
+        for (int i = 0; i <= 15; i++) {
+            OreDictionary.registerOre("glass", new ItemStack(Blocks.stained_glass, 1, i));
+        }
+
+        //vanilla items that should be registered IMO
         OreDictionary.registerOre("ingotIron", Items.iron_ingot);
         OreDictionary.registerOre("ingotGold", Items.gold_ingot);
-        OreDictionary.registerOre("gemDiamond", Items.diamond);
-        OreDictionary.registerOre("quartzNether", Items.quartz);
+        OreDictionary.registerOre("gemNetherQuartz", Items.quartz);
+        OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 0));
+        OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 1));
+
+    }
+
+    public static void tumblerOreDictRecipes(String ore, ItemStack output, int time) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        if (ores != null && ores.size() >= 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                RecipesEnergizedOreTumbler.addRecipe(oreList, output, time);
+            }
+        }
+    }
+
+    public static void furnaceOreDictRecipes(String ore, ItemStack output, float xp) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        if (ores != null && ores.size() >= 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                GameRegistry.addSmelting(oreList, output, xp);
+            }
+        }
+    }
+
+    public static void lumberMillOreDictRecipes(String ore, ItemStack output, int time) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        if (ores != null && ores.size() >= 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                RecipesLumberMill.addRecipe(oreList, output, time);
+            }
+        }
+    }
+
+    public static void bottlerOreDictRecipes(String ore, ItemStack output, int time) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        if (ores != null && ores.size() >= 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                RecipesFlowstoneBottler.addRecipe(oreList, output, time);
+            }
+        }
+    }
+
+    public static void mixerOreDictRecipes(String ore1, String ore2, ItemStack output, int time) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        if (ores1 != null && ores1.size() >= 0 && ores2 != null && ores2.size() >= 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    RecipesMetalMixer.addRecipe(oreList1, oreList2, output, time);
+                }
+            }
+        }
     }
 }

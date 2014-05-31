@@ -57,10 +57,7 @@ public class FlowstoneEnergy {
         TERegistry.registerTileEntities();
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("flowstone", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.flowstoneBucket),
         		new ItemStack(Items.bucket));
-        BucketHandler.INSTANCE.buckets.put(BlockRegistry.flowstoneBlock, ItemRegistry.flowstoneBucket); 
-
-        ItemRecipeRegistry.registerFullRecipes();
-        BlockRecipeRegistry.registerFullRecipes();
+        BucketHandler.INSTANCE.buckets.put(BlockRegistry.flowstoneBlock, ItemRegistry.flowstoneBucket);
 
         OreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 2);
@@ -79,5 +76,7 @@ public class FlowstoneEnergy {
 
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
+        ItemRecipeRegistry.registerFullRecipes();
+        BlockRecipeRegistry.registerFullRecipes();
     }
 }

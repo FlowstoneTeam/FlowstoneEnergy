@@ -83,7 +83,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
             if (this.items[1] == null) {
                 this.items[1] = itemstack.copy();
             } else if (this.items[1].getItem() == itemstack.getItem()) {
-                this.items[1].stackSize += itemstack.stackSize;
+                this.items[1].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
             }
 
             --this.items[0].stackSize;
