@@ -1,15 +1,14 @@
 package main.flowstoneenergy.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.items.battery.*;
-import main.flowstoneenergy.items.flowarmor.ItemArmorFlowBoots;
-import main.flowstoneenergy.items.flowarmor.ItemArmorFlowChestplate;
-import main.flowstoneenergy.items.flowarmor.ItemArmorFlowHelm;
-import main.flowstoneenergy.items.flowarmor.ItemArmorFlowLeggings;
+import main.flowstoneenergy.items.flowarmor.*;
 import main.flowstoneenergy.items.food.FoodBacon;
 import main.flowstoneenergy.items.food.FoodCookedBacon;
 import main.flowstoneenergy.items.food.FoodTea;
 import main.flowstoneenergy.items.food.ItemMetaResourceUtensil;
+import main.flowstoneenergy.items.tools.ItemFlowstoneBucket;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import main.flowstoneenergy.items.tools.ItemToolPneumaticFlowwrench;
 import main.flowstoneenergy.items.tools.electrum.*;
@@ -22,8 +21,8 @@ import net.minecraftforge.common.util.EnumHelper;
 public class ItemRegistry {
 
     //Tool Materials
-    public static final ToolMaterial ender = EnumHelper.addToolMaterial("ENDER_TOOL_MATERIAL", Integer.MAX_VALUE, 2000, 16.0F, 0, 45);
-    public static final ToolMaterial electrum = EnumHelper.addToolMaterial("ELECTRUM_TOOL_MATERIAL", 4, 1000, 6.0F, 0, 25);
+	public static final ToolMaterial ender = EnumHelper.addToolMaterial("ENDER_TOOL_MATERIAL", Integer.MAX_VALUE, 2000, 16.0F, 12.0F, 45);
+	public static final ToolMaterial electrum = EnumHelper.addToolMaterial("ELECTRUM_TOOL_MATERIAL", 4, 1000, 6.0F, 8.0F, 25);
 
     //armour materials
     public static final ArmorMaterial flow = EnumHelper.addArmorMaterial("flow", -1, new int[]{1, 2, 3, 4}, 0);
@@ -51,9 +50,9 @@ public class ItemRegistry {
 
     //armour
     public static Item flowBoots;
-    public static Item flowLeggings;
-    public static Item flowChestplate;
-    public static Item flowHelm;
+	public static Item flowLeggings;
+	public static Item flowChestplate;
+	public static Item flowHelm;
 
     //resources
     public static Item metaResourceDust;
@@ -69,7 +68,7 @@ public class ItemRegistry {
     public static Item metaResourceUtensil;
 
     //misc
-
+    public static Item flowstoneBucket;
 
     public static void registerItems() {
 
@@ -122,12 +121,12 @@ public class ItemRegistry {
         //armour
         flowBoots = new ItemArmorFlowBoots(flow, 0, 3);
         GameRegistry.registerItem(flowBoots, flowBoots.getUnlocalizedName());
-        flowLeggings = new ItemArmorFlowLeggings(flow, 0, 2);
-        GameRegistry.registerItem(flowLeggings, flowLeggings.getUnlocalizedName());
-        flowChestplate = new ItemArmorFlowChestplate(flow, 0, 1);
-        GameRegistry.registerItem(flowChestplate, flowChestplate.getUnlocalizedName());
-        flowHelm = new ItemArmorFlowHelm(flow, 0, 0);
-        GameRegistry.registerItem(flowHelm, flowHelm.getUnlocalizedName());
+	    flowLeggings = new ItemArmorFlowLeggings(flow, 0, 2);
+	    GameRegistry.registerItem(flowLeggings, flowLeggings.getUnlocalizedName());
+	    flowChestplate = new ItemArmorFlowChestplate(flow, 0, 1);
+	    GameRegistry.registerItem(flowChestplate, flowChestplate.getUnlocalizedName());
+	    flowHelm = new ItemArmorFlowHelm(flow, 0, 0);
+	    GameRegistry.registerItem(flowHelm, flowHelm.getUnlocalizedName());
 
         //food
         cookedBacon = new FoodCookedBacon();
@@ -142,5 +141,7 @@ public class ItemRegistry {
         GameRegistry.registerItem(metaResourceUtensil, "ItemMetadataResourceUtensil");
 
         //misc
+        flowstoneBucket = new ItemFlowstoneBucket(BlockRegistry.flowstoneBlock);
+        GameRegistry.registerItem(flowstoneBucket, flowstoneBucket.getUnlocalizedName());
     }
 }

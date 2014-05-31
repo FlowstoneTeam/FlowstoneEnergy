@@ -53,11 +53,16 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         //machine workbench
         this.frontOn[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
         this.frontOff[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+        
+        //liquifier
+        this.frontOn[6] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
+        this.frontOff[6] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
     }
 
-    @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i <= 6; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
@@ -82,6 +87,9 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         if (meta == 5) {
             return new TileEntityMachineWorkbench();
         }
+        if (meta == 6) {
+        	return new TileEntityMachineLiquifier();
+        }
         return super.createTileEntity(world, meta);
     }
 
@@ -102,6 +110,8 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
             player.openGui(FlowstoneEnergy.instance, 3, world, x, y, z);
         } else if (!world.isRemote && tile instanceof TileEntityMachineWorkbench) {
             player.openGui(FlowstoneEnergy.instance, 4, world, x, y, z);
+        } else if (!world.isRemote && tile instanceof TileEntityMachineLiquifier) {
+        	player.openGui(FlowstoneEnergy.instance, 6, world, x, y, z);
         }
         return true;
     }

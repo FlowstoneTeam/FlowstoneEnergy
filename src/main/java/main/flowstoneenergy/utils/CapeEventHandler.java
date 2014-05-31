@@ -1,4 +1,4 @@
-package main.flowstoneenergy.events;
+package main.flowstoneenergy.utils;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.entity.AbstractClientPlayer;

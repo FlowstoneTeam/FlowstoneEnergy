@@ -2,6 +2,8 @@ package main.flowstoneenergy.utils;
 
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -9,10 +11,18 @@ public class OreDictHandler {
 
     public static void registerOreDict() {
         //dusts
+        OreDictionary.registerOre("dustCoal", new ItemStack(ItemRegistry.metaResourceDust, 1, 0));
+        OreDictionary.registerOre("dustIron", new ItemStack(ItemRegistry.metaResourceDust, 1, 1));
+        OreDictionary.registerOre("dustGold", new ItemStack(ItemRegistry.metaResourceDust, 1, 2));
         OreDictionary.registerOre("dustCopper", new ItemStack(ItemRegistry.metaResourceDust, 1, 3));
         OreDictionary.registerOre("dustTin", new ItemStack(ItemRegistry.metaResourceDust, 1, 4));
         OreDictionary.registerOre("dustLead", new ItemStack(ItemRegistry.metaResourceDust, 1, 5));
         OreDictionary.registerOre("dustSilver", new ItemStack(ItemRegistry.metaResourceDust, 1, 6));
+        OreDictionary.registerOre("dustTinyEnderium", new ItemStack(ItemRegistry.metaResourceDust, 1, 7));
+        OreDictionary.registerOre("dustEnderium", new ItemStack(ItemRegistry.metaResourceDust, 1, 8));
+        OreDictionary.registerOre("dustNickel", new ItemStack(ItemRegistry.metaResourceDust, 1, 9));
+        OreDictionary.registerOre("dustInvar", new ItemStack(ItemRegistry.metaResourceDust, 1, 10));
+        OreDictionary.registerOre("dustElectrum", new ItemStack(ItemRegistry.metaResourceDust, 1, 11));
 
         //ingots
         OreDictionary.registerOre("ingotCopper", new ItemStack(ItemRegistry.metaResourceIngot, 1, 0));
@@ -46,5 +56,15 @@ public class OreDictHandler {
         //tools
         OreDictionary.registerOre("toolWrench", ItemRegistry.flowwrench);
         OreDictionary.registerOre("toolWrench", ItemRegistry.pneumaticFlowwrench);
+
+        //vanilla stuff that should be registered IMO
+        OreDictionary.registerOre("blockStone", Blocks.stone);
+        OreDictionary.registerOre("blockCobblestone", Blocks.cobblestone);
+        OreDictionary.registerOre("blockGravel", Blocks.gravel);
+        OreDictionary.registerOre("blockSand", Blocks.sand);
+        OreDictionary.registerOre("ingotIron", Items.iron_ingot);
+        OreDictionary.registerOre("ingotGold", Items.gold_ingot);
+        OreDictionary.registerOre("gemDiamond", Items.diamond);
+        OreDictionary.registerOre("quartzNether", Items.quartz);
     }
 }

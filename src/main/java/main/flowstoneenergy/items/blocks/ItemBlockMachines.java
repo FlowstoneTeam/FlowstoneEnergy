@@ -39,6 +39,10 @@ public class ItemBlockMachines extends ItemBlock {
                 name = "machineWorkbench";
                 break;
             }
+            case 6: {
+                name = "liquifier";
+                break;
+            }
             default:
                 name = "nothing";
         }

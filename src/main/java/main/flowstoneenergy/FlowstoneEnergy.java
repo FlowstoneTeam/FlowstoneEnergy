@@ -15,18 +15,23 @@ import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.enchants.EnchantRandTeleHandler;
 import main.flowstoneenergy.enchants.EnchantRegistry;
 import main.flowstoneenergy.entities.FEEntityRegistry;
-import main.flowstoneenergy.events.CapeEventHandler;
 import main.flowstoneenergy.gui.CreativeTab;
 import main.flowstoneenergy.gui.GuiHandler;
 import main.flowstoneenergy.items.ItemRecipeRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.proxies.CommonProxy;
 import main.flowstoneenergy.tileentities.TERegistry;
+import main.flowstoneenergy.utils.BucketHandler;
+import main.flowstoneenergy.utils.CapeEventHandler;
 import main.flowstoneenergy.utils.GenerationHandler;
 import main.flowstoneenergy.utils.OreDictHandler;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION)
 public class FlowstoneEnergy {
@@ -44,11 +49,15 @@ public class FlowstoneEnergy {
         ConfigHandler.configOptions(config);
 
         MinecraftForge.EVENT_BUS.register(new EnchantRandTeleHandler());
+        MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
         EnchantRegistry.registerEnchants();
 
         BlockRegistry.registerBlocks();
         ItemRegistry.registerItems();
         TERegistry.registerTileEntities();
+        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("flowstone", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.flowstoneBucket),
+        		new ItemStack(Items.bucket));
+        BucketHandler.INSTANCE.buckets.put(BlockRegistry.flowstoneBlock, ItemRegistry.flowstoneBucket); 
 
         ItemRecipeRegistry.registerFullRecipes();
         BlockRecipeRegistry.registerFullRecipes();

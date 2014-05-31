@@ -10,7 +10,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class BlockRecipeRegistry {
 
     private static void registerBlockRecipes() {
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.machineBox), new Object[]{"XXX", "X X", "XXX", 'X', "ingotCopper"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.machineBox, 1, 0), new Object[]{"XXX", "X X", "XXX", 'X', "ingotCopper"}));
         GameRegistry.addRecipe(new ItemStack(BlockRegistry.machines, 1, 5), "GCG", "CMC", "GCG", 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 1), 'C', Blocks.crafting_table, 'M', new ItemStack(BlockRegistry.machineBox));
     }
 

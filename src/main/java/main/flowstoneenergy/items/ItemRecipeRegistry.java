@@ -7,38 +7,41 @@ import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class ItemRecipeRegistry {
 
     private static void registerShapedRecipes() {
         //tool recipes (vanilla crafting recipe)
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.flowwrench), "L L", " I ", " L ", 'L', new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 'I', new ItemStack(ItemRegistry.metaResourceGear, 1, 1));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.enderSword), " E ", " E ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.electrumSword), " E ", " E ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.enderPick), "EEE", " S ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.electrumPick), "EEE", " S ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.enderAxe), "EE ", "ES ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.electrumAxe), "EE ", "ES ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.enderShovel), " E ", " S ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.electrumShovel), " E ", " S ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.enderHoe), "EE ", " S ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.electrumHoe), "EE ", " S ", " S ", 'E', new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 'S', Items.stick);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.flowwrench), new Object[]{"X X", " Y ", " X ", 'X', "ingotLead", 'Y', "gearStone"}));
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.enderSword), new Object[]{" X ", " X ", " Y ", 'X', "ingotEnderium", 'Y', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.enderPick), new Object[]{"XXX", " Y ", " Y ", 'X', "ingotEnderium", 'Y', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.enderShovel), new Object[]{" X ", " Y ", " Y ", 'X', "ingotEnderium", 'Y', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.enderAxe), new Object[]{"XX ", "XY ", " Y ", 'X', "ingotEnderium", 'Y', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.enderHoe), new Object[]{"XX ", " Y ", " Y ", 'X', "ingotEnderium", 'Y', "stickWood"}));
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.electrumSword), new Object[]{" X ", " X ", " Y ", 'X', "ingotElectrum", 'Y', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.electrumPick), new Object[]{"XXX", " Y ", " Y ", 'X', "ingotElectrum", 'Y', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.electrumShovel), new Object[]{" X ", " Y ", " Y ", 'X', "ingotElectrum", 'Y', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.electrumAxe), new Object[]{"XX ", "XY ", " Y ", 'X', "ingotElectrum", 'Y', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.electrumHoe), new Object[]{"XX ", " Y ", " Y ", 'X', "ingotElectrum", 'Y', "stickWood"}));
 
         //gear recipes (vanilla crafting recipe)
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 0), " S ", "SSS", " S ", 'S', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 1), " S ", "SGS", " S ", 'S', Blocks.stone, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 2), " I ", "IGI", " I ", 'I', Items.iron_ingot, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 3), " C ", "CGC", " C ", 'C', Items.gold_ingot, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 4), " T ", "TGT", " T ", 'T', Items.quartz, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 5), " L ", "LGL", " L ", 'L', Items.diamond, 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 6), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 0), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 7), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 8), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 9), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 10), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 4), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 11), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 12), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 13), " S ", "SGS", " S ", 'S', new ItemStack(ItemRegistry.metaResourceIngot, 1, 6), 'G', new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 0), new Object[]{" X ", "XXX", " X ", 'X', "stickWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 1), new Object[]{" X ", "XYX", " X ", 'X', "blockStone", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new Object[]{" X ", "XYX", " X ", 'X', "ingotIron", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 3), new Object[]{" X ", "XYX", " X ", 'X', "ingotGold", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 4), new Object[]{" X ", "XYX", " X ", 'X', "quartzNether", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 5), new Object[]{" X ", "XYX", " X ", 'X', "gemDiamond", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 6), new Object[]{" X ", "XYX", " X ", 'X', "ingotCopper", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 7), new Object[]{" X ", "XYX", " X ", 'X', "ingotTin", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 8), new Object[]{" X ", "XYX", " X ", 'X', "ingotLead", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 9), new Object[]{" X ", "XYX", " X ", 'X', "ingotSilver", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 10), new Object[]{" X ", "XYX", " X ", 'X', "ingotEnderium", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 11), new Object[]{" X ", "XYX", " X ", 'X', "ingotElectrum", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 12), new Object[]{" X ", "XYX", " X ", 'X', "ingotNickel", 'Y', "gearWood"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 0), new Object[]{" X ", "XYX", " X ", 'X', "ingotInvar", 'Y', "gearWood"}));
 
         //food recipes
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), "C C", " C ", "   ", 'C', Items.clay_ball);
@@ -56,15 +59,9 @@ public class ItemRecipeRegistry {
     }
 
     private static void registerReverseStorageRecipes() {
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 0), new ItemStack(BlockRegistry.ingotStorage, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 1), new ItemStack(BlockRegistry.ingotStorage, 1, 1));
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 2), new ItemStack(BlockRegistry.ingotStorage, 1, 2));
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 3), new ItemStack(BlockRegistry.ingotStorage, 1, 3));
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 4), new ItemStack(BlockRegistry.ingotStorage, 1, 4));
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 5), new ItemStack(BlockRegistry.ingotStorage, 1, 5));
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 6), new ItemStack(BlockRegistry.ingotStorage, 1, 6));
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 7), new ItemStack(BlockRegistry.ingotStorage, 1, 7));
-        GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, 8), new ItemStack(BlockRegistry.ingotStorage, 1, 8));
+        for (int i = 0; i <= 8; i++) {
+            GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceIngot, 9, i), new ItemStack(BlockRegistry.ingotStorage, 1, i));
+        }
     }
 
     private static void registerSmeltingRecipes() {

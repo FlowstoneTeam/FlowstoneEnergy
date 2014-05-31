@@ -19,7 +19,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.*;
 
-public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
+public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench{
 
     Random rand = new Random();
     private int maxFE = 10000;

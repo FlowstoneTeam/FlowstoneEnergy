@@ -1,11 +1,14 @@
 package main.flowstoneenergy.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import main.flowstoneenergy.blocks.fluids.BlockFlowstone;
 import main.flowstoneenergy.blocks.machines.*;
 import main.flowstoneenergy.items.blocks.ItemBlockIngotStorage;
 import main.flowstoneenergy.items.blocks.ItemBlockMachines;
 import main.flowstoneenergy.items.blocks.ItemBlockOres;
 import net.minecraft.block.Block;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 public class BlockRegistry {
 
@@ -18,6 +21,10 @@ public class BlockRegistry {
 
     //ores
     public static Block blockOres;
+    
+    //fluids
+    public static Fluid flowstone;
+    public static Block flowstoneBlock;
 
     public static void registerBlocks() {
         //machines
@@ -35,5 +42,12 @@ public class BlockRegistry {
         //ores
         blockOres = new BlockOres();
         GameRegistry.registerBlock(blockOres, ItemBlockOres.class, blockOres.getUnlocalizedName());
+        
+        //fluids
+        flowstone = new Fluid("flowstone");
+        FluidRegistry.registerFluid(flowstone);
+        flowstoneBlock = new BlockFlowstone(flowstone);
+        GameRegistry.registerBlock(flowstoneBlock, flowstoneBlock.getUnlocalizedName());
+        flowstone.setUnlocalizedName(flowstoneBlock.getUnlocalizedName());
     }
 }

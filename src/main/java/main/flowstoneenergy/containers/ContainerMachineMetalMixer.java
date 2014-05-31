@@ -25,7 +25,7 @@ public class ContainerMachineMetalMixer extends Container {
     }
 
     private void createSlots(TileEntityMachineMetalMixer tile, EntityPlayer player) {
-        addSlotToContainer(new Slot(tile, 0, 40, 16));
+        addSlotToContainer(new Slot(tile, 0, 39, 16));
         addSlotToContainer(new Slot(tile, 1, 62, 16));
         addSlotToContainer(new SlotFurnace(player, tile, 2, 121, 34));
         addSlotToContainer(new SlotFurnace(player, tile, 3, 138, 34));

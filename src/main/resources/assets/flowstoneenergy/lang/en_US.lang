@@ -9,6 +9,7 @@ tile.blockMachines.flowstoneBottler.name=Flowstone Bottler
 tile.blockMachines.metalMixer.name=Metal Mixer
 tile.blockMachines.lumberMill.name=Lumber Mill
 tile.blockMachines.machineWorkbench.name=Machine Workbench
+tile.blockMachines.liquifier.name=Item Liquifier
 tile.flowstoneenergy.AutoCraftingTable.name=Auto Crafting Table
 
 BLOCKS
@@ -20,6 +21,7 @@ tile.blockIngotStorage.nickel.name=Nickel Block
 tile.blockIngotStorage.invar.name=Invar Block
 tile.blockIngotStorage.electrum.name=Electrum Block
 tile.blockIngotStorage.ender.name=Ender Block
+tile.flowstoneenergy.flowstoneBlock.name=Liquid Flowstone
 
 BATTERIES
 item.flowstoneenergy.flowstone.battery.tier.one.name=Flowstone Battery [Tier: 1]
@@ -41,6 +43,7 @@ item.flowstoneenergy.electrum.pickaxe.name=Electrum Pickaxe
 item.flowstoneenergy.electrum.hoe.name=Electrum Hoe
 item.flowstoneenergy.electrum.shovel.name=Electrum Shovel
 item.flowstoneenergy.electrum.axe.name=Electrum Axe
+item.flowstoneenergy.flowstone.bucket.name=Flowstone Bucket
 
 ARMOR
 item.flowstoneenergy.flow.boots.name=Flow Boots
@@ -65,7 +68,6 @@ item.itemMetadataResourceIngot.itemIngotNickel.name=Nickel Ingot
 item.itemMetadataResourceIngot.itemIngotInvar.name=Invar Ingot
 item.itemMetadataResourceIngot.itemIngotElectrum.name=Electrum Ingot
 item.itemMetadataResourceIngot.nothing.name=Anti-Derp Protocol [YOU SHOULD NOT HAVE THIS]
-
 
 DUSTS
 item.itemMetadataResourceDust.itemDustCoal.name=Coal Dust
@@ -94,6 +96,9 @@ item.itemMetadataResourceGear.itemGearTin.name=Tin Gear
 item.itemMetadataResourceGear.itemGearLead.name=Lead Gear
 item.itemMetadataResourceGear.itemGearSilver.name=Silver Gear
 item.itemMetadataResourceGear.itemGearEnder.name=Ender Gear
+item.itemMetadataResourceGear.itemGearNickel.name=Nickel Gear
+item.itemMetadataResourceGear.itemGearElectrum.name=Electrum Gear
+item.itemMetadataResourceGear.itemGearInvar.name=Invar Gear
 item.itemMetadataResourceGear.nothing.name=Anti-Derp Protocol [YOU SHOULD NOT HAVE THIS]
 
 FOOD
@@ -110,3 +115,6 @@ item.itemMetadataResourceUtensil.cup.name=Cup
 
 ENCHANTMENTS
 enchantment.flowstoneenergy.randomTeleport=Teleport
+
+ENTITIES
+entity.flowstoneenergy.EntityRobot.name=Flowstone Robot 4000
