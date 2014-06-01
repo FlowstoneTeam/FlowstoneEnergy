@@ -3,10 +3,7 @@ package main.flowstoneenergy.utils;
 import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
-import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
-import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
-import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
-import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
+import main.flowstoneenergy.tileentities.recipes.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -48,6 +45,17 @@ public class OreDictHandler {
         OreDictionary.registerOre("oreSilver", new ItemStack(BlockRegistry.blockOres, 1, 3));
         OreDictionary.registerOre("oreNickel", new ItemStack(BlockRegistry.blockOres, 1, 4));
 
+        //blocks
+        OreDictionary.registerOre("blockCopper", new ItemStack(BlockRegistry.ingotStorage, 1, 0));
+        OreDictionary.registerOre("blockTin", new ItemStack(BlockRegistry.ingotStorage, 1, 1));
+        OreDictionary.registerOre("blockLead", new ItemStack(BlockRegistry.ingotStorage, 1, 2));
+        OreDictionary.registerOre("blockSilver", new ItemStack(BlockRegistry.ingotStorage, 1, 3));
+        OreDictionary.registerOre("blockEnder", new ItemStack(BlockRegistry.ingotStorage, 1, 4));
+        OreDictionary.registerOre("blockNickel", new ItemStack(BlockRegistry.ingotStorage, 1, 5));
+        OreDictionary.registerOre("blockInvar", new ItemStack(BlockRegistry.ingotStorage, 1, 6));
+        OreDictionary.registerOre("blockElectrum", new ItemStack(BlockRegistry.ingotStorage, 1, 7));
+        OreDictionary.registerOre("machineBasic", new ItemStack(BlockRegistry.machineBox));
+
         //gears
         OreDictionary.registerOre("gearWood", new ItemStack(ItemRegistry.metaResourceGear, 1, 0));
         OreDictionary.registerOre("gearStone", new ItemStack(ItemRegistry.metaResourceGear, 1, 1));
@@ -59,6 +67,10 @@ public class OreDictHandler {
         OreDictionary.registerOre("gearTin", new ItemStack(ItemRegistry.metaResourceGear, 1, 7));
         OreDictionary.registerOre("gearLead", new ItemStack(ItemRegistry.metaResourceGear, 1, 8));
         OreDictionary.registerOre("gearSilver", new ItemStack(ItemRegistry.metaResourceGear, 1, 9));
+        OreDictionary.registerOre("gearEnderium", new ItemStack(ItemRegistry.metaResourceGear, 1, 10));
+        OreDictionary.registerOre("gearElectrum", new ItemStack(ItemRegistry.metaResourceGear, 1, 11));
+        OreDictionary.registerOre("gearNickel", new ItemStack(ItemRegistry.metaResourceGear, 1, 12));
+        OreDictionary.registerOre("gearInvar", new ItemStack(ItemRegistry.metaResourceGear, 1, 13));
 
         //tools
         OreDictionary.registerOre("toolWrench", ItemRegistry.flowwrench);
@@ -124,6 +136,21 @@ public class OreDictHandler {
             for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
                 for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
                     RecipesMetalMixer.addRecipe(oreList1, oreList2, output, time);
+                }
+            }
+        }
+    }
+
+    public static void machineWorkbenchOreDictRecipes(String ore1, String ore2, String ore3, ItemStack output, int time) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
+        if (ores1 != null && ores1.size() >= 0 && ores2 != null && ores2.size() >= 0 && ores3 != null && ores3.size() >= 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
+                        RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, output, time);
+                    }
                 }
             }
         }

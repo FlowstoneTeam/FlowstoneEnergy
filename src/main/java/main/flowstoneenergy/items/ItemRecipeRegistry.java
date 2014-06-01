@@ -3,7 +3,6 @@ package main.flowstoneenergy.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
-import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import main.flowstoneenergy.utils.OreDictHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -125,8 +124,10 @@ public class ItemRecipeRegistry {
     }
 
     private static void registerMixerRecipes() {
-        RecipesMetalMixer.addRecipe(new ItemStack(Items.iron_ingot), new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), new ItemStack(ItemRegistry.metaResourceIngot, 3, 6), 300);
-        RecipesMetalMixer.addRecipe(new ItemStack(Items.gold_ingot), new ItemStack(ItemRegistry.metaResourceIngot, 2, 3), new ItemStack(ItemRegistry.metaResourceIngot, 2, 7), 300);
+        OreDictHandler.mixerOreDictRecipes("ingotIron", "ingotNickel", new ItemStack(ItemRegistry.metaResourceIngot, 2, 6), 300);
+        OreDictHandler.mixerOreDictRecipes("dustIron", "dustNickel", new ItemStack(ItemRegistry.metaResourceDust, 2, 10), 200);
+        OreDictHandler.mixerOreDictRecipes("ingotGold", "ingotSilver", new ItemStack(ItemRegistry.metaResourceIngot, 2, 7), 300);
+        OreDictHandler.mixerOreDictRecipes("dustGold", "dustSilver", new ItemStack(ItemRegistry.metaResourceDust, 2, 11), 200);
     }
 
     public static void registerFullRecipes() {
