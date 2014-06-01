@@ -53,6 +53,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
 
     @Override
     public void updateEntity() {
+        super.updateEntity();
+
         if (items[0] != null && ticksLeft == 0) {
             Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
             if (r != null) {

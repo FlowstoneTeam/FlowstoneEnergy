@@ -55,6 +55,8 @@ public class TileEntityMachineLiquifier extends TileEntityMachineBase {
 
     @Override
     public void updateEntity() {
+        super.updateEntity();
+
         if (items[0] != null) {
 
             if (this.canLiquify()) {

@@ -1,7 +1,5 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 
@@ -28,9 +26,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
         if (slot != 0) return false;
-        for (Recipe1_1 r : RecipesEnergizedOreTumbler.recipe11List) {
-            if (r.getInput().getItem().equals(stack.getItem())) return true;
-        }
+        if (FurnaceRecipes.smelting().getSmeltingResult(stack) != null) return true;
         return false;
     }
 
@@ -55,6 +51,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
 
     @Override
     public void updateEntity() {
+        super.updateEntity();
+
         if (items[0] != null) {
 
             if (this.canSmelt()) {
