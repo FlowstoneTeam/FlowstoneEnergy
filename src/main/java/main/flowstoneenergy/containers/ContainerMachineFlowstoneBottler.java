@@ -1,6 +1,6 @@
 package main.flowstoneenergy.containers;
 
-import main.flowstoneenergy.tileentities.TileEntityMachineFlowstoneBottler;
+import main.flowstoneenergy.tileentities.machines.TileEntityMachineFlowstoneBottler;
 import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

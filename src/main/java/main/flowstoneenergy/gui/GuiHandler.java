@@ -2,7 +2,7 @@ package main.flowstoneenergy.gui;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import main.flowstoneenergy.containers.*;
-import main.flowstoneenergy.tileentities.*;
+import main.flowstoneenergy.tileentities.machines.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

@@ -1,6 +1,6 @@
 package main.flowstoneenergy.containers;
 
-import main.flowstoneenergy.tileentities.TileEntityMachineAutoCraftingTable;
+import main.flowstoneenergy.tileentities.machines.TileEntityMachineAutoCraftingTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

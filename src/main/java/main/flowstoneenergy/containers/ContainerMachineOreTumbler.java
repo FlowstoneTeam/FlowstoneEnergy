@@ -1,6 +1,6 @@
 package main.flowstoneenergy.containers;
 
-import main.flowstoneenergy.tileentities.TileEntityMachineOreTumbler;
+import main.flowstoneenergy.tileentities.machines.TileEntityMachineOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

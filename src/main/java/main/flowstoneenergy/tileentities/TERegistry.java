@@ -1,6 +1,7 @@
 package main.flowstoneenergy.tileentities;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import main.flowstoneenergy.tileentities.machines.*;
 
 public class TERegistry {
 

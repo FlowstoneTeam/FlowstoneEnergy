@@ -1,15 +1,15 @@
-package main.flowstoneenergy.tileentities;
+package main.flowstoneenergy.tileentities.machines;
 
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
+import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.item.ItemStack;
 
-public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
+public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
 
-    public TileEntityMachineFlowstoneBottler() {
+    public TileEntityMachineOreTumbler() {
         items = new ItemStack[2];
     }
 
@@ -26,7 +26,7 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
         if (slot != 0) return false;
-        for (Recipe1_1 r : RecipesFlowstoneBottler.recipe11List) {
+        for (Recipe1_1 r : RecipesEnergizedOreTumbler.recipe11List) {
             if (r.getInput().getItem().equals(stack.getItem())) return true;
         }
         return false;
@@ -54,13 +54,13 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
     @Override
     public void updateEntity() {
         if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesFlowstoneBottler.getRecipeFromStack(items[0]);
+            Recipe1_1 r = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]);
             if (r != null) {
-                maxTicks = r.getTime();
+                maxTicks = r.getTime() - (r.getTime() / divisionFactor);
             }
         }
-        if (ticksLeft < maxTicks && RecipesFlowstoneBottler.getRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
+        if (ticksLeft < maxTicks && RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
+            if (items[1] == null || RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -68,28 +68,29 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
                 resetTimeAndTexture();
             }
         }
-        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
+        if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();
         }
         if (ticksLeft == maxTicks) {
             ticksLeft = 0;
-            smelt();
+            oreDouble();
         }
     }
 
-    private void smelt() {
-        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null) return;
-        ItemStack res = RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput();
-        if (items[1] == null)
-            items[1] = res.copy();
-        else
-            items[1].stackSize += res.stackSize;
+    private void oreDouble() {
+        if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
+            ItemStack res = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput();
+            if (items[1] == null)
+                items[1] = res.copy();
+            else
+                items[1].stackSize += res.stackSize;
 
 
-        items[0].stackSize--;
-        if (items[0].stackSize <= 0) {
-            items[0] = null;
+            items[0].stackSize--;
+            if (items[0].stackSize <= 0) {
+                items[0] = null;
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-package main.flowstoneenergy.tileentities;
+package main.flowstoneenergy.tileentities.machines;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -16,6 +16,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public int facing;
     public int ticksLeft = 0;
     public int maxTicks = 0;
+    public int divisionFactor = 0;
 
     @Override
     public void openInventory() {
@@ -102,6 +103,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
 
         facing = tagCompound.getInteger("facing");
         ticksLeft = tagCompound.getInteger("ticksLeft");
+        divisionFactor = tagCompound.getInteger("divisionFactor");
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
             NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
@@ -129,6 +131,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
         tagCompound.setTag("Items", nbttaglist);
         tagCompound.setInteger("facing", facing);
         tagCompound.setInteger("ticksLeft", ticksLeft);
+        tagCompound.setInteger("divisionFactor", divisionFactor);
     }
 
     @Override

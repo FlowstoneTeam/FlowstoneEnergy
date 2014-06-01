@@ -1,16 +1,16 @@
-package main.flowstoneenergy.tileentities;
+package main.flowstoneenergy.tileentities.machines;
 
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 
-public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
+public class TileEntityMachineLiquifier extends TileEntityMachineBase {
 
-    @SuppressWarnings("unused")
+	@SuppressWarnings("unused")
     private String field_145958_o;
 
-    public TileEntityMachineHeatedOven() {
+    public TileEntityMachineLiquifier() {
         items = new ItemStack[2];
         maxTicks = 150;
     }
@@ -57,7 +57,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
     public void updateEntity() {
         if (items[0] != null) {
 
-            if (this.canSmelt()) {
+            if (this.canLiquify()) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -67,7 +67,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
 
             if (ticksLeft == maxTicks) {
                 ticksLeft = 0;
-                smelt();
+                liquify();
             }
         }
 
@@ -76,25 +76,11 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
         }
     }
 
-    public void smelt() {
-        if (this.canSmelt()) {
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
-
-            if (this.items[1] == null) {
-                this.items[1] = itemstack.copy();
-            } else if (this.items[1].getItem() == itemstack.getItem()) {
-                this.items[1].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
-            }
-
-            --this.items[0].stackSize;
-
-            if (this.items[0].stackSize <= 0) {
-                this.items[0] = null;
-            }
-        }
+    public void liquify() {
+        
     }
 
-    private boolean canSmelt() {
+    private boolean canLiquify() {
         if (this.items[0] == null) {
             return false;
         } else {
@@ -113,4 +99,5 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase {
         }
         return ticksLeft * scale / maxTicks;
     }
+
 }

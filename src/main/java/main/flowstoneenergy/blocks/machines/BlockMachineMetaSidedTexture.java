@@ -2,9 +2,8 @@ package main.flowstoneenergy.blocks.machines;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import main.flowstoneenergy.blocks.machines.BlockMachineBox;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
-import main.flowstoneenergy.tileentities.TileEntityMachineBase;
+import main.flowstoneenergy.tileentities.machines.TileEntityMachineBase;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;

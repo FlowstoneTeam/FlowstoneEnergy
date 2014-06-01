@@ -1,21 +1,16 @@
-package main.flowstoneenergy.tileentities;
+package main.flowstoneenergy.tileentities.machines;
 
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
+import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
 import net.minecraft.item.ItemStack;
 
-public class TileEntityMachineLumberMill extends TileEntityMachineBase {
+public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
 
-    public TileEntityMachineLumberMill() {
+    public TileEntityMachineFlowstoneBottler() {
         items = new ItemStack[2];
-    }
-
-    @Override
-    public boolean hasCustomInventoryName() {
-        return false;
     }
 
     @Override
@@ -24,9 +19,14 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
     }
 
     @Override
+    public boolean hasCustomInventoryName() {
+        return true;
+    }
+
+    @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
         if (slot != 0) return false;
-        for (Recipe1_1 r : RecipesLumberMill.recipe11List) {
+        for (Recipe1_1 r : RecipesFlowstoneBottler.recipe11List) {
             if (r.getInput().getItem().equals(stack.getItem())) return true;
         }
         return false;
@@ -38,7 +38,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
     }
 
     @Override
-    public boolean canInsertItem(int slot, ItemStack stack, int side) {
+    public boolean canInsertItem(int var1, ItemStack var2, int var3) {
         return true;
     }
 
@@ -54,13 +54,13 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
     @Override
     public void updateEntity() {
         if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
+            Recipe1_1 r = RecipesFlowstoneBottler.getRecipeFromStack(items[0]);
             if (r != null) {
-                maxTicks = r.getTime();
+                maxTicks = r.getTime() - (r.getTime() / divisionFactor);
             }
         }
-        if (ticksLeft < maxTicks && RecipesLumberMill.getRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesLumberMill.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
+        if (ticksLeft < maxTicks && RecipesFlowstoneBottler.getRecipeFromStack(items[0]) != null) {
+            if (items[1] == null || RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -68,7 +68,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
                 resetTimeAndTexture();
             }
         }
-        if (RecipesLumberMill.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
+        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();
         }
@@ -79,8 +79,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
     }
 
     private void smelt() {
-        if (RecipesLumberMill.getRecipeFromStack(items[0]) == null) return;
-        ItemStack res = RecipesLumberMill.getRecipeFromStack(items[0]).getOutput();
+        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null) return;
+        ItemStack res = RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput();
         if (items[1] == null)
             items[1] = res.copy();
         else

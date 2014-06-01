@@ -1,6 +1,6 @@
 package main.flowstoneenergy.containers;
 
-import main.flowstoneenergy.tileentities.TileEntityMachineLumberMill;
+import main.flowstoneenergy.tileentities.machines.TileEntityMachineLumberMill;
 import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

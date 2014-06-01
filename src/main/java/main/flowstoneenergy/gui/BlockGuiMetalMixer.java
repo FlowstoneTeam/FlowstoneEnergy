@@ -2,7 +2,7 @@ package main.flowstoneenergy.gui;
 
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.containers.ContainerMachineMetalMixer;
-import main.flowstoneenergy.tileentities.TileEntityMachineMetalMixer;
+import main.flowstoneenergy.tileentities.machines.TileEntityMachineMetalMixer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;

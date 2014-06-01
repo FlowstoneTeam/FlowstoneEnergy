@@ -1,16 +1,21 @@
-package main.flowstoneenergy.tileentities;
+package main.flowstoneenergy.tileentities.machines;
 
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
+import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.item.ItemStack;
 
-public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
+public class TileEntityMachineLumberMill extends TileEntityMachineBase {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
 
-    public TileEntityMachineOreTumbler() {
+    public TileEntityMachineLumberMill() {
         items = new ItemStack[2];
+    }
+
+    @Override
+    public boolean hasCustomInventoryName() {
+        return false;
     }
 
     @Override
@@ -19,14 +24,9 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
-        return true;
-    }
-
-    @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
         if (slot != 0) return false;
-        for (Recipe1_1 r : RecipesEnergizedOreTumbler.recipe11List) {
+        for (Recipe1_1 r : RecipesLumberMill.recipe11List) {
             if (r.getInput().getItem().equals(stack.getItem())) return true;
         }
         return false;
@@ -38,7 +38,7 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
     }
 
     @Override
-    public boolean canInsertItem(int var1, ItemStack var2, int var3) {
+    public boolean canInsertItem(int slot, ItemStack stack, int side) {
         return true;
     }
 
@@ -54,13 +54,13 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
     @Override
     public void updateEntity() {
         if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]);
+            Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
             if (r != null) {
-                maxTicks = r.getTime();
+                maxTicks = r.getTime() - (r.getTime() / divisionFactor);
             }
         }
-        if (ticksLeft < maxTicks && RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
+        if (ticksLeft < maxTicks && RecipesLumberMill.getRecipeFromStack(items[0]) != null) {
+            if (items[1] == null || RecipesLumberMill.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -68,29 +68,28 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
                 resetTimeAndTexture();
             }
         }
-        if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
+        if (RecipesLumberMill.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();
         }
         if (ticksLeft == maxTicks) {
             ticksLeft = 0;
-            oreDouble();
+            smelt();
         }
     }
 
-    private void oreDouble() {
-        if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
-            ItemStack res = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput();
-            if (items[1] == null)
-                items[1] = res.copy();
-            else
-                items[1].stackSize += res.stackSize;
+    private void smelt() {
+        if (RecipesLumberMill.getRecipeFromStack(items[0]) == null) return;
+        ItemStack res = RecipesLumberMill.getRecipeFromStack(items[0]).getOutput();
+        if (items[1] == null)
+            items[1] = res.copy();
+        else
+            items[1].stackSize += res.stackSize;
 
 
-            items[0].stackSize--;
-            if (items[0].stackSize <= 0) {
-                items[0] = null;
-            }
+        items[0].stackSize--;
+        if (items[0].stackSize <= 0) {
+            items[0] = null;
         }
     }
 

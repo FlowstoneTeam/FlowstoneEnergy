@@ -2,7 +2,7 @@ package main.flowstoneenergy.gui;
 
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.containers.ContainerMachineLumberMill;
-import main.flowstoneenergy.tileentities.TileEntityMachineLumberMill;
+import main.flowstoneenergy.tileentities.machines.TileEntityMachineLumberMill;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
