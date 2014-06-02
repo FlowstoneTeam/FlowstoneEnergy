@@ -54,7 +54,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase {
         if (items[0] != null && items[1] != null && items[2] != null && ticksLeft == 0) {
             Recipe3_1 r = RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]);
             if (r != null) {
-                maxTicks = r.getTime() - (r.getTime() / divisionFactor);
+                maxTicks = r.getTime();
             }
         }
 

@@ -59,7 +59,7 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase {
         if (items[0] != null && items[1] != null && ticksLeft == 0) {
             Recipe2_1 r = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]);
             if (r != null) {
-                maxTicks = r.getTime() - (r.getTime() / divisionFactor);
+                maxTicks = r.getTime();
             }
         }
 

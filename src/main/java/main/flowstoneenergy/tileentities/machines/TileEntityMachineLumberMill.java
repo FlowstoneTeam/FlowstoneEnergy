@@ -58,7 +58,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
         if (items[0] != null && ticksLeft == 0) {
             Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
             if (r != null) {
-                maxTicks = r.getTime() - (r.getTime() / divisionFactor);
+                maxTicks = r.getTime();
             }
         }
         if (ticksLeft < maxTicks && RecipesLumberMill.getRecipeFromStack(items[0]) != null) {
