@@ -1,14 +1,14 @@
 package main.flowstoneenergy.entities;
 
+import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityGolem;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class EntityRobot extends EntityCreature implements IMob {
+public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnData {
 
     private boolean charged;
 
@@ -25,7 +25,7 @@ public class EntityRobot extends EntityCreature implements IMob {
     public void setCharged() {
         charged = true;
     }
-    
+
     @Override
     protected void applyEntityAttributes()
     {
@@ -48,7 +48,7 @@ public class EntityRobot extends EntityCreature implements IMob {
 
     @Override
     public void onUpdate() {
-        super.onUpdate();	
+        super.onUpdate();
 	}
 
     @Override
