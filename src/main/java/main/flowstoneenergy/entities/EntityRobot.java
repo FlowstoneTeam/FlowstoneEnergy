@@ -1,22 +1,21 @@
 package main.flowstoneenergy.entities;
 
-import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 
-public class EntityRobot extends EntityAnimal implements IEntityAdditionalSpawnData {
+public class EntityRobot extends EntityCreature implements IMob {
 
     private boolean charged;
 
     public EntityRobot(World world) {
         super(world);
-        setSize(1.5F, 0.6F);
+        setHealth(20);
+        setSize(1.0F, 0.6F);
     }
 
     public boolean isCharged() {
@@ -55,28 +54,12 @@ public class EntityRobot extends EntityAnimal implements IEntityAdditionalSpawnD
 
     @Override
     public void onUpdate() {
-        super.onUpdate();
-
-        if (!worldObj.isRemote) {
-            if (riddenByEntity != null) {
-                motionY = 0.2;
-            } else if (worldObj.isAirBlock((int) posX, (int) posY - 1, (int) posZ)) {
-                motionY = -0.1;
-            } else {
-                motionY = 0;
-            }
-        }
-        setPosition(posX + motionX, posY + motionY, posZ + motionZ);
-    }
+        super.onUpdate();	
+	}
 
     @Override
     public boolean canBeCollidedWith() {
         return !isDead;
-    }
-
-    @Override
-    protected void entityInit() {
-
     }
 
     @Override
@@ -88,20 +71,4 @@ public class EntityRobot extends EntityAnimal implements IEntityAdditionalSpawnD
 	public void writeEntityToNBT(NBTTagCompound nbt) {
         nbt.setBoolean("Charged", charged);
     }
-
-    @Override
-    public void writeSpawnData(ByteBuf data) {
-        data.writeBoolean(charged);
-    }
-
-    @Override
-    public void readSpawnData(ByteBuf data) {
-        charged = data.readBoolean();
-    }
-
-	@Override
-	public EntityAgeable createChild(EntityAgeable var1) {
-		return null;
-	}
-
 }
