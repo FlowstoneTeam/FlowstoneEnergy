@@ -1,6 +1,6 @@
 [
 {
-  "modid": "flowstoneenergy",
+  "modid": "main.main.main.flowstoneenergy",
   "name": "Flowstone Energy",
   "description": "The newest energy mod.",
   "version": "${version}",

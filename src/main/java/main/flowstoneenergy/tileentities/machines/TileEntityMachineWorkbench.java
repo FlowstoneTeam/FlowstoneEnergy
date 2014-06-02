@@ -1,7 +1,7 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import main.flowstoneenergy.tileentities.recipes.Recipe3_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
+import main.flowstoneenergy.tileentities.recipes.Recipe3_1;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityMachineWorkbench extends TileEntityMachineBase {

@@ -24,7 +24,8 @@ public class ContainerMachineLiquifier extends Container {
     }
 
     private void createSlots(TileEntityMachineLiquifier tile, EntityPlayer player) {
-        addSlotToContainer(new Slot(tile, 0, 52, 16));
+        addSlotToContainer(new Slot(tile, 0, 37, 16));
+        addSlotToContainer(new Slot(tile, 1, 59, 16));
     }
 
     @Override

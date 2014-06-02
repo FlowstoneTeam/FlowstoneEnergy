@@ -1,7 +1,7 @@
 package main.flowstoneenergy.gui;
 
-import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.containers.ContainerMachineWorkbench;
+import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineWorkbench;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;

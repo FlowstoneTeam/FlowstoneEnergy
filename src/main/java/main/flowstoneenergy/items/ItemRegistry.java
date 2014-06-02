@@ -1,28 +1,38 @@
 package main.flowstoneenergy.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.items.battery.*;
-import main.flowstoneenergy.items.flowarmor.*;
-import main.flowstoneenergy.items.food.FoodBacon;
+import main.flowstoneenergy.items.flowarmor.ItemArmorFlowBoots;
+import main.flowstoneenergy.items.flowarmor.ItemArmorFlowChestplate;
+import main.flowstoneenergy.items.flowarmor.ItemArmorFlowHelm;
+import main.flowstoneenergy.items.flowarmor.ItemArmorFlowLeggings;
 import main.flowstoneenergy.items.food.FoodCookedBacon;
 import main.flowstoneenergy.items.food.FoodTea;
 import main.flowstoneenergy.items.food.ItemMetaResourceUtensil;
 import main.flowstoneenergy.items.tools.ItemFlowstoneBucket;
-import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
+import main.flowstoneenergy.items.tools.ItemLiquidBlazeBucket;
 import main.flowstoneenergy.items.tools.ItemToolPneumaticFlowwrench;
 import main.flowstoneenergy.items.tools.electrum.*;
 import main.flowstoneenergy.items.tools.ender.*;
+import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.items.food.FoodBacon;
+import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
+import main.flowstoneenergy.utils.BucketHandler;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 
 public class ItemRegistry {
 
     //Tool Materials
-	public static final ToolMaterial ender = EnumHelper.addToolMaterial("ENDER_TOOL_MATERIAL", Integer.MAX_VALUE, 2000, 16.0F, 12.0F, 45);
-	public static final ToolMaterial electrum = EnumHelper.addToolMaterial("ELECTRUM_TOOL_MATERIAL", 4, 1000, 6.0F, 8.0F, 25);
+	public static final ToolMaterial ender = EnumHelper.addToolMaterial("ENDER_TOOL_MATERIAL", Integer.MAX_VALUE, 2000, 16.0F, 0, 45);
+	public static final ToolMaterial electrum = EnumHelper.addToolMaterial("ELECTRUM_TOOL_MATERIAL", 4, 1000, 6.0F, 0, 25);
 
     //armour materials
     public static final ArmorMaterial flow = EnumHelper.addArmorMaterial("flow", -1, new int[]{1, 2, 3, 4}, 0);
@@ -69,9 +79,9 @@ public class ItemRegistry {
 
     //misc
     public static Item flowstoneBucket;
+    public static Item fluidBlazeBucket;
 
     public static void registerItems() {
-
         //Metadata Item
         metaResourceDust = new ItemMetaResourceDust().setUnlocalizedName("itemMetadataResourceDust");
         GameRegistry.registerItem(metaResourceDust, "ItemMetadataResourceDust");
@@ -143,5 +153,7 @@ public class ItemRegistry {
         //misc
         flowstoneBucket = new ItemFlowstoneBucket(BlockRegistry.flowstoneBlock);
         GameRegistry.registerItem(flowstoneBucket, flowstoneBucket.getUnlocalizedName());
+        fluidBlazeBucket = new ItemLiquidBlazeBucket(BlockRegistry.fluidBlazeBlock);
+        GameRegistry.registerItem(fluidBlazeBucket, fluidBlazeBucket.getUnlocalizedName());
     }
 }

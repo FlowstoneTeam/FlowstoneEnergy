@@ -1,7 +1,7 @@
 package main.flowstoneenergy.gui;
 
-import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.containers.ContainerMachineOreTumbler;
+import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineOreTumbler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;

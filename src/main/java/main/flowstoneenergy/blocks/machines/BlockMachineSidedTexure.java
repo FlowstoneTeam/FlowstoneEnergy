@@ -2,8 +2,8 @@ package main.flowstoneenergy.blocks.machines;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineBase;
+import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -25,7 +25,8 @@ public abstract class BlockMachineSidedTexure extends BlockMachineBox {
     public IIcon frontOn;
     public IIcon frontOff;
 
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         TileEntityMachineBase tile = (TileEntityMachineBase) world.getTileEntity(x, y, z);
 

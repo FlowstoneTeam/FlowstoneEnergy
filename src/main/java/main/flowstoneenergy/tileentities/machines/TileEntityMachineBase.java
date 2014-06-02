@@ -12,10 +12,12 @@ import net.minecraft.tileentity.TileEntity;
 
 public abstract class TileEntityMachineBase extends TileEntity implements ISidedInventory {
 
+    public byte[] sideCache = { 0, 0, 0, 0, 0, 0 };
     public ItemStack[] items;
     public int facing;
     public int ticksLeft = 0;
     public int maxTicks = 0;
+    public int divisionFactor = 0;
 
     @Override
     public void openInventory() {

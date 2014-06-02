@@ -6,14 +6,14 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBucket;
 
-public class ItemFlowstoneBucket extends ItemBucket { 
-  
-    public ItemFlowstoneBucket(Block block) { 
+public class ItemLiquidBlazeBucket extends ItemBucket{
+
+	public ItemLiquidBlazeBucket(Block block) { 
         super(block); 
         this.maxStackSize = 1; 
         this.setContainerItem(Items.bucket); 
-        this.setTextureName(ModInfo.MODID + ":tools/flowstoneBucket"); 
+        this.setTextureName(ModInfo.MODID + ":tools/fluidBlazeBucket"); 
         this.setCreativeTab(FlowstoneEnergy.tab);
-        this.setUnlocalizedName(ModInfo.MODID + ".flowstone.bucket"); 
+        this.setUnlocalizedName(ModInfo.MODID + ".liquid.blaze.bucket"); 
     } 
 }

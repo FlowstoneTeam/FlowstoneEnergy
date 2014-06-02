@@ -1,6 +1,5 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import main.flowstoneenergy.tileentities.machines.TileEntityMachineBase;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityMachineAutoCraftingTable extends TileEntityMachineBase {

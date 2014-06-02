@@ -1,17 +1,9 @@
 package main.flowstoneenergy;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
 import main.flowstoneenergy.blocks.BlockRecipeRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.blocks.fluids.BucketRegistry;
+import main.flowstoneenergy.blocks.fluids.FluidRecipeRegistry;
 import main.flowstoneenergy.enchants.EnchantRandTeleHandler;
 import main.flowstoneenergy.enchants.EnchantRegistry;
 import main.flowstoneenergy.entities.FEEntityRegistry;
@@ -32,6 +24,16 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION)
 public class FlowstoneEnergy {
@@ -54,10 +56,9 @@ public class FlowstoneEnergy {
 
         BlockRegistry.registerBlocks();
         ItemRegistry.registerItems();
+        FluidRecipeRegistry.registerFluidRecipes();
         TERegistry.registerTileEntities();
-        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("flowstone", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.flowstoneBucket),
-        		new ItemStack(Items.bucket));
-        BucketHandler.INSTANCE.buckets.put(BlockRegistry.flowstoneBlock, ItemRegistry.flowstoneBucket);
+        BucketRegistry.registerBucket();
 
         OreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 2);

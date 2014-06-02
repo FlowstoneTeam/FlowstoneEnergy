@@ -1,17 +1,17 @@
 package main.flowstoneenergy.client;
 
+import main.flowstoneenergy.entities.EntityRobot;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.entities.EntityRobot;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class RenderRobot extends RenderLiving{
+public class RenderRobot extends RenderLiving {
 	protected FlowstoneRobot model;
 	
 	public RenderRobot(FlowstoneRobot model, float par2) {

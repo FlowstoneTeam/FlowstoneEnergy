@@ -31,7 +31,6 @@ public class Recipe1_1 {
         return output;
     }
 
-
     public int getTime() {
         return time;
     }

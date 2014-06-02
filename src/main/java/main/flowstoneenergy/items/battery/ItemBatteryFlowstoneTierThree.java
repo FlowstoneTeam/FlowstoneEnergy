@@ -1,8 +1,8 @@
 package main.flowstoneenergy.items.battery;
 
+import main.flowstoneenergy.utils.TextHelper;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.utils.KeyboardHelper;
-import main.flowstoneenergy.utils.TextHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -31,4 +31,6 @@ public class ItemBatteryFlowstoneTierThree extends ItemBatteryFlowstoneTierOne {
         list.add(currentFE + "/" + maxFE + "FE Stored");
         list.add("RIGHT CLICK to activate");
     }
+
+
 }

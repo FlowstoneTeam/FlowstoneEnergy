@@ -12,7 +12,6 @@ public class GuiHandler implements IGuiHandler {
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         TileEntity entity = world.getTileEntity(x, y, z);
-        System.out.println("Server Active");
         if (entity != null) {
             switch (ID) {
                 case 0:
@@ -37,7 +36,6 @@ public class GuiHandler implements IGuiHandler {
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         TileEntity entity = world.getTileEntity(x, y, z);
-        System.out.println("Client Active");
         if (entity != null) {
             switch (ID) {
                 case 0:

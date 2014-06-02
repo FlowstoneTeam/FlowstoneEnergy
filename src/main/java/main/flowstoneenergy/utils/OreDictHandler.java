@@ -87,7 +87,7 @@ public class OreDictHandler {
         //vanilla items that should be registered IMO
         OreDictionary.registerOre("ingotIron", Items.iron_ingot);
         OreDictionary.registerOre("ingotGold", Items.gold_ingot);
-        OreDictionary.registerOre("gemNetherQuartz", Items.quartz);
+        OreDictionary.registerOre("gemQuartz", Items.quartz);
         OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 0));
         OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 1));
 
@@ -141,18 +141,18 @@ public class OreDictHandler {
         }
     }
 
-    public static void machineWorkbenchOreDictRecipes(String ore1, String ore2, String ore3, ItemStack output, int time) {
-        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
-        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
-        ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
-        if (ores1 != null && ores1.size() >= 0 && ores2 != null && ores2.size() >= 0 && ores3 != null && ores3.size() >= 0) {
-            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
-                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
-                    for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
-                        RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, output, time);
+        public static void machineWorkbenchOreDictRecipes(String ore1, String ore2, String ore3, ItemStack output, int time) {
+            ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+            ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+            ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
+            if (ores1 != null && ores1.size() >= 0 && ores2 != null && ores2.size() >= 0 && ores3 != null && ores3.size() >= 0) {
+                for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                    for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                        for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
+                            RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, output, time);
+                        }
                     }
                 }
             }
         }
-    }
 }

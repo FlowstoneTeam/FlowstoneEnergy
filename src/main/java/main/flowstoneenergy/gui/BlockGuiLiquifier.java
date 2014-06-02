@@ -17,7 +17,7 @@ public class BlockGuiLiquifier extends GuiContainer {
     @SuppressWarnings("unused")
     private ContainerMachineLiquifier container;
     private TileEntityMachineLiquifier te;
-    String containerName = "Liquifier";
+    String containerName = "Item Liquifier";
 
     public BlockGuiLiquifier(EntityPlayer player, TileEntityMachineLiquifier tile) {
         super(new ContainerMachineLiquifier(player, tile));

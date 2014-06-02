@@ -1,7 +1,7 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
+import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
@@ -58,7 +58,7 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
         if (items[0] != null && ticksLeft == 0) {
             Recipe1_1 r = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]);
             if (r != null) {
-                maxTicks = r.getTime();
+                maxTicks = r.getTime() - (r.getTime() * divisionFactor);
             }
         }
         if (ticksLeft < maxTicks && RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {

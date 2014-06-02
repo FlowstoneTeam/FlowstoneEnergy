@@ -17,13 +17,15 @@ public class ConfigHandler {
     public static boolean useFENickel;
     public static boolean capesOn;
     public static int teleEnchant;
+    public static boolean debugMode;
 
     public static void configOptions(Configuration config) {
         config.load();
 
 		//General
 	    capesOn = config.get(general, "Enable showing capes", true, "This config option is to enable or disable capes for people who have them. Seriously, you shouldn't touch that unless you have another cape and it conflicts with it.").getBoolean(capesOn);
-
+	    debugMode = config.get(general, "Enable debug mode", false).getBoolean(debugMode);
+	    
 	    //Enchantments
 	    teleEnchant = config.get(enchant, "Teleport Enchanment Id", 40).getInt(teleEnchant);
 	    

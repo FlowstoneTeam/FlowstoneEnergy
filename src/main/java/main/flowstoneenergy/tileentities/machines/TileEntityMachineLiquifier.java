@@ -1,16 +1,21 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
+import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.*;
 
-public class TileEntityMachineLiquifier extends TileEntityMachineBase {
+public class TileEntityMachineLiquifier extends TileEntityMachineBase implements IFluidHandler {
+
+    FluidTank tank = new FluidTank(10000);
 
 	@SuppressWarnings("unused")
     private String field_145958_o;
 
     public TileEntityMachineLiquifier() {
+        this.sideCache = new byte[] { 1, 1, 2, 2, 2, 2 };
         items = new ItemStack[2];
         maxTicks = 150;
     }
@@ -102,4 +107,42 @@ public class TileEntityMachineLiquifier extends TileEntityMachineBase {
         return ticksLeft * scale / maxTicks;
     }
 
+    @Override
+    public int fill(ForgeDirection forgeDirection, FluidStack fluidStack, boolean b) {
+        return 0;
+    }
+
+    @Override
+    public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain) {
+        if ((from == ForgeDirection.UNKNOWN) || (this.sideCache[from.ordinal()] != 2)) {
+            return null;
+        }
+        if ((resource == null) || (!resource.isFluidEqual(this.tank.getFluid()))) {
+            return null;
+        }
+        return this.tank.drain(resource.amount, doDrain);
+    }
+
+    @Override
+    public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain) {
+        if ((from != ForgeDirection.UNKNOWN) && (this.sideCache[from.ordinal()] != 2)) {
+            return null;
+        }
+        return this.tank.drain(maxDrain, doDrain);
+    }
+
+    @Override
+    public boolean canFill(ForgeDirection forgeDirection, Fluid fluid) {
+        return true;
+    }
+
+    @Override
+    public boolean canDrain(ForgeDirection forgeDirection, Fluid fluid) {
+        return true;
+    }
+
+    @Override
+    public FluidTankInfo[] getTankInfo(ForgeDirection forgeDirection) {
+        return new FluidTankInfo[2];
+    }
 }

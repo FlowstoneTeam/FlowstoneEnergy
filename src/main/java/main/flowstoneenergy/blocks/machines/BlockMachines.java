@@ -30,17 +30,17 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
         this.top = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
 
+        //heated oven
+        this.frontOn[0] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
+        this.frontOff[0] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+
         //ore tumbler
-        this.frontOn[0] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front_Active");
-        this.frontOff[0] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front");
+        this.frontOn[1] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front_Active");
+        this.frontOff[1] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front");
 
         //flowstone bottler
-        this.frontOn[1] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front_Active");
-        this.frontOff[1] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front");
-
-        //heated oven
-        this.frontOn[2] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
-        this.frontOff[2] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+        this.frontOn[2] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front_Active");
+        this.frontOff[2] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front");
 
         //lumber mill
         this.frontOn[3] = icon.registerIcon(ModInfo.MODID + ":machines/lumberMill_Front_Active");

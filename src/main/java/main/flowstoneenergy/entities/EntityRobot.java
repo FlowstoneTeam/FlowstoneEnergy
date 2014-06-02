@@ -30,7 +30,6 @@ public class EntityRobot extends EntityCreature implements IMob {
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.7D);
     }
 
@@ -45,11 +44,6 @@ public class EntityRobot extends EntityCreature implements IMob {
             return entity.boundingBox;
         else
             return null;
-    }
-
-    @Override
-    public double getMountedYOffset() {
-        return -0.015;
     }
 
     @Override

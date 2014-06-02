@@ -1,7 +1,7 @@
 package main.flowstoneenergy.blocks.fluids;
 
-import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -12,17 +12,16 @@ import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFlowstone extends BlockFluidClassic {
-
+public class BlockFluidBlaze extends BlockFluidClassic {
 	@SideOnly(Side.CLIENT)
     protected IIcon stillIcon;
     @SideOnly(Side.CLIENT)
     protected IIcon flowingIcon;
 	
-	public BlockFlowstone(Fluid fluid) {
-		super(fluid, Material.water);
+	public BlockFluidBlaze(Fluid fluid) {
+		super(fluid, Material.lava);
 		this.setTemperature(300);
-		this.setBlockName(ModInfo.MODID + ".flowstoneBlock");
+		this.setBlockName(ModInfo.MODID + ".fluidBlazeBlock");
 	}
 	
 	@Override
@@ -33,10 +32,10 @@ public class BlockFlowstone extends BlockFluidClassic {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister register) {
-        	stillIcon = register.registerIcon(ModInfo.MODID + ":fluids/stillFlowstone");
-        	flowingIcon = register.registerIcon(ModInfo.MODID + ":fluids/flowingFlowstone");
-        	BlockRegistry.flowstone.setIcons(stillIcon,flowingIcon);
-            this.blockIcon = stillIcon; 
+        	stillIcon = register.registerIcon(ModInfo.MODID + ":fluids/stillLiquidBlaze");
+        	flowingIcon = register.registerIcon(ModInfo.MODID + ":fluids/flowingLiquidBlaze");
+        	BlockRegistry.fluidBlaze.setIcons(stillIcon,flowingIcon);
+            this.blockIcon = stillIcon;
     }
     
     @Override

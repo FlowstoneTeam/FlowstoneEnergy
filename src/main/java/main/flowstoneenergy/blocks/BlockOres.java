@@ -1,7 +1,7 @@
 package main.flowstoneenergy.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
+
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import net.minecraft.block.BlockOre;
@@ -10,8 +10,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockOres extends BlockOre {
     public IIcon[] icon = new IIcon[16];

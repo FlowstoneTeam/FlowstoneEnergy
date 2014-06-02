@@ -1,9 +1,9 @@
 package main.flowstoneenergy.entities;
 
+import main.flowstoneenergy.FlowstoneEnergy;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import cpw.mods.fml.common.registry.EntityRegistry;
-import main.flowstoneenergy.FlowstoneEnergy;
 
 public class FEEntityRegistry {
 

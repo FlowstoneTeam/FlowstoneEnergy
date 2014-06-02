@@ -23,7 +23,7 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
 
     public IIcon top;
     public IIcon frontOn[];
-    public IIcon frontOff[];
+    public static IIcon frontOff[];
 
 
     @Override

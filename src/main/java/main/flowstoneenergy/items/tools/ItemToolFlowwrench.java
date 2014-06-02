@@ -5,20 +5,27 @@ import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraft.world.World;
 
-public class ItemToolFlowwrench extends Item implements IToolWrench {
+public class ItemToolFlowwrench extends ItemTool implements IToolWrench {
 
     public ItemToolFlowwrench() {
+        super(-1F, ToolMaterial.IRON, null);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setMaxDamage(49);
         this.setUnlocalizedName(ModInfo.MODID + ".flowwrench");
         this.setTextureName(ModInfo.MODID + ":tools/flowwrench");
+    }
+
+    @Override
+    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase) {
+        return false;
     }
 
     @Override
