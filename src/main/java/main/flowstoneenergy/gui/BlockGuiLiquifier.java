@@ -5,6 +5,7 @@ import main.flowstoneenergy.containers.ContainerMachineLiquifier;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineLiquifier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
@@ -29,6 +30,7 @@ public class BlockGuiLiquifier extends GuiContainer {
     protected void drawGuiContainerForegroundLayer(int x, int y) {
         fontRendererObj.drawString(containerName, xSize / 2 - fontRendererObj.getStringWidth(containerName) / 2, 6, 4210752);
         fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 96 + 2, 4210752);
+
     }
 
     @Override
@@ -44,5 +46,13 @@ public class BlockGuiLiquifier extends GuiContainer {
 
         int i1 = this.te.getScaledProgress(24);
         this.drawTexturedModalRect(xStart + 81, yStart + 34, 176, 14, i1 + 1, 16);
+
+        Tessellator tess = Tessellator.instance;
+        tess.startDrawingQuads();
+        tess.addVertexWithUV(129, 7, 0, 129, 7);
+        tess.addVertexWithUV(158, 7, 0, 158, 7);
+        tess.addVertexWithUV(158, 78, 0, 158, 78);
+        tess.addVertexWithUV(129, 78, 0, 129, 78);
+        tess.draw();
     }
 }

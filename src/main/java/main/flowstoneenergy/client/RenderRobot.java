@@ -30,7 +30,6 @@ public class RenderRobot extends RenderLiving {
 		
 		GL11.glPopMatrix();
 	}
-	
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime) {
@@ -38,7 +37,10 @@ public class RenderRobot extends RenderLiving {
 	}
 
 	@Override
-    protected ResourceLocation getEntityTexture (Entity entity){
-        return new ResourceLocation(ModInfo.MODID + ":textures/models/FlowstoneRobot.png");
+    protected ResourceLocation getEntityTexture(Entity entity) {
+        if (EntityRobot.isCharged())
+            return new ResourceLocation(ModInfo.MODID + ":textures/models/FlowstoneRobot.png");
+        else
+            return new ResourceLocation(ModInfo.MODID + ":textures/models/FlowstoneRobot_off.png");
     }
 }

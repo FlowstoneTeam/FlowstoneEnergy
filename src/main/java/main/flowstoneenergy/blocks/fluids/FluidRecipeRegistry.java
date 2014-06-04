@@ -9,6 +9,6 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class FluidRecipeRegistry {
     public static void registerFluidRecipes() {
-        RecipesLiquifier.addRecipe(new ItemStack(Items.gold_ingot), new ItemStack(Items.glowstone_dust), new FluidStack(BlockRegistry.flowstone, 100), 200);
+        RecipesLiquifier.addRecipe(new ItemStack(Items.gold_ingot), new ItemStack(Items.glowstone_dust), new FluidStack(BlockRegistry.flowstone, 100), 100, 200);
     }
 }

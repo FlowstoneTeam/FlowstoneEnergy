@@ -1,4 +1,4 @@
-package main.flowstoneenergy.blocks.storage;
+package main.flowstoneenergy.blocks.storage.energy;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

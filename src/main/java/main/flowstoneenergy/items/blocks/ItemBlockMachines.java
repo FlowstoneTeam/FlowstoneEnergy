@@ -1,8 +1,10 @@
 package main.flowstoneenergy.items.blocks;
 
+import main.flowstoneenergy.blocks.machines.BlockMachines;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
 public class ItemBlockMachines extends ItemBlock {
 

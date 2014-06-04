@@ -22,6 +22,9 @@ tile.blockIngotStorage.invar.name=Invar Block
 tile.blockIngotStorage.electrum.name=Electrum Block
 tile.blockIngotStorage.ender.name=Ender Block
 tile.flowstoneenergy.flowstoneBlock.name=Liquid Flowstone
+tile.flowstoneenergy.fluidBlazeBlock.name=Liquid Blaze
+tile.flowstoneenergy.strong.glass.name=Strong Glass
+tile.flowstoneenergy.strong.glass.pane.name=Strong Glass Pane
 
 BATTERIES
 item.flowstoneenergy.flowstone.battery.tier.one.name=Flowstone Battery [Tier: 1]
@@ -44,6 +47,7 @@ item.flowstoneenergy.electrum.hoe.name=Electrum Hoe
 item.flowstoneenergy.electrum.shovel.name=Electrum Shovel
 item.flowstoneenergy.electrum.axe.name=Electrum Axe
 item.flowstoneenergy.flowstone.bucket.name=Flowstone Bucket
+item.flowstoneenergy.liquid.blaze.bucket.name=Liquid Blaze Bucket
 
 ARMOR
 item.flowstoneenergy.flow.boots.name=Flow Boots

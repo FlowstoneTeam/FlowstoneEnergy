@@ -1,6 +1,9 @@
 package main.flowstoneenergy.items.battery;
 
+import main.flowstoneenergy.FlowstoneEnergy;
+import main.flowstoneenergy.client.RenderRobot;
 import main.flowstoneenergy.entities.EntityRobot;
+import main.flowstoneenergy.entities.FEEntityRegistry;
 import main.flowstoneenergy.utils.KeyboardHelper;
 import main.flowstoneenergy.utils.TextHelper;
 import main.flowstoneenergy.ModInfo;
@@ -18,6 +21,7 @@ public class ItemBatteryFlowstoneTierOne extends Item {
 
     public ItemBatteryFlowstoneTierOne() {
         super();
+        this.setCreativeTab(FlowstoneEnergy.tab);
         this.setTextureName(ModInfo.MODID + ":batteries/tierOne");
         this.setUnlocalizedName(ModInfo.MODID + ".flowstone.battery.tier.one");
         this.setMaxStackSize(1);
@@ -31,10 +35,15 @@ public class ItemBatteryFlowstoneTierOne extends Item {
     public boolean onItemUseFirst(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
         EntityRobot robot = new EntityRobot(world);
         if (!world.isRemote && player.isSneaking()) {
+            EntityRobot.setCharged();
+            world.updateEntity(robot);
+            itemStack.setItemDamage(0);
+            /**
             if (isCharged(itemStack.getItemDamage())) {
                 robot.setCharged();
                 itemStack.setItemDamage(0);
             }
+             **/
             return true;
         } else {
             return false;

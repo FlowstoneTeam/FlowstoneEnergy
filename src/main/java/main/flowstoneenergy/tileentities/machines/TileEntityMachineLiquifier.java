@@ -4,6 +4,7 @@ import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
 
@@ -133,7 +134,7 @@ public class TileEntityMachineLiquifier extends TileEntityMachineBase implements
 
     @Override
     public boolean canFill(ForgeDirection forgeDirection, Fluid fluid) {
-        return true;
+        return false;
     }
 
     @Override
@@ -143,6 +144,6 @@ public class TileEntityMachineLiquifier extends TileEntityMachineBase implements
 
     @Override
     public FluidTankInfo[] getTankInfo(ForgeDirection forgeDirection) {
-        return new FluidTankInfo[2];
+        return new FluidTankInfo[] { this.tank.getInfo() };
     }
 }

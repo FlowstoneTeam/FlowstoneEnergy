@@ -7,12 +7,14 @@ public class FluidRecipe2_1 {
 	private ItemStack input1;
     private ItemStack input2;
     private FluidStack output;
+    private int amount;
     private int time;
 	
-	public FluidRecipe2_1(ItemStack input1, ItemStack input2, FluidStack output, int time) {
+	public FluidRecipe2_1(ItemStack input1, ItemStack input2, FluidStack output, int amount, int time) {
         this.input1 = input1.copy();
         this.input2 = input2.copy();
         this.output = output.copy();
+        this.amount = amount;
         this.time = time;
     }
 	
@@ -27,6 +29,8 @@ public class FluidRecipe2_1 {
     public FluidStack getOutput() {
         return output;
     }
+
+    public int getAmount() {return amount;}
 
     public int getTime() {
         return time;

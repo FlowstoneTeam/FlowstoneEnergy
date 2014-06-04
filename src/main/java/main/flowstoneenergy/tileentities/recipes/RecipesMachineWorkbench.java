@@ -1,8 +1,10 @@
 package main.flowstoneenergy.tileentities.recipes;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecipesMachineWorkbench {
 
@@ -49,4 +51,23 @@ public class RecipesMachineWorkbench {
         }
         return null;
     }
+
+    public static Recipe3_1[] GetRecipesFromStack(ItemStack stack)
+    {
+        List<Recipe3_1> out = new ArrayList<Recipe3_1>();
+        if (stack == null) return null;
+        for (Recipe3_1 r : recipe31List)
+        {
+            if (r.getInput1().getItem().equals(stack.getItem()) || r.getInput2().getItem().equals(stack.getItem()) || r.getInput3().equals(stack.getItem()))
+                out.add(r);
+        }
+        return out.toArray(new Recipe3_1[0]);
+    }
+
+
+    public static List<Recipe3_1> GetAllRecipes()
+    {
+        return ImmutableList.copyOf(recipe31List);
+    }
+
 }

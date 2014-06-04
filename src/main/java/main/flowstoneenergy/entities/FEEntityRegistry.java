@@ -6,11 +6,11 @@ import net.minecraft.entity.EntityList;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class FEEntityRegistry {
-
+    public static int robotID = EntityRegistry.findGlobalUniqueEntityId();
     public static void init() {
-        EntityRegistry.registerModEntity(EntityRobot.class, "EntityRobot", EntityRegistry.findGlobalUniqueEntityId(), FlowstoneEnergy.instance, 80, 3, true);
+        EntityRegistry.registerModEntity(EntityRobot.class, "EntityRobot", robotID, FlowstoneEnergy.instance, 80, 3, true);
         
-        registerEntityEgg(EntityRobot.class, 0, 0);
+        registerEntityEgg(EntityRobot.class, 0x5A5A5A, 0x990000);
     }
 
     @SuppressWarnings("unchecked")

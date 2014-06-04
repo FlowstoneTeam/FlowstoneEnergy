@@ -9,8 +9,8 @@ import net.minecraftforge.fluids.FluidStack;
 public class RecipesLiquifier {
 	public static List<FluidRecipe2_1> recipe21List = new ArrayList<FluidRecipe2_1>();
 
-    public static void addRecipe(ItemStack input1, ItemStack input2, FluidStack output, int time) {
-    	FluidRecipe2_1 r = new FluidRecipe2_1(input1, input2, output, time);
+    public static void addRecipe(ItemStack input1, ItemStack input2, FluidStack output, int amount, int time) {
+    	FluidRecipe2_1 r = new FluidRecipe2_1(input1, input2, output, amount,time);
         recipe21List.add(r);
     }
 

@@ -88,6 +88,7 @@ public class OreDictHandler {
         OreDictionary.registerOre("ingotIron", Items.iron_ingot);
         OreDictionary.registerOre("ingotGold", Items.gold_ingot);
         OreDictionary.registerOre("gemQuartz", Items.quartz);
+        OreDictionary.registerOre("dropFeather", Items.feather);
         OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 0));
         OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 1));
 
