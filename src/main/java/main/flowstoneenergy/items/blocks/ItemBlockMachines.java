@@ -1,10 +1,8 @@
 package main.flowstoneenergy.items.blocks;
 
-import main.flowstoneenergy.blocks.machines.BlockMachines;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 public class ItemBlockMachines extends ItemBlock {
 
@@ -18,15 +16,15 @@ public class ItemBlockMachines extends ItemBlock {
         String name = "";
         switch (itemstack.getItemDamage()) {
             case 0: {
-                name = "heatedOven";
-                break;
-            }
-            case 1: {
                 name = "oreTumbler";
                 break;
             }
-            case 2: {
+            case 1: {
                 name = "flowstoneBottler";
+                break;
+            }
+            case 2: {
+                name = "heatedOven";
                 break;
             }
             case 3: {
