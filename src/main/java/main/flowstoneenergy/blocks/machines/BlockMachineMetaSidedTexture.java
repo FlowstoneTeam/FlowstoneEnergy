@@ -55,6 +55,17 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
     }
 
     @Override
+    public IIcon getIcon(int side, int meta) {
+        if (side <= 1) {
+            return this.top;
+        }
+        if (side == 3) {
+            return this.frontOff[meta];
+        }
+        return this.blockIcon;
+    }
+
+    @Override
     public void breakBlock(World world, int x, int y, int z, Block par5, int par6) {
         dropItems(world, x, y, z);
         world.removeTileEntity(x, y, z);
