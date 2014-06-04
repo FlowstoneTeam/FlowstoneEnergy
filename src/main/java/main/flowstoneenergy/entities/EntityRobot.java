@@ -1,9 +1,10 @@
 package main.flowstoneenergy.entities;
 
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityGolem;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
@@ -64,5 +65,15 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
     @Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
         nbt.setBoolean("Charged", charged);
+    }
+
+    @Override
+    public void writeSpawnData(ByteBuf buffer) {
+
+    }
+
+    @Override
+    public void readSpawnData(ByteBuf additionalData) {
+
     }
 }
