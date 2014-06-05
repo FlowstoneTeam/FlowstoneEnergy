@@ -22,7 +22,7 @@ group= "main.flowstoneenergy" // http://maven.apache.org/guides/mini/guide-namin
 archivesBaseName = "Flowstone Energy"
 
 minecraft {
-    version = "1.7.2-10.12.1.1060"
+    version = "1.7.2-10.12.1.1101"
     assetDir = "eclipse/assets"
 }
 repositories{
