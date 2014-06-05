@@ -30,16 +30,10 @@ repositories{
 		name = "chickenbones"
 		url = "http://chickenbones.net/maven"
 	}
-	maven {
-		name = "ic2"
-		url = "http://maven.ic2.player.to"
-	}
 }
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
 	compile "codechicken:NotEnoughItems:1.7.2-1.0.1:dev"
-	compile "com.mod-buildcraft:buildcraft:6.0.16"
-	compile "net.industrial-craft:industrialcraft-2:2.1.470-experimental:api"
 }
 processResources
 {
