@@ -29,10 +29,14 @@ import main.flowstoneenergy.utils.OreDictHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = "after:NotEnoughItems")
 public class FlowstoneEnergy {
     public static CreativeTabs tab = new CreativeTab("FlowstoneEnergy");
+	public static Logger logger = LogManager.getLogger(ModInfo.NAME);
+
     @Instance
     public static FlowstoneEnergy instance;
     Configuration config;
