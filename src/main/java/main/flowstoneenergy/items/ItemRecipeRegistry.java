@@ -195,6 +195,18 @@ public class ItemRecipeRegistry {
         MachineRecipeHelper.mixerOreDictRecipes("dustGold", "dustSilver", new ItemStack(ItemRegistry.metaResourceDust, 2, 11), 200);
         MachineRecipeHelper.mixerOreDictRecipes("oreGold", "oreSilver", new ItemStack(ItemRegistry.metaResourceIngot, 4, 7), 300);
         MachineRecipeHelper.mixerOreDictRecipes("oreIron", "oreNickel", new ItemStack(ItemRegistry.metaResourceIngot, 4, 6), 300);
+
+        MachineRecipeHelper.mixerOreDictRecipes("ingotCobalt", "ingotArdite", "ingotManyullyn", 300, 1);
+        MachineRecipeHelper.mixerOreDictRecipes("ingotCopper", "ingotTin", "ingotBronze", 200, 2);
+        MachineRecipeHelper.mixerOreDictRecipes("ingotBronze", "ingotGold", "ingotHepatizon", 200, 2);
+        MachineRecipeHelper.mixerOreDictRecipes("ingotIron", "ingotBronze", "ingotDamascusSteel", 200, 2);
+        MachineRecipeHelper.mixerOreDictRecipes("ingotIron", "ingotGold", "ingotAngmallen", 200, 2);
+        MachineRecipeHelper.mixerOreDictRecipes("ingotIron", "gemCoal", "ingotSteel", 200, 1);
+
+        MachineRecipeHelper.mixerOreDictRecipes("oreCobalt", "oreArdite", "ingotManyullyn", 300, 2);
+        MachineRecipeHelper.mixerOreDictRecipes("oreCopper", "oreTin", "ingotBronze", 200, 4);
+        MachineRecipeHelper.mixerOreDictRecipes("oreIron", "oreGold", "ingotAngmallen", 200, 4);
+        MachineRecipeHelper.mixerOreDictRecipes("oreIron", "oreCoal", "ingotSteel", 200, 2);
     }
 
     private static void registerWorkbenchRecipes() {
