@@ -62,7 +62,7 @@ public class BlockRegistry {
         GameRegistry.registerBlock(blockOres, ItemBlockOres.class, blockOres.getUnlocalizedName());
         
         //fluids
-        flowstone = new Fluid("flowstone");
+        flowstone = new Fluid("fluidFlowstone");
         FluidRegistry.registerFluid(flowstone);
         flowstoneBlock = new BlockFlowstone(flowstone);
         GameRegistry.registerBlock(flowstoneBlock, flowstoneBlock.getUnlocalizedName());

@@ -15,7 +15,7 @@ public class ItemBatteryFlowstoneTierTwo extends ItemBatteryFlowstoneTierOne {
 
     public ItemBatteryFlowstoneTierTwo() {
         super();
-        this.setTextureName(ModInfo.MODID + ":batteries/tierFour");
+        this.setTextureName(ModInfo.MODID + ":batteries/tierTwo");
         this.setUnlocalizedName(ModInfo.MODID + ".flowstone.battery.tier.two");
         this.setMaxStackSize(1);
     }
@@ -28,7 +28,7 @@ public class ItemBatteryFlowstoneTierTwo extends ItemBatteryFlowstoneTierOne {
             return;
         }
         list.remove(1);
-        list.add(currentFE + "/" + maxFE + "FE Stored");
+        list.add(TextHelper.GREEN + currentFE + "/" + maxFE + "FE Stored");
         list.add("RIGHT CLICK to activate");
     }
 }

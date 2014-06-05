@@ -4,8 +4,8 @@ import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.gui.BlockGuiMachineWorkbench;
-import main.flowstoneenergy.tileentities.recipes.Recipe3_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
+import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
+import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.item.ItemStack;
@@ -15,19 +15,14 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MachineWorkbenchHandler extends TemplateRecipeHandler {
-
-    class CachedMachineWorkbenchRecipe extends CachedRecipe {
+public class LumberMillHandler extends TemplateRecipeHandler {
+    class CachedLumberMillRecipe extends TemplateRecipeHandler.CachedRecipe {
 
         private ItemStack input1;
-        private ItemStack input2;
-        private ItemStack input3;
         private ItemStack output;
 
-        public CachedMachineWorkbenchRecipe(Recipe3_1 r) {
-            this.input1 = r.getInput1();
-            this.input2 = r.getInput2();
-            this.input3 = r.getInput3();
+        public CachedLumberMillRecipe(Recipe1_1 r) {
+            this.input1 = r.getInput();
             this.output = r.getOutput();
         }
 
@@ -39,39 +34,37 @@ public class MachineWorkbenchHandler extends TemplateRecipeHandler {
         @Override
         public List<PositionedStack> getIngredients() {
             ArrayList<PositionedStack> stacks = new ArrayList<PositionedStack>();
-            stacks.add(new PositionedStack(input2, 24, 5));
             stacks.add(new PositionedStack(input1, 47, 5));
-            stacks.add(new PositionedStack(input3, 70, 5));
             return stacks;
         }
     }
 
     @Override
     public String getGuiTexture() {
-        return ModInfo.MODID + ":textures/guis/machineWorkbenchGui.png";
+        return ModInfo.MODID + ":textures/guis/heatedOvenGui.png";
     }
 
     @Override
     public String getRecipeName() {
-        return StatCollector.translateToLocal("Machine Workbench");
+        return StatCollector.translateToLocal("Lumber Mill");
     }
 
     @Override
     public void loadCraftingRecipes(String outputId, Object... results) {
         if (outputId.equals("item"))
             loadCraftingRecipes((ItemStack) results[0]);
-        else if (outputId.equals("allMWB")) {
-            for (Recipe3_1 r : RecipesMachineWorkbench.GetAllRecipes()) {
-                arecipes.add(new CachedMachineWorkbenchRecipe(r));
+        else if (outputId.equals("allOT")) {
+            for (Recipe1_1 r : RecipesLumberMill.GetAllRecipes()) {
+                arecipes.add(new CachedLumberMillRecipe(r));
             }
         }
     }
 
     @Override
     public void loadCraftingRecipes(ItemStack result) {
-        for (Recipe3_1 r : RecipesMachineWorkbench.GetAllRecipes()) {
+        for (Recipe1_1 r : RecipesLumberMill.GetAllRecipes()) {
             if (r.getOutput().isItemEqual(result))
-                arecipes.add(new CachedMachineWorkbenchRecipe(r));
+                arecipes.add(new CachedLumberMillRecipe(r));
         }
     }
 
@@ -79,8 +72,8 @@ public class MachineWorkbenchHandler extends TemplateRecipeHandler {
     public void loadUsageRecipes(String inputId, Object... ingredients) {
         if (ingredients.length == 0) return;
         if ("item".equals(inputId)) {
-            for (Recipe3_1 r : RecipesMachineWorkbench.GetRecipesFromStack((ItemStack) ingredients[0]))
-                arecipes.add(new CachedMachineWorkbenchRecipe(r));
+            for (Recipe1_1 r : RecipesLumberMill.GetRecipesFromStack((ItemStack) ingredients[0]))
+                arecipes.add(new CachedLumberMillRecipe(r));
         }
     }
 
@@ -128,10 +121,10 @@ public class MachineWorkbenchHandler extends TemplateRecipeHandler {
 
     @Override
     public  void loadTransferRects() {
-        RecipeTransferRect rect = new RecipeTransferRect(new Rectangle(93, 25, 24, 17), "allMWB");
+        TemplateRecipeHandler.RecipeTransferRect rect = new TemplateRecipeHandler.RecipeTransferRect(new Rectangle(77, 25, 24, 17), "allOT");
         transferRects.add(rect);
         List<Class<? extends GuiContainer>> guis = new ArrayList<Class<? extends GuiContainer>>();
         guis.add(BlockGuiMachineWorkbench.class);
-        RecipeTransferRectHandler.registerRectsToGuis(guis, transferRects);
+        TemplateRecipeHandler.RecipeTransferRectHandler.registerRectsToGuis(guis, transferRects);
     }
 }

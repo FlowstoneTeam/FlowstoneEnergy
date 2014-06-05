@@ -26,7 +26,6 @@ public class Recipe1_1 {
         return input;
     }
 
-
     public ItemStack getOutput() {
         return output;
     }

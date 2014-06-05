@@ -1,5 +1,6 @@
 package main.flowstoneenergy.tileentities.recipes;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -35,5 +36,10 @@ public class RecipesMetalMixer {
                 out.add(r);
         }
         return out.toArray(new Recipe2_1[0]);
+    }
+
+    public static List<Recipe2_1> GetAllRecipes()
+    {
+        return ImmutableList.copyOf(recipe21List);
     }
 }

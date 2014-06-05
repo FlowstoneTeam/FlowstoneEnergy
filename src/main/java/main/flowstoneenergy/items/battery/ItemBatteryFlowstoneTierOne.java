@@ -58,7 +58,7 @@ public class ItemBatteryFlowstoneTierOne extends Item {
             return;
         }
         list.remove(1);
-        list.add(currentFE + "/" + maxFE + "FE Stored");
+        list.add(TextHelper.GREEN + currentFE + "/" + maxFE + "FE Stored");
         list.add("RIGHT CLICK to activate");
     }
 }
