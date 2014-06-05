@@ -102,12 +102,14 @@ public class OreDictHandler {
         }
     }
 
-    public static void tumblerOreDictRecipes(String ore, String output, int time) {
+    public static void tumblerOreDictRecipes(String ore, String output, int time, int stackSize) {
         ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
         ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
         if (ores != null && ores.size() >= 0 && outputs != null && outputs.size() >= 0) {
             for (ItemStack oreList : OreDictionary.getOres(ore)) {
-                RecipesEnergizedOreTumbler.addRecipe(oreList, outputs.get(outputs.size() - 1), time);
+                ItemStack outputsFinal = outputs.get(0);
+                outputsFinal.stackSize = stackSize;
+                RecipesEnergizedOreTumbler.addRecipe(oreList, outputsFinal, time);
             }
         }
     }
@@ -122,12 +124,14 @@ public class OreDictHandler {
         }
     }
 
-    public static void furnaceOreDictRecipes(String ore, String output, float xp) {
+    public static void furnaceOreDictRecipes(String ore, String output, float xp, int stackSize) {
         ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
         ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
         if (ores != null && ores.size() >= 0 && outputs != null && outputs.size() >= 0) {
             for (ItemStack oreList : OreDictionary.getOres(ore)) {
-                GameRegistry.addSmelting(oreList, outputs.get(outputs.size() - 1), xp);
+                ItemStack outputsFinal = outputs.get(0);
+                outputsFinal.stackSize = stackSize;
+                GameRegistry.addSmelting(oreList, outputsFinal, xp);
             }
         }
     }
@@ -141,12 +145,14 @@ public class OreDictHandler {
         }
     }
 
-    public static void lumberMillOreDictRecipes(String ore, String output, int time) {
+    public static void lumberMillOreDictRecipes(String ore, String output, int time, int stackSize) {
         ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
         ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
         if (ores != null && ores.size() >= 0 && outputs != null && outputs.size() >= 0) {
             for (ItemStack oreList : OreDictionary.getOres(ore)) {
-                RecipesLumberMill.addRecipe(oreList, outputs.get(outputs.size() - 1), time);
+                ItemStack outputsFinal = outputs.get(0);
+                outputsFinal.stackSize = stackSize;
+                RecipesLumberMill.addRecipe(oreList, outputsFinal, time);
             }
         }
     }
@@ -160,12 +166,14 @@ public class OreDictHandler {
         }
     }
 
-    public static void bottlerOreDictRecipes(String ore, String output, int time) {
+    public static void bottlerOreDictRecipes(String ore, String output, int time, int stackSize) {
         ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
         ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
         if (ores != null && ores.size() >= 0 && outputs != null && outputs.size() >= 0) {
             for (ItemStack oreList : OreDictionary.getOres(ore)) {
-                RecipesFlowstoneBottler.addRecipe(oreList, outputs.get(outputs.size() - 1), time);
+                ItemStack outputsFinal = outputs.get(0);
+                outputsFinal.stackSize = stackSize;
+                RecipesFlowstoneBottler.addRecipe(oreList, outputsFinal, time);
             }
         }
     }

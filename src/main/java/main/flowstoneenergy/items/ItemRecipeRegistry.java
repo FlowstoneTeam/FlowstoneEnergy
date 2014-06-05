@@ -1,5 +1,6 @@
 package main.flowstoneenergy.items;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
@@ -117,6 +118,46 @@ public class ItemRecipeRegistry {
         OreDictHandler.tumblerOreDictRecipes("ingotNickel", new ItemStack(ItemRegistry.metaResourceDust, 1, 9), 100);
         OreDictHandler.tumblerOreDictRecipes("ingotInvar", new ItemStack(ItemRegistry.metaResourceDust, 1, 10), 100);
         OreDictHandler.tumblerOreDictRecipes("ingotElectrum", new ItemStack(ItemRegistry.metaResourceDust, 1, 11), 100);
+
+        //Metallurgy ores to dust
+        if (Loader.isModLoaded("Metallurgy")) {
+            OreDictHandler.tumblerOreDictRecipes("oreManganese", "dustManganese", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreEximite", "dustEximite", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreMeutoite", "dustMeutoite", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("orePrometheum", "dustPrometheum", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreDeepIron", "dustDeepIron", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreInfuscolium", "dustInfuscolium", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreOureclase", "dustOureclase", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreAstralSilver", "dustAstralSilver", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreCarmot", "dustCarmot", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreMithril", "dustMithril", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreRubracium", "dustRubracium", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreOrichalcum", "dustOrichalcum", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreAdamantine", "dustAdamantine", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreAtlarus", "dustAtlarus", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreIgnatius", "dustIgnatius", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreShadowIron", "dustShadowIron", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreLemurite", "dustLemurite", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreMidasium", "dustMidasium", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreVyroxeres", "dustVyroxeres", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreCeruclase", "dustCeruclase", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreAlduorite", "dustAlduorite", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreKalendrite", "dustKalendrite", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreVulcanite", "dustVulcanite", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreSanguinite", "dustSanguinite", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("oreZinc", "dustZinc", 200, 2);
+            OreDictHandler.tumblerOreDictRecipes("orePlatinum", "dustPlatinum", 200, 2);
+        }
+
+        //Tinker's Construct ores to dust
+        if (Loader.isModLoaded("TConstruct")) {
+
+        }
+
+        //IC2 ores to dust
+        if (Loader.isModLoaded("ic2")) {
+            OreDictHandler.tumblerOreDictRecipes("oreUranium", "dustUranium", 200, 2);
+        }
 
         //Other things
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300);
