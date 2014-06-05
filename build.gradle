@@ -17,17 +17,29 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.0.1-Alpha"
+version = "0.1.0-Alpha"
 group= "main.flowstoneenergy" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "FlowstoneEnergy"
+archivesBaseName = "Flowstone Energy"
 
 minecraft {
-    version = "1.7.2-10.12.1.1061"
+    version = "1.7.2-10.12.1.1060"
     assetDir = "eclipse/assets"
 }
-
+repositories{
+	maven {
+		name = "chickenbones"
+		url = "http://chickenbones.net/maven"
+	}
+	maven {
+		name = "ic2"
+		url = "http://maven.ic2.player.to"
+	}
+}
 dependencies {
-        compile fileTree(dir: 'libs', include: '*.jar')
+    compile fileTree(dir: 'libs', include: '*.jar')
+	compile "codechicken:NotEnoughItems:1.7.2-1.0.1:dev"
+	compile "com.mod-buildcraft:buildcraft:6.0.16"
+	compile "net.industrial-craft:industrialcraft-2:2.1.470-experimental:api"
 }
 processResources
 {
@@ -43,4 +55,10 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+sourceSets{
+	main{
+		java{srcDir "java"}
+		resources {srcDir "resources"}
+	}
 }
