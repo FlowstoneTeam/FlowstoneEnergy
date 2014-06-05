@@ -106,6 +106,21 @@ public class MachineRecipeHelper {
         }
     }
 
+    public static void mixerOreDictRecipes(String ore1, String ore2, String output, int time, int stackSize) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0 && output != null && outputs.size() > 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    ItemStack outputsFinal = outputs.get(0);
+                    outputsFinal.stackSize = stackSize;
+                    RecipesMetalMixer.addRecipe(oreList1, oreList2, outputsFinal, time);
+                }
+            }
+        }
+    }
+
     public static void machineWorkbenchOreDictRecipes(String ore1, String ore2, String ore3, ItemStack output, int time) {
         ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
         ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
@@ -115,6 +130,24 @@ public class MachineRecipeHelper {
                 for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
                     for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
                         RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, output, time);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void machineWorkbenchOreDictRecipes(String ore1, String ore2, String ore3, String output, int time, int stackSize) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0 && ores3 != null && ores3.size() > 0 && output != null && outputs.size() > 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
+                        ItemStack outputsFinal = outputs.get(0);
+                        outputsFinal.stackSize = stackSize;
+                        RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, outputsFinal, time);
                     }
                 }
             }

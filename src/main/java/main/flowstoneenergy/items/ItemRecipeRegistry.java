@@ -146,6 +146,34 @@ public class ItemRecipeRegistry {
         MachineRecipeHelper.tumblerOreDictRecipes("oreZinc", "dustZinc", 200, 2);
         MachineRecipeHelper.tumblerOreDictRecipes("orePlatinum", "dustPlatinum", 200, 2);
 
+        //Metallurgy ingots to dust
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotManganese", "dustManganese", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotEximite", "dustEximite", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotMeutoite", "dustMeutoite", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotPrometheum", "dustPrometheum", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotDeepIron", "dustDeepIron", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotInfuscolium", "dustInfuscolium", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotOureclase", "dustOureclase", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotAstralSilver", "dustAstralSilver", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotCarmot", "dustCarmot", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotMithril", "dustMithril", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotRubracium", "dustRubracium", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotOrichalcum", "dustOrichalcum", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotAdamantine", "dustAdamantine", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotAtlarus", "dustAtlarus", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotIgnatius", "dustIgnatius", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotShadowIron", "dustShadowIron", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotLemurite", "dustLemurite", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotMidasium", "dustMidasium", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotVyroxeres", "dustVyroxeres", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotCeruclase", "dustCeruclase", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotAlduorite", "dustAlduorite", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotKalendrite", "dustKalendrite", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotVulcanite", "dustVulcanite", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotSanguinite", "dustSanguinite", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotZinc", "dustZinc", 200, 1);
+        MachineRecipeHelper.tumblerOreDictRecipes("ingotPlatinum", "dustPlatinum", 200, 1);
+
         //Ic2 ores to dust
         MachineRecipeHelper.tumblerOreDictRecipes("oreUranium", "dustUranium", 200, 2);
 
@@ -166,6 +194,7 @@ public class ItemRecipeRegistry {
         MachineRecipeHelper.mixerOreDictRecipes("ingotGold", "ingotSilver", new ItemStack(ItemRegistry.metaResourceIngot, 2, 7), 300);
         MachineRecipeHelper.mixerOreDictRecipes("dustGold", "dustSilver", new ItemStack(ItemRegistry.metaResourceDust, 2, 11), 200);
         MachineRecipeHelper.mixerOreDictRecipes("oreGold", "oreSilver", new ItemStack(ItemRegistry.metaResourceIngot, 4, 7), 300);
+        MachineRecipeHelper.mixerOreDictRecipes("oreIron", "oreNickel", new ItemStack(ItemRegistry.metaResourceIngot, 4, 6), 300);
     }
 
     private static void registerWorkbenchRecipes() {
