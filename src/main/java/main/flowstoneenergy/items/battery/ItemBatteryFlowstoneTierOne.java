@@ -1,9 +1,7 @@
 package main.flowstoneenergy.items.battery;
 
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.client.RenderRobot;
 import main.flowstoneenergy.entities.EntityRobot;
-import main.flowstoneenergy.entities.FEEntityRegistry;
 import main.flowstoneenergy.utils.KeyboardHelper;
 import main.flowstoneenergy.utils.TextHelper;
 import main.flowstoneenergy.ModInfo;

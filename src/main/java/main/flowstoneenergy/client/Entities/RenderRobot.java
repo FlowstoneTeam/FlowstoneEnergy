@@ -1,4 +1,4 @@
-package main.flowstoneenergy.client;
+package main.flowstoneenergy.client.Entities;
 
 import main.flowstoneenergy.entities.EntityRobot;
 import org.lwjgl.opengl.GL11;

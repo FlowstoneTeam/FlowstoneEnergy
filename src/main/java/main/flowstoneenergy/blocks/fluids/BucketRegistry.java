@@ -9,12 +9,10 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
 public class BucketRegistry {
-
-	public static void addBuckets() {
-		BucketHandler.INSTANCE.buckets.put(BlockRegistry.flowstoneBlock, ItemRegistry.flowstoneBucket);
-		FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("fluidFlowstone", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.flowstoneBucket), new ItemStack(Items.bucket));
-		BucketHandler.INSTANCE.buckets.put(BlockRegistry.fluidBlazeBlock, ItemRegistry.fluidBlazeBucket);
-		FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("fluidBlaze", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.fluidBlazeBucket), new ItemStack(Items.bucket));
+	public static void registerBucket() {
+        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("flowstone", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.flowstoneBucket), new ItemStack(Items.bucket));
+        BucketHandler.INSTANCE.buckets.put(BlockRegistry.flowstoneBlock, ItemRegistry.flowstoneBucket);
+        //FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("fluidBlaze", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.fluidBlazeBucket), new ItemStack(Items.bucket));
+        BucketHandler.INSTANCE.buckets.put(BlockRegistry.fluidBlazeBlock, ItemRegistry.fluidBlazeBucket);
 	}
-
 }

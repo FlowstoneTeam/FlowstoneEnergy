@@ -30,7 +30,7 @@ public class ItemRegistry {
     public static final ToolMaterial electrum = EnumHelper.addToolMaterial("ELECTRUM_TOOL_MATERIAL", 4, 1000, 12.0F, 8, 25);
 
     //armour materials
-    public static final ArmorMaterial flow = EnumHelper.addArmorMaterial("flow", -1, new int[]{1, 2, 3, 4}, 0);
+    public static final ArmorMaterial flowfield = EnumHelper.addArmorMaterial("flowfield", -1, new int[]{1, 2, 3, 4}, 0);
 
     //batteries
     public static Item tierOne;
@@ -124,13 +124,13 @@ public class ItemRegistry {
         GameRegistry.registerItem(electrumAxe, electrumAxe.getUnlocalizedName());
 
         //armour
-        flowBoots = new ItemArmorFlowBoots(flow, 0, 3);
+        flowBoots = new ItemArmorFlowBoots(flowfield, 0, 3);
         GameRegistry.registerItem(flowBoots, flowBoots.getUnlocalizedName());
-        flowLeggings = new ItemArmorFlowLeggings(flow, 0, 2);
+        flowLeggings = new ItemArmorFlowLeggings(flowfield, 0, 2);
         GameRegistry.registerItem(flowLeggings, flowLeggings.getUnlocalizedName());
-        flowChestplate = new ItemArmorFlowChestplate(flow, 0, 1);
+        flowChestplate = new ItemArmorFlowChestplate(flowfield, 0, 1);
         GameRegistry.registerItem(flowChestplate, flowChestplate.getUnlocalizedName());
-        flowHelm = new ItemArmorFlowHelm(flow, 0, 0);
+        flowHelm = new ItemArmorFlowHelm(flowfield, 0, 0);
         GameRegistry.registerItem(flowHelm, flowHelm.getUnlocalizedName());
 
         //food

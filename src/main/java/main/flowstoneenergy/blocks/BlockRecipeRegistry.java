@@ -4,7 +4,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.utils.OreDictHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class BlockRecipeRegistry {
@@ -15,7 +14,7 @@ public class BlockRecipeRegistry {
     }
 
     private static void registerStorageRecipes() {
-    	GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.ingotStorage, 1, 0), new Object[]{"XXX", "XXX", "XXX", 'X', "ingotCopper"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.ingotStorage, 1, 0), new Object[]{"XXX", "XXX", "XXX", 'X', "ingotCopper"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.ingotStorage, 1, 1), new Object[]{"XXX", "XXX", "XXX", 'X', "ingotTin"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.ingotStorage, 1, 2), new Object[]{"XXX", "XXX", "XXX", 'X', "ingotLead"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.ingotStorage, 1, 3), new Object[]{"XXX", "XXX", "XXX", 'X', "ingotSilver"}));
@@ -34,7 +33,7 @@ public class BlockRecipeRegistry {
     }
 
     private static void registerLumberMillRecipes() {
-        OreDictHandler.lumberMillOreDictRecipes("logWood", new ItemStack(OreDictionary.getOres("plankWood").get(0).getItem(), 6), 200);
+        OreDictHandler.lumberMillOreDictRecipes("logWood", new ItemStack(Blocks.planks, 6, 0), 200);
     }
 
     public static void registerFullRecipes() {

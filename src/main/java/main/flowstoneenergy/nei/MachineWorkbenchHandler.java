@@ -1,11 +1,11 @@
-package nei;
+package main.flowstoneenergy.nei;
 
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.gui.BlockGuiMachineWorkbench;
-import main.flowstoneenergy.tileentities.recipes.Recipe2_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
+import main.flowstoneenergy.tileentities.recipes.Recipe3_1;
+import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.item.ItemStack;
@@ -15,42 +15,45 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MetalMixerHandler extends TemplateRecipeHandler {
+public class MachineWorkbenchHandler extends TemplateRecipeHandler {
 
-    class CachedMetalMixerRecipe extends CachedRecipe {
+    class CachedMachineWorkbenchRecipe extends CachedRecipe {
 
         private ItemStack input1;
         private ItemStack input2;
+        private ItemStack input3;
         private ItemStack output;
 
-        public CachedMetalMixerRecipe(Recipe2_1 r) {
+        public CachedMachineWorkbenchRecipe(Recipe3_1 r) {
             this.input1 = r.getInput1();
             this.input2 = r.getInput2();
+            this.input3 = r.getInput3();
             this.output = r.getOutput();
         }
 
         @Override
         public PositionedStack getResult() {
-            return new PositionedStack(output, 116, 23);
+            return new PositionedStack(output, 124, 23);
         }
 
         @Override
         public List<PositionedStack> getIngredients() {
             ArrayList<PositionedStack> stacks = new ArrayList<PositionedStack>();
-            stacks.add(new PositionedStack(input1, 34, 5));
-            stacks.add(new PositionedStack(input2, 57, 5));
+            stacks.add(new PositionedStack(input2, 24, 5));
+            stacks.add(new PositionedStack(input1, 47, 5));
+            stacks.add(new PositionedStack(input3, 70, 5));
             return stacks;
         }
     }
 
     @Override
     public String getGuiTexture() {
-        return ModInfo.MODID + ":textures/guis/metalMixerGui.png";
+        return ModInfo.MODID + ":textures/guis/machineWorkbenchGui.png";
     }
 
     @Override
     public String getRecipeName() {
-        return StatCollector.translateToLocal("Metal Mixer");
+        return StatCollector.translateToLocal("Machine Workbench");
     }
 
     @Override
@@ -58,17 +61,17 @@ public class MetalMixerHandler extends TemplateRecipeHandler {
         if (outputId.equals("item"))
             loadCraftingRecipes((ItemStack) results[0]);
         else if (outputId.equals("allMWB")) {
-            for (Recipe2_1 r : RecipesMetalMixer.GetAllRecipes()) {
-                arecipes.add(new CachedMetalMixerRecipe(r));
+            for (Recipe3_1 r : RecipesMachineWorkbench.GetAllRecipes()) {
+                arecipes.add(new CachedMachineWorkbenchRecipe(r));
             }
         }
     }
 
     @Override
     public void loadCraftingRecipes(ItemStack result) {
-        for (Recipe2_1 r : RecipesMetalMixer.GetAllRecipes()) {
+        for (Recipe3_1 r : RecipesMachineWorkbench.GetAllRecipes()) {
             if (r.getOutput().isItemEqual(result))
-                arecipes.add(new CachedMetalMixerRecipe(r));
+                arecipes.add(new CachedMachineWorkbenchRecipe(r));
         }
     }
 
@@ -76,8 +79,8 @@ public class MetalMixerHandler extends TemplateRecipeHandler {
     public void loadUsageRecipes(String inputId, Object... ingredients) {
         if (ingredients.length == 0) return;
         if ("item".equals(inputId)) {
-            for (Recipe2_1 r : RecipesMetalMixer.getRecipesFromStack((ItemStack) ingredients[0]))
-                arecipes.add(new CachedMetalMixerRecipe(r));
+            for (Recipe3_1 r : RecipesMachineWorkbench.GetRecipesFromStack((ItemStack) ingredients[0]))
+                arecipes.add(new CachedMachineWorkbenchRecipe(r));
         }
     }
 
@@ -125,7 +128,7 @@ public class MetalMixerHandler extends TemplateRecipeHandler {
 
     @Override
     public  void loadTransferRects() {
-        RecipeTransferRect rect = new RecipeTransferRect(new Rectangle(77, 25, 24, 17), "allMWB");
+        RecipeTransferRect rect = new RecipeTransferRect(new Rectangle(93, 25, 24, 17), "allMWB");
         transferRects.add(rect);
         List<Class<? extends GuiContainer>> guis = new ArrayList<Class<? extends GuiContainer>>();
         guis.add(BlockGuiMachineWorkbench.class);

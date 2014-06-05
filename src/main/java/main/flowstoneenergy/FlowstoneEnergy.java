@@ -12,7 +12,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import main.flowstoneenergy.blocks.BlockRecipeRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
-import main.flowstoneenergy.blocks.fluids.BucketRegistry;
 import main.flowstoneenergy.blocks.fluids.FluidRecipeRegistry;
 import main.flowstoneenergy.enchants.EnchantRandTeleHandler;
 import main.flowstoneenergy.enchants.EnchantRegistry;
@@ -54,7 +53,7 @@ public class FlowstoneEnergy {
         ItemRegistry.registerItems();
         FluidRecipeRegistry.registerFluidRecipes();
         TERegistry.registerTileEntities();
-	    BucketRegistry.addBuckets();
+       // BucketRegistry.registerBucket();
 
         OreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 2);

@@ -1,4 +1,4 @@
-package nei;
+package main.flowstoneenergy.nei;
 
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;

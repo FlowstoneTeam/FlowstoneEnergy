@@ -123,7 +123,7 @@ public class ItemRecipeRegistry {
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200);
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200);
         OreDictHandler.tumblerOreDictRecipes("stone", new ItemStack(Blocks.cobblestone), 150);
-        OreDictHandler.tumblerOreDictRecipes("glass", new ItemStack(Blocks.glass), 200);
+        OreDictHandler.tumblerOreDictRecipes("glass", new ItemStack(Blocks.sand), 100);
         OreDictHandler.tumblerOreDictRecipes("cobblestone", new ItemStack(Blocks.sand), 150);
         OreDictHandler.tumblerOreDictRecipes("sand", new ItemStack(Blocks.gravel), 150);
         OreDictHandler.tumblerOreDictRecipes("gravel", new ItemStack(Items.flint), 200);

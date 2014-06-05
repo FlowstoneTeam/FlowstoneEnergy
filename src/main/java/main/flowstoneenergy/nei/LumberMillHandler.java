@@ -1,4 +1,4 @@
-package nei;
+package main.flowstoneenergy.nei;
 
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;

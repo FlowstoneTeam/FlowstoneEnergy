@@ -14,7 +14,6 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -28,8 +27,8 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench{
     public int currentFE = 0;
     private final Set<Class<? extends Block>> shiftRotations = new HashSet<Class<? extends Block>>();
     public static final byte[] opposite = {1, 0, 3, 2, 5, 4};
-    private boolean icInstalled = false;
-    private boolean bcInstalled = false;
+    private boolean icInstalled = true;
+    private boolean bcInstalled = true;
 
     public ItemToolPneumaticFlowwrench() {
         super();
@@ -62,11 +61,10 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench{
         list.add(TextHelper.BOLD + TextHelper.ITALIC +  "Installed Wrenches");
         if (icInstalled) {
             list.add("-Industrialcraft Wrench Installed!");
-        } else if(bcInstalled) {
+        }
+        if(bcInstalled) {
             list.add("-Buildcraft Wrench Installed!");
             list.add("-Applied Energistics Wrench Installed!");
-        } else {
-            list.add("-No Installed Wrenches");
         }
     }
 
