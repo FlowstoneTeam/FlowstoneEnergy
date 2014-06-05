@@ -85,9 +85,9 @@ public class OreDictHandler {
         }
 
         //vanilla items that should be registered IMO
-        OreDictionary.registerOre("ingotIron", Items.iron_ingot);
-        OreDictionary.registerOre("ingotGold", Items.gold_ingot);
-        OreDictionary.registerOre("gemQuartz", Items.quartz);
+        OreDictionary.registerOre("ingotIron", new ItemStack(Items.iron_ingot, 1, 0));
+        OreDictionary.registerOre("ingotGold", new ItemStack(Items.gold_ingot, 1, 0));
+        OreDictionary.registerOre("gemQuartz", new ItemStack(Items.quartz, 1, 0));
         OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 0));
         OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 1));
 
@@ -102,11 +102,32 @@ public class OreDictHandler {
         }
     }
 
+    public static void tumblerOreDictRecipes(String ore, String output, int time) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores != null && ores.size() >= 0 && outputs != null && outputs.size() >= 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                RecipesEnergizedOreTumbler.addRecipe(oreList, outputs.get(outputs.size() - 1), time);
+            }
+        }
+    }
+
+
     public static void furnaceOreDictRecipes(String ore, ItemStack output, float xp) {
         ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
         if (ores != null && ores.size() >= 0) {
             for (ItemStack oreList : OreDictionary.getOres(ore)) {
                 GameRegistry.addSmelting(oreList, output, xp);
+            }
+        }
+    }
+
+    public static void furnaceOreDictRecipes(String ore, String output, float xp) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores != null && ores.size() >= 0 && outputs != null && outputs.size() >= 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                GameRegistry.addSmelting(oreList, outputs.get(outputs.size() - 1), xp);
             }
         }
     }
@@ -120,11 +141,31 @@ public class OreDictHandler {
         }
     }
 
+    public static void lumberMillOreDictRecipes(String ore, String output, int time) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores != null && ores.size() >= 0 && outputs != null && outputs.size() >= 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                RecipesLumberMill.addRecipe(oreList, outputs.get(outputs.size() - 1), time);
+            }
+        }
+    }
+
     public static void bottlerOreDictRecipes(String ore, ItemStack output, int time) {
         ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
         if (ores != null && ores.size() >= 0) {
             for (ItemStack oreList : OreDictionary.getOres(ore)) {
                 RecipesFlowstoneBottler.addRecipe(oreList, output, time);
+            }
+        }
+    }
+
+    public static void bottlerOreDictRecipes(String ore, String output, int time) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores != null && ores.size() >= 0 && outputs != null && outputs.size() >= 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                RecipesFlowstoneBottler.addRecipe(oreList, outputs.get(outputs.size() - 1), time);
             }
         }
     }
@@ -141,18 +182,18 @@ public class OreDictHandler {
         }
     }
 
-        public static void machineWorkbenchOreDictRecipes(String ore1, String ore2, String ore3, ItemStack output, int time) {
-            ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
-            ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
-            ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
-            if (ores1 != null && ores1.size() >= 0 && ores2 != null && ores2.size() >= 0 && ores3 != null && ores3.size() >= 0) {
-                for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
-                    for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
-                        for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
-                            RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, output, time);
-                        }
+    public static void machineWorkbenchOreDictRecipes(String ore1, String ore2, String ore3, ItemStack output, int time) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
+        if (ores1 != null && ores1.size() >= 0 && ores2 != null && ores2.size() >= 0 && ores3 != null && ores3.size() >= 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
+                        RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, output, time);
                     }
                 }
             }
         }
+    }
 }
