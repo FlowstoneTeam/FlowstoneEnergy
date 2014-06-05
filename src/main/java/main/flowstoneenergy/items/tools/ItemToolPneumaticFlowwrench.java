@@ -20,7 +20,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.*;
 
-public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench{
+public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
 
     Random rand = new Random();
     private int maxFE = 10000;
@@ -58,11 +58,11 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench{
         list.remove(1);
         list.add(TextHelper.GREEN + currentFE + "/" + maxFE + "FE Stored");
         list.add("");
-        list.add(TextHelper.BOLD + TextHelper.ITALIC +  "Installed Wrenches");
+        list.add(TextHelper.BOLD + TextHelper.ITALIC + "Installed Wrenches");
         if (icInstalled) {
             list.add("-Industrialcraft Wrench Installed!");
         }
-        if(bcInstalled) {
+        if (bcInstalled) {
             list.add("-Buildcraft Wrench Installed!");
             list.add("-Applied Energistics Wrench Installed!");
         }

@@ -1,7 +1,7 @@
 package main.flowstoneenergy.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import main.flowstoneenergy.utils.OreDictHandler;
+import main.flowstoneenergy.utils.MachineRecipeHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -25,15 +25,15 @@ public class BlockRecipeRegistry {
     }
 
     private static void registerWorkbenchRecipes() {
-        OreDictHandler.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "gearGold", new ItemStack(BlockRegistry.machines, 1, 0), 200);
-        OreDictHandler.machineWorkbenchOreDictRecipes("machineBasic", "gearGold", "gearQuartz", new ItemStack(BlockRegistry.machines, 1, 1), 200);
-        OreDictHandler.machineWorkbenchOreDictRecipes("machineBasic", "gearStone", "gearIron", new ItemStack(BlockRegistry.machines, 1, 2), 200);
-        OreDictHandler.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "gearIron", new ItemStack(BlockRegistry.machines, 1, 3), 200);
-        OreDictHandler.machineWorkbenchOreDictRecipes("machineBasic", "gearLead", "gearNickel", new ItemStack(BlockRegistry.machines, 1, 4), 200);
+        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "gearGold", new ItemStack(BlockRegistry.machines, 1, 0), 200);
+        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearGold", "gearQuartz", new ItemStack(BlockRegistry.machines, 1, 1), 200);
+        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearStone", "gearIron", new ItemStack(BlockRegistry.machines, 1, 2), 200);
+        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "gearIron", new ItemStack(BlockRegistry.machines, 1, 3), 200);
+        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearLead", "gearNickel", new ItemStack(BlockRegistry.machines, 1, 4), 200);
     }
 
     private static void registerLumberMillRecipes() {
-        OreDictHandler.lumberMillOreDictRecipes("logWood", new ItemStack(Blocks.planks, 6, 0), 200);
+        MachineRecipeHelper.lumberMillOreDictRecipes("logWood", new ItemStack(Blocks.planks, 6, 0), 200);
     }
 
     public static void registerFullRecipes() {
