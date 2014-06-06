@@ -2,6 +2,7 @@ package main.flowstoneenergy.blocks.storage.chests;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.tileentities.chests.*;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -16,6 +17,7 @@ import java.util.List;
 public class BlockSecureChest extends BlockContainer {
     public BlockSecureChest() {
         super(Material.iron);
+        this.setCreativeTab(FlowstoneEnergy.blockTab);
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })

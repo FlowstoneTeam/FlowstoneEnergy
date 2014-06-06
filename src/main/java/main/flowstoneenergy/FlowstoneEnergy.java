@@ -16,6 +16,7 @@ import main.flowstoneenergy.blocks.fluids.FluidRecipeRegistry;
 import main.flowstoneenergy.enchants.EnchantRandTeleHandler;
 import main.flowstoneenergy.enchants.EnchantRegistry;
 import main.flowstoneenergy.entities.FEEntityRegistry;
+import main.flowstoneenergy.gui.BlockCreativeTab;
 import main.flowstoneenergy.gui.CreativeTab;
 import main.flowstoneenergy.gui.GuiHandler;
 import main.flowstoneenergy.items.ItemRecipeRegistry;
@@ -34,7 +35,8 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = "after:NotEnoughItems")
 public class FlowstoneEnergy {
-    public static CreativeTabs tab = new CreativeTab("FlowstoneEnergy");
+    public static CreativeTabs blockTab = new BlockCreativeTab("FlowstoneEnergyBlocks");
+    public static CreativeTabs tab = new CreativeTab("FlowstoneEnergyItems");
 	public static Logger logger = LogManager.getLogger(ModInfo.NAME);
 
     @Instance

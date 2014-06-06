@@ -1,4 +1,5 @@
-package main.flowstoneenergy.blocks;
+package main.flowstoneenergy.blocks.decorative;
+
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,26 +15,24 @@ import net.minecraft.util.IIcon;
 
 import java.util.List;
 
-public class BlockIngotStorage extends Block {
-    public IIcon[] icon = new IIcon[16];
+public class BlockAplite extends Block {
+    public IIcon[] icon = new IIcon[8];
 
-    public BlockIngotStorage() {
-        super(Material.iron);
-        this.setHardness(0.5F);
+    public BlockAplite() {
+        super(Material.rock);
+        this.setHardness(3F);
+        this.setBlockName(ModInfo.MODID + ".aplite");
         this.setCreativeTab(FlowstoneEnergy.blockTab);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister ir) {
-        this.icon[0] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockCopper");
-        this.icon[1] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockTin");
-        this.icon[2] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockLead");
-        this.icon[3] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockSilver");
-        this.icon[4] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockEnder");
-        this.icon[5] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockNickel");
-        this.icon[6] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockInvar");
-        this.icon[7] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockElectrum");
+        icon[0] = ir.registerIcon(ModInfo.MODID + ":ores/apliteOre");
+        icon[1] = ir.registerIcon(ModInfo.MODID + ":decorative/apliteCobble");
+        icon[2] = ir.registerIcon(ModInfo.MODID + ":decorative/apliteBrick");
+        icon[3] = ir.registerIcon(ModInfo.MODID + ":decorative/apliteSmallBrick");
+        icon[4] = ir.registerIcon(ModInfo.MODID + ":decorative/apliteChiseled");
     }
 
     @Override
@@ -42,11 +41,11 @@ public class BlockIngotStorage extends Block {
         return this.icon[meta];
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 5; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }

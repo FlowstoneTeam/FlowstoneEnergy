@@ -1,4 +1,4 @@
-package main.flowstoneenergy.client.Armor;
+package main.flowstoneenergy.client.armor;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

@@ -1,7 +1,7 @@
 package main.flowstoneenergy.proxies;
 
-import main.flowstoneenergy.client.Entities.FlowstoneRobot;
-import main.flowstoneenergy.client.Entities.RenderRobot;
+import main.flowstoneenergy.client.entities.FlowstoneRobot;
+import main.flowstoneenergy.client.entities.RenderRobot;
 import main.flowstoneenergy.entities.EntityRobot;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

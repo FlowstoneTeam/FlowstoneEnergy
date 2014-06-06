@@ -33,6 +33,7 @@ public class GenerationHandler implements IWorldGenerator {
             int leadY = rand.nextInt(30);
             int silverY = rand.nextInt(30);
             int nickelY = rand.nextInt(22);
+            int apaliteY = rand.nextInt(55);
 
             if (ConfigHandler.useFECopper)
                 (new WorldGenMinable(BlockRegistry.blockOres, 0, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
@@ -44,6 +45,8 @@ public class GenerationHandler implements IWorldGenerator {
                 (new WorldGenMinable(BlockRegistry.blockOres, 3, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
             if (ConfigHandler.useFENickel)
                 (new WorldGenMinable(BlockRegistry.blockOres, 4, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
+            if (ConfigHandler.useFEApalite)
+                (new WorldGenMinable(BlockRegistry.aplite, 0, 30, Blocks.stone)).generate(world, rand, firstBlockXCoord, apaliteY, firstBlockZCoord);
         }
 
     }

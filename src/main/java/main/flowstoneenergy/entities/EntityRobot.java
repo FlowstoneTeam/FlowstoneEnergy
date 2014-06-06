@@ -3,14 +3,15 @@ package main.flowstoneenergy.entities;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import io.netty.buffer.ByteBuf;
 import main.flowstoneenergy.ConfigHandler;
+import main.flowstoneenergy.ModInfo;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityIronGolem;
+import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class EntityRobot extends EntityIronGolem implements IEntityAdditionalSpawnData {
+public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnData {
 
     private static boolean charged;
 	public static int taskNum = 0;
@@ -18,8 +19,10 @@ public class EntityRobot extends EntityIronGolem implements IEntityAdditionalSpa
 
     public EntityRobot(World world) {
         super(world);
+        if (ConfigHandler.debugMode) charged = true;
         setHealth(20);
-        setSize(1.0F, 0.6F);
+        setAIMoveSpeed(0.5F);
+        setSize(0.9F, 0.6F);
     }
 	
 	public void setTask(int taskNum) {
@@ -36,6 +39,22 @@ public class EntityRobot extends EntityIronGolem implements IEntityAdditionalSpa
 			defend(this.worldObj, 7, 4, this.posX, this.posY, this.posZ);
 		}
 	}
+
+    @Override
+    public String getLivingSound() {
+        return ModInfo.MODID + ":robotTalk";
+    }
+	
+	@Override
+	public String getHurtSound() {
+		return "mob.irongolem.hit";
+	}
+	
+	@Override
+	protected String getDeathSound()
+    {
+        return "mob.irongolem.death";
+    }
 
     public static boolean isCharged() {
         return charged;
@@ -57,10 +76,10 @@ public class EntityRobot extends EntityIronGolem implements IEntityAdditionalSpa
 
     @Override
     protected boolean isMovementCeased() {
-        if (!isCharged())
-            return true;
-        else
+        if (charged)
             return false;
+        else
+            return true;
     }
 
     @Override

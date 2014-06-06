@@ -1,16 +1,18 @@
 CREATIVETAB
-itemGroup.FlowstoneEnergy=Flowstone Energy
+itemGroup.FlowstoneEnergyItems=Flowstone Energy Items
+itemGroup.FlowstoneEnergyBlocks=Flowstone Energy Blocks
 
 Machines
+tile.flowstoneenergy.MachineBox.name=Machine Box
 tile.blockMachines.oreTumbler.name=Energized Ore Tumbler
 tile.blockMachines.heatedOven.name=Heated Oven
-tile.flowstoneenergy.MachineBox.name=Machine Box
 tile.blockMachines.flowstoneBottler.name=Flowstone Bottler
 tile.blockMachines.metalMixer.name=Metal Mixer
 tile.blockMachines.lumberMill.name=Lumber Mill
 tile.blockMachines.machineWorkbench.name=Machine Workbench
 tile.blockMachines.liquifier.name=Item Liquifier
-tile.flowstoneenergy.AutoCraftingTable.name=Auto Crafting Table
+tile.blockMachines.liquidInfuser.name=Liquid Infuser
+tile.blockMachines.autoCrafter.name=Auto Crafter
 
 BLOCKS
 tile.blockIngotStorage.copper.name=Copper Block
@@ -25,6 +27,11 @@ tile.flowstoneenergy.flowstoneBlock.name=Liquid Flowstone
 tile.flowstoneenergy.fluidBlazeBlock.name=Liquid Blaze
 tile.flowstoneenergy.strong.glass.name=Strong Glass
 tile.flowstoneenergy.strong.glass.pane.name=Strong Glass Pane
+tile.blockAplite.ore.name=Raw Aplite
+tile.blockAplite.cobble.name=Aplite Cobble
+tile.blockAplite.brick.name=Aplite Bricks
+tile.blockAplite.smallBrick.name=Small Aplite Bricks
+tile.blockAplite.chiseled.name=Chiseled Aplite
 
 BATTERIES
 item.flowstoneenergy.flowstone.battery.tier.one.name=Flowstone Battery [Tier: 1]

@@ -1,6 +1,7 @@
 package main.flowstoneenergy.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.utils.MachineRecipeHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -11,6 +12,10 @@ public class BlockRecipeRegistry {
     private static void registerBlockRecipes() {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.machineBox, 1, 0), new Object[]{"XXX", "X X", "XXX", 'X', "ingotCopper"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.machines, 1, 5), new Object[]{"XYX", "YZY", "XYX", 'X', "gearStone", 'Y', Blocks.crafting_table, 'Z', "machineBasic"}));
+        GameRegistry.addShapelessRecipe(new ItemStack(BlockRegistry.aplite, 1, 1), new ItemStack(BlockRegistry.aplite, 1, 2));
+        GameRegistry.addShapelessRecipe(new ItemStack(BlockRegistry.aplite, 1, 2), new ItemStack(BlockRegistry.aplite, 1, 3));
+        GameRegistry.addShapelessRecipe(new ItemStack(BlockRegistry.aplite, 1, 3), new ItemStack(BlockRegistry.aplite, 1, 4));
+        GameRegistry.addSmelting(new ItemStack(BlockRegistry.aplite, 1, 1), new ItemStack(BlockRegistry.aplite, 1, 0), 0.1F);
     }
 
     private static void registerStorageRecipes() {

@@ -1,12 +1,13 @@
 package main.flowstoneenergy.blocks;
 
+import main.flowstoneenergy.blocks.decorative.BlockAplite;
 import main.flowstoneenergy.blocks.decorative.BlockStrongGlass;
 import main.flowstoneenergy.blocks.decorative.BlockStrongGlassPane;
 import main.flowstoneenergy.blocks.fluids.BlockFlowstone;
 import main.flowstoneenergy.blocks.fluids.BlockFluidBlaze;
-import main.flowstoneenergy.blocks.machines.BlockMachineAutoCraftingTable;
 import main.flowstoneenergy.blocks.machines.BlockMachineBox;
 import main.flowstoneenergy.blocks.machines.BlockMachines;
+import main.flowstoneenergy.items.blocks.ItemBlockAplite;
 import main.flowstoneenergy.items.blocks.ItemBlockIngotStorage;
 import main.flowstoneenergy.items.blocks.ItemBlockMachines;
 import main.flowstoneenergy.items.blocks.ItemBlockOres;
@@ -18,7 +19,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BlockRegistry {
 
     //machines
-    public static Block autoCrafter;
     public static Block machineBox;
     public static Block machines;
     
@@ -28,6 +28,8 @@ public class BlockRegistry {
     
     //other
     public static Block ingotStorage;
+    public static Block aplite;
+    public static Block treePart;
 
     //ores
     public static Block blockOres;
@@ -40,8 +42,6 @@ public class BlockRegistry {
 
     public static void registerBlocks() {
         //machines
-        autoCrafter = new BlockMachineAutoCraftingTable();
-        GameRegistry.registerBlock(autoCrafter, autoCrafter.getUnlocalizedName());
         machineBox = new BlockMachineBox();
         GameRegistry.registerBlock(machineBox, machineBox.getUnlocalizedName());
         machines = new BlockMachines().setBlockName("blockMachines");
@@ -56,6 +56,8 @@ public class BlockRegistry {
         //other
         ingotStorage = new BlockIngotStorage().setBlockName("blockIngotStorage");
         GameRegistry.registerBlock(ingotStorage, ItemBlockIngotStorage.class, "BlockIngotStorage");
+        aplite = new BlockAplite().setBlockName("blockAplite");
+        GameRegistry.registerBlock(aplite, ItemBlockAplite.class, "BlockAplite");
 
         //ores
         blockOres = new BlockOres();

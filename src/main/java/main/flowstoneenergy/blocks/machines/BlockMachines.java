@@ -57,12 +57,20 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         //liquifier
         this.frontOn[6] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
         this.frontOff[6] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+
+        //liquid infuser
+        this.frontOn[7] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
+        this.frontOff[7] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+
+        //autoCrafter
+        this.frontOn[8] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
+        this.frontOff[8] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
-        for (int i = 0; i <= 6; i++) {
+        for (int i = 0; i <= 8; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
@@ -89,6 +97,12 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         }
         if (meta == 6) {
         	return new TileEntityMachineLiquifier();
+        }
+        if (meta == 7) {
+            return new TileEntityMachineInfuser();
+        }
+        if(meta == 8) {
+            return new TileEntityMachineAutoCraftingTable();
         }
         return super.createTileEntity(world, meta);
     }

@@ -13,11 +13,11 @@ public class BlockStrongGlass extends Block {
 		super(Material.iron);
 		this.setHardness(0.5F);
 		this.setStepSound(soundTypeGlass);
-		this.setCreativeTab(FlowstoneEnergy.tab);
+		this.setCreativeTab(FlowstoneEnergy.blockTab);
 		this.setBlockName(ModInfo.MODID + ".strong.glass");
 		this.setBlockTextureName(ModInfo.MODID + ":decorative/strongGlass");
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public int getRenderBlockPass() {
         return 1;

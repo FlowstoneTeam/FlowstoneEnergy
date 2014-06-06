@@ -1,14 +1,12 @@
 package main.flowstoneenergy.items.blocks;
 
-import main.flowstoneenergy.blocks.machines.BlockMachines;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
-public class ItemBlockMachines extends ItemBlock {
+public class ItemBlockAplite extends ItemBlock {
 
-    public ItemBlockMachines(Block block) {
+    public ItemBlockAplite(Block block) {
         super(block);
         setHasSubtypes(true);
     }
@@ -18,39 +16,23 @@ public class ItemBlockMachines extends ItemBlock {
         String name = "";
         switch (itemstack.getItemDamage()) {
             case 0: {
-                name = "oreTumbler";
+                name = "ore";
                 break;
             }
             case 1: {
-                name = "flowstoneBottler";
+                name = "cobble";
                 break;
             }
             case 2: {
-                name = "heatedOven";
+                name = "brick";
                 break;
             }
             case 3: {
-                name = "lumberMill";
+                name = "smallBrick";
                 break;
             }
             case 4: {
-                name = "metalMixer";
-                break;
-            }
-            case 5: {
-                name = "machineWorkbench";
-                break;
-            }
-            case 6: {
-                name = "liquifier";
-                break;
-            }
-            case 7: {
-                name = "liquidInfuser";
-                break;
-            }
-            case 8: {
-                name = "autoCrafter";
+                name = "chiseled";
                 break;
             }
             default:

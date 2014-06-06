@@ -13,7 +13,7 @@ public class BlockStrongGlassPane extends BlockPane{
 		super(ModInfo.MODID + ":decorative/strongGlass", ModInfo.MODID + ":blockedingots/blockLead", Material.iron, true);
 		this.setBlockName(ModInfo.MODID + ".strong.glass.pane");
 		this.setBlockTextureName(ModInfo.MODID + ":decorative/strongGlass");
-		this.setCreativeTab(FlowstoneEnergy.tab);
+		this.setCreativeTab(FlowstoneEnergy.blockTab);
 		this.setHardness(0.5F);
 	}
 	

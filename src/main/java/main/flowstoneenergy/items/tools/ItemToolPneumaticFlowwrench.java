@@ -29,6 +29,8 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
     public static final byte[] opposite = {1, 0, 3, 2, 5, 4};
     private boolean icInstalled = true;
     private boolean bcInstalled = true;
+    private boolean aeInstalled = true;
+    private boolean eiInstalled = true;
 
     public ItemToolPneumaticFlowwrench() {
         super();
@@ -58,13 +60,18 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
         list.remove(1);
         list.add(TextHelper.GREEN + currentFE + "/" + maxFE + "FE Stored");
         list.add("");
-        list.add(TextHelper.BOLD + TextHelper.ITALIC + "Installed Wrenches");
+        list.add(TextHelper.ITALIC + "Installed Wrenches");
         if (icInstalled) {
             list.add("-Industrialcraft Wrench Installed!");
         }
         if (bcInstalled) {
             list.add("-Buildcraft Wrench Installed!");
+        }
+        if (aeInstalled) {
             list.add("-Applied Energistics Wrench Installed!");
+        }
+        if (eiInstalled) {
+            list.add("-EnderIO Wrench Installed!");
         }
     }
 
@@ -140,6 +147,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
                 return !world.isRemote;
             }
         }
+        player.swingItem();
         return true;
     }
 }

@@ -13,5 +13,7 @@ public class TERegistry {
         GameRegistry.registerTileEntity(TileEntityMachineWorkbench.class, "tileEntityMachineWorkbench");
         GameRegistry.registerTileEntity(TileEntityMachineLumberMill.class, "tileEntityMachineLumberMill");
         GameRegistry.registerTileEntity(TileEntityMachineLiquifier.class, "tileEntityMachineLiquifier");
+        GameRegistry.registerTileEntity(TileEntityMachineInfuser.class, "tileEntityMachineInfuser");
+        GameRegistry.registerTileEntity(TileEntityMachineAutoCraftingTable.class, "tileEntityMachineAutocrafter");
     }
 }

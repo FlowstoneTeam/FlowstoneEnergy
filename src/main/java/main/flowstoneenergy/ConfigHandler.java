@@ -15,6 +15,7 @@ public class ConfigHandler {
     public static boolean useFELead;
     public static boolean useFESilver;
     public static boolean useFENickel;
+    public static boolean useFEApalite;
     public static boolean capesOn;
     public static int teleEnchant;
     public static boolean debugMode;
@@ -30,11 +31,12 @@ public class ConfigHandler {
 	    teleEnchant = config.get(enchant, "Teleport Enchanment Id", 40).getInt(teleEnchant);
 	    
 	    //Ores
-        useFECopper = config.get(oreConfig, "Enable Flowstone Energy Copper", true).getBoolean(useFECopper);
-        useFETin = config.get(oreConfig, "Enable Flowstone Energy Tin", true).getBoolean(useFETin);
-        useFELead = config.get(oreConfig, "Enable Flowstone Energy Lead", true).getBoolean(useFELead);
-        useFESilver = config.get(oreConfig, "Enable Flowstone Energy Silver", true).getBoolean(useFESilver);
-        useFENickel = config.get(oreConfig, "Enable Flowstone Energy Nickel", true).getBoolean(useFENickel);
+        useFECopper = config.get(oreConfig, "Enable Flowstone Energy copper generation", true).getBoolean(useFECopper);
+        useFETin = config.get(oreConfig, "Enable Flowstone Energy tin generation", true).getBoolean(useFETin);
+        useFELead = config.get(oreConfig, "Enable Flowstone Energy lead generation", true).getBoolean(useFELead);
+        useFESilver = config.get(oreConfig, "Enable Flowstone Energy silver generation", true).getBoolean(useFESilver);
+        useFENickel = config.get(oreConfig, "Enable Flowstone Energy nickel generation", true).getBoolean(useFENickel);
+        useFEApalite = config.get(oreConfig, "Enable Flowstone Energy apalite generation", true).getBoolean(useFEApalite);
 
         if (config.hasChanged()) config.save();
     }
