@@ -5,3 +5,4 @@ mrcomputerghost:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/
 kris1432:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
 othlon:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
 founderio:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
+theorangegenius:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/orangecape.png
