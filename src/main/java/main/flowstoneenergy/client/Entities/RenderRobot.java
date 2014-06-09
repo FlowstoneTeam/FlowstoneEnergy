@@ -1,4 +1,4 @@
-package main.flowstoneenergy.client.Entities;
+package main.flowstoneenergy.client.entities;
 
 import main.flowstoneenergy.entities.EntityRobot;
 

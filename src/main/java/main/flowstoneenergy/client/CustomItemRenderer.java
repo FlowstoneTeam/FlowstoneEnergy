@@ -1,7 +1,7 @@
 package main.flowstoneenergy.client;
 
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.client.Blocks.ModelMachineWorkbench;
+import main.flowstoneenergy.client.blocks.ModelMachineWorkbench;
 import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.item.ItemStack;

@@ -61,6 +61,8 @@ public class GuiHandler implements IGuiHandler {
                 case 8:
                     return new BlockGuiAutoCrafter(player, (TileEntityMachineAutoCraftingTable) entity);
             }
+        } else if (ID == 9 && world.isRemote) {
+            return new ItemGuiManual();
         }
         return null;
     }

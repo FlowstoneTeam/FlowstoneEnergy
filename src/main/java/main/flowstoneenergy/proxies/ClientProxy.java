@@ -2,10 +2,10 @@ package main.flowstoneenergy.proxies;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
-import main.flowstoneenergy.client.Blocks.RenderMachineWorkbench;
+import main.flowstoneenergy.client.blocks.RenderMachineWorkbench;
 import main.flowstoneenergy.client.CustomItemRenderer;
-import main.flowstoneenergy.client.Entities.FlowstoneRobot;
-import main.flowstoneenergy.client.Entities.RenderRobot;
+import main.flowstoneenergy.client.entities.FlowstoneRobot;
+import main.flowstoneenergy.client.entities.RenderRobot;
 import main.flowstoneenergy.entities.EntityRobot;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineWorkbench;

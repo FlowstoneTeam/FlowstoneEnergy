@@ -1,4 +1,4 @@
-package main.flowstoneenergy.client.Blocks;
+package main.flowstoneenergy.client.blocks;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

@@ -1,5 +1,6 @@
 package main.flowstoneenergy.items.tools;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
@@ -22,6 +23,7 @@ public class ItemFlowstoneManual extends Item {
     public static IIcon currentIcon;
 
     public ItemFlowstoneManual() {
+        super();
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setTextureName(ModInfo.MODID + ":tools/manual");
         this.setUnlocalizedName(ModInfo.MODID + ".flowstone.manual");
@@ -37,11 +39,8 @@ public class ItemFlowstoneManual extends Item {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-        if(world.isRemote)
-        {
-            currentIcon = icon[1];
-            Minecraft.getMinecraft().displayGuiScreen(new ItemGuiManual());
-        }
+        currentIcon = icon[1];
+        player.openGui(FlowstoneEnergy.instance, 9, world, (int)player.posX, (int)player.posY, (int)player.posZ);
         return itemStack;
     }
 

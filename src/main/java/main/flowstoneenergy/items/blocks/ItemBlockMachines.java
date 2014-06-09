@@ -1,10 +1,8 @@
 package main.flowstoneenergy.items.blocks;
 
-import main.flowstoneenergy.blocks.machines.BlockMachines;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 public class ItemBlockMachines extends ItemBlock {
 
@@ -38,18 +36,14 @@ public class ItemBlockMachines extends ItemBlock {
                 break;
             }
             case 5: {
-                name = "machineWorkbench";
-                break;
-            }
-            case 6: {
                 name = "liquifier";
                 break;
             }
-            case 7: {
+            case 6: {
                 name = "liquidInfuser";
                 break;
             }
-            case 8: {
+            case 7: {
                 name = "autoCrafter";
                 break;
             }

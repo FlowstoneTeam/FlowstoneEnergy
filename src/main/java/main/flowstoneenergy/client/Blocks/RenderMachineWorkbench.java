@@ -1,4 +1,4 @@
-package main.flowstoneenergy.client.Blocks;
+package main.flowstoneenergy.client.blocks;
 
 
 import main.flowstoneenergy.ModInfo;

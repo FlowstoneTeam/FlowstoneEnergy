@@ -19,6 +19,7 @@ import java.util.List;
 
 import static org.lwjgl.opengl.GL11.glColor4f;
 
+@SideOnly(Side.CLIENT)
 public class ItemGuiManual extends GuiScreen{
     static ResourceLocation gui = new ResourceLocation(ModInfo.MODID, "textures/guis/manualGui.png");
     public static ResourceLocation Gui_Manual = new ResourceLocation("minecraft", "textures/gui/book.png");
@@ -134,7 +135,7 @@ public class ItemGuiManual extends GuiScreen{
         fontRendererObj.drawString("out!", bookXStart, 177, 0);
 		fontRendererObj.drawString("This mod works best with NEI,", bookXStart + 120, 57, 0);
 		fontRendererObj.drawString("Flowstone Mixtures (a.k.a", bookXStart + 120, 67, 0);
-		fontRendererObj.drawString("Lucky Drinks), Steam Tech", bookXStart + 120, 77, 0);
+		fontRendererObj.drawString("Lucky Drinks), Steam Tech,", bookXStart + 120, 77, 0);
 		fontRendererObj.drawString("IC2, Applied Energistics 2", bookXStart + 120, 87, 0);
 		fontRendererObj.drawString("and Buildcraft", bookXStart + 120, 97, 0);
 		fontRendererObj.drawString("Written by the Flowstone Team", bookXStart + 120, 137, 0);
@@ -172,16 +173,17 @@ public class ItemGuiManual extends GuiScreen{
 		fontRendererObj.drawString("for short, is the first machine", bookXStart, 87, 0);
 		fontRendererObj.drawString("you will need to get started in", bookXStart, 97, 0);
 		fontRendererObj.drawString("Flowstone Energy. You use this", bookXStart, 107, 0);
-		fontRendererObj.drawString("machine to craft the other machines", bookXStart, 117, 0);
-		fontRendererObj.drawString("by adding two gears a machine box.", bookXStart, 127, 0);
-		fontRendererObj.drawString("The Machine Box has three inputs,", bookXStart, 137, 0);
-        fontRendererObj.drawString("the left is for a gear, the middle", bookXStart, 147, 0);
-		fontRendererObj.drawString("is for the machine box, and the", bookXStart, 157, 0);
-		fontRendererObj.drawString("right is for the other gear, it", bookXStart, 167, 0);
-		fontRendererObj.drawString("also has one output slot, but the", bookXStart + 120, 57, 0);
-		fontRendererObj.drawString("MWB is not only for machines, it", bookXStart + 120, 67, 0);
-		fontRendererObj.drawString("is also how you create the Pneumatic", bookXStart + 120, 77, 0);
-		fontRendererObj.drawString("Flowwrench,", bookXStart, 137, 0);
+		fontRendererObj.drawString("machine to craft the other", bookXStart, 117, 0);
+		fontRendererObj.drawString("machines by adding two gears", bookXStart, 127, 0);
+		fontRendererObj.drawString("a machine box. The MWB has", bookXStart, 137, 0);
+        fontRendererObj.drawString("three inputs, the left is", bookXStart, 147, 0);
+		fontRendererObj.drawString("for a gear, the middle is for", bookXStart, 157, 0);
+		fontRendererObj.drawString("the machine box, and the right", bookXStart, 167, 0);
+		fontRendererObj.drawString("is for the other gear, it also", bookXStart + 120, 57, 0);
+		fontRendererObj.drawString("has one output slot, but the MWB", bookXStart + 120, 67, 0);
+		fontRendererObj.drawString("is not only for machines, it is", bookXStart + 120, 77, 0);
+		fontRendererObj.drawString("also how you create the", bookXStart + 120, 87, 0);
+        fontRendererObj.drawString("Pneumatic Flowwrench", bookXStart + 120, 97, 0);
 		fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
         fontRendererObj.setUnicodeFlag(unicode);
     }
