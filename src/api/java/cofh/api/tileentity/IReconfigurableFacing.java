@@ -1,7 +1,7 @@
 package cofh.api.tileentity;
 
 /**
- * Implement this interface on Tile Entities which allow for reconfiguration of their facing.
+ * Implement this interface on Tile entities which allow for reconfiguration of their facing.
  * 
  * Coordination with the containing block is required.
  * 

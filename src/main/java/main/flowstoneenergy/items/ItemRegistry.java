@@ -12,10 +12,7 @@ import main.flowstoneenergy.items.food.FoodBacon;
 import main.flowstoneenergy.items.food.FoodCookedBacon;
 import main.flowstoneenergy.items.food.FoodTea;
 import main.flowstoneenergy.items.food.ItemMetaResourceUtensil;
-import main.flowstoneenergy.items.tools.ItemFlowstoneBucket;
-import main.flowstoneenergy.items.tools.ItemLiquidBlazeBucket;
-import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
-import main.flowstoneenergy.items.tools.ItemToolPneumaticFlowwrench;
+import main.flowstoneenergy.items.tools.*;
 import main.flowstoneenergy.items.tools.electrum.*;
 import main.flowstoneenergy.items.tools.ender.*;
 import net.minecraft.item.Item;
@@ -52,6 +49,7 @@ public class ItemRegistry {
     public static Item electrumAxe;
     public static Item electrumPick;
     public static Item electrumShovel;
+    public static Item manual;
 
     //armour
     public static Item flowBoots;
@@ -122,6 +120,8 @@ public class ItemRegistry {
         GameRegistry.registerItem(electrumShovel, electrumShovel.getUnlocalizedName());
         electrumAxe = new ItemAxeElectrum(electrum);
         GameRegistry.registerItem(electrumAxe, electrumAxe.getUnlocalizedName());
+        manual = new ItemFlowstoneManual();
+        GameRegistry.registerItem(manual, manual.getUnlocalizedName());
 
         //armour
         flowBoots = new ItemArmorFlowBoots(flowfield, 0, 3);

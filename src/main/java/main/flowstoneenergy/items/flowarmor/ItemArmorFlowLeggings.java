@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.client.armor.FlowLeggingsModel;
+import main.flowstoneenergy.client.Armor.FlowLeggingsModel;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,7 +17,7 @@ public class ItemArmorFlowLeggings extends ItemArmor {
         super(material, renderIndex, armorType);
 	    this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".flow.leggings");
-        this.setTextureName(ModInfo.MODID + ":armor/flowLeggings");
+        this.setTextureName(ModInfo.MODID + ":Armor/flowLeggings");
     }
 
     @Override
@@ -37,6 +37,6 @@ public class ItemArmorFlowLeggings extends ItemArmor {
     @Override
     @SideOnly(Side.CLIENT)
     public String getArmorTexture(ItemStack Stack, Entity entity, int Slot, String type) {
-        return ModInfo.MODID + ":textures/armor/flowLegs.png";
+        return ModInfo.MODID + ":textures/Armor/flowLegs.png";
     }
 }

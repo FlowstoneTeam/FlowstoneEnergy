@@ -76,6 +76,7 @@ public class OreDictHandler {
         OreDictionary.registerOre("gravel", Blocks.gravel);
         OreDictionary.registerOre("sand", Blocks.sand);
         OreDictionary.registerOre("glass", Blocks.glass);
+        OreDictionary.registerOre("tableCrafting", Blocks.crafting_table);
         for (int i = 0; i <= 15; i++) {
             OreDictionary.registerOre("glass", new ItemStack(Blocks.stained_glass, 1, i));
         }

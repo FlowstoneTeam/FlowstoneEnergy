@@ -1,7 +1,7 @@
 package cofh.api.tileentity;
 
 /**
- * Implement this interface on Tile Entities which can report information about their energy usage.
+ * Implement this interface on Tile entities which can report information about their energy usage.
  * 
  * This is used for reporting purposes - Energy transactions are handled through IEnergyHandler!
  * 

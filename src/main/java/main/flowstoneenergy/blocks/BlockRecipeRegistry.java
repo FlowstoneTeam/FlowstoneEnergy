@@ -35,6 +35,9 @@ public class BlockRecipeRegistry {
         MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearStone", "gearIron", new ItemStack(BlockRegistry.machines, 1, 2), 200);
         MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "gearIron", new ItemStack(BlockRegistry.machines, 1, 3), 200);
         MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearLead", "gearNickel", new ItemStack(BlockRegistry.machines, 1, 4), 200);
+        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearQuartz", "gearDiamond", new ItemStack(BlockRegistry.machines, 1, 6), 200);
+        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearDiamond", "gearQuartz", new ItemStack(BlockRegistry.machines, 1, 7), 200);
+        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "tableCrafting", new ItemStack(BlockRegistry.machines, 1, 8), 200);
     }
 
     private static void registerLumberMillRecipes() {

@@ -10,7 +10,8 @@ import net.minecraft.block.material.Material;
 public class BlockStrongGlassPane extends BlockPane{
 
 	public BlockStrongGlassPane() {
-		super(ModInfo.MODID + ":decorative/strongGlass", ModInfo.MODID + ":blockedingots/blockLead", Material.iron, true);
+		super(ModInfo.MODID + ":decorative/strongGlass", ModInfo.MODID + ":blockedingots/blockLead", Material.glass, true);
+        this.setStepSound(soundTypeGlass);
 		this.setBlockName(ModInfo.MODID + ".strong.glass.pane");
 		this.setBlockTextureName(ModInfo.MODID + ":decorative/strongGlass");
 		this.setCreativeTab(FlowstoneEnergy.blockTab);

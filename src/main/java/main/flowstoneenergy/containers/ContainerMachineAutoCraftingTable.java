@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineAutoCraftingTable extends Container {
@@ -23,8 +24,16 @@ public class ContainerMachineAutoCraftingTable extends Container {
     }
 
     private void createSlots(TileEntityMachineAutoCraftingTable tile, EntityPlayer player) {
-        addSlotToContainer(new Slot(tile, 0, 52, 16));
-        addSlotToContainer(new Slot(tile, 1, 129, 34));
+        addSlotToContainer(new Slot(tile, 0, 31, 12));
+        addSlotToContainer(new Slot(tile, 1, 49, 12));
+        addSlotToContainer(new Slot(tile, 2, 67, 12));
+        addSlotToContainer(new Slot(tile, 3, 31, 30));
+        addSlotToContainer(new Slot(tile, 4, 49, 30));
+        addSlotToContainer(new Slot(tile, 5, 67, 30));
+        addSlotToContainer(new Slot(tile, 6, 31, 48));
+        addSlotToContainer(new Slot(tile, 7, 49, 48));
+        addSlotToContainer(new Slot(tile, 8, 67, 48));
+        addSlotToContainer(new Slot(tile, 9, 122, 35));
     }
 
     private void bindPlayerInventory(InventoryPlayer inv) {

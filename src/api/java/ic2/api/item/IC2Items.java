@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
  * Some blocks/items can be disabled by a config setting, so it's recommended to check if they're null first.
  * 
  * Getting the associated Block/Item for an ItemStack x:
- *   Blocks: Block.blocksList[x.itemID]
+ *   blocks: Block.blocksList[x.itemID]
  *   Items: x.getItem()
  */
 public final class IC2Items {
@@ -333,22 +333,22 @@ public final class IC2Items {
 	  hazmatLeggings; 	// Hazmat Leggings item, meta = damage value
 	  hazmatBoots; 		// Hazmat Boots item, meta = damage value
 
-	  bronzeHelmet; 		// Bronze Helmet Armor item, meta = damage value
-	  bronzeChestplate; 	// Bronze Chestplate Armor item, meta = damage value
-	  bronzeLeggings; 	// Bronze Leggings Armor item, meta = damage value
-	  bronzeBoots; 		// Bronze Boots Armor item, meta = damage value
+	  bronzeHelmet; 		// Bronze Helmet armor item, meta = damage value
+	  bronzeChestplate; 	// Bronze Chestplate armor item, meta = damage value
+	  bronzeLeggings; 	// Bronze Leggings armor item, meta = damage value
+	  bronzeBoots; 		// Bronze Boots armor item, meta = damage value
 
-	  compositeArmor; 	// Composite Armor item, meta = damage value for charge level
+	  compositeArmor; 	// Composite armor item, meta = damage value for charge level
 
-	  nanoHelmet; 		// Nano Helmet Armor item, meta = damage value for charge level
+	  nanoHelmet; 		// Nano Helmet armor item, meta = damage value for charge level
 	  nanoBodyarmor; 		// Nano Bodyarmor item, meta = damage value for charge level
-	  nanoLeggings; 		// Nano Leggings Armor item, meta = damage value for charge level
-	  nanoBoots; 			// Nano Boots Armor item, meta = damage value for charge level
+	  nanoLeggings; 		// Nano Leggings armor item, meta = damage value for charge level
+	  nanoBoots; 			// Nano Boots armor item, meta = damage value for charge level
 
-	  quantumHelmet; 		// Quantum Helmet Armor item, meta = damage value for charge level
+	  quantumHelmet; 		// Quantum Helmet armor item, meta = damage value for charge level
 	  quantumBodyarmor; 	// Quantum Bodyarmor item, meta = damage value for charge level
-	  quantumLeggings; 	// Quantum Leggings Armor item, meta = damage value for charge level
-	  quantumBoots; 		// Quantum Boots Armor item, meta = damage value for charge level
+	  quantumLeggings; 	// Quantum Leggings armor item, meta = damage value for charge level
+	  quantumBoots; 		// Quantum Boots armor item, meta = damage value for charge level
 
 	  jetpack; 			// Jetpack item, meta = damage value for fuel level
 	  electricJetpack; 	// Electric Jetpack item, meta = damage value for charge level

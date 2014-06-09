@@ -29,6 +29,7 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
 
         this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
         this.top = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
+        this.bottom = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
 
         //ore tumbler
         this.frontOn[0] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front_Active");
@@ -47,30 +48,26 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.frontOff[3] = icon.registerIcon(ModInfo.MODID + ":machines/lumberMill_Front");
 
         //metal mixer
-        this.frontOn[4] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
-        this.frontOff[4] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
-
-        //machine workbench
-        this.frontOn[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
-        this.frontOff[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+        this.frontOn[4] = icon.registerIcon(ModInfo.MODID + ":machines/metalMixer_Front_Active");
+        this.frontOff[4] = icon.registerIcon(ModInfo.MODID + ":machines/metalMixer_Front");
         
         //liquifier
-        this.frontOn[6] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
-        this.frontOff[6] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+        this.frontOn[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
+        this.frontOff[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
 
         //liquid infuser
-        this.frontOn[7] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
-        this.frontOff[7] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+        this.frontOn[6] = icon.registerIcon(ModInfo.MODID + ":machines/liquidInfuser_Front_Active");
+        this.frontOff[6] = icon.registerIcon(ModInfo.MODID + ":machines/liquidInfuser_Front");
 
         //autoCrafter
-        this.frontOn[8] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
-        this.frontOff[8] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+        this.frontOn[7] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
+        this.frontOff[7] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i <= 7; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
@@ -93,15 +90,12 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
             return new TileEntityMachineMetalMixer();
         }
         if (meta == 5) {
-            return new TileEntityMachineWorkbench();
-        }
-        if (meta == 6) {
         	return new TileEntityMachineLiquifier();
         }
-        if (meta == 7) {
+        if (meta == 6) {
             return new TileEntityMachineInfuser();
         }
-        if(meta == 8) {
+        if(meta == 7) {
             return new TileEntityMachineAutoCraftingTable();
         }
         return super.createTileEntity(world, meta);
@@ -122,11 +116,14 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
             player.openGui(FlowstoneEnergy.instance, 5, world, x, y, z);
         } else if (!world.isRemote && tile instanceof TileEntityMachineMetalMixer) {
             player.openGui(FlowstoneEnergy.instance, 3, world, x, y, z);
-        } else if (!world.isRemote && tile instanceof TileEntityMachineWorkbench) {
-            player.openGui(FlowstoneEnergy.instance, 4, world, x, y, z);
         } else if (!world.isRemote && tile instanceof TileEntityMachineLiquifier) {
         	player.openGui(FlowstoneEnergy.instance, 6, world, x, y, z);
+        } else if (!world.isRemote && tile instanceof TileEntityMachineInfuser) {
+            player.openGui(FlowstoneEnergy.instance, 7, world, x, y, z);
+        } else if (!world.isRemote && tile instanceof TileEntityMachineAutoCraftingTable) {
+            player.openGui(FlowstoneEnergy.instance, 8, world, x, y, z);
         }
+
         return true;
     }
 }

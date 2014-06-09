@@ -36,7 +36,7 @@ import buildcraft.api.core.IInvSlot;
 public abstract class Schematic {
 
 	/**
-	 * Blocks are build in various stages, in order to make sure that a block
+	 * blocks are build in various stages, in order to make sure that a block
 	 * can indeed be placed, and that it's unlikely to disturb other blocks.
 	 */
 	public static enum BuildingStage {

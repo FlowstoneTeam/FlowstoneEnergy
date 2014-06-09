@@ -22,6 +22,7 @@ import java.util.Random;
 public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
 
     public IIcon top;
+    public IIcon bottom;
     public IIcon frontOn[];
     public static IIcon frontOff[];
 
@@ -42,7 +43,9 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
         TileEntityMachineBase tile = (TileEntityMachineBase) access.getTileEntity(x, y, z);
         int i = access.getBlockMetadata(x, y, z);
 
-        if (side == 0 || side == 1) {
+        if (side == 0) {
+            return this.bottom;
+        } else if (side == 1) {
             return this.top;
         } else if (side != tile.facing) {
             return this.blockIcon;

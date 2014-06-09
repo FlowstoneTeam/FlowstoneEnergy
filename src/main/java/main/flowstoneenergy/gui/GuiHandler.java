@@ -28,6 +28,10 @@ public class GuiHandler implements IGuiHandler {
                     return new ContainerMachineLumberMill(player, (TileEntityMachineLumberMill) entity);
                 case 6:
                     return new ContainerMachineLiquifier(player, (TileEntityMachineLiquifier) entity);
+                case 7:
+                    return new ContainerMachineInfuser(player, (TileEntityMachineInfuser) entity);
+                case 8:
+                    return new ContainerMachineAutoCraftingTable(player, (TileEntityMachineAutoCraftingTable) entity);
             }
         }
         return null;
@@ -52,6 +56,10 @@ public class GuiHandler implements IGuiHandler {
                     return new BlockGuiLumberMill(player, (TileEntityMachineLumberMill) entity);
                 case 6:
                     return new BlockGuiLiquifier(player, (TileEntityMachineLiquifier) entity);
+                case 7:
+                    return new BlockGuiInfuser(player, (TileEntityMachineInfuser) entity);
+                case 8:
+                    return new BlockGuiAutoCrafter(player, (TileEntityMachineAutoCraftingTable) entity);
             }
         }
         return null;

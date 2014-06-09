@@ -57,7 +57,7 @@ public final class IronEngineCoolant {
 	}
 
 	/**
-	 * Adds a solid coolant like Ice Blocks. The FluidStack must contain a registered
+	 * Adds a solid coolant like Ice blocks. The FluidStack must contain a registered
 	 * Coolant Fluid or nothing will happen. You do not need to call this for
 	 * Fluid Containers.
 	 *
@@ -71,7 +71,7 @@ public final class IronEngineCoolant {
 	}
 
 	/**
-	 * Adds a solid coolant like Ice Blocks. The FluidStack must contain a
+	 * Adds a solid coolant like Ice blocks. The FluidStack must contain a
 	 * registered Coolant Fluid or nothing will happen. You do not need to call
 	 * this for Fluid Containers.
 	 * 

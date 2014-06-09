@@ -4,12 +4,12 @@ itemGroup.FlowstoneEnergyBlocks=Flowstone Energy Blocks
 
 Machines
 tile.flowstoneenergy.MachineBox.name=Machine Box
+tile.flowstoneenergy.machine.workbench.name=Machine Workbench
 tile.blockMachines.oreTumbler.name=Energized Ore Tumbler
 tile.blockMachines.heatedOven.name=Heated Oven
 tile.blockMachines.flowstoneBottler.name=Flowstone Bottler
 tile.blockMachines.metalMixer.name=Metal Mixer
 tile.blockMachines.lumberMill.name=Lumber Mill
-tile.blockMachines.machineWorkbench.name=Machine Workbench
 tile.blockMachines.liquifier.name=Item Liquifier
 tile.blockMachines.liquidInfuser.name=Liquid Infuser
 tile.blockMachines.autoCrafter.name=Auto Crafter
@@ -55,6 +55,7 @@ item.flowstoneenergy.electrum.shovel.name=Electrum Shovel
 item.flowstoneenergy.electrum.axe.name=Electrum Axe
 item.flowstoneenergy.flowstone.bucket.name=Flowstone Bucket
 item.flowstoneenergy.liquid.blaze.bucket.name=Liquid Blaze Bucket
+item.flowstoneenergy.flowstone.manual.name=Flowstone Manual
 
 ARMOR
 item.flowstoneenergy.flow.boots.name=Flow Boots
