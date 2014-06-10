@@ -38,7 +38,7 @@ public class RecipesMetalMixer {
         return out.toArray(new Recipe2_1[0]);
     }
 
-    public static List<Recipe2_1> GetAllRecipes()
+    public static List<Recipe2_1> getAllRecipes()
     {
         return ImmutableList.copyOf(recipe21List);
     }

@@ -54,7 +54,7 @@ public class OreTumblerHandler extends TemplateRecipeHandler {
         if (outputId.equals("item"))
             loadCraftingRecipes((ItemStack) results[0]);
         else if (outputId.equals("allOT")) {
-            for (Recipe1_1 r : RecipesEnergizedOreTumbler.GetAllRecipes()) {
+            for (Recipe1_1 r : RecipesEnergizedOreTumbler.getAllRecipes()) {
                 arecipes.add(new CachedOreTumblerRecipe(r));
             }
         }
@@ -62,7 +62,7 @@ public class OreTumblerHandler extends TemplateRecipeHandler {
 
         @Override
         public void loadCraftingRecipes(ItemStack result) {
-        for (Recipe1_1 r : RecipesEnergizedOreTumbler.GetAllRecipes()) {
+        for (Recipe1_1 r : RecipesEnergizedOreTumbler.getAllRecipes()) {
             if (r.getOutput().isItemEqual(result))
                 arecipes.add(new CachedOreTumblerRecipe(r));
         }
@@ -72,7 +72,7 @@ public class OreTumblerHandler extends TemplateRecipeHandler {
         public void loadUsageRecipes(String inputId, Object... ingredients) {
         if (ingredients.length == 0) return;
         if ("item".equals(inputId)) {
-            for (Recipe1_1 r : RecipesEnergizedOreTumbler.GetRecipesFromStack((ItemStack) ingredients[0]))
+            for (Recipe1_1 r : RecipesEnergizedOreTumbler.getRecipesFromStack((ItemStack) ingredients[0]))
                 arecipes.add(new CachedOreTumblerRecipe(r));
         }
     }

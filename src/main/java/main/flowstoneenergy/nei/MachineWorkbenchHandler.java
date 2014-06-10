@@ -61,7 +61,7 @@ public class MachineWorkbenchHandler extends TemplateRecipeHandler {
         if (outputId.equals("item"))
             loadCraftingRecipes((ItemStack) results[0]);
         else if (outputId.equals("allMWB")) {
-            for (Recipe3_1 r : RecipesMachineWorkbench.GetAllRecipes()) {
+            for (Recipe3_1 r : RecipesMachineWorkbench.getAllRecipes()) {
                 arecipes.add(new CachedMachineWorkbenchRecipe(r));
             }
         }
@@ -69,7 +69,7 @@ public class MachineWorkbenchHandler extends TemplateRecipeHandler {
 
     @Override
     public void loadCraftingRecipes(ItemStack result) {
-        for (Recipe3_1 r : RecipesMachineWorkbench.GetAllRecipes()) {
+        for (Recipe3_1 r : RecipesMachineWorkbench.getAllRecipes()) {
             if (r.getOutput().isItemEqual(result))
                 arecipes.add(new CachedMachineWorkbenchRecipe(r));
         }
@@ -79,7 +79,7 @@ public class MachineWorkbenchHandler extends TemplateRecipeHandler {
     public void loadUsageRecipes(String inputId, Object... ingredients) {
         if (ingredients.length == 0) return;
         if ("item".equals(inputId)) {
-            for (Recipe3_1 r : RecipesMachineWorkbench.GetRecipesFromStack((ItemStack) ingredients[0]))
+            for (Recipe3_1 r : RecipesMachineWorkbench.getRecipesFromStack((ItemStack) ingredients[0]))
                 arecipes.add(new CachedMachineWorkbenchRecipe(r));
         }
     }
@@ -109,8 +109,7 @@ public class MachineWorkbenchHandler extends TemplateRecipeHandler {
         }
         int var = (int) (completion * (direction % 2 == 0 ? w : h));
 
-        switch (direction)
-        {
+        switch (direction) {
             case 0://right
                 this.drawTexturedModalRect(x, y, tx, ty, var, h, w, h);
                 break;
@@ -127,7 +126,7 @@ public class MachineWorkbenchHandler extends TemplateRecipeHandler {
     }
 
     @Override
-    public  void loadTransferRects() {
+    public void loadTransferRects() {
         RecipeTransferRect rect = new RecipeTransferRect(new Rectangle(93, 25, 24, 17), "allMWB");
         transferRects.add(rect);
         List<Class<? extends GuiContainer>> guis = new ArrayList<Class<? extends GuiContainer>>();

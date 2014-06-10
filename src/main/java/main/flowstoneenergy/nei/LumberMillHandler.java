@@ -54,7 +54,7 @@ public class LumberMillHandler extends TemplateRecipeHandler {
         if (outputId.equals("item"))
             loadCraftingRecipes((ItemStack) results[0]);
         else if (outputId.equals("allOT")) {
-            for (Recipe1_1 r : RecipesLumberMill.GetAllRecipes()) {
+            for (Recipe1_1 r : RecipesLumberMill.getAllRecipes()) {
                 arecipes.add(new CachedLumberMillRecipe(r));
             }
         }
@@ -62,7 +62,7 @@ public class LumberMillHandler extends TemplateRecipeHandler {
 
     @Override
     public void loadCraftingRecipes(ItemStack result) {
-        for (Recipe1_1 r : RecipesLumberMill.GetAllRecipes()) {
+        for (Recipe1_1 r : RecipesLumberMill.getAllRecipes()) {
             if (r.getOutput().isItemEqual(result))
                 arecipes.add(new CachedLumberMillRecipe(r));
         }
@@ -72,7 +72,7 @@ public class LumberMillHandler extends TemplateRecipeHandler {
     public void loadUsageRecipes(String inputId, Object... ingredients) {
         if (ingredients.length == 0) return;
         if ("item".equals(inputId)) {
-            for (Recipe1_1 r : RecipesLumberMill.GetRecipesFromStack((ItemStack) ingredients[0]))
+            for (Recipe1_1 r : RecipesLumberMill.getRecipesFromStack((ItemStack) ingredients[0]))
                 arecipes.add(new CachedLumberMillRecipe(r));
         }
     }

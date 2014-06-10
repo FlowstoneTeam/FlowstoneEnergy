@@ -58,7 +58,7 @@ public class MetalMixerHandler extends TemplateRecipeHandler {
         if (outputId.equals("item"))
             loadCraftingRecipes((ItemStack) results[0]);
         else if (outputId.equals("allMWB")) {
-            for (Recipe2_1 r : RecipesMetalMixer.GetAllRecipes()) {
+            for (Recipe2_1 r : RecipesMetalMixer.getAllRecipes()) {
                 arecipes.add(new CachedMetalMixerRecipe(r));
             }
         }
@@ -66,7 +66,7 @@ public class MetalMixerHandler extends TemplateRecipeHandler {
 
     @Override
     public void loadCraftingRecipes(ItemStack result) {
-        for (Recipe2_1 r : RecipesMetalMixer.GetAllRecipes()) {
+        for (Recipe2_1 r : RecipesMetalMixer.getAllRecipes()) {
             if (r.getOutput().isItemEqual(result))
                 arecipes.add(new CachedMetalMixerRecipe(r));
         }

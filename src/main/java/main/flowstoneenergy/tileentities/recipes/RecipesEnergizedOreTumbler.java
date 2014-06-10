@@ -24,7 +24,7 @@ public class RecipesEnergizedOreTumbler {
         return null;
     }
 
-    public static Recipe1_1[] GetRecipesFromStack(ItemStack stack)
+    public static Recipe1_1[] getRecipesFromStack(ItemStack stack)
     {
         List<Recipe1_1> out = new ArrayList<Recipe1_1>();
         if (stack == null) return null;
@@ -37,7 +37,7 @@ public class RecipesEnergizedOreTumbler {
     }
 
 
-    public static List<Recipe1_1> GetAllRecipes()
+    public static List<Recipe1_1> getAllRecipes()
     {
         return ImmutableList.copyOf(recipe11List);
     }

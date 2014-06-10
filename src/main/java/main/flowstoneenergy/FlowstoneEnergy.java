@@ -54,7 +54,6 @@ public class FlowstoneEnergy {
         MinecraftForge.EVENT_BUS.register(new EnchantRandTeleHandler());
         MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
         EnchantRegistry.registerEnchants();
-
         BlockRegistry.registerBlocks();
         ItemRegistry.registerItems();
         FluidRecipeRegistry.registerFluidRecipes();

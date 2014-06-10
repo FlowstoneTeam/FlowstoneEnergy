@@ -52,7 +52,7 @@ public class RecipesMachineWorkbench {
         return null;
     }
 
-    public static Recipe3_1[] GetRecipesFromStack(ItemStack stack)
+    public static Recipe3_1[] getRecipesFromStack(ItemStack stack)
     {
         List<Recipe3_1> out = new ArrayList<Recipe3_1>();
         if (stack == null) return null;
@@ -65,7 +65,7 @@ public class RecipesMachineWorkbench {
     }
 
 
-    public static List<Recipe3_1> GetAllRecipes()
+    public static List<Recipe3_1> getAllRecipes()
     {
         return ImmutableList.copyOf(recipe31List);
     }
