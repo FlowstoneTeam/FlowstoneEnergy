@@ -1,5 +1,10 @@
 package main.flowstoneenergy.gui;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
 public class BookPage
 {
     private int startNDX = 0;
@@ -12,19 +17,9 @@ public class BookPage
         this.startNDX = startIndex;
     }
 
-    public void RenderPage()
+    protected static void renderItem(RenderItem itemRenderer, int x, int y, Item block)
     {
-
+        itemRenderer.renderItemIntoGUI(Minecraft.getMinecraft().fontRenderer, Minecraft.getMinecraft().renderEngine, new ItemStack(block), x, y, false);
     }
 
-    public void RenderHaunches()
-    {
-        int i1 = 5;
-
-        for (int i = 0; i < 10; ++i)
-        {
-            int i4 = 16;
-            byte b4 = 0;
-        }
-    }
 }

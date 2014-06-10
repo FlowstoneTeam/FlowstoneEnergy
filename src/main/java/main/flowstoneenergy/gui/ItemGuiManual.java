@@ -3,6 +3,7 @@ package main.flowstoneenergy.gui;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.items.tools.ItemFlowstoneManual;
 import net.minecraft.client.Minecraft;
@@ -35,6 +36,8 @@ public class ItemGuiManual extends GuiScreen{
     private int pageIndex = 0;
     private int bookTotalPages = 12;
 
+    public int bookXStart;
+
     public ItemGuiManual() {
 
     }
@@ -42,11 +45,11 @@ public class ItemGuiManual extends GuiScreen{
     @Override
     public void initGui() {
         super.initGui();
-        @SuppressWarnings("unchecked")
-        int bookXStart = (width - 256) / 2;
 
-        buttonList.add(next = new GuiButtonPageChange(BOOK_BTN_NEXT, bookXStart + 232, 200, false));
+        bookXStart = (width - 256) / 2;
+
         buttonList.add(prev = new GuiButtonPageChange(BOOK_BTN_PREV, bookXStart + 2, 200, true));
+        buttonList.add(next = new GuiButtonPageChange(BOOK_BTN_NEXT, bookXStart + 232, 200, false));
 
         updateButtons();
     }
@@ -103,16 +106,15 @@ public class ItemGuiManual extends GuiScreen{
             case 0: drawStartScreen(); break;
             case 1: drawScreenTwo(); break;
             case 2: drawScreenThree(); break;
-            case 3: drawScreenThree(); break;
-            case 4: drawScreenFour(); break;
-            case 5: drawScreenFive(); break;
-            case 6: drawScreenSix(); break;
-            case 7: drawScreenSeven(); break;
-            case 8: drawScreenEight(); break;
-            case 9: drawScreenNine(); break;
-            case 10: drawScreenTen(); break;
-            case 11: drawScreenEleven(); break;
-            case 12: drawScreenTwelve(); break;
+            case 3: drawScreenFour(); break;
+            case 4: drawScreenFive(); break;
+            case 5: drawScreenSix(); break;
+            case 6: drawScreenSeven(); break;
+            case 7: drawScreenEight(); break;
+            case 8: drawScreenNine(); break;
+            case 9: drawScreenTen(); break;
+            case 10: drawScreenEleven(); break;
+            case 11: drawScreenTwelve(); break;
         }
     }
 
@@ -138,8 +140,8 @@ public class ItemGuiManual extends GuiScreen{
 		fontRendererObj.drawString("Lucky Drinks), Steam Tech,", bookXStart + 120, 77, 0);
 		fontRendererObj.drawString("IC2, Applied Energistics 2", bookXStart + 120, 87, 0);
 		fontRendererObj.drawString("and Buildcraft", bookXStart + 120, 97, 0);
-		fontRendererObj.drawString("Written by the Flowstone Team", bookXStart + 120, 137, 0);
-		fontRendererObj.drawString("For your benefits", bookXStart + 120, 147, 0);
+		fontRendererObj.drawString("Written by the Flowstone Team", bookXStart + 120, 157, 0);
+		fontRendererObj.drawString("For your benefits.", bookXStart + 120, 167, 0);
 		fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
         fontRendererObj.setUnicodeFlag(unicode);
     }
@@ -149,6 +151,8 @@ public class ItemGuiManual extends GuiScreen{
 		int bookXStart = ((width - 256) / 2) + 8;
         Item item = ItemRegistry.flowwrench;
         fontRendererObj.drawString("Machine Box", bookXStart, 57, 0);
+
+        BookPage.renderItem(itemRender, bookXStart + 60, 57, new ItemStack(BlockRegistry.machineBox).getItem());
 		
 		boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
@@ -167,6 +171,8 @@ public class ItemGuiManual extends GuiScreen{
         int bookXStart = ((width - 256) / 2) + 8;
 		fontRendererObj.drawString("Machine Workbench", bookXStart, 57, 0);
 
+        BookPage.renderItem(itemRender, bookXStart + 95, 57, new ItemStack(BlockRegistry.machineWorkbench).getItem());
+
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
 		fontRendererObj.drawString("The Machine Workbench, or MWB", bookXStart, 77, 0);
@@ -183,7 +189,7 @@ public class ItemGuiManual extends GuiScreen{
 		fontRendererObj.drawString("has one output slot, but the MWB", bookXStart + 120, 67, 0);
 		fontRendererObj.drawString("is not only for machines, it is", bookXStart + 120, 77, 0);
 		fontRendererObj.drawString("also how you create the", bookXStart + 120, 87, 0);
-        fontRendererObj.drawString("Pneumatic Flowwrench", bookXStart + 120, 97, 0);
+        fontRendererObj.drawString("Pneumatic Flowwrench.", bookXStart + 120, 97, 0);
 		fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
         fontRendererObj.setUnicodeFlag(unicode);
     }
@@ -191,9 +197,28 @@ public class ItemGuiManual extends GuiScreen{
     private void drawScreenFour() {
         int currentPage = pageIndex + 1;
         int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString("Energized Ore Tumbler", bookXStart, 57, 0);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
+        fontRendererObj.drawString("The Energized Ore Tumbler is", bookXStart, 77, 0);
+        fontRendererObj.drawString("a machine that is used to,", bookXStart, 87, 0);
+        fontRendererObj.drawString("double ores it takes the base", bookXStart, 97, 0);
+        fontRendererObj.drawString("ores and smashes it up and", bookXStart, 107, 0);
+        fontRendererObj.drawString("turns it into dusts which can", bookXStart, 117, 0);
+        fontRendererObj.drawString("be smelted into ingots thereby", bookXStart, 127, 0);
+        fontRendererObj.drawString("doubling the ore processing", bookXStart, 137, 0);
+        fontRendererObj.drawString("system. Simply place a piece", bookXStart, 147, 0);
+        fontRendererObj.drawString("of ore into the input slot and", bookXStart, 157, 0);
+        fontRendererObj.drawString("wait for the processing to", bookXStart, 167, 0);
+        fontRendererObj.drawString("finish then put the dusts into", bookXStart + 120, 57, 0);
+        fontRendererObj.drawString("some form of furnace.", bookXStart + 120, 67, 0);
+        fontRendererObj.drawString("NOTE:", bookXStart + 120, 87, 0);
+        fontRendererObj.drawString("If you have Tinker's Construct", bookXStart + 120, 97, 0);
+        fontRendererObj.drawString("or Metallurgy mods installed", bookXStart + 120, 107, 0);
+        fontRendererObj.drawString("their ores will work in this", bookXStart + 120, 117, 0);
+        fontRendererObj.drawString("machine, producing the", bookXStart + 120, 127, 0);
+        fontRendererObj.drawString("corresponding dusts.", bookXStart + 120, 137, 0);
         fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
         fontRendererObj.setUnicodeFlag(unicode);
     }

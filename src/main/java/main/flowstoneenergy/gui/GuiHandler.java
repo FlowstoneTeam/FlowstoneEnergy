@@ -1,6 +1,8 @@
 package main.flowstoneenergy.gui;
 
 import cpw.mods.fml.common.network.IGuiHandler;
+import main.flowstoneenergy.FlowstoneEnergy;
+import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.containers.*;
 import main.flowstoneenergy.tileentities.machines.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -61,7 +63,8 @@ public class GuiHandler implements IGuiHandler {
                 case 8:
                     return new BlockGuiAutoCrafter(player, (TileEntityMachineAutoCraftingTable) entity);
             }
-        } else if (ID == 9 && world.isRemote) {
+        } else if (ID == 9) {
+            FlowstoneEnergy.logger.info("Open Gui");
             return new ItemGuiManual();
         }
         return null;
