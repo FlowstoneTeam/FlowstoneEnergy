@@ -2,6 +2,7 @@ package main.flowstoneenergy.tileentities.recipes;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,36 @@ public class RecipesLumberMill {
     public static void addRecipe(ItemStack input, ItemStack output, int time) {
         Recipe1_1 r = new Recipe1_1(input, output, time);
         recipe11List.add(r);
+    }
+
+    public static void addOreDictRecipe(String ore, ItemStack output, int time) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        if (ores != null && ores.size() > 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                addRecipe(oreList, output, time);
+            }
+        }
+    }
+
+    public static void addOreDictRecipe(ItemStack input, String output, int time, int stackSize) {
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (outputs != null && outputs.size() > 0) {
+            ItemStack outputsFinal = outputs.get(0);
+            outputsFinal.stackSize = stackSize;
+            addRecipe(input, outputsFinal, time);
+        }
+    }
+
+    public static void addOreDictRecipe(String ore, String output, int time, int stackSize) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores != null && ores.size() > 0 && outputs != null && outputs.size() > 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                ItemStack outputsFinal = outputs.get(0);
+                outputsFinal.stackSize = stackSize;
+                addRecipe(oreList, outputsFinal, time);
+            }
+        }
     }
 
     public static Recipe1_1 getRecipeFromStack(ItemStack stack) {

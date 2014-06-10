@@ -1,8 +1,8 @@
 package main.flowstoneenergy.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import main.flowstoneenergy.items.ItemRegistry;
-import main.flowstoneenergy.utils.MachineRecipeHelper;
+import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
+import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -30,18 +30,18 @@ public class BlockRecipeRegistry {
     }
 
     private static void registerWorkbenchRecipes() {
-        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "gearGold", new ItemStack(BlockRegistry.machines, 1, 0), 200);
-        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearGold", "gearQuartz", new ItemStack(BlockRegistry.machines, 1, 1), 200);
-        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearStone", "gearIron", new ItemStack(BlockRegistry.machines, 1, 2), 200);
-        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "gearIron", new ItemStack(BlockRegistry.machines, 1, 3), 200);
-        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearLead", "gearNickel", new ItemStack(BlockRegistry.machines, 1, 4), 200);
-        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearQuartz", "gearDiamond", new ItemStack(BlockRegistry.machines, 1, 6), 200);
-        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearDiamond", "gearQuartz", new ItemStack(BlockRegistry.machines, 1, 7), 200);
-        MachineRecipeHelper.machineWorkbenchOreDictRecipes("machineBasic", "gearIron", "tableCrafting", new ItemStack(BlockRegistry.machines, 1, 8), 200);
+        RecipesMachineWorkbench.addOreDictRecipe("machineBasic", "gearIron", "gearGold", new ItemStack(BlockRegistry.machines, 1, 0), 200);
+        RecipesMachineWorkbench.addOreDictRecipe("machineBasic", "gearGold", "gearQuartz", new ItemStack(BlockRegistry.machines, 1, 1), 200);
+        RecipesMachineWorkbench.addOreDictRecipe("machineBasic", "gearStone", "gearIron", new ItemStack(BlockRegistry.machines, 1, 2), 200);
+        RecipesMachineWorkbench.addOreDictRecipe("machineBasic", "gearIron", "gearIron", new ItemStack(BlockRegistry.machines, 1, 3), 200);
+        RecipesMachineWorkbench.addOreDictRecipe("machineBasic", "gearLead", "gearNickel", new ItemStack(BlockRegistry.machines, 1, 4), 200);
+        RecipesMachineWorkbench.addOreDictRecipe("machineBasic", "gearQuartz", "gearDiamond", new ItemStack(BlockRegistry.machines, 1, 6), 200);
+        RecipesMachineWorkbench.addOreDictRecipe("machineBasic", "gearDiamond", "gearQuartz", new ItemStack(BlockRegistry.machines, 1, 7), 200);
+        RecipesMachineWorkbench.addOreDictRecipe("machineBasic", "gearIron", "tableCrafting", new ItemStack(BlockRegistry.machines, 1, 8), 200);
     }
 
     private static void registerLumberMillRecipes() {
-        MachineRecipeHelper.lumberMillOreDictRecipes("logWood", new ItemStack(Blocks.planks, 6, 0), 200);
+        RecipesLumberMill.addOreDictRecipe("logWood", new ItemStack(Blocks.planks, 6, 0), 200);
     }
 
     public static void registerFullRecipes() {

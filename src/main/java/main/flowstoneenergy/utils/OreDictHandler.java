@@ -1,11 +1,14 @@
 package main.flowstoneenergy.utils;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
 
 public class OreDictHandler {
 
@@ -88,5 +91,35 @@ public class OreDictHandler {
         OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 0));
         OreDictionary.registerOre("gemCoal", new ItemStack(Items.coal, 1, 1));
 
+    }
+
+    public static void furnaceOreDictRecipes(String ore, ItemStack output, float xp) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        if (ores != null && ores.size() > 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                GameRegistry.addSmelting(oreList, output, xp);
+            }
+        }
+    }
+
+    public static void furnaceOreDictRecipes(ItemStack input, String output, float xp, int stackSize) {
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (outputs != null && outputs.size() > 0) {
+            ItemStack outputsFinal = outputs.get(0);
+            outputsFinal.stackSize = stackSize;
+            GameRegistry.addSmelting(input, outputsFinal, xp);
+        }
+    }
+
+    public static void furnaceOreDictRecipes(String ore, String output, float xp, int stackSize) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores != null && ores.size() > 0 && outputs != null && outputs.size() > 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                ItemStack outputsFinal = outputs.get(0);
+                outputsFinal.stackSize = stackSize;
+                GameRegistry.addSmelting(oreList, outputsFinal, xp);
+            }
+        }
     }
 }

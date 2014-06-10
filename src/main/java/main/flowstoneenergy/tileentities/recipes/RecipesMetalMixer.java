@@ -2,6 +2,7 @@ package main.flowstoneenergy.tileentities.recipes;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,42 @@ public class RecipesMetalMixer {
     public static void addRecipe(ItemStack input1, ItemStack input2, ItemStack output, int time) {
         Recipe2_1 r = new Recipe2_1(input1, input2, output, time);
         recipe21List.add(r);
+    }
+
+    public static void addOreDictRecipe(String ore1, String ore2, ItemStack output, int time) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    addRecipe(oreList1, oreList2, output, time);
+                }
+            }
+        }
+    }
+
+    public static void addOreDictRecipe(ItemStack input1, ItemStack input2, String output, int time, int stackSize) {
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (output != null && outputs.size() > 0) {
+            ItemStack outputsFinal = outputs.get(0);
+            outputsFinal.stackSize = stackSize;
+            addRecipe(input1, input2, outputsFinal, time);
+        }
+    }
+
+    public static void addOreDictRecipe(String ore1, String ore2, String output, int time, int stackSize) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0 && output != null && outputs.size() > 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    ItemStack outputsFinal = outputs.get(0);
+                    outputsFinal.stackSize = stackSize;
+                    addRecipe(oreList1, oreList2, outputsFinal, time);
+                }
+            }
+        }
     }
 
     public static Recipe2_1 getRecipeFromStack(ItemStack stack1, ItemStack stack2) {
@@ -38,8 +75,7 @@ public class RecipesMetalMixer {
         return out.toArray(new Recipe2_1[0]);
     }
 
-    public static List<Recipe2_1> getAllRecipes()
-    {
+    public static List<Recipe2_1> getAllRecipes() {
         return ImmutableList.copyOf(recipe21List);
     }
 }

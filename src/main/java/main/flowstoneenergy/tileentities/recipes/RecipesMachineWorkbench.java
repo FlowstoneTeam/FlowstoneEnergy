@@ -2,6 +2,7 @@ package main.flowstoneenergy.tileentities.recipes;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,39 @@ public class RecipesMachineWorkbench {
     public static void addRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output, int time) {
         Recipe3_1 r = new Recipe3_1(input1, input2, input3, output, time);
         recipe31List.add(r);
+    }
+
+    public static void addOreDictRecipe(String ore1, String ore2, String ore3, ItemStack output, int time) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
+        if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0 && ores3 != null && ores3.size() > 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
+                        RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, output, time);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void addOreDictRecipe(String ore1, String ore2, String ore3, String output, int time, int stackSize) {
+        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0 && ores3 != null && ores3.size() > 0 && output != null && outputs.size() > 0) {
+            for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
+                for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
+                    for (ItemStack oreList3 : OreDictionary.getOres(ore3)) {
+                        ItemStack outputsFinal = outputs.get(0);
+                        outputsFinal.stackSize = stackSize;
+                        RecipesMachineWorkbench.addRecipe(oreList1, oreList2, oreList3, outputsFinal, time);
+                    }
+                }
+            }
+        }
     }
 
     public static Recipe3_1 getRecipeFromStack(ItemStack stack1, ItemStack stack2, ItemStack stack3) {
@@ -52,12 +86,10 @@ public class RecipesMachineWorkbench {
         return null;
     }
 
-    public static Recipe3_1[] getRecipesFromStack(ItemStack stack)
-    {
+    public static Recipe3_1[] getRecipesFromStack(ItemStack stack) {
         List<Recipe3_1> out = new ArrayList<Recipe3_1>();
         if (stack == null) return null;
-        for (Recipe3_1 r : recipe31List)
-        {
+        for (Recipe3_1 r : recipe31List) {
             if (r.getInput1().getItem().equals(stack.getItem()) || r.getInput2().getItem().equals(stack.getItem()) || r.getInput3().equals(stack.getItem()))
                 out.add(r);
         }
@@ -65,8 +97,7 @@ public class RecipesMachineWorkbench {
     }
 
 
-    public static List<Recipe3_1> getAllRecipes()
-    {
+    public static List<Recipe3_1> getAllRecipes() {
         return ImmutableList.copyOf(recipe31List);
     }
 

@@ -2,6 +2,7 @@ package main.flowstoneenergy.tileentities.recipes;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,36 @@ public class RecipesEnergizedOreTumbler {
         recipe11List.add(r);
     }
 
+    public static void addOreDictRecipe(String ore, ItemStack output, int time) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        if (ores != null && ores.size() > 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                addRecipe(oreList, output, time);
+            }
+        }
+    }
+
+    public static void addOreDictRecipe(ItemStack input, String output, int time, int stackSize) {
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (outputs != null && outputs.size() > 0) {
+            ItemStack outputsFinal = outputs.get(0);
+            outputsFinal.stackSize = stackSize;
+            addRecipe(input, outputsFinal, time);
+        }
+    }
+
+    public static void addOreDictRecipe(String ore, String output, int time, int stackSize) {
+        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        if (ores != null && ores.size() > 0 && outputs != null && outputs.size() > 0) {
+            for (ItemStack oreList : OreDictionary.getOres(ore)) {
+                ItemStack outputsFinal = outputs.get(0);
+                outputsFinal.stackSize = stackSize;
+                addRecipe(oreList, outputsFinal, time);
+            }
+        }
+    }
+
     public static Recipe1_1 getRecipeFromStack(ItemStack stack) {
         if (stack == null) return null;
         for (Recipe1_1 r : recipe11List) {
@@ -24,12 +55,10 @@ public class RecipesEnergizedOreTumbler {
         return null;
     }
 
-    public static Recipe1_1[] getRecipesFromStack(ItemStack stack)
-    {
+    public static Recipe1_1[] getRecipesFromStack(ItemStack stack) {
         List<Recipe1_1> out = new ArrayList<Recipe1_1>();
         if (stack == null) return null;
-        for (Recipe1_1 r : recipe11List)
-        {
+        for (Recipe1_1 r : recipe11List) {
             if (r.getInput().getItem().equals(stack.getItem()))
                 out.add(r);
         }
@@ -37,8 +66,7 @@ public class RecipesEnergizedOreTumbler {
     }
 
 
-    public static List<Recipe1_1> getAllRecipes()
-    {
+    public static List<Recipe1_1> getAllRecipes() {
         return ImmutableList.copyOf(recipe11List);
     }
 }
