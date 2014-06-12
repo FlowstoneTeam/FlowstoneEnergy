@@ -60,19 +60,4 @@ public class ItemFlowstoneManual extends Item {
 
 		}
 	}
-
-
-//    @Override
-//    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-//        list.add(TextHelper.shiftForMoreInfo);
-//        if (!KeyboardHelper.isShiftDown()) {
-//            return;
-//        }
-//        list.remove(1);
-//        list.add("This manual will help the player ");
-//        list.add("learn all about how to use the");
-//        list.add("Flowstone Energy mod!");
-//        list.add("");
-//        list.add("RIGHT CLICK to open");
-//    }
 }
