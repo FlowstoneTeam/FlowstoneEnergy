@@ -115,7 +115,7 @@ item.itemMetadataResourceGear.nothing.name=Anti-Derp Protocol [YOU SHOULD NOT HA
 
 FOOD
 item.flowstoneenergy.cooked.bacon.name=Cooked Bacon
-item.flowstoneenergy.raw.bacon.name=Raw Bacon (Eww)
+item.flowstoneenergy.raw.bacon.name=Raw Bacon
 item.flowstoneenergy.tea.name=Tea
 
 UTENSILS
@@ -130,3 +130,21 @@ enchantment.flowstoneenergy.randomTeleport=Teleport
 
 ENTITIES
 entity.flowstoneenergy.EntityRobot.name=Flowstone Robot 4000
+
+TOOLTIP LOCALIZATIONS
+info.flowstoneenergy.tooltip.info=for more information
+info.flowstoneenergy.tooltip.bookinfo=to get started
+info.flowstoneenergy.tooltip.stored=FE Stored
+info.flowstoneenergy.tooltip.enable=to activate
+info.flowstoneenergy.tooltip.basics=Down to the basics
+info.flowstoneenergy.tooltip.gross=dats nasty
+info.flowstoneenergy.tooltip.wrenches=Installed wrenches:
+info.flowstoneenergy.tooltip.icinstalled=-Industrialcraft
+info.flowstoneenergy.tooltip.bcinstalled=-Buildcraft
+info.flowstoneenergy.tooltip.aeinstalled=-EnderIO
+info.flowstoneenergy.tooltip.enderioinstalled=-Applied Energistics
+
+
+info.flowstoneenergy.key.shift=SHIFT
+info.flowstoneenergy.key.control=CONTROL
+info.flowstoneenergy.key.rightclick=RIGHT CLICK
