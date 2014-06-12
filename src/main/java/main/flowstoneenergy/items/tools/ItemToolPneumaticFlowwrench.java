@@ -77,32 +77,6 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
 		}
 	}
 
-
-//    @SuppressWarnings({"rawtypes", "unchecked"})
-//    @Override
-//    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-//        list.add(TextHelper.shiftForMoreInfo);
-//        if (!KeyboardHelper.isShiftDown()) {
-//            return;
-//        }
-//        list.remove(1);
-//        list.add(TextHelper.GREEN + currentFE + "/" + maxFE + "FE Stored");
-//        list.add("");
-//        list.add(TextHelper.ITALIC + "Installed Wrenches");
-//        if (icInstalled) {
-//            list.add("-Industrialcraft Wrench Installed!");
-//        }
-//        if (bcInstalled) {
-//            list.add("-Buildcraft Wrench Installed!");
-//        }
-//        if (aeInstalled) {
-//            list.add("-Applied Energistics Wrench Installed!");
-//        }
-//        if (eiInstalled) {
-//            list.add("-EnderIO Wrench Installed!");
-//        }
-//    }
-
     @Override
     public boolean canWrench(EntityPlayer player, int x, int y, int z) {
         return true;
