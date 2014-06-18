@@ -10,6 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ItemRecipeRegistry {
 
@@ -60,6 +61,9 @@ public class ItemRecipeRegistry {
     }
 
     private static void registerShapelessRecipes() {
+        //manual recipe
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ItemRegistry.manual), "ingotCopper", "ingotLead", new ItemStack(Items.book)));
+
         //ender dust recipe
         GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceDust, 1, 8), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), new ItemStack(ItemRegistry.metaResourceDust, 1, 7));
 

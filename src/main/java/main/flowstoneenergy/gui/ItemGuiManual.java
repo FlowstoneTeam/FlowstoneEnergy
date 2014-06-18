@@ -133,10 +133,10 @@ public class ItemGuiManual extends GuiScreen{
         fontRendererObj.drawString("give a brief description", bookXStart, 137, 0);
         fontRendererObj.drawString("of what each component of", bookXStart, 147, 0);
         fontRendererObj.drawString("the mod does, the rest is", bookXStart, 157, 0);
-        fontRendererObj.drawString("up to you, the player, to", bookXStart, 167, 0);
-        fontRendererObj.drawString("work out!", bookXStart, 177, 0);
+        fontRendererObj.drawString("up to you the player to work", bookXStart, 167, 0);
+        fontRendererObj.drawString("out!", bookXStart, 177, 0);
 		fontRendererObj.drawString("This mod works best with NEI,", bookXStart + 120, 57, 0);
-		fontRendererObj.drawString("Flowstone Mixtures (a.k.a ", bookXStart + 120, 67, 0);
+		fontRendererObj.drawString("Flowstone Mixtures (a.k.a", bookXStart + 120, 67, 0);
 		fontRendererObj.drawString("Lucky Drinks), Steam Tech,", bookXStart + 120, 77, 0);
 		fontRendererObj.drawString("IC2, Applied Energistics 2", bookXStart + 120, 87, 0);
 		fontRendererObj.drawString("and Buildcraft", bookXStart + 120, 97, 0);
@@ -145,12 +145,6 @@ public class ItemGuiManual extends GuiScreen{
 		fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
         fontRendererObj.setUnicodeFlag(unicode);
     }
-   /*
-	* Example of using a localized string:
-	* fontRenderObj.drawString(TextHelper.localize("info.flowstoneenergy.manual.page.one"));
-	* That will display the localization on line 152 of en_US.lang
-	* Now you just need to get drawSplitString to work :D
-	*/
 	
 	private void drawScreenTwo() {
         int currentPage = pageIndex + 1;

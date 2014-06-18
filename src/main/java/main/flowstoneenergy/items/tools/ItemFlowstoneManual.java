@@ -1,11 +1,14 @@
 package main.flowstoneenergy.items.tools;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.gui.ItemGuiManual;
 import main.flowstoneenergy.utils.KeyboardHelper;
 import main.flowstoneenergy.utils.TextHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -24,7 +27,6 @@ public class ItemFlowstoneManual extends Item {
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setTextureName(ModInfo.MODID + ":tools/manual");
         this.setUnlocalizedName(ModInfo.MODID + ".flowstone.manual");
-	    this.setMaxStackSize(1);
     }
 
     @Override
@@ -48,16 +50,17 @@ public class ItemFlowstoneManual extends Item {
         return this.currentIcon;
     }
 
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		if(!KeyboardHelper.isShiftDown()) {
-			list.add(TextHelper.shiftForMoreInfo);
-		}else if(KeyboardHelper.isShiftDown()) {
-			list.add(TextHelper.LIGHT_GRAY + TextHelper.localize("info.flowstoneenergy.tooltip.basics"));
-			list.add(TextHelper.ORANGE + TextHelper.ITALIC + TextHelper.localize("info.flowstoneenergy.key.rightclick") + " " + TextHelper.LIGHT_GRAY + TextHelper.localize("info.flowstoneenergy.tooltip.bookinfo"));
-
-		}
-	}
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
+        list.add(TextHelper.shiftForMoreInfo);
+        if (!KeyboardHelper.isShiftDown()) {
+            return;
+        }
+        list.remove(1);
+        list.add("This manual will help the player ");
+        list.add("learn all about how to use the");
+        list.add("Flowstone Energy mod!");
+        list.add("");
+        list.add("RIGHT CLICK to open");
+    }
 }

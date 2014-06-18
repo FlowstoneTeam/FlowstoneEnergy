@@ -1,7 +1,5 @@
 package main.flowstoneenergy.items.tools;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import ic2.api.tile.IWrenchable;
 import main.flowstoneenergy.ConfigHandler;
 import main.flowstoneenergy.ModInfo;
@@ -52,30 +50,30 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
         return false;
     }
 
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		if(!KeyboardHelper.isShiftDown()) {
-			list.add(TextHelper.shiftForMoreInfo);
-		}else if(KeyboardHelper.isShiftDown()) {
-			list.add(TextHelper.GREEN + currentFE + "/" + maxFE + " " + TextHelper.localize("info.flowstoneenergy.tooltip.stored") + TextHelper.END);
-			list.add(TextHelper.spacer);
-			list.add(TextHelper.ORANGE + TextHelper.localize("info.flowstoneenergy.tooltip.wrenches"));
-			if(icInstalled) {
-				list.add(TextHelper.localize("info.flowstoneenergy.tooltip.icinstalled"));
-			}
-			if(bcInstalled) {
-				list.add(TextHelper.localize("info.flowstoneenergy.tooltip.bcinstalled"));
-			}
-			if(aeInstalled) {
-				list.add(TextHelper.localize("info.flowstoneenergy.tooltip.aeinstalled"));
-			}
-			if(eiInstalled) {
-				list.add(TextHelper.localize("info.flowstoneenergy.tooltip.enderioinstalled"));
-			}
-		}
-	}
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    @Override
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+        list.add(TextHelper.shiftForMoreInfo);
+        if (!KeyboardHelper.isShiftDown()) {
+            return;
+        }
+        list.remove(1);
+        list.add(TextHelper.GREEN + currentFE + "/" + maxFE + "FE Stored");
+        list.add("");
+        list.add(TextHelper.ITALIC + "Installed Wrenches");
+        if (icInstalled) {
+            list.add("-Industrialcraft Wrench Installed!");
+        }
+        if (bcInstalled) {
+            list.add("-Buildcraft Wrench Installed!");
+        }
+        if (aeInstalled) {
+            list.add("-Applied Energistics Wrench Installed!");
+        }
+        if (eiInstalled) {
+            list.add("-EnderIO Wrench Installed!");
+        }
+    }
 
     @Override
     public boolean canWrench(EntityPlayer player, int x, int y, int z) {

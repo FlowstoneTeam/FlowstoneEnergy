@@ -60,8 +60,8 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.frontOff[6] = icon.registerIcon(ModInfo.MODID + ":machines/liquidInfuser_Front");
 
         //autoCrafter
-        this.frontOn[7] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
-        this.frontOff[7] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
+        this.frontOn[7] = icon.registerIcon(ModInfo.MODID + ":machines/autocrafter_Top");
+        this.frontOff[7] = icon.registerIcon(ModInfo.MODID + ":machines/autocrafter_Top");
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
