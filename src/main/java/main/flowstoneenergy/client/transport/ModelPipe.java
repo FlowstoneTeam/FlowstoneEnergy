@@ -103,12 +103,6 @@ public class ModelPipe extends ModelBase
         LongPipeConnected.mirror = false;
     }
 
-<<<<<<< HEAD
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        PipePlacedSeperate.render(f5);
-=======
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
         super.render(entity, f, f1, f2, f3, f4, f5);
@@ -124,7 +118,6 @@ public class ModelPipe extends ModelBase
         PipePlacedSeperate.render(f5);
         LongPipeRightToLeft.render(f5);
         LongPipeConnected.render(f5);
->>>>>>> dc6d4a50b1dc369a2e067214e91816783cd79306
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z)

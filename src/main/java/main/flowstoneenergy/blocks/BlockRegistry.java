@@ -8,10 +8,7 @@ import main.flowstoneenergy.blocks.fluids.BlockFluidBlaze;
 import main.flowstoneenergy.blocks.machines.BlockMachineBox;
 import main.flowstoneenergy.blocks.machines.BlockMachineWorkbench;
 import main.flowstoneenergy.blocks.machines.BlockMachines;
-<<<<<<< HEAD
 import main.flowstoneenergy.blocks.transport.BlockPipeFluid;
-=======
->>>>>>> dc6d4a50b1dc369a2e067214e91816783cd79306
 import main.flowstoneenergy.blocks.transport.BlockPipeItem;
 import main.flowstoneenergy.items.blocks.ItemBlockAplite;
 import main.flowstoneenergy.items.blocks.ItemBlockIngotStorage;
@@ -39,10 +36,7 @@ public class BlockRegistry {
 
     //pipes
     public static Block itemPipe;
-<<<<<<< HEAD
     public static Block fluidPipe;
-=======
->>>>>>> dc6d4a50b1dc369a2e067214e91816783cd79306
 
     //ores
     public static Block blockOres;
@@ -77,11 +71,8 @@ public class BlockRegistry {
         //items
         itemPipe = new BlockPipeItem();
         GameRegistry.registerBlock(itemPipe, itemPipe.getUnlocalizedName());
-<<<<<<< HEAD
         fluidPipe = new BlockPipeFluid();
         GameRegistry.registerBlock(fluidPipe, fluidPipe.getUnlocalizedName());
-=======
->>>>>>> dc6d4a50b1dc369a2e067214e91816783cd79306
 
         //ores
         blockOres = new BlockOres();

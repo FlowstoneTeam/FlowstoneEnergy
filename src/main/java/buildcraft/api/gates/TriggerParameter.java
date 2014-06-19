@@ -19,7 +19,7 @@ public class TriggerParameter implements ITriggerParameter {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see net.minecraft.src.buildcraft.api.gates.ITriggerParameter#getItemStack()
+	 * @see net.minecraft.src.buildcraft.cofh.ic2.api.gates.ITriggerParameter#getItemStack()
 	 */
 	@Override
 	public ItemStack getItemStack() {
@@ -29,7 +29,7 @@ public class TriggerParameter implements ITriggerParameter {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see net.minecraft.src.buildcraft.api.gates.ITriggerParameter#set(net.minecraft.src.ItemStack)
+	 * @see net.minecraft.src.buildcraft.cofh.ic2.api.gates.ITriggerParameter#set(net.minecraft.src.ItemStack)
 	 */
 	@Override
 	public void set(ItemStack stack) {
@@ -42,7 +42,7 @@ public class TriggerParameter implements ITriggerParameter {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see net.minecraft.src.buildcraft.api.gates.ITriggerParameter#writeToNBT(net.minecraft.src.NBTTagCompound)
+	 * @see net.minecraft.src.buildcraft.cofh.ic2.api.gates.ITriggerParameter#writeToNBT(net.minecraft.src.NBTTagCompound)
 	 */
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
@@ -56,7 +56,7 @@ public class TriggerParameter implements ITriggerParameter {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see net.minecraft.src.buildcraft.api.gates.ITriggerParameter#readFromNBT(net.minecraft.src.NBTTagCompound)
+	 * @see net.minecraft.src.buildcraft.cofh.ic2.api.gates.ITriggerParameter#readFromNBT(net.minecraft.src.NBTTagCompound)
 	 */
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {

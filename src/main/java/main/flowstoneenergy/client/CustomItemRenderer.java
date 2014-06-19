@@ -1,18 +1,16 @@
 package main.flowstoneenergy.client;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.blocks.BlockRegistry;
-import main.flowstoneenergy.blocks.transport.BlockPipeItem;
 import main.flowstoneenergy.client.blocks.ModelMachineWorkbench;
 import main.flowstoneenergy.client.transport.ModelPipe;
-import main.flowstoneenergy.items.ItemRegistry;
-import org.lwjgl.opengl.GL11;
-import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class CustomItemRenderer implements IItemRenderer {
@@ -41,11 +39,6 @@ public class CustomItemRenderer implements IItemRenderer {
                     renderWorkbench(0.5F, 15F, -0.5F, 0.09F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
                     renderItemPipe(0.5F, 15F, -0.5F, 0.15F);
-<<<<<<< HEAD
-                if (item.getItem() == new ItemStack(BlockRegistry.fluidPipe).getItem())
-                    renderItemPipe(0.5F, 15F, -0.5F, 0.15F);
-=======
->>>>>>> dc6d4a50b1dc369a2e067214e91816783cd79306
                 return;
             }
             case EQUIPPED: { //third person in hand
@@ -53,23 +46,12 @@ public class CustomItemRenderer implements IItemRenderer {
                     renderWorkbench(2F, 15F, 5F, 0.10F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
                     renderItemPipe(2F, 15F, 5F, 0.15F);
-<<<<<<< HEAD
-                if (item.getItem() == new ItemStack(BlockRegistry.fluidPipe).getItem())
-                    renderItemPipe(2F, 15F, 5F, 0.15F);
-=======
->>>>>>> dc6d4a50b1dc369a2e067214e91816783cd79306
                 return;
             }
             case EQUIPPED_FIRST_PERSON: { //first person in hand
                 if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
                     renderWorkbench(1F, 19F, 7F, 0.08F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
-                    renderItemPipe(1F, 19F, 7F, 0.08F);
-<<<<<<< HEAD
-                if (item.getItem() == new ItemStack(BlockRegistry.fluidPipe).getItem())
-                    renderItemPipe(1F, 19F, 7F, 0.08F);
-=======
->>>>>>> dc6d4a50b1dc369a2e067214e91816783cd79306
                 return;
             }
             case INVENTORY: { //the item in inventories
@@ -77,11 +59,6 @@ public class CustomItemRenderer implements IItemRenderer {
                     renderWorkbench(-0.01F, 10F, 0.0F, 0.1F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
                     renderItemPipe(-0.01F, 10F, 0.0F, 0.18F);
-<<<<<<< HEAD
-                if (item.getItem() == new ItemStack(BlockRegistry.fluidPipe).getItem())
-                    renderItemPipe(-0.01F, 10F, 0.0F, 0.18F);
-=======
->>>>>>> dc6d4a50b1dc369a2e067214e91816783cd79306
                 return;
             }
             default:

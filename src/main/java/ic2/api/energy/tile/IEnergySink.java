@@ -5,7 +5,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 /**
  * Allows a tile entity (mostly a machine) to receive energy.
  * 
- * See ic2/api/energy/usage.txt for an overall description of the energy net api.
+ * See ic2/buildcraft.cofh.ic2.api/energy/usage.txt for an overall description of the energy net buildcraft.cofh.ic2.api.
  */
 public interface IEnergySink extends IEnergyAcceptor {
 	/**
