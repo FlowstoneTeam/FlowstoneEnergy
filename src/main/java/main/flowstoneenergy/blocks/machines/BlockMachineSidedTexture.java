@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public abstract class BlockMachineSidedTexure extends BlockMachineBox {
+public abstract class BlockMachineSidedTexture extends BlockMachineBox {
 
     public IIcon top;
     public IIcon frontOn;

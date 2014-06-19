@@ -8,6 +8,8 @@ import main.flowstoneenergy.blocks.fluids.BlockFluidBlaze;
 import main.flowstoneenergy.blocks.machines.BlockMachineBox;
 import main.flowstoneenergy.blocks.machines.BlockMachineWorkbench;
 import main.flowstoneenergy.blocks.machines.BlockMachines;
+import main.flowstoneenergy.blocks.transport.BlockPipeFluid;
+import main.flowstoneenergy.blocks.transport.BlockPipeItem;
 import main.flowstoneenergy.items.blocks.ItemBlockAplite;
 import main.flowstoneenergy.items.blocks.ItemBlockIngotStorage;
 import main.flowstoneenergy.items.blocks.ItemBlockMachines;
@@ -31,7 +33,10 @@ public class BlockRegistry {
     //other
     public static Block ingotStorage;
     public static Block aplite;
-    public static Block treePart;
+
+    //pipes
+    public static Block itemPipe;
+    public static Block fluidPipe;
 
     //ores
     public static Block blockOres;
@@ -62,6 +67,12 @@ public class BlockRegistry {
         GameRegistry.registerBlock(ingotStorage, ItemBlockIngotStorage.class, "BlockIngotStorage");
         aplite = new BlockAplite().setBlockName("blockAplite");
         GameRegistry.registerBlock(aplite, ItemBlockAplite.class, "BlockAplite");
+
+        //items
+        itemPipe = new BlockPipeItem();
+        GameRegistry.registerBlock(itemPipe, itemPipe.getUnlocalizedName());
+        fluidPipe = new BlockPipeFluid();
+        GameRegistry.registerBlock(fluidPipe, fluidPipe.getUnlocalizedName());
 
         //ores
         blockOres = new BlockOres();

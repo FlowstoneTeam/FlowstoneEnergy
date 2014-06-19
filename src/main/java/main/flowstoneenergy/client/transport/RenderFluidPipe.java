@@ -1,4 +1,4 @@
-package main.flowstoneenergy.client.blocks;
+package main.flowstoneenergy.client.transport;
 
 import main.flowstoneenergy.ModInfo;
 import net.minecraft.client.Minecraft;
@@ -6,15 +6,14 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 
-public class RenderMachineWorkbench extends TileEntitySpecialRenderer {
+public class RenderFluidPipe extends TileEntitySpecialRenderer {
 
-    private ResourceLocation text = new ResourceLocation(ModInfo.MODID, "textures/blocks/machines/machineWorkbench.png");
-    private final ModelMachineWorkbench model = new ModelMachineWorkbench();
+    private ResourceLocation text = new ResourceLocation(ModInfo.MODID, "textures/blocks/transport/fluidPipe.png");
+    private final ModelPipe model = new ModelPipe();
 
-    public RenderMachineWorkbench() {
+    public RenderFluidPipe() {
 
     }
 

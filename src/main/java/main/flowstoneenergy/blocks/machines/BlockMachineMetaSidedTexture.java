@@ -21,9 +21,10 @@ import java.util.Random;
 
 public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
 
-    public IIcon top;
-    public IIcon bottom;
+    public IIcon top[];
+    public IIcon bottom[];
     public IIcon frontOn[];
+    public IIcon sideIcon[];
     public static IIcon frontOff[];
 
 
@@ -44,11 +45,11 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
         int i = access.getBlockMetadata(x, y, z);
 
         if (side == 0) {
-            return this.bottom;
+            return this.bottom[i];
         } else if (side == 1) {
-            return this.top;
+            return this.top[i];
         } else if (side != tile.facing) {
-            return this.blockIcon;
+            return this.sideIcon[i];
         } else if (tile.ticksLeft != 0) {
             return this.frontOn[i];
         } else {
@@ -59,13 +60,25 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
 
     @Override
     public IIcon getIcon(int side, int meta) {
-        if (side <= 1) {
-            return this.top;
+        if (meta >= 0) {
+            if (side <= 1) {
+                if (meta >= 0) {
+                    return this.top[meta];
+                } else {
+                    return this.blockIcon;
+                }
+            }
+            if (side == 3) {
+                if (meta >= 0) {
+                    return this.frontOff[meta];
+                } else {
+                    return this.blockIcon;
+                }
+            }
+            return this.sideIcon[meta];
+        } else {
+            return this.blockIcon;
         }
-        if (side == 3) {
-            return this.frontOff[meta];
-        }
-        return this.blockIcon;
     }
 
     @Override
