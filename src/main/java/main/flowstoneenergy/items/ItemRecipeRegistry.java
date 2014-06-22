@@ -182,6 +182,10 @@ public class ItemRecipeRegistry {
         //Ic2 ores to dust
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreUranium", "dustUranium", 200, 2);
 
+        //Ae2 ores to dust
+        RecipesEnergizedOreTumbler.addOreDictRecipe("crystalCertusQuartz", "dustCertusQuartz", 100, 1);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("gemQuartz", "dustNetherQuartz", 100, 1);
+
         //Other things
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300);
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200);

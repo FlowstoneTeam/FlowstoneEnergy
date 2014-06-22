@@ -12,6 +12,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import main.flowstoneenergy.blocks.BlockRecipeRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.blocks.fluids.BucketRegistry;
 import main.flowstoneenergy.blocks.fluids.FluidRecipeRegistry;
 import main.flowstoneenergy.enchants.EnchantRandTeleHandler;
 import main.flowstoneenergy.enchants.EnchantRegistry;
@@ -23,6 +24,7 @@ import main.flowstoneenergy.items.ItemRecipeRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.proxies.CommonProxy;
 import main.flowstoneenergy.tileentities.TERegistry;
+import main.flowstoneenergy.tileentities.recipes.LumberMillRecipeHelper;
 import main.flowstoneenergy.utils.BucketHandler;
 import main.flowstoneenergy.utils.CapeEventHandler;
 import main.flowstoneenergy.utils.GenerationHandler;
@@ -58,11 +60,13 @@ public class FlowstoneEnergy {
         ItemRegistry.registerItems();
         FluidRecipeRegistry.registerFluidRecipes();
         TERegistry.registerTileEntities();
-       // BucketRegistry.registerBucket();
+        BucketRegistry.registerBucket();
+        LumberMillRecipeHelper.getRequiredItemInput();
 
         OreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 2);
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
+
 
         proxy.load();
     }
