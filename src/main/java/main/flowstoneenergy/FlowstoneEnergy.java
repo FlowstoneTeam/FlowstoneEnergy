@@ -61,7 +61,6 @@ public class FlowstoneEnergy {
         FluidRecipeRegistry.registerFluidRecipes();
         TERegistry.registerTileEntities();
         BucketRegistry.registerBucket();
-        LumberMillRecipeHelper.getRequiredItemInput();
 
         OreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 2);
