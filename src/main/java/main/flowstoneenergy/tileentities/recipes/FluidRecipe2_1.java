@@ -30,7 +30,9 @@ public class FluidRecipe2_1 {
         return output;
     }
 
-    public int getAmount() {return amount;}
+    public int getAmount() {
+        return amount;
+    }
 
     public int getTime() {
         return time;

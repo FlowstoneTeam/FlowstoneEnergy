@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.client.armor.FlowLeggingsModel;
+import main.flowstoneenergy.client.Armor.FlowstoneArmorModel;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,7 +24,12 @@ public class ItemArmorFlowLeggings extends ItemArmor {
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase player, ItemStack stack, int slot) {
 
-        ModelBiped model = new FlowLeggingsModel(0.5F);
+        ModelBiped model = new FlowstoneArmorModel(0.5F);
+
+        model.bipedBody.isHidden = true;
+        model.bipedHead.isHidden = true;
+        model.bipedLeftArm.isHidden = true;
+        model.bipedRightArm.isHidden = true;
 
         model.isSneak = player.isSneaking();
         model.isRiding = player.isRiding();
@@ -37,6 +42,6 @@ public class ItemArmorFlowLeggings extends ItemArmor {
     @Override
     @SideOnly(Side.CLIENT)
     public String getArmorTexture(ItemStack Stack, Entity entity, int Slot, String type) {
-        return ModInfo.MODID + ":textures/armor/flowLegs.png";
+        return ModInfo.MODID + ":textures/armor/flowstoneArmor.png";
     }
 }

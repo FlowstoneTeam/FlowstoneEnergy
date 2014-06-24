@@ -1,7 +1,6 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
-import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
+import main.flowstoneenergy.tileentities.recipes.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.MathHelper;
@@ -63,29 +62,48 @@ public class TileEntityMachineLiquifier extends TileEntityMachineBase implements
     public void updateEntity() {
         super.updateEntity();
 
-        if (items[0] != null) {
+        if (items[0] != null && items[1] != null && ticksLeft == 0) {
+            FluidRecipe2_1 r = RecipesLiquifier.getRecipeFromStack(items[0], items[1]);
+            if (r != null) {
+                maxTicks = r.getTime();
+            }
+        }
 
-            if (this.canLiquify()) {
+        if (ticksLeft < maxTicks && RecipesLiquifier.getRecipeFromStack(items[0], items[1]) != null) {
+            if (RecipesLiquifier.getRecipeFromStack(items[0], items[1]).getOutput().getFluid().equals(tank.getFluid())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
                 ticksLeft = 0;
                 resetTimeAndTexture();
             }
-
-            if (ticksLeft == maxTicks) {
-                ticksLeft = 0;
-                liquify();
-            }
         }
-
-        if (this.items[0] == null && ticksLeft > 0) {
+        if (RecipesLiquifier.getRecipeFromStack(items[0], items[1]) == null && ticksLeft > 0) {
+            ticksLeft = 0;
             resetTimeAndTexture();
+        }
+        if (ticksLeft == maxTicks && maxTicks != 0) {
+            ticksLeft = 0;
+            liquify();
         }
     }
 
     public void liquify() {
-        
+        if (items[0] == null || items[1] == null) return;
+        ItemStack res = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]).getOutput();
+        if (items[2] == null)
+            items[2] = res.copy();
+        else
+            items[2].stackSize += res.stackSize;
+
+        items[0].stackSize -= 2;
+        if (items[0].stackSize <= 0) {
+            items[0] = null;
+        }
+        items[1].stackSize--;
+        if (items[1].stackSize <= 0) {
+            items[1] = null;
+        }
     }
 
     private boolean canLiquify() {
