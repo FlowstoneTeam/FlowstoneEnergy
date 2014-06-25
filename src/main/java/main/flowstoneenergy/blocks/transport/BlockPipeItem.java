@@ -48,7 +48,7 @@ public class BlockPipeItem extends BlockMachineBox {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int var2) {
+    public TileEntity createNewTileEntity(World world, int meta) {
         return new TileEntityItemPipe();
     }
 }

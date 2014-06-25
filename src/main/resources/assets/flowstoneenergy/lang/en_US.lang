@@ -20,6 +20,7 @@ tile.blockUpgrades.itemCapacity.name=Item Capacity Upgrade
 tile.blockUpgrades.energyCapacity.name=Energy Capacity Upgrade
 tile.blockUpgrades.energyEfficiency.name=Energy Efficiency Upgrade
 tile.blockUpgrades.processAmount.name=Process Amount Upgrade
+tile.blockUpgrades.creative.name=Creative Upgrade
 
 PIPES
 tile.flowstoneenergy.fluid.pipe.name=Fluid Pipe [Tier: 1]

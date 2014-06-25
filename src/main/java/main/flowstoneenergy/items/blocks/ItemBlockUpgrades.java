@@ -35,6 +35,10 @@ public class ItemBlockUpgrades extends ItemBlock {
                 name = "processAmount";
                 break;
             }
+            case 5: {
+                name = "creative";
+                break;
+            }
             default:
                 name = "nothing";
         }
