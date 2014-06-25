@@ -28,7 +28,7 @@ public class ItemBlockUpgrades extends ItemBlock {
                 break;
             }
             case 3: {
-                name = "energyStorage";
+                name = "energyEfficiency";
                 break;
             }
             case 4: {

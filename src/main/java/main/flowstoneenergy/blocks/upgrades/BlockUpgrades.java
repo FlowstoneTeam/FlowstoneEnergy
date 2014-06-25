@@ -24,7 +24,7 @@ public class BlockUpgrades extends BlockUpgradeBase {
         icon[0] = register.registerIcon(ModInfo.MODID + ":upgrades/speed");
         icon[1] = register.registerIcon(ModInfo.MODID + ":upgrades/itemCapacity");
         icon[2] = register.registerIcon(ModInfo.MODID + ":upgrades/energyCapacity");
-        icon[3] = register.registerIcon(ModInfo.MODID + ":upgrades/energyStorage");
+        icon[3] = register.registerIcon(ModInfo.MODID + ":upgrades/energyEfficiency");
         icon[4] = register.registerIcon(ModInfo.MODID + ":upgrades/processAmount");
     }
 
