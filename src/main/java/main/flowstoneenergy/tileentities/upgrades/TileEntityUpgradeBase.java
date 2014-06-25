@@ -1,15 +1,9 @@
-package main.flowstoneenergy.tileentities.transport;
+package main.flowstoneenergy.tileentities.upgrades;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityPipeBase extends TileEntity {
-    @Override
-    public void updateEntity() {
-        super.updateEntity();
-
-    }
-
+public class TileEntityUpgradeBase extends TileEntity{
     @Override
     public void writeToNBT(NBTTagCompound nbt) {
 

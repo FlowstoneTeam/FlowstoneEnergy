@@ -2,6 +2,7 @@ package main.flowstoneenergy.tileentities;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.tileentities.machines.*;
+import main.flowstoneenergy.tileentities.upgrades.*;
 
 public class TERegistry {
 
@@ -15,5 +16,6 @@ public class TERegistry {
         GameRegistry.registerTileEntity(TileEntityMachineLiquifier.class, "tileEntityMachineLiquifier");
         GameRegistry.registerTileEntity(TileEntityMachineInfuser.class, "tileEntityMachineInfuser");
         GameRegistry.registerTileEntity(TileEntityMachineAutoCraftingTable.class, "tileEntityMachineAutocrafter");
+        GameRegistry.registerTileEntity(TileEntityUpgradeSpeed.class, "tileEntityUpgradeSpeed");
     }
 }

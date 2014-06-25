@@ -10,10 +10,8 @@ import main.flowstoneenergy.blocks.machines.BlockMachineWorkbench;
 import main.flowstoneenergy.blocks.machines.BlockMachines;
 import main.flowstoneenergy.blocks.transport.BlockPipeFluid;
 import main.flowstoneenergy.blocks.transport.BlockPipeItem;
-import main.flowstoneenergy.items.blocks.ItemBlockAplite;
-import main.flowstoneenergy.items.blocks.ItemBlockIngotStorage;
-import main.flowstoneenergy.items.blocks.ItemBlockMachines;
-import main.flowstoneenergy.items.blocks.ItemBlockOres;
+import main.flowstoneenergy.blocks.upgrades.BlockUpgrades;
+import main.flowstoneenergy.items.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -33,6 +31,7 @@ public class BlockRegistry {
     //other
     public static Block ingotStorage;
     public static Block aplite;
+    public static Block upgrades;
 
     //pipes
     public static Block itemPipe;
@@ -67,6 +66,8 @@ public class BlockRegistry {
         GameRegistry.registerBlock(ingotStorage, ItemBlockIngotStorage.class, "BlockIngotStorage");
         aplite = new BlockAplite().setBlockName("blockAplite");
         GameRegistry.registerBlock(aplite, ItemBlockAplite.class, "BlockAplite");
+        upgrades = new BlockUpgrades().setBlockName("blockUpgrades");
+        GameRegistry.registerBlock(upgrades, ItemBlockUpgrades.class, "BlockUpgrades");
 
         //items
         itemPipe = new BlockPipeItem();
