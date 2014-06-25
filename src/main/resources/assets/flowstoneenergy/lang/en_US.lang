@@ -14,6 +14,17 @@ tile.blockMachines.liquifier.name=Item Liquifier
 tile.blockMachines.liquidInfuser.name=Liquid Infuser
 tile.blockMachines.autoCrafter.name=Auto Crafter
 
+UPGRADES
+tile.blockUpgrades.speed.name=Speed Upgrade
+tile.blockUpgrades.itemCapacity.name=Item Capacity Upgrade
+tile.blockUpgrades.energyCapacity.name=Energy Capacity Upgrade
+tile.blockUpgrades.energyEfficiency.name=Energy Efficiency Upgrade
+tile.blockUpgrades.processAmount.name=Process Amount Upgrade
+
+PIPES
+tile.flowstoneenergy.fluid.pipe.name=Fluid Pipe [Tier: 1]
+tile.flowstoneenergy.item.pipe.name=Item Pipe [Tier: 1]
+
 BLOCKS
 tile.blockIngotStorage.copper.name=Copper Block
 tile.blockIngotStorage.tin.name=Tin Block
