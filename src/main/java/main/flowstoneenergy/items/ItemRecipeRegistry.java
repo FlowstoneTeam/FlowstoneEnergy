@@ -198,6 +198,8 @@ public class ItemRecipeRegistry {
     }
 
     private static void registerMixerRecipes() {
+
+	    //Ingot to ingot
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "ingotNickel", new ItemStack(ItemRegistry.metaResourceIngot, 2, 6), 300);
         RecipesMetalMixer.addOreDictRecipe("dustIron", "dustNickel", new ItemStack(ItemRegistry.metaResourceDust, 2, 10), 200);
         RecipesMetalMixer.addOreDictRecipe("ingotGold", "ingotSilver", new ItemStack(ItemRegistry.metaResourceIngot, 2, 7), 300);
@@ -205,14 +207,18 @@ public class ItemRecipeRegistry {
         RecipesMetalMixer.addOreDictRecipe("oreGold", "oreSilver", new ItemStack(ItemRegistry.metaResourceIngot, 4, 7), 300);
         RecipesMetalMixer.addOreDictRecipe("oreIron", "oreNickel", new ItemStack(ItemRegistry.metaResourceIngot, 4, 6), 300);
 
+	    //TiCo Ingot to ingot
         RecipesMetalMixer.addOreDictRecipe("ingotCobalt", "ingotArdite", "ingotManyullyn", 300, 1);
+
         RecipesMetalMixer.addOreDictRecipe("ingotCopper", "ingotTin", "ingotBronze", 200, 2);
         RecipesMetalMixer.addOreDictRecipe("ingotBronze", "ingotGold", "ingotHepatizon", 200, 2);
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "ingotBronze", "ingotDamascusSteel", 200, 2);
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "ingotGold", "ingotAngmallen", 200, 2);
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "gemCoal", "ingotSteel", 200, 1);
 
+	    //Tico Ore to ingot
         RecipesMetalMixer.addOreDictRecipe("oreCobalt", "oreArdite", "ingotManyullyn", 300, 2);
+
         RecipesMetalMixer.addOreDictRecipe("oreCopper", "oreTin", "ingotBronze", 200, 4);
         RecipesMetalMixer.addOreDictRecipe("oreIron", "oreGold", "ingotAngmallen", 200, 4);
         RecipesMetalMixer.addOreDictRecipe("oreIron", "oreCoal", "ingotSteel", 200, 2);

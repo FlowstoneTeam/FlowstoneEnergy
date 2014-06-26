@@ -16,6 +16,7 @@ public class ConfigHandler {
     public static boolean useFESilver;
     public static boolean useFENickel;
     public static boolean useFEApalite;
+	public static boolean useConnectedTextures;
     public static boolean capesOn;
     public static int teleEnchant;
     public static boolean debugMode;
@@ -26,6 +27,7 @@ public class ConfigHandler {
 		//General
 	    capesOn = config.get(general, "Enable showing capes", true, "This config option is to enable or disable capes for people who have them. Seriously, you shouldn't touch that unless you have another cape and it conflicts with it.").getBoolean(capesOn);
 	    debugMode = config.get(general, "Enable debug mode", false).getBoolean(debugMode);
+	    useConnectedTextures = config.get(general, "Enable connected textures for machines", true).getBoolean(useConnectedTextures);
 	    
 	    //Enchantments
 	    teleEnchant = config.get(enchant, "Teleport Enchanment Id", 40).getInt(teleEnchant);

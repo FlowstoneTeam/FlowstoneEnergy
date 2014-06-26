@@ -15,7 +15,7 @@ public class BlockMachineWorkbench extends BlockMachineSidedTexture{
     public BlockMachineWorkbench() {
         this.setLightOpacity(0);
         this.setBlockName(ModInfo.MODID + ".machine.workbench");
-        this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side");
+        this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side_0");
         this.setHardness(7);
         this.setCreativeTab(FlowstoneEnergy.blockTab);
     }
@@ -52,7 +52,7 @@ public class BlockMachineWorkbench extends BlockMachineSidedTexture{
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon)
     {
-        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
     }
 
     @Override

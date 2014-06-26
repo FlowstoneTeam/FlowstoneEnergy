@@ -44,7 +44,7 @@ public class BlockPipeItem extends BlockMachineBox {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
-        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
     }
 
     @Override

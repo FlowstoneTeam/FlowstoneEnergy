@@ -29,14 +29,14 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
-        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
         //ore tumbler
         this.frontOn[0] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front_Active");
         this.frontOff[0] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front");
         this.top[0] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[0] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[0] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.sideIcon[0] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
         //flowstone bottler
         this.frontOn[1] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front");
@@ -50,35 +50,35 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.frontOff[2] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
         this.top[2] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[2] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[2] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.sideIcon[2] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
         //lumber mill
         this.frontOn[3] = icon.registerIcon(ModInfo.MODID + ":machines/lumberMill_Front_Active");
         this.frontOff[3] = icon.registerIcon(ModInfo.MODID + ":machines/lumberMill_Front");
         this.top[3] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[3] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[3] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.sideIcon[3] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
         //metal mixer
         this.frontOn[4] = icon.registerIcon(ModInfo.MODID + ":machines/metalMixer_Front_Active");
         this.frontOff[4] = icon.registerIcon(ModInfo.MODID + ":machines/metalMixer_Front");
         this.top[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.sideIcon[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
         
         //liquifier
         this.frontOn[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
         this.frontOff[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
         this.top[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.sideIcon[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
         //liquid infuser
         this.frontOn[6] = icon.registerIcon(ModInfo.MODID + ":machines/liquidInfuser_Front_Active");
         this.frontOff[6] = icon.registerIcon(ModInfo.MODID + ":machines/liquidInfuser_Front");
         this.top[6] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[6] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[6] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side");
+        this.sideIcon[6] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
         //autoCrafter
         this.frontOn[7] = icon.registerIcon(ModInfo.MODID + ":machines/autocrafter_Side");
