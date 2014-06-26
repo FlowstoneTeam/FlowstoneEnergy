@@ -40,7 +40,6 @@ public class BlockStrongGlass extends Block {
 
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
-		//Block b1 = BlocksInit.glowGlass;
 		Block b1 = par1IBlockAccess.getBlock(par2, par3, par4);
 		if (b1 == this || b1 == BlockRegistry.strongGlass) {
 			return false;
