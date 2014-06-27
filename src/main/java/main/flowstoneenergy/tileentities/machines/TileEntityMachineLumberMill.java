@@ -62,7 +62,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
             }
         }
         if (ticksLeft < maxTicks && RecipesLumberMill.getRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesLumberMill.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
+            Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
+            if (items[1] == null || (r.getOutput().isItemEqual(items[1]) && r.getOutput().getMaxStackSize() > items[1].stackSize + 4)) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {

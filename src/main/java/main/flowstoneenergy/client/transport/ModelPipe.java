@@ -15,7 +15,7 @@ public class ModelPipe extends ModelBase
     ModelRenderer PipeOutputBack;
     ModelRenderer LongPipeTopToBottom;
     ModelRenderer LongPipeBackToFront;
-    ModelRenderer PipePlacedSeperate;
+    ModelRenderer PipePlacedCeperate;
     ModelRenderer LongPipeRightToLeft;
     ModelRenderer LongPipeConnected;
 
@@ -80,13 +80,13 @@ public class ModelPipe extends ModelBase
         LongPipeBackToFront.mirror = true;
         setRotation(LongPipeBackToFront, 0F, 0F, 0F);
         LongPipeBackToFront.mirror = false;
-        PipePlacedSeperate = new ModelRenderer(this, 32, 40);
-        PipePlacedSeperate.addBox(0F, 0F, 0F, 4, 4, 4);
-        PipePlacedSeperate.setRotationPoint(-15F, 14F, -2F);
-        PipePlacedSeperate.setTextureSize(128, 64);
-        PipePlacedSeperate.mirror = true;
-        setRotation(PipePlacedSeperate, 0F, 0F, 0F);
-        PipePlacedSeperate.mirror = false;
+        PipePlacedCeperate = new ModelRenderer(this, 32, 40);
+        PipePlacedCeperate.addBox(0F, 0F, 0F, 4, 4, 4);
+        PipePlacedCeperate.setRotationPoint(-15F, 14F, -2F);
+        PipePlacedCeperate.setTextureSize(128, 64);
+        PipePlacedCeperate.mirror = true;
+        setRotation(PipePlacedCeperate, 0F, 0F, 0F);
+        PipePlacedCeperate.mirror = false;
         LongPipeRightToLeft = new ModelRenderer(this, 0, 56);
         LongPipeRightToLeft.addBox(0F, 0F, 0F, 12, 4, 4);
         LongPipeRightToLeft.setRotationPoint(-6F, 14F, -2F);
@@ -115,7 +115,7 @@ public class ModelPipe extends ModelBase
         PipeOutputBack.render(f5);
         LongPipeTopToBottom.render(f5);
         LongPipeBackToFront.render(f5);
-        PipePlacedSeperate.render(f5);
+        PipePlacedCeperate.render(f5);
         LongPipeRightToLeft.render(f5);
         LongPipeConnected.render(f5);
     }

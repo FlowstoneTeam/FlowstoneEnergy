@@ -384,5 +384,4 @@ public class BlockStrongGlass extends Block {
 		icons[14] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_14");
 		icons[15] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_15");
 	}
-
 }

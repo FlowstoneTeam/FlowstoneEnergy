@@ -2,6 +2,7 @@ package main.flowstoneenergy.tileentities.machines;
 
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
+import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
@@ -62,7 +63,8 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
             }
         }
         if (ticksLeft < maxTicks && RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
+            Recipe1_1 r = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]);
+            if (items[1] == null || (r.getOutput().isItemEqual(items[1]) && r.getOutput().getMaxStackSize() > items[1].stackSize)) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {

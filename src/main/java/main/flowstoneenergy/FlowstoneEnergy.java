@@ -25,10 +25,7 @@ import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.proxies.CommonProxy;
 import main.flowstoneenergy.tileentities.TERegistry;
 import main.flowstoneenergy.tileentities.recipes.LumberMillRecipeHelper;
-import main.flowstoneenergy.utils.BucketHandler;
-import main.flowstoneenergy.utils.CapeEventHandler;
-import main.flowstoneenergy.utils.GenerationHandler;
-import main.flowstoneenergy.utils.OreDictHandler;
+import main.flowstoneenergy.utils.*;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -65,7 +62,7 @@ public class FlowstoneEnergy {
         OreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 2);
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
-
+        PacketHandler.init();
 
         proxy.load();
     }

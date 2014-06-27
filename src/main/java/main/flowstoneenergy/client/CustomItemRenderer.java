@@ -52,6 +52,7 @@ public class CustomItemRenderer implements IItemRenderer {
                 if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
                     renderWorkbench(1F, 19F, 7F, 0.08F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
+                    renderItemPipe(1F, 19F, 7F, 0.08F);
                 return;
             }
             case INVENTORY: { //the item in inventories
