@@ -47,13 +47,13 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
 	
 	@Override
 	public String getHurtSound() {
-		return "mob.irongolem.hit";
+		return ModInfo.MODID + ":robotHurt";
 	}
 	
 	@Override
 	protected String getDeathSound()
     {
-        return "mob.irongolem.death";
+        return ModInfo.MODID + ":robotDeath";
     }
 
     public static boolean isCharged() {
