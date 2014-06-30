@@ -71,6 +71,19 @@ public class OreDictHandler {
         OreDictionary.registerOre("gearNickel", new ItemStack(ItemRegistry.metaResourceGear, 1, 12));
         OreDictionary.registerOre("gearInvar", new ItemStack(ItemRegistry.metaResourceGear, 1, 13));
 
+        //dust
+        OreDictionary.registerOre("dustCoal", new ItemStack(ItemRegistry.metaResourceDust, 1, 0));
+        OreDictionary.registerOre("dustIron", new ItemStack(ItemRegistry.metaResourceDust, 1, 1));
+        OreDictionary.registerOre("dustGold", new ItemStack(ItemRegistry.metaResourceDust, 1, 2));
+        OreDictionary.registerOre("dustCopper", new ItemStack(ItemRegistry.metaResourceDust, 1, 3));
+        OreDictionary.registerOre("dustTin", new ItemStack(ItemRegistry.metaResourceDust, 1, 4));
+        OreDictionary.registerOre("dustLead", new ItemStack(ItemRegistry.metaResourceDust, 1, 5));
+        OreDictionary.registerOre("dustSilver", new ItemStack(ItemRegistry.metaResourceDust, 1, 6));
+        OreDictionary.registerOre("dustEnderium", new ItemStack(ItemRegistry.metaResourceDust, 1, 8));
+        OreDictionary.registerOre("dustNickel", new ItemStack(ItemRegistry.metaResourceDust, 1, 9));
+        OreDictionary.registerOre("dustIvar", new ItemStack(ItemRegistry.metaResourceDust, 1, 10));
+        OreDictionary.registerOre("dustElectrum", new ItemStack(ItemRegistry.metaResourceDust, 1, 11));
+
         //tools
         OreDictionary.registerOre("toolWrench", ItemRegistry.flowwrench);
         OreDictionary.registerOre("toolWrench", ItemRegistry.pneumaticFlowwrench);
