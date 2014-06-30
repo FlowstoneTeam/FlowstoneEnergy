@@ -51,8 +51,7 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
 	}
 	
 	@Override
-	protected String getDeathSound()
-    {
+	protected String getDeathSound() {
         return ModInfo.MODID + ":robotDeath";
     }
 
