@@ -50,7 +50,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
 
     public void resetTimeAndTexture() {
         ticksLeft = 0;
-        worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+        if (items[0] == null) worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
     }
 
     @Override

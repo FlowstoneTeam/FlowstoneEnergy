@@ -35,6 +35,10 @@ public class ItemBlockAplite extends ItemBlock {
                 name = "chiseled";
                 break;
             }
+            case 5: {
+                name = "block";
+                break;
+            }
             default:
                 name = "nothing";
         }

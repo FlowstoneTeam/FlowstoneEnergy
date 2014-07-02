@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,13 +15,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 import java.util.List;
+import java.util.Random;
 
 public class BlockAplite extends Block {
     public IIcon[] icon = new IIcon[8];
 
     public BlockAplite() {
         super(Material.rock);
-        this.setHardness(3F);
+        this.setHardness(1F);
         this.setBlockName(ModInfo.MODID + ".aplite");
         this.setCreativeTab(FlowstoneEnergy.blockTab);
     }
@@ -33,6 +35,7 @@ public class BlockAplite extends Block {
         icon[2] = ir.registerIcon(ModInfo.MODID + ":decorative/apliteBrick");
         icon[3] = ir.registerIcon(ModInfo.MODID + ":decorative/apliteSmallBrick");
         icon[4] = ir.registerIcon(ModInfo.MODID + ":decorative/apliteChiseled");
+        icon[5] = ir.registerIcon(ModInfo.MODID + ":decorative/apliteBlock");
     }
 
     @Override
@@ -45,13 +48,17 @@ public class BlockAplite extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
 
     @Override
     public int damageDropped(int meta) {
-        return meta;
+        if (meta == 0) {
+            return 1;
+        } else {
+            return meta;
+        }
     }
 }

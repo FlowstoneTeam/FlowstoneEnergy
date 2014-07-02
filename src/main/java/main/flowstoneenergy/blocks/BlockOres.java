@@ -18,7 +18,7 @@ public class BlockOres extends BlockOre {
 
     public BlockOres() {
         super();
-        this.setHardness(5F);
+        this.setHardness(2F);
         this.setBlockName(ModInfo.MODID + ".ores");
         this.setCreativeTab(FlowstoneEnergy.blockTab);
     }

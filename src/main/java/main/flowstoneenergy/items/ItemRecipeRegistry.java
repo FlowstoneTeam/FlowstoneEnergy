@@ -216,6 +216,9 @@ public class ItemRecipeRegistry {
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "ingotGold", "ingotAngmallen", 200, 2);
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "gemCoal", "ingotSteel", 200, 1);
 
+        //Metallurgy recipes
+        RecipesMetalMixer.addOreDictRecipe("ingotAtlarus", "ingotAdamantine", "ingotTartarite", 200, 2);
+
 	    //Tico Ore to ingot
         RecipesMetalMixer.addOreDictRecipe("oreCobalt", "oreArdite", "ingotManyullyn", 300, 2);
 
