@@ -13,7 +13,9 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +24,13 @@ import static org.lwjgl.opengl.GL11.glColor4f;
 
 @SideOnly(Side.CLIENT)
 public class ItemGuiManual extends GuiScreen{
-    static ResourceLocation gui = new ResourceLocation(ModInfo.MODID, "textures/guis/manualGui.png");
-    public static ResourceLocation Gui_Manual = new ResourceLocation("minecraft", "textures/gui/book.png");
+    static ResourceLocation gui = new ResourceLocation(ModInfo.MODID, "textures/guis/book.png");
 
     private static final int BOOK_BTN_NEXT = 0;
     private static final int BOOK_BTN_PREV = 1;
+
+    public static final int WIDTH = 175;
+    public static final int HEIGHT = 228;
 
     public static List<BookPage> pages = new ArrayList<BookPage>();
 
@@ -46,10 +50,10 @@ public class ItemGuiManual extends GuiScreen{
     public void initGui() {
         super.initGui();
 
-        bookXStart = (width - 256) / 2;
+        bookXStart = (width - WIDTH) / 2;
 
-        buttonList.add(prev = new GuiButtonPageChange(BOOK_BTN_PREV, bookXStart + 2, 200, true));
-        buttonList.add(next = new GuiButtonPageChange(BOOK_BTN_NEXT, bookXStart + 232, 200, false));
+        buttonList.add(next = new GuiButtonPageChange(BOOK_BTN_NEXT, bookXStart + WIDTH - 26, 210, false));
+        buttonList.add(prev = new GuiButtonPageChange(BOOK_BTN_PREV, bookXStart + 10, 210, true));
 
         updateButtons();
     }
@@ -96,9 +100,8 @@ public class ItemGuiManual extends GuiScreen{
     }
 
     protected void drawBackground() {
-        int bookXStart = (width - 256) / 2;
         mc.renderEngine.bindTexture(gui);
-        drawTexturedModalRect(bookXStart, 10, 0, 0, 256, 200);
+        drawTexturedModalRect(bookXStart, 5, 0, 0, WIDTH, HEIGHT);
     }
 
     public void drawForeground() {
@@ -119,229 +122,162 @@ public class ItemGuiManual extends GuiScreen{
     }
 
     protected void drawStartScreen() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
-        fontRendererObj.drawString("Home Page", bookXStart, 57, 0);
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.mainTitle"), bookXStart + 70, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Welcome to the Flowstone", bookXStart, 77, 0);
-        fontRendererObj.drawString("Energy Mod! The newest", bookXStart, 87, 0);
-        fontRendererObj.drawString("energy mod, all about ", bookXStart, 97, 0);
-        fontRendererObj.drawString("Flowstone! (Fluid Glowstone)", bookXStart, 107, 0);
-        fontRendererObj.drawString("Each page in this book will", bookXStart, 127, 0);
-        fontRendererObj.drawString("give a brief description", bookXStart, 137, 0);
-        fontRendererObj.drawString("of what each component of", bookXStart, 147, 0);
-        fontRendererObj.drawString("the mod does, the rest is", bookXStart, 157, 0);
-        fontRendererObj.drawString("up to you the player to work", bookXStart, 167, 0);
-        fontRendererObj.drawString("out!", bookXStart, 177, 0);
-		fontRendererObj.drawString("This mod works best with NEI,", bookXStart + 120, 57, 0);
-		fontRendererObj.drawString("Flowstone Mixtures (a.k.a", bookXStart + 120, 67, 0);
-		fontRendererObj.drawString("Lucky Drinks), Steam Tech,", bookXStart + 120, 77, 0);
-		fontRendererObj.drawString("IC2, Applied Energistics 2", bookXStart + 120, 87, 0);
-		fontRendererObj.drawString("and Buildcraft", bookXStart + 120, 97, 0);
-		fontRendererObj.drawString("Written by the Flowstone Team", bookXStart + 120, 157, 0);
-		fontRendererObj.drawString("For your benefits.", bookXStart + 120, 167, 0);
-		fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.mainPage"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 	
 	private void drawScreenTwo() {
-        int currentPage = pageIndex + 1;
-		int bookXStart = ((width - 256) / 2) + 8;
-        Item item = ItemRegistry.flowwrench;
-        fontRendererObj.drawString("Machine Box", bookXStart, 57, 0);
-
-        BookPage.renderItem(itemRender, bookXStart + 60, 57, new ItemStack(BlockRegistry.machineBox).getItem());
-		
-		boolean unicode = fontRendererObj.getUnicodeFlag();
-        fontRendererObj.setUnicodeFlag(true);
-		fontRendererObj.drawString("The machine box, is the ", bookXStart, 77, 0);
-		fontRendererObj.drawString("basis of all machines and is ", bookXStart, 87, 0);
-		fontRendererObj.drawString("required to make all the ", bookXStart, 97, 0);
-		fontRendererObj.drawString("machines. The machine box ", bookXStart, 107, 0);
-		fontRendererObj.drawString("doesn't do much... it's just", bookXStart, 117, 0);
-        fontRendererObj.drawString("there... ", bookXStart, 127, 0);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
-		fontRendererObj.setUnicodeFlag(unicode);
-	}
-
-    private void drawScreenThree() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
-		fontRendererObj.drawString("Machine Workbench", bookXStart, 57, 0);
-
-        BookPage.renderItem(itemRender, bookXStart + 95, 57, new ItemStack(BlockRegistry.machineWorkbench).getItem());
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page2"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-		fontRendererObj.drawString("The Machine Workbench, or MWB", bookXStart, 77, 0);
-		fontRendererObj.drawString("for short, is the first machine", bookXStart, 87, 0);
-		fontRendererObj.drawString("you will need to get started in", bookXStart, 97, 0);
-		fontRendererObj.drawString("Flowstone Energy. You use this", bookXStart, 107, 0);
-		fontRendererObj.drawString("machine to craft the other", bookXStart, 117, 0);
-		fontRendererObj.drawString("machines by adding two gears", bookXStart, 127, 0);
-		fontRendererObj.drawString("a machine box. The MWB has", bookXStart, 137, 0);
-        fontRendererObj.drawString("three inputs, the left is", bookXStart, 147, 0);
-		fontRendererObj.drawString("for a gear, the middle is for", bookXStart, 157, 0);
-		fontRendererObj.drawString("the machine box, and the right", bookXStart, 167, 0);
-		fontRendererObj.drawString("is for the other gear, it also", bookXStart + 120, 57, 0);
-		fontRendererObj.drawString("has one output slot, but the MWB", bookXStart + 120, 67, 0);
-		fontRendererObj.drawString("is not only for machines, it is", bookXStart + 120, 77, 0);
-		fontRendererObj.drawString("also how you create the", bookXStart + 120, 87, 0);
-        fontRendererObj.drawString("Pneumatic Flowwrench.", bookXStart + 120, 97, 0);
-		fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText2"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.setUnicodeFlag(unicode);
+	}
+
+    private void drawScreenThree() {
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page3"), bookXStart + 45, 20, 0x000000);
+
+        boolean unicode = fontRendererObj.getUnicodeFlag();
+        fontRendererObj.setUnicodeFlag(true);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText3"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenFour() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
-        fontRendererObj.drawString("Energized Ore Tumbler", bookXStart, 57, 0);
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page4"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("The Energized Ore Tumbler is", bookXStart, 77, 0);
-        fontRendererObj.drawString("a machine that is used to,", bookXStart, 87, 0);
-        fontRendererObj.drawString("double ores it takes the base", bookXStart, 97, 0);
-        fontRendererObj.drawString("ores and smashes it up and", bookXStart, 107, 0);
-        fontRendererObj.drawString("turns it into dusts which can", bookXStart, 117, 0);
-        fontRendererObj.drawString("be smelted into ingots thereby", bookXStart, 127, 0);
-        fontRendererObj.drawString("doubling the ore processing", bookXStart, 137, 0);
-        fontRendererObj.drawString("system. Simply place a piece", bookXStart, 147, 0);
-        fontRendererObj.drawString("of ore into the input slot and", bookXStart, 157, 0);
-        fontRendererObj.drawString("wait for the processing to", bookXStart, 167, 0);
-        fontRendererObj.drawString("finish then put the dusts into", bookXStart + 120, 57, 0);
-        fontRendererObj.drawString("some form of furnace.", bookXStart + 120, 67, 0);
-        fontRendererObj.drawString("NOTE:", bookXStart + 120, 87, 0);
-        fontRendererObj.drawString("If you have Tinker's Construct", bookXStart + 120, 97, 0);
-        fontRendererObj.drawString("or Metallurgy mods installed", bookXStart + 120, 107, 0);
-        fontRendererObj.drawString("their ores will work in this", bookXStart + 120, 117, 0);
-        fontRendererObj.drawString("machine, producing the", bookXStart + 120, 127, 0);
-        fontRendererObj.drawString("corresponding dusts.", bookXStart + 120, 137, 0);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText4"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenFive() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page5"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText5"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenSix() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page6"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText6"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenSeven() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page7"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText7"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenEight() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page8"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText8"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenNine() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page9"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText9"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenTen() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page10"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText10"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenEleven() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page11"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText11"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenTwelve() {
-        int currentPage = pageIndex + 1;
-        int bookXStart = ((width - 256) / 2) + 8;
+        fontRendererObj.drawString(StatCollector.translateToLocal("gui.manual.page12"), bookXStart + 45, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString("Page " + currentPage + "/" + bookTotalPages, bookXStart + 160, 177, 0);
+        fontRendererObj.drawSplitString(StatCollector.translateToLocal("gui.manual.pageText12"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
-    protected void RenderItem(RenderItem itemRenderer, int x, int y, Item food)
+    public class GuiButtonPageChange extends GuiButton
     {
-        itemRenderer.renderItemIntoGUI(Minecraft.getMinecraft().fontRenderer, Minecraft.getMinecraft().renderEngine, new ItemStack(food), x, y, false);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public
-    static class GuiButtonPageChange extends GuiButton {
         private final boolean previous;
-        private static final String __OBFID = "CL_00000745";
 
-        public GuiButtonPageChange(int ID, int X, int Y, boolean previous) {
-            super(ID, X, Y, 20, 10, "");
+        public GuiButtonPageChange(int id, int x, int y, boolean previous) {
+            super(id, x, y, 16, 16, "");
             this.previous = previous;
         }
 
-        /**
-         * Draws this button to the screen.
-         */
         @Override
         public void drawButton(Minecraft mc, int mouseX, int mouseY) {
             if (visible) {
                 boolean mouseOver = mouseX >= xPosition && mouseY >= yPosition && mouseX < xPosition + width && mouseY < yPosition + height;
                 glColor4f(1, 1, 1, 1);
-                mc.renderEngine.bindTexture(Gui_Manual);
-                int u = 0;
-                int v = 192;
+                mc.renderEngine.bindTexture(gui);
+                int u = 175;
+                int v = 0;
 
                 if (mouseOver) {
-                    u += 23;
+                    v += 17;
                 }
 
                 if (previous) {
-                    v += 13;
+                    u += 17;
                 }
 
-                drawTexturedModalRect(xPosition, yPosition, u, v, 23, 13);
+                GL11.glPushMatrix();
+
+                GL11.glDisable(GL11.GL_LIGHTING);
+                GL11.glColor4f(1, 1, 1, 1);
+
+                drawTexturedModalRect(xPosition, yPosition, u, v, width, height);
+
+                GL11.glEnable(GL11.GL_LIGHTING);
+
+                GL11.glPopMatrix();
             }
         }
-
     }
 }

@@ -44,6 +44,7 @@ tile.blockAplite.cobble.name=Aplite Cobble
 tile.blockAplite.brick.name=Aplite Bricks
 tile.blockAplite.smallBrick.name=Small Aplite Bricks
 tile.blockAplite.chiseled.name=Chiseled Aplite
+tile.blockAplite.block.name=Aplite Block
 
 BATTERIES
 item.flowstoneenergy.flowstone.battery.tier.one.name=Flowstone Battery [Tier: 1]
@@ -142,3 +143,31 @@ enchantment.flowstoneenergy.randomTeleport=Teleport
 
 ENTITIES
 entity.flowstoneenergy.EntityRobot.name=Flowstone Robot 4000
+
+MANUAL TITLES
+gui.manual.mainTitle=Home
+gui.manual.page2=Machine Box
+gui.manual.page3=Machine Workbench
+gui.manual.page4=Energized Ore Tumbler
+gui.manual.page5=Heated Oven
+gui.manual.page6=Flowstone Bottler
+gui.manual.page7=Metal Mixer
+gui.manual.page8=Item Liquifier
+gui.manual.page9=Liquid Infuser
+gui.manual.page10=Auto Crafter
+gui.manual.page11=Coal Generator
+gui.manual.page12=Solar Generator
+
+MANUAL PAGES
+gui.manual.mainPage=Welcome to the Flowstone Energy Mod! The newest energy mod, all about Flowstone! (Fluid Glowstone). Each page in this book will give a brief description of what each component of the mod does, the rest is up to you the player to work out! This mod works best with NEI, Flowstone Mixtures (a.k.a Lucky Drinks), Steam Tech, IC2, Applied Energistics 2 and Buildcraft.
+gui.manual.pageText2=The machine box, is the basis of all machines and is required to make all the machines. The machine box doesn't do much... it's just there...
+gui.manual.pageText3=The Machine Workbench, or MWB for short, is the first machine you will need to get started in Flowstone Energy. You use this machine to craft the other machines by adding two gears a machine box. The MWB has three inputs, the left is for a gear, the middle is for the machine box, and the right is for the other gear, it also has one output slot, but the MWB is not only for machines, it is also how you create the Pneumatic Flowwrench.
+gui.manual.pageText4=The Energized Ore Tumbler is a machine that is used to, double ores it takes the base ores and smashes it up and turns it into dusts which can be smelted into ingots thereby doubling the ore processing system. Simply place a piece of ore into the input slot and wait for the processing to finish then put the dusts into some form of furnace. NOTE: If you have Tinker's Construct or Metallurgy mods installed their ores will work in this machine, producing the corresponding dusts.
+gui.manual.pageText5=
+gui.manual.pageText6=
+gui.manual.pageText7=
+gui.manual.pageText8=
+gui.manual.pageText9=
+gui.manual.pageText10=
+gui.manual.pageText11=
+gui.manual.pageText12=

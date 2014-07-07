@@ -83,4 +83,9 @@ public class BlockUpgrades extends BlockUpgradeBase {
         }
         return super.createTileEntity(world, meta);
     }
+
+    @Override
+    public int damageDropped(int meta) {
+        return meta;
+    }
 }

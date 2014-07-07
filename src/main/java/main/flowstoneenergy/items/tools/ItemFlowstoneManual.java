@@ -60,6 +60,8 @@ public class ItemFlowstoneManual extends Item {
         list.add("This manual will help the player ");
         list.add("learn all about how to use the");
         list.add("Flowstone Energy mod!");
+        list.add("Written by the Flowstone Team");
+        list.add("For your benefit");
         list.add("");
         list.add("RIGHT CLICK to open");
     }
