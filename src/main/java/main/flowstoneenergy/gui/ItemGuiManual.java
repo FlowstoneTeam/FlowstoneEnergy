@@ -3,18 +3,12 @@ package main.flowstoneenergy.gui;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.blocks.BlockRegistry;
-import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.items.tools.ItemFlowstoneManual;
 import main.flowstoneenergy.utils.TextHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
@@ -125,12 +119,12 @@ public class ItemGuiManual extends GuiScreen{
     }
 
     protected void drawStartScreen() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.mainTitle"), bookXStart + 70, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.main"), bookXStart + 70, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.mainPage"), bookXStart + 20, 60, WIDTH-40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.main"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 	
@@ -140,7 +134,7 @@ public class ItemGuiManual extends GuiScreen{
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.2"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
 	}
 
@@ -150,27 +144,27 @@ public class ItemGuiManual extends GuiScreen{
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.3"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenFour() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.4"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.4"), bookXStart + 35, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.4"), bookXStart + 20, 60, WIDTH-40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenFive() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.5"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.5"), bookXStart + 58, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.5"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
@@ -180,86 +174,86 @@ public class ItemGuiManual extends GuiScreen{
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.6"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenSeven() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.7"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.7"), bookXStart + 61, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.7"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenEight() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.8"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.8"), bookXStart + 54, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.8"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenNine() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.9"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.9"), bookXStart + 52, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.9"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenTen() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.10"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.10"), bookXStart + 54, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.10"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenEleven() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.11"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.11"), bookXStart + 23, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.11"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenTwelve() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.12"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.12"), bookXStart + 21, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.12"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
     
     private void drawScreenThirteen() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.13"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.13"), bookXStart + 23, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.13"), bookXStart + 20, 60, WIDTH-40, 0x000000);
-        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages+1), bookXStart + 82, 215, 0x000000);
+        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.13"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
     private void drawScreenFourteen() {
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.14"), bookXStart + 45, 20, 0x000000);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.14"), bookXStart + 16, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.14"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.14"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
         fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
