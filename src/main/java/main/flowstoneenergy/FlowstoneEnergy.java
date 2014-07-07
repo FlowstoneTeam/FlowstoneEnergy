@@ -17,6 +17,7 @@ import main.flowstoneenergy.blocks.fluids.FluidRecipeRegistry;
 import main.flowstoneenergy.enchants.EnchantRandTeleHandler;
 import main.flowstoneenergy.enchants.EnchantRegistry;
 import main.flowstoneenergy.entities.FEEntityRegistry;
+import main.flowstoneenergy.events.EntityEventHandler;
 import main.flowstoneenergy.gui.BlockCreativeTab;
 import main.flowstoneenergy.gui.CreativeTab;
 import main.flowstoneenergy.gui.GuiHandler;
@@ -62,6 +63,7 @@ public class FlowstoneEnergy {
         OreDictHandler.registerOreDict();
         GameRegistry.registerWorldGenerator(new GenerationHandler(), 2);
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
+        MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
         PacketHandler.init();
 
         proxy.load();
