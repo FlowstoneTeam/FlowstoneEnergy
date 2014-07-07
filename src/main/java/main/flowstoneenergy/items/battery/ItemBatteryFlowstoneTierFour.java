@@ -23,8 +23,7 @@ public class ItemBatteryFlowstoneTierFour extends ItemBatteryFlowstoneTierOne {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-
-	    if(!KeyboardHelper.isShiftDown()) {
+        if(!KeyboardHelper.isShiftDown()) {
 		    list.add(TextHelper.shiftForMoreInfo);
 	    } else {
 		    list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));

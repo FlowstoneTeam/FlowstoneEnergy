@@ -1,10 +1,10 @@
 package main.flowstoneenergy.items.battery;
 
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.entities.EntityRobot;
 import main.flowstoneenergy.utils.KeyboardHelper;
 import main.flowstoneenergy.utils.TextHelper;
+import main.flowstoneenergy.ModInfo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -51,8 +51,7 @@ public class ItemBatteryFlowstoneTierOne extends Item {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-
-	    if(!KeyboardHelper.isShiftDown()) {
+        if(!KeyboardHelper.isShiftDown()) {
 		    list.add(TextHelper.shiftForMoreInfo);
 	    } else {
 		    list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));

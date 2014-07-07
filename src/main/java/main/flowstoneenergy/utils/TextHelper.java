@@ -1,6 +1,5 @@
 package main.flowstoneenergy.utils;
 
-import main.flowstoneenergy.ModInfo;
 import net.minecraft.util.StatCollector;
 
 public class TextHelper {
@@ -24,7 +23,7 @@ public class TextHelper {
 	public static final String WHITE = (char) 167 + "f";
 
 	/** Text formatting **/
-	
+
 	public static final String OBFUSCATED = (char) 167 + "k";
 	public static final String BOLD = (char) 167 + "l";
 	public static final String STRIKETHROUGH = (char) 167 + "m";
@@ -39,23 +38,4 @@ public class TextHelper {
 	public static String localize(String key) {
 		return StatCollector.translateToLocal(key);
 	}
-
-    public static String localize(String unloc, boolean appendModid) {
-        if (appendModid)
-            return localize(ModInfo.MODID + "." + unloc);
-        else
-            return localize(unloc);
-    }
-
-    public static String[] localizeList(String unloc) {
-        return splitList(localize(unloc, true));
-    }
-
-    private static String[] splitList(String list, String splitRegex) {
-        return list.split(splitRegex);
-    }
-
-    public static String[] splitList(String list) {
-        return splitList(list, "\\|");
-    }
 }
