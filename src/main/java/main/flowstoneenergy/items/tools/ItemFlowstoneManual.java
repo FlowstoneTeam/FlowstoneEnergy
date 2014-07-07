@@ -22,6 +22,7 @@ public class ItemFlowstoneManual extends Item {
     public ItemFlowstoneManual() {
         super();
         this.setCreativeTab(FlowstoneEnergy.tab);
+        this.setMaxStackSize(1);
         this.setTextureName(ModInfo.MODID + ":tools/manual");
         this.setUnlocalizedName(ModInfo.MODID + ".flowstone.manual");
     }
