@@ -1,5 +1,7 @@
 package main.flowstoneenergy.utils;
 
+import net.minecraft.util.StatCollector;
+
 public class TextHelper {
 
 	/** Color Coding **/
@@ -32,4 +34,8 @@ public class TextHelper {
 	/** Useful Tooltips **/
 	public static String shiftForMoreInfo = ORANGE + ITALIC + "Press SHIFT for more information";
 
+	/** Enable Localizationizing **/
+	public static String localize(String key) {
+		return StatCollector.translateToLocal(key);
+	}
 }
