@@ -1,14 +1,11 @@
 package main.flowstoneenergy.items.tools;
 
-import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.gui.ItemGuiManual;
 import main.flowstoneenergy.utils.KeyboardHelper;
 import main.flowstoneenergy.utils.TextHelper;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

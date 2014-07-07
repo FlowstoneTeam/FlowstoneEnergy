@@ -36,6 +36,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
         super();
         this.setUnlocalizedName(ModInfo.MODID + ".pneumatic.flowwrench");
         this.setTextureName(ModInfo.MODID + ":tools/pneumaticFlowwrench");
+	    this.setMaxStackSize(1);
         shiftRotations.add(BlockLever.class);
         shiftRotations.add(BlockButton.class);
         shiftRotations.add(BlockChest.class);
@@ -53,26 +54,26 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add(TextHelper.shiftForMoreInfo);
-        if (!KeyboardHelper.isShiftDown()) {
-            return;
-        }
-        list.remove(1);
-        list.add(TextHelper.GREEN + currentFE + "/" + maxFE + "FE Stored");
-        list.add("");
-        list.add(TextHelper.ITALIC + "Installed Wrenches");
-        if (icInstalled) {
-            list.add("-Industrialcraft Wrench Installed!");
-        }
-        if (bcInstalled) {
-            list.add("-Buildcraft Wrench Installed!");
-        }
-        if (aeInstalled) {
-            list.add("-Applied Energistics Wrench Installed!");
-        }
-        if (eiInstalled) {
-            list.add("-EnderIO Wrench Installed!");
-        }
+
+	    if(!KeyboardHelper.isShiftDown()) {
+		    list.add(TextHelper.shiftForMoreInfo);
+	    } else {
+			list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));
+		    list.add(" ");
+		    list.add(TextHelper.ITALIC + TextHelper.localize("info.fe.tooltip.installed"));
+		    if(icInstalled) {
+				list.add(TextHelper.localize("info.fe.tooltip.installed.ic2"));
+		    }
+		    if(aeInstalled) {
+			    list.add(TextHelper.localize("info.fe.tooltip.installed.ae"));
+		    }
+		    if(bcInstalled) {
+			    list.add(TextHelper.localize("info.fe.tooltip.installed.bc"));
+		    }
+		    if(eiInstalled) {
+			    list.add(TextHelper.localize("info.fe.tooltip.installed.ei"));
+		    }
+	    }
     }
 
     @Override

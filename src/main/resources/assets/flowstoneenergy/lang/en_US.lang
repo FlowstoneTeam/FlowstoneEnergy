@@ -128,7 +128,7 @@ item.itemMetadataResourceGear.nothing.name=Anti-Derp Protocol [YOU SHOULD NOT HA
 
 FOOD
 item.flowstoneenergy.cooked.bacon.name=Cooked Bacon
-item.flowstoneenergy.raw.bacon.name=Raw Bacon (Eww)
+item.flowstoneenergy.raw.bacon.name=Raw Bacon
 item.flowstoneenergy.tea.name=Tea
 
 UTENSILS
@@ -143,6 +143,25 @@ enchantment.flowstoneenergy.randomTeleport=Teleport
 
 ENTITIES
 entity.flowstoneenergy.EntityRobot.name=Flowstone Robot 4000
+
+TOOLTIPS
+info.fe.tooltip.press=Press
+info.fe.tooltip.info=for more information.
+info.fe.tooltip.ew=Eww, that's nasty!
+info.fe.tooltip.use=Use while
+info.fe.tooltip.activate=to activate.
+info.fe.tooltip.stored=FE Stored
+info.fe.tooltip.installed=Installed modules:
+info.fe.tooltip.installed.ic2=-Industrialcraft 2
+info.fe.tooltip.installed.ae=-Applied Energistics 2
+info.fe.tooltip.installed.bc=-Buildcraft
+info.fe.tooltip.installed.ei=-EnderIO
+
+CONTROLS
+info.fe.key.shift=Shift
+info.fe.key.control=Control
+info.fe.mouse.rc=Right Click
+info.fe.control.sneak=Sneaking
 
 MANUAL TITLES
 gui.manual.title.main=Home
@@ -171,7 +190,7 @@ gui.manual.info.7=The Metal Mixer is the players best friend when it comes to ma
 gui.manual.info.8=The Item Liquifier is the only way a player can obtain FE liquids. You need to place two items in the input slots and wait for them to melt down and mix, once this process is complete, you will have your liquid.
 gui.manual.info.9=The Liquid Infuser is what the player should use to put any liquid into a bucket or to infuse items with the liquids properties. This is how the player obtains the Flowstone Capacitor and the higher tiers of Energy Tubes.
 gui.manual.info.10=The Auto Crafter is a machine that lets the player automatically craft vanilla crafting recipes (anything done in the vanilla crafting grids), this makes for easy automation of crafting systems and means you can always have something stocked if you need it to be
-gui.manual.info.11=
-gui.manual.info.12=
-gui.manual.info.13=
-gui.manual.info.14=
+gui.manual.info.11=PLACEHOLDER TEXT
+gui.manual.info.12=PLACEHOLDER TEXT
+gui.manual.info.13=PLACEHOLDER TEXT
+gui.manual.info.14=PLACEHOLDER TEXT

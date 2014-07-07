@@ -20,6 +20,7 @@ public class ItemToolFlowwrench extends Item implements IToolWrench {
         this.setMaxDamage(49);
         this.setUnlocalizedName(ModInfo.MODID + ".flowwrench");
         this.setTextureName(ModInfo.MODID + ":tools/flowwrench");
+	    this.setMaxStackSize(1);
     }
 
     @Override

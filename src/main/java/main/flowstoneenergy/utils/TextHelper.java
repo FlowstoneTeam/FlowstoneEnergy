@@ -32,7 +32,7 @@ public class TextHelper {
 	public static final String END = (char) 167 + "r";
 
 	/** Useful Tooltips **/
-	public static String shiftForMoreInfo = ORANGE + ITALIC + "Press SHIFT for more information";
+	public static String shiftForMoreInfo = ORANGE + ITALIC + localize("info.fe.tooltip.press") + " " + localize("info.fe.key.shift") + " " + localize("info.fe.tooltip.info");
 
 	/** Enable Localizationizing **/
 	public static String localize(String key) {
