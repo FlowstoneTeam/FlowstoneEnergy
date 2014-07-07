@@ -144,18 +144,22 @@ enchantment.flowstoneenergy.randomTeleport=Teleport
 ENTITIES
 entity.flowstoneenergy.EntityRobot.name=Flowstone Robot 4000
 
+'|' character signifies a list, '~' character is a simple line break
+
 TOOLTIPS
 info.fe.tooltip.press=Press
 info.fe.tooltip.info=for more information.
 info.fe.tooltip.ew=Eww, that's nasty!
 info.fe.tooltip.use=Use while
 info.fe.tooltip.activate=to activate.
+info.fe.tooltip.open=to open.
 info.fe.tooltip.stored=FE Stored
 info.fe.tooltip.installed=Installed modules:
 info.fe.tooltip.installed.ic2=-Industrialcraft 2
 info.fe.tooltip.installed.ae=-Applied Energistics 2
 info.fe.tooltip.installed.bc=-Buildcraft
 info.fe.tooltip.installed.ei=-EnderIO
+info.fe.tooltip.manual=This manual will help the player~learn all about how to use the~Flowstone Energy mod! Written by the Flowstone Team~for your readage.
 
 CONTROLS
 info.fe.key.shift=Shift

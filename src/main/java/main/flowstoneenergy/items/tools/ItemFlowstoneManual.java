@@ -47,19 +47,17 @@ public class ItemFlowstoneManual extends Item {
         return this.currentIcon;
     }
 
+	@SuppressWarnings("unchecked")
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        list.add(TextHelper.shiftForMoreInfo);
-        if (!KeyboardHelper.isShiftDown()) {
-            return;
-        }
-        list.remove(1);
-        list.add("This manual will help the player ");
-        list.add("learn all about how to use the");
-        list.add("Flowstone Energy mod!");
-        list.add("Written by the Flowstone Team");
-        list.add("For your benefit");
-        list.add("");
-        list.add("RIGHT CLICK to open");
+
+	    if(!KeyboardHelper.isShiftDown()) {
+		    list.add(TextHelper.shiftForMoreInfo);
+	    } else {
+		    //bad tooltip because I can't get it to split :<
+		    list.add(TextHelper.localize("info.fe.tooltip.manual"));
+		    list.add(" ");
+		    list.add(TextHelper.localize("info.fe.mouse.rc") + " " + TextHelper.localize("info.fe.tooltip.open"));
+	    }
     }
 }

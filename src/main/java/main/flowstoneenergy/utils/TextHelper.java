@@ -40,26 +40,22 @@ public class TextHelper {
 		return StatCollector.translateToLocal(key);
 	}
 
-    public static String localize(String unloc, boolean appendModid)
-    {
+    public static String localize(String unloc, boolean appendModid) {
         if (appendModid)
             return localize(ModInfo.MODID + "." + unloc);
         else
             return localize(unloc);
     }
 
-    public static String[] localizeList(String unloc)
-    {
+    public static String[] localizeList(String unloc) {
         return splitList(localize(unloc, true));
     }
 
-    private static String[] splitList(String list, String splitRegex)
-    {
+    private static String[] splitList(String list, String splitRegex) {
         return list.split(splitRegex);
     }
 
-    public static String[] splitList(String list)
-    {
+    public static String[] splitList(String list) {
         return splitList(list, "\\|");
     }
 }
