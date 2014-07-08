@@ -1,6 +1,6 @@
 [
 {
-  "modid": "main.main.main.flowstoneenergy",
+  "modid": "flowstoneenergy",
   "name": "Flowstone Energy",
   "description": "The newest energy mod.",
   "version": "${version}",
@@ -8,7 +8,7 @@
   "url": "",
   "updateUrl": "",
   "authorList": ["poppypoppop, Tombenpotter, TehNut, Mr_ComputerGhost"],
-  "credits": "Othlon, FounderIO and poppy's mum for the textures",
+  "credits": "Othlon, FounderIO and TechMac for the textures",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

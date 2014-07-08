@@ -38,28 +38,28 @@ public class CustomItemRenderer implements IItemRenderer {
                 if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
                     renderWorkbench(0.5F, 15F, -0.5F, 0.09F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
-                    renderItemPipe(0.5F, 15F, -0.5F, 0.15F);
+                    //renderItemPipe(0.5F, 15F, -0.5F, 0.15F);
                 return;
             }
             case EQUIPPED: { //third person in hand
                 if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
                     renderWorkbench(2F, 15F, 5F, 0.10F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
-                    renderItemPipe(2F, 15F, 5F, 0.15F);
+                    //renderItemPipe(2F, 15F, 5F, 0.15F);
                 return;
             }
             case EQUIPPED_FIRST_PERSON: { //first person in hand
                 if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
                     renderWorkbench(1F, 19F, 7F, 0.08F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
-                    renderItemPipe(1F, 19F, 7F, 0.08F);
+                    //renderItemPipe(1F, 19F, 7F, 0.08F);
                 return;
             }
             case INVENTORY: { //the item in inventories
                 if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
                     renderWorkbench(-0.01F, 10F, 0.0F, 0.1F);
                 if (item.getItem() == new ItemStack(BlockRegistry.itemPipe).getItem())
-                    renderItemPipe(-0.01F, 10F, 0.0F, 0.18F);
+                    //renderItemPipe(-0.01F, 10F, 0.0F, 0.18F);
                 return;
             }
             default:

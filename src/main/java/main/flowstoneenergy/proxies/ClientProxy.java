@@ -7,7 +7,6 @@ import main.flowstoneenergy.client.CustomItemRenderer;
 import main.flowstoneenergy.client.entities.FlowstoneRobot;
 import main.flowstoneenergy.client.entities.RenderRobot;
 import main.flowstoneenergy.client.transport.RenderItemPipe;
-import main.flowstoneenergy.client.transport.RenderPipe;
 import main.flowstoneenergy.entities.EntityRobot;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineWorkbench;
@@ -27,7 +26,6 @@ public class ClientProxy extends CommonProxy {
     	RenderingRegistry.registerEntityRenderingHandler(EntityRobot.class, new RenderRobot(new FlowstoneRobot(),0.3F));
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMachineWorkbench.class, new RenderMachineWorkbench());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityItemPipe.class, new RenderItemPipe());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityItemPipe.class, new RenderPipe());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlockRegistry.machineWorkbench), new CustomItemRenderer());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlockRegistry.itemPipe), new CustomItemRenderer());
     }

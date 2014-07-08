@@ -15,12 +15,14 @@ import net.minecraft.world.World;
 
 public class BlockPipeItem extends BlockMachineBox {
 
+    float pixel = 1F / 16F;
+
     public BlockPipeItem() {
         this.setLightOpacity(0);
         this.setBlockName(ModInfo.MODID + ".item.pipe");
-        this.setBlockTextureName(ModInfo.MODID + ":transport/itemPipe");
         this.setHardness(7);
         this.setCreativeTab(FlowstoneEnergy.blockTab);
+        this.setBlockBounds(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 1 - 11 *  pixel / 2, 1 - 11 *  pixel / 2, 1 - 11 *  pixel / 2);
     }
 
     @Override
@@ -46,7 +48,7 @@ public class BlockPipeItem extends BlockMachineBox {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
-        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
+        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":transport/itemPipeIcon");
     }
 
     @Override

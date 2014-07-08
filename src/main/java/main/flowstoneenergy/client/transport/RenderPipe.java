@@ -1,5 +1,6 @@
 package main.flowstoneenergy.client.transport;
 
+/**
 import main.flowstoneenergy.ModInfo;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -32,3 +33,4 @@ public class RenderPipe extends TileEntitySpecialRenderer {
     public void renderAll(){
     }
 }
+**/
