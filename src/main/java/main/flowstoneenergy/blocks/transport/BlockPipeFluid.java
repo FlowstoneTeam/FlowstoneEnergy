@@ -5,23 +5,59 @@ import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
 import main.flowstoneenergy.blocks.machines.BlockMachineBox;
+import main.flowstoneenergy.interfaces.IFlowWrenchable;
+import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-/**
- * Created by Millsy on 16/06/14.
- */
-public class BlockPipeFluid extends BlockMachineBox {
+public class BlockPipeFluid extends BlockMachineBox implements IFlowWrenchable {
+
+    float pixel = 1F / 16F;
 
     public BlockPipeFluid() {
         this.setLightOpacity(0);
         this.setBlockName(ModInfo.MODID + ".fluid.pipe");
-        this.setBlockTextureName(ModInfo.MODID + ":transport/fluidPipe");
         this.setHardness(7);
         this.setCreativeTab(FlowstoneEnergy.blockTab);
+        this.setBlockBounds(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 1 - 11 *  pixel / 2, 1 - 11 *  pixel / 2, 1 - 11 *  pixel / 2);
+    }
+
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+        TileEntityFluidPipe pipe = (TileEntityFluidPipe) world.getTileEntity(x, y, z);
+
+        if (pipe != null) {
+            float minX = 11 * pixel / 2 - (pipe.connections[5] != null ? (11 * pixel / 2) : 0);
+            float minZ = 11 * pixel / 2 - (pipe.connections[2] != null ? (11 * pixel / 2) : 0);
+            float minY = 11 * pixel / 2 - (pipe.connections[1] != null ? (11 * pixel / 2) : 0);
+            float maxZ = 1 - 11 * pixel / 2 + (pipe.connections[4] != null ? (11 * pixel / 2) : 0);
+            float maxY = 1 - 11 * pixel / 2 + (pipe.connections[0] != null ? (11 * pixel / 2) : 0);
+            float maxX = 1 - 11 * pixel / 2 + (pipe.connections[3] != null ? (11 * pixel / 2) : 0);
+
+            setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
+        }
+
+        return AxisAlignedBB.getAABBPool().getAABB(x + minX, y + minY, z + minZ, x + maxX, y + maxY, z + maxZ);
+    }
+
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
+        TileEntityFluidPipe pipe = (TileEntityFluidPipe) world.getTileEntity(x, y, z);
+
+        if (pipe != null) {
+            float minX = 11 * pixel / 2 - (pipe.connections[5] != null ? (11 * pixel / 2) : 0);
+            float minZ = 11 * pixel / 2 - (pipe.connections[2] != null ? (11 * pixel / 2) : 0);
+            float minY = 11 * pixel / 2 - (pipe.connections[1] != null ? (11 * pixel / 2) : 0);
+            float maxZ = 1 - 11 * pixel / 2 + (pipe.connections[4] != null ? (11 * pixel / 2) : 0);
+            float maxY = 1 - 11 * pixel / 2 + (pipe.connections[0] != null ? (11 * pixel / 2) : 0);
+            float maxX = 1 - 11 * pixel / 2 + (pipe.connections[3] != null ? (11 * pixel / 2) : 0);
+
+            setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
+        }
+
+        return AxisAlignedBB.getAABBPool().getAABB(x + minX, y + minY, z + minZ, x + maxX, y + maxY, z + maxZ);
     }
 
     @Override
@@ -47,11 +83,16 @@ public class BlockPipeFluid extends BlockMachineBox {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
-        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
+        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":transport/itemPipeIcon");
     }
 
     @Override
     public TileEntity createNewTileEntity(World world, int var2) {
-        return new TileEntityItemPipe();
+        return new TileEntityFluidPipe();
+    }
+
+    @Override
+    public boolean canWrenchRemove() {
+        return true;
     }
 }
