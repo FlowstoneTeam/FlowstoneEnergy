@@ -19,7 +19,7 @@ apply plugin: 'forge'
 
 version = "0.2.0-Alpha"
 group= "main.flowstoneenergy" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Flowstone Energy"
+archivesBaseName = "FlowstoneEnergy"
 
 minecraft {
     version = "1.7.2-10.12.2.1147"
