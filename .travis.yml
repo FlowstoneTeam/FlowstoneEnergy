@@ -1,6 +1,15 @@
+# Travis Build Config for FlowstoneEnergy
 language: java
+jdk:
+  - oraclejdk7
+  - openjdk7
+  - openjdk6
+  
+# Needed to fix Travis<->Windows Permissions
 install: []
 before_script: 'chmod u+x gradlew'
+
+# Actual Script
 script:
 - './gradlew setupCIWorkspace'
 - './gradlew build'
