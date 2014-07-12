@@ -4,6 +4,9 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.IFluidBlock;
+import net.minecraftforge.fluids.IFluidContainerItem;
+import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
 public class TileEntityFluidPipe extends TileEntityPipeBase {
@@ -70,7 +73,8 @@ public class TileEntityFluidPipe extends TileEntityPipeBase {
     @Override
     public boolean isValidInventory(int x, int y, int z) {
         if (worldObj.getTileEntity(x, y, z) != null) {
-            return worldObj.getTileEntity(x, y, z) instanceof IFluidTank;
+            return worldObj.getTileEntity(x, y, z) instanceof IFluidHandler || worldObj.getTileEntity(x, y, z) instanceof IFluidTank
+                    || worldObj.getTileEntity(x, y, z) instanceof IFluidBlock || worldObj.getTileEntity(x, y, z) instanceof IFluidContainerItem;
         } else {
             return false;
         }

@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -11,8 +12,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Random;
 
 public class BlockAplite extends Block {
     public IIcon[] icon = new IIcon[8];
@@ -54,8 +57,7 @@ public class BlockAplite extends Block {
     public int damageDropped(int meta) {
         if (meta == 0) {
             return 1;
-        } else {
-            return meta;
         }
+        return meta;
     }
 }

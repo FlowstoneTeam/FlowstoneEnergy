@@ -21,8 +21,8 @@ public class BlockPipeFluid extends BlockMachineBox implements IFlowWrenchable {
     public BlockPipeFluid() {
         this.setLightOpacity(0);
         this.setBlockName(ModInfo.MODID + ".fluid.pipe");
+        this.setBlockTextureName(ModInfo.MODID + ":transport/fluidPipeIcon");
         this.setHardness(7);
-        this.setCreativeTab(FlowstoneEnergy.blockTab);
         this.setBlockBounds(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 1 - 11 *  pixel / 2, 1 - 11 *  pixel / 2, 1 - 11 *  pixel / 2);
     }
 
@@ -83,7 +83,7 @@ public class BlockPipeFluid extends BlockMachineBox implements IFlowWrenchable {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
-        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":transport/itemPipeIcon");
+        this.blockIcon = icon.registerIcon(ModInfo.MODID + ":transport/fluidPipeIcon");
     }
 
     @Override
