@@ -24,6 +24,7 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         top = new IIcon[16];
         bottom = new IIcon[16];
         sideIcon = new IIcon[16];
+        setCreativeTab(FlowstoneEnergy.blockTab);
     }
 
     @Override

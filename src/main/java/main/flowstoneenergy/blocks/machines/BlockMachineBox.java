@@ -24,7 +24,6 @@ public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
         this.setBlockName(ModInfo.MODID + ".MachineBox");
         this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side_0");
         this.setStepSound(soundTypeMetal);
-        this.setCreativeTab(FlowstoneEnergy.blockTab);
         this.setHardness(7);
     }
 
