@@ -28,7 +28,7 @@ public class BlockPipeFluid extends BlockMachineBox implements IFlowWrenchable {
 
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         TileEntityFluidPipe pipe = (TileEntityFluidPipe) world.getTileEntity(x, y, z);
-
+        
         if (pipe != null) {
             float minX = 11 * pixel / 2 - (pipe.connections[5] != null ? (11 * pixel / 2) : 0);
             float minZ = 11 * pixel / 2 - (pipe.connections[2] != null ? (11 * pixel / 2) : 0);

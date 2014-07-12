@@ -14,8 +14,8 @@ public class BlockRecipeRegistry {
     private static void registerBlockRecipes() {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.machineBox, 1, 0), new Object[]{"XXX", "X X", "XXX", 'X', "ingotCopper"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.machineWorkbench), new Object[]{"XYX", "YZY", "XYX", 'X', "gearStone", 'Y', "tableCrafting", 'Z', "machineBasic"}));
-        GameRegistry.addRecipe(new ItemStack(BlockRegistry.aplite, 1, 2), new Object[]{"XX ", "XX ", "   ", 'X', new ItemStack(BlockRegistry.aplite, 1, 5)});
-        GameRegistry.addRecipe(new ItemStack(BlockRegistry.aplite, 1, 3), new Object[]{"XX ", "XX ", "   ", 'X', new ItemStack(BlockRegistry.aplite, 1, 2)});
+        GameRegistry.addRecipe(new ItemStack(BlockRegistry.aplite, 4, 2), new Object[]{"XX ", "XX ", "   ", 'X', new ItemStack(BlockRegistry.aplite, 1, 5)});
+        GameRegistry.addRecipe(new ItemStack(BlockRegistry.aplite, 4, 3), new Object[]{"XX ", "XX ", "   ", 'X', new ItemStack(BlockRegistry.aplite, 1, 2)});
         GameRegistry.addShapelessRecipe(new ItemStack(BlockRegistry.aplite, 1, 4), new ItemStack(BlockRegistry.aplite, 1, 2));
         GameRegistry.addSmelting(new ItemStack(BlockRegistry.aplite, 1, 1), new ItemStack(BlockRegistry.aplite, 1, 5), 0.1F);
     }

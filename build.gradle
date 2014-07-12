@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.1.12-Alpha"
+version = "0.2.0-Alpha"
 group= "main.flowstoneenergy" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Flowstone Energy"
 
