@@ -72,7 +72,7 @@ public class FlowstoneEnergy {
     @EventHandler
     public void load(FMLInitializationEvent event) {
         if (event.getSide() == Side.CLIENT && ConfigHandler.capesOn) {
-            //MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
+            MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
         }
         FEEntityRegistry.init();
     }
