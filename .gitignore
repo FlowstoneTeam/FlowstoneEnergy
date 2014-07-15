@@ -1,7 +1,12 @@
-/eclipse/*
-/.gradle/*
-/build/*
+/eclipse
+/.gradle
+/.idea
+/build
 *.iml
 *.ipr
 *.iws
-/out/*
+/out
+gradlew
+gradlew.bat
+/gradle
+Thumbs.db
