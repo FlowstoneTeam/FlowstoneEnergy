@@ -3,13 +3,13 @@ package main.flowstoneenergy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
 import main.flowstoneenergy.blocks.BlockRecipeRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.blocks.fluids.BucketRegistry;
@@ -25,8 +25,8 @@ import main.flowstoneenergy.items.ItemRecipeRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.proxies.CommonProxy;
 import main.flowstoneenergy.tileentities.TERegistry;
-import main.flowstoneenergy.tileentities.recipes.LumberMillRecipeHelper;
 import main.flowstoneenergy.utils.*;
+import mc.Mitchellbrine.capi.CAPI;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -79,16 +79,16 @@ public class FlowstoneEnergy {
     public void capes(FMLPreInitializationEvent event) {
     
     // I didn't add Comp because I'm sure he's added his own cape in Flowstone
-    	
-    CAPI.instance.addPlayerCape("poppypoppop","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
-    CAPI.instance.addPlayerCape("speedynutty68","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
-    CAPI.instance.addPlayerCape("tombenpotter","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
-    CAPI.instance.addPlayerCape("kris1432","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
-    CAPI.instance.addPlayerCape("founderio","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
-    CAPI.instance.addPlayerCape("othlon","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
-    CAPI.instance.addPlayerCape("theorangegenius","https://github.com/FlowstoneTeam/FlowstoneEnergy/blob/master/capes/orangecape.png");
-    CAPI.instance.addPlayerCape("oobihaxorz","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");	
-    	
+
+        CAPI.instance.addPlayerCape("poppypoppop", "https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+        CAPI.instance.addPlayerCape("speedynutty68","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+        CAPI.instance.addPlayerCape("tombenpotter","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+        CAPI.instance.addPlayerCape("kris1432","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+        CAPI.instance.addPlayerCape("founderio","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+        CAPI.instance.addPlayerCape("othlon","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+        CAPI.instance.addPlayerCape("theorangegenius","https://github.com/FlowstoneTeam/FlowstoneEnergy/blob/master/capes/orangecape.png");
+        CAPI.instance.addPlayerCape("oobihaxorz","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+
     }
 
     @EventHandler
