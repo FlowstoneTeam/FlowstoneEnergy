@@ -23,6 +23,7 @@ public class ItemGuiManual extends GuiScreen{
 
     private static final int BOOK_BTN_NEXT = 0;
     private static final int BOOK_BTN_PREV = 1;
+    private static final int BOOK_BTN_BL = 2;
 
     public static final int WIDTH = 175;
     public static final int HEIGHT = 228;
@@ -31,9 +32,13 @@ public class ItemGuiManual extends GuiScreen{
 
     private GuiButton next;
     private GuiButton prev;
+    private GuiButton blocks;
+    private GuiButton items;
+    private GuiButton power;
+    private GuiButton compat;
 
     private int pageIndex = 0;
-    private int bookTotalPages = 14;
+    private int bookTotalPages = 15;
 
     public int bookXStart;
 
@@ -49,6 +54,7 @@ public class ItemGuiManual extends GuiScreen{
 
         buttonList.add(next = new GuiButtonPageChange(BOOK_BTN_NEXT, bookXStart + WIDTH - 26, 210, false));
         buttonList.add(prev = new GuiButtonPageChange(BOOK_BTN_PREV, bookXStart + 10, 210, true));
+        //buttonList.add(blocks = new GuiButtonPageChange(BOOK_BTN_BL, bookXStart + 20, 210, false));
 
         updateButtons();
     }
@@ -102,19 +108,20 @@ public class ItemGuiManual extends GuiScreen{
     public void drawForeground() {
         switch (pageIndex) {
             case 0: drawStartScreen(); break;
-            case 1: drawScreenTwo(); break;
-            case 2: drawScreenThree(); break;
-            case 3: drawScreenFour(); break;
-            case 4: drawScreenFive(); break;
-            case 5: drawScreenSix(); break;
-            case 6: drawScreenSeven(); break;
-            case 7: drawScreenEight(); break;
-            case 8: drawScreenNine(); break;
-            case 9: drawScreenTen(); break;
-            case 10: drawScreenEleven(); break;
-            case 11: drawScreenTwelve(); break;
-            case 12: drawScreenThirteen(); break;
-            case 13: drawScreenFourteen(); break;
+            case 1: drawIndexPage(); break;
+            case 2: drawScreenTwo(); break;
+            case 3: drawScreenThree(); break;
+            case 4: drawScreenFour(); break;
+            case 5: drawScreenFive(); break;
+            case 6: drawScreenSix(); break;
+            case 7: drawScreenSeven(); break;
+            case 8: drawScreenEight(); break;
+            case 9: drawScreenNine(); break;
+            case 10: drawScreenTen(); break;
+            case 11: drawScreenEleven(); break;
+            case 12: drawScreenTwelve(); break;
+            case 13: drawScreenThirteen(); break;
+            case 14: drawScreenFourteen(); break;
         }
     }
 
@@ -126,6 +133,14 @@ public class ItemGuiManual extends GuiScreen{
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.main"), bookXStart + 20, 60, WIDTH-40, 0x000000);
         fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
+    }
+
+    private void drawIndexPage() {
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.title.index"), bookXStart + 70, 20, 0x000000);
+
+        boolean unicode = fontRendererObj.getUnicodeFlag();
+        fontRendererObj.setUnicodeFlag(true);
+        fontRendererObj.drawString(TextHelper.localize("gui.manual.info.index.1"), bookXStart + 20, 60, 0x000000);
     }
 	
 	private void drawScreenTwo() {
