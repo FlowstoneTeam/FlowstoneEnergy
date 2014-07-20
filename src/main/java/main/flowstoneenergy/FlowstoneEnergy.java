@@ -33,7 +33,7 @@ import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = "after:NotEnoughItems")
+@Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = "after:NotEnoughItems;after:cAPI")
 public class FlowstoneEnergy {
     public static CreativeTabs blockTab = new BlockCreativeTab("FlowstoneEnergyBlocks");
     public static CreativeTabs tab = new CreativeTab("FlowstoneEnergyItems");
@@ -71,10 +71,24 @@ public class FlowstoneEnergy {
 
     @EventHandler
     public void load(FMLInitializationEvent event) {
-        if (event.getSide() == Side.CLIENT && ConfigHandler.capesOn) {
-            MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
-        }
         FEEntityRegistry.init();
+    }
+    
+    @Optional.Method(modid="cAPI")
+    @EventHandler
+    public void capes(FMLPreInitializationEvent event) {
+    
+    // I didn't add Comp because I'm sure he's added his own cape in Flowstone
+    	
+    CAPI.instance.addPlayerCape("poppypoppop","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+    CAPI.instance.addPlayerCape("speedynutty68","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+    CAPI.instance.addPlayerCape("tombenpotter","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+    CAPI.instance.addPlayerCape("kris1432","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+    CAPI.instance.addPlayerCape("founderio","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+    CAPI.instance.addPlayerCape("othlon","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");
+    CAPI.instance.addPlayerCape("theorangegenius","https://github.com/FlowstoneTeam/FlowstoneEnergy/blob/master/capes/orangecape.png");
+    CAPI.instance.addPlayerCape("oobihaxorz","https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png");	
+    	
     }
 
     @EventHandler
