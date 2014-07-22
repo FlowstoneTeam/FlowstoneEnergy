@@ -41,7 +41,7 @@ public class BlockPipeItem extends BlockMachineBox implements IFlowWrenchable {
             setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
         }
 
-        return AxisAlignedBB.getAABBPool().getAABB(x + minX, y + minY, z + minZ, x + maxX, y + maxY, z + maxZ);
+        return AxisAlignedBB.getBoundingBox(x + minX, y + minY, z + minZ, x + maxX, y + maxY, z + maxZ);
     }
 
     public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
@@ -58,7 +58,7 @@ public class BlockPipeItem extends BlockMachineBox implements IFlowWrenchable {
             setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
         }
 
-        return AxisAlignedBB.getAABBPool().getAABB(x + minX, y + minY, z + minZ, x + maxX, y + maxY, z + maxZ);
+        return AxisAlignedBB.getBoundingBox(x + minX, y + minY, z + minZ, x + maxX, y + maxY, z + maxZ);
     }
 
     @Override
