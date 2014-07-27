@@ -65,7 +65,7 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase {
 
         if (ticksLeft < maxTicks && RecipesMetalMixer.getRecipeFromStack(items[0], items[1]) != null) {
             Recipe2_1 r = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]);
-            if (items[2] == null || (r.getOutput().getItem().equals(items[2].getItem()) && r.getOutput().getMaxStackSize() > items[3].stackSize)) {
+            if (items[2] == null || items[3] == null || (r.getOutput().getItem().equals(items[2].getItem()) && r.getOutput().getMaxStackSize() > items[3].stackSize)) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
