@@ -1,7 +1,7 @@
 package main.flowstoneenergy.items.tools.ender;
 
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ModInfo;
 import net.minecraft.item.ItemPickaxe;
 
 public class ItemPickEnder extends ItemPickaxe {

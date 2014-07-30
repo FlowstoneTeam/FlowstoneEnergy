@@ -1,12 +1,11 @@
 package main.flowstoneenergy.tileentities;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ModInfo;
 import main.flowstoneenergy.tileentities.machines.*;
 import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
 import main.flowstoneenergy.tileentities.upgrades.*;
-import net.minecraft.tileentity.TileEntity;
 
 public class TERegistry {
 

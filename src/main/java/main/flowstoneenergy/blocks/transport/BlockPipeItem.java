@@ -2,12 +2,9 @@ package main.flowstoneenergy.blocks.transport;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ic2.api.tile.IWrenchable;
-import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ModInfo;
 import main.flowstoneenergy.blocks.machines.BlockMachineBox;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
-import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;

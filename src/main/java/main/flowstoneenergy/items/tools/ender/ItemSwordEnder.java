@@ -1,7 +1,7 @@
 package main.flowstoneenergy.items.tools.ender;
 
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ModInfo;
 import net.minecraft.item.ItemSword;
 
 public class ItemSwordEnder extends ItemSword {

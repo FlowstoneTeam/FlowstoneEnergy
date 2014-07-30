@@ -1,14 +1,10 @@
 package main.flowstoneenergy.client.transport;
 
-import main.flowstoneenergy.ConfigHandler;
-import main.flowstoneenergy.ModInfo;
-import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.libs.ConfigHandler;
+import main.flowstoneenergy.libs.ModInfo;
 import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
-import main.flowstoneenergy.tileentities.transport.TileEntityPipeBase;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.ForgeDirection;

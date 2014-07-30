@@ -3,7 +3,7 @@ package main.flowstoneenergy.items.flowarmor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ModInfo;
 import main.flowstoneenergy.client.armor.FlowstoneArmorModel;
 import main.flowstoneenergy.utils.KeyboardHelper;
 import main.flowstoneenergy.utils.TextHelper;

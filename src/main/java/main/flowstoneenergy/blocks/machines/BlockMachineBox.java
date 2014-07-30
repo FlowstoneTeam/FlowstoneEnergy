@@ -2,9 +2,9 @@ package main.flowstoneenergy.blocks.machines;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import main.flowstoneenergy.ConfigHandler;
+import main.flowstoneenergy.libs.ConfigHandler;
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ModInfo;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;

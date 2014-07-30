@@ -1,7 +1,7 @@
 package main.flowstoneenergy.utils;
 
 import cpw.mods.fml.common.IWorldGenerator;
-import main.flowstoneenergy.ConfigHandler;
+import main.flowstoneenergy.libs.ConfigHandler;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

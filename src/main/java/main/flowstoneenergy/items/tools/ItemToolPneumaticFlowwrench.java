@@ -1,8 +1,8 @@
 package main.flowstoneenergy.items.tools;
 
 import ic2.api.tile.IWrenchable;
-import main.flowstoneenergy.ConfigHandler;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ConfigHandler;
+import main.flowstoneenergy.libs.ModInfo;
 import main.flowstoneenergy.interfaces.IFlowWrenchable;
 import main.flowstoneenergy.utils.KeyboardHelper;
 import main.flowstoneenergy.utils.TextHelper;

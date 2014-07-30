@@ -2,8 +2,8 @@ package main.flowstoneenergy.entities;
 
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import io.netty.buffer.ByteBuf;
-import main.flowstoneenergy.ConfigHandler;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ConfigHandler;
+import main.flowstoneenergy.libs.ModInfo;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityGolem;

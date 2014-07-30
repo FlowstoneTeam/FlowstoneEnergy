@@ -1,7 +1,7 @@
 package main.flowstoneenergy.items.tools.electrum;
 
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.ModInfo;
+import main.flowstoneenergy.libs.ModInfo;
 import net.minecraft.item.ItemAxe;
 
 public class ItemAxeElectrum extends ItemAxe {

@@ -1,6 +1,6 @@
 package main.flowstoneenergy.enchants;
 
-import main.flowstoneenergy.ConfigHandler;
+import main.flowstoneenergy.libs.ConfigHandler;
 
 public class EnchantRegistry {
     public static EnchantRandTele randTeleEnchant;
