@@ -10,3 +10,6 @@ gradlew
 gradlew.bat
 /gradle
 Thumbs.db
+/bin
+.classpath
+.project

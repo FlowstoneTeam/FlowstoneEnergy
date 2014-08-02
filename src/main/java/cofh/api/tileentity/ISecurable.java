@@ -1,12 +1,12 @@
 package cofh.api.tileentity;
 
 /**
- * Implement this interface on Tile entities which have access restrictions.
+ * Implement this interface on Tile Entities which can have access restrictions.
  * 
  * @author King Lemming
  * 
  */
-public interface ISecureTile {
+public interface ISecurable {
 
 	/**
 	 * Enum for Access Modes - Restricted is Friends Only, Private is Owner only.
@@ -43,14 +43,14 @@ public interface ISecureTile {
 		}
 	}
 
-	public boolean setAccess(AccessMode access);
+	boolean setAccess(AccessMode access);
 
-	public boolean setOwnerName(String name);
+	boolean setOwnerName(String name);
 
-	public AccessMode getAccess();
+	AccessMode getAccess();
 
-	public String getOwnerName();
+	String getOwnerName();
 
-	public boolean canPlayerAccess(String name);
+	boolean canPlayerAccess(String name);
 
 }
