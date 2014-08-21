@@ -1,6 +1,6 @@
 package main.flowstoneenergy.blocks.fluids;
 
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

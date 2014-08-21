@@ -7,7 +7,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.util.ForgeDirection;
 
 /**
- * Implement this interface on Tile Entities which can provide information about themselves.
+ * Implement this interface on Tile entities which can provide information about themselves.
  * 
  * @author King Lemming
  * 

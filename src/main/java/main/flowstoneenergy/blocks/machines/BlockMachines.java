@@ -3,7 +3,7 @@ package main.flowstoneenergy.blocks.machines;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.tileentities.machines.*;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -66,33 +66,12 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.top[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
         this.sideIcon[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
-        
-        //liquifier
-        this.frontOn[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
-        this.frontOff[5] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
-        this.top[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
-        this.bottom[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
-
-        //liquid infuser
-        this.frontOn[6] = icon.registerIcon(ModInfo.MODID + ":machines/liquidInfuser_Front_Active");
-        this.frontOff[6] = icon.registerIcon(ModInfo.MODID + ":machines/liquidInfuser_Front");
-        this.top[6] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
-        this.bottom[6] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[6] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
-
-        //autoCrafter
-        this.frontOn[7] = icon.registerIcon(ModInfo.MODID + ":machines/autocrafter_Side");
-        this.frontOff[7] = icon.registerIcon(ModInfo.MODID + ":machines/autocrafter_Side");
-        this.top[7] = icon.registerIcon(ModInfo.MODID + ":machines/autocrafter_Top");
-        this.bottom[7] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
-        this.sideIcon[7] = icon.registerIcon(ModInfo.MODID + ":machines/autocrafter_Side");
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
-        for (int i = 0; i <= 7; i++) {
+        for (int i = 0; i <= 4; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
@@ -114,15 +93,6 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         if (meta == 4) {
             return new TileEntityMachineMetalMixer();
         }
-        if (meta == 5) {
-        	return new TileEntityMachineLiquifier();
-        }
-        if (meta == 6) {
-            return new TileEntityMachineInfuser();
-        }
-        if(meta == 7) {
-            return new TileEntityMachineAutoCraftingTable();
-        }
         return super.createTileEntity(world, meta);
     }
 
@@ -141,12 +111,6 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
             player.openGui(FlowstoneEnergy.instance, 5, world, x, y, z);
         } else if (!world.isRemote && tile instanceof TileEntityMachineMetalMixer) {
             player.openGui(FlowstoneEnergy.instance, 3, world, x, y, z);
-        } else if (!world.isRemote && tile instanceof TileEntityMachineLiquifier) {
-        	player.openGui(FlowstoneEnergy.instance, 6, world, x, y, z);
-        } else if (!world.isRemote && tile instanceof TileEntityMachineInfuser) {
-            player.openGui(FlowstoneEnergy.instance, 7, world, x, y, z);
-        } else if (!world.isRemote && tile instanceof TileEntityMachineAutoCraftingTable) {
-            player.openGui(FlowstoneEnergy.instance, 8, world, x, y, z);
         }
 
         return true;

@@ -1,8 +1,8 @@
 package main.flowstoneenergy.blocks.decorative;
 
-import main.flowstoneenergy.libs.ConfigHandler;
+import main.flowstoneenergy.core.libs.ConfigHandler;
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

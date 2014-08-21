@@ -43,12 +43,12 @@ public class BlockRecipeRegistry {
     }
 
     private static void registerLumberMillRecipes() {
-        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log, 1, 0), new ItemStack(Blocks.planks, 6, 0), 100);
-        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log, 1, 1), new ItemStack(Blocks.planks, 6, 1), 100);
-        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log, 1, 2), new ItemStack(Blocks.planks, 6, 2), 100);
-        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log, 1, 3), new ItemStack(Blocks.planks, 6, 3), 100);
-        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log2, 1, 0), new ItemStack(Blocks.planks, 6, 4), 100);
-        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log2, 1, 1), new ItemStack(Blocks.planks, 6, 5), 100);
+        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log, 1, 0), new ItemStack(Blocks.planks, 6, 0), 100, 200);
+        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log, 1, 1), new ItemStack(Blocks.planks, 6, 1), 100, 200);
+        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log, 1, 2), new ItemStack(Blocks.planks, 6, 2), 100, 200);
+        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log, 1, 3), new ItemStack(Blocks.planks, 6, 3), 100, 200);
+        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log2, 1, 0), new ItemStack(Blocks.planks, 6, 4), 100, 200);
+        RecipesLumberMill.addRecipe(new ItemStack(Blocks.log2, 1, 1), new ItemStack(Blocks.planks, 6, 5), 100, 200);
     }
 
     public static void registerFullRecipes() {

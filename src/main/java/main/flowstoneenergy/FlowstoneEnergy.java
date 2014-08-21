@@ -16,24 +16,24 @@ import main.flowstoneenergy.blocks.fluids.FluidRecipeRegistry;
 import main.flowstoneenergy.enchants.EnchantRandTeleHandler;
 import main.flowstoneenergy.enchants.EnchantRegistry;
 import main.flowstoneenergy.entities.FEEntityRegistry;
-import main.flowstoneenergy.events.EntityEventHandler;
-import main.flowstoneenergy.client.gui.BlockCreativeTab;
-import main.flowstoneenergy.client.gui.CreativeTab;
-import main.flowstoneenergy.client.gui.GuiHandler;
+import main.flowstoneenergy.core.events.EntityEventHandler;
+import main.flowstoneenergy.core.client.gui.BlockCreativeTab;
+import main.flowstoneenergy.core.client.gui.CreativeTab;
+import main.flowstoneenergy.core.client.gui.GuiHandler;
 import main.flowstoneenergy.items.ItemRecipeRegistry;
 import main.flowstoneenergy.items.ItemRegistry;
-import main.flowstoneenergy.libs.ConfigHandler;
-import main.flowstoneenergy.libs.ModInfo;
-import main.flowstoneenergy.proxies.CommonProxy;
+import main.flowstoneenergy.core.libs.ConfigHandler;
+import main.flowstoneenergy.core.libs.ModInfo;
+import main.flowstoneenergy.core.proxies.CommonProxy;
 import main.flowstoneenergy.tileentities.TERegistry;
-import main.flowstoneenergy.utils.*;
+import main.flowstoneenergy.core.utils.*;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = "after:NotEnoughItems;after:cAPI")
+@Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION)
 public class FlowstoneEnergy {
     public static CreativeTabs blockTab = new BlockCreativeTab("FlowstoneEnergyBlocks");
     public static CreativeTabs tab = new CreativeTab("FlowstoneEnergyItems");
@@ -43,7 +43,7 @@ public class FlowstoneEnergy {
     public static FlowstoneEnergy instance;
     Configuration config;
 
-    @SidedProxy(clientSide = "main.flowstoneenergy.proxies.ClientProxy", serverSide = "main.flowstoneenergy.proxies.CommonProxy")
+    @SidedProxy(clientSide = ModInfo.CLIENTPROXY, serverSide = ModInfo.COMMONPROXY)
     public static CommonProxy proxy;
 
     @EventHandler

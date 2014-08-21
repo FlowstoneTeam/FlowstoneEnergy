@@ -1,8 +1,8 @@
 package main.flowstoneenergy.items.food;
 
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.libs.ModInfo;
-import main.flowstoneenergy.utils.TextHelper;
+import main.flowstoneenergy.core.libs.ModInfo;
+import main.flowstoneenergy.core.utils.TextHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;

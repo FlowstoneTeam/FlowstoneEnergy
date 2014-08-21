@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
- * Implement this interface on Tile Entities which can write a limited amount of data about themselves.
+ * Implement this interface on Tile entities which can write a limited amount of data about themselves.
  * 
  * This is typically for the purposes of being transferred to a similar tile entity.
  * 

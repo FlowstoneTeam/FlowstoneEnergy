@@ -1,11 +1,13 @@
 package main.flowstoneenergy.tileentities.machines;
 
+import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
+public class TileEntityMachineOreTumbler extends TileEntityMachineBase implements IEnergyHandler {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -101,5 +103,30 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase {
     public int getScaledProgress(int scale) {
         if (maxTicks == 0) return 0;
         return ticksLeft * scale / maxTicks;
+    }
+
+    @Override
+    public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
+        return 100;
+    }
+
+    @Override
+    public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate) {
+        return 0;
+    }
+
+    @Override
+    public int getEnergyStored(ForgeDirection from) {
+        return 0;
+    }
+
+    @Override
+    public int getMaxEnergyStored(ForgeDirection from) {
+        return 32000;
+    }
+
+    @Override
+    public boolean canConnectEnergy(ForgeDirection from) {
+        return true;
     }
 }

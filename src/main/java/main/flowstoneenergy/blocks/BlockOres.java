@@ -3,7 +3,7 @@ package main.flowstoneenergy.blocks;
 import java.util.List;
 
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.block.BlockOre;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

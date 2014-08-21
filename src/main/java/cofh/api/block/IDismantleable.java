@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
- * Implemented on Blocks which have some method of being instantly dismantled.
+ * Implemented on blocks which have some method of being instantly dismantled.
  * 
  * @author King Lemming
  * 

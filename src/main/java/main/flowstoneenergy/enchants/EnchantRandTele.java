@@ -1,6 +1,6 @@
 package main.flowstoneenergy.enchants;
 
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.ItemStack;

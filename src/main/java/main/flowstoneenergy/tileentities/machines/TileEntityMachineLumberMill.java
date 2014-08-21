@@ -1,10 +1,12 @@
 package main.flowstoneenergy.tileentities.machines;
 
+import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMachineLumberMill extends TileEntityMachineBase {
+public class TileEntityMachineLumberMill extends TileEntityMachineBase implements IEnergyHandler {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -63,7 +65,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
         }
         if (ticksLeft < maxTicks && RecipesLumberMill.getRecipeFromStack(items[0]) != null) {
             Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
-            if (items[1] == null || (r.getOutput().isItemEqual(items[1]) && r.getOutput().getMaxStackSize() > items[1].stackSize + 4)) {
+            if (items[1] == null || (r.getOutput().isItemEqual(items[1]) && r.getOutput().getMaxStackSize() > items[1].stackSize + 4) && r.getPowerRequired() < getEnergyStored(ForgeDirection.UNKNOWN)) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -99,5 +101,30 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase {
     public int getScaledProgress(int scale) {
         if (maxTicks == 0) return 0;
         return ticksLeft * scale / maxTicks;
+    }
+
+    @Override
+    public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
+        return 100;
+    }
+
+    @Override
+    public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate) {
+        return 0;
+    }
+
+    @Override
+    public int getEnergyStored(ForgeDirection from) {
+        return 0;
+    }
+
+    @Override
+    public int getMaxEnergyStored(ForgeDirection from) {
+        return 32000;
+    }
+
+    @Override
+    public boolean canConnectEnergy(ForgeDirection from) {
+        return true;
     }
 }

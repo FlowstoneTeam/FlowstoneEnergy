@@ -5,7 +5,7 @@ import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
-import main.flowstoneenergy.utils.OreDictHandler;
+import main.flowstoneenergy.core.utils.OreDictHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -102,99 +102,99 @@ public class ItemRecipeRegistry {
 
     private static void registerTumblerRecipes() {
         //Ores to dust
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreIron", new ItemStack(ItemRegistry.metaResourceDust, 2, 1), 200);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreGold", new ItemStack(ItemRegistry.metaResourceDust, 2, 2), 200);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreCopper", new ItemStack(ItemRegistry.metaResourceDust, 2, 3), 200);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreTin", new ItemStack(ItemRegistry.metaResourceDust, 2, 4), 200);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreLead", new ItemStack(ItemRegistry.metaResourceDust, 2, 5), 200);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreSilver", new ItemStack(ItemRegistry.metaResourceDust, 2, 6), 200);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreNickel", new ItemStack(ItemRegistry.metaResourceDust, 2, 9), 200);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreIron", new ItemStack(ItemRegistry.metaResourceDust, 2, 1), 200, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreGold", new ItemStack(ItemRegistry.metaResourceDust, 2, 2), 200, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreCopper", new ItemStack(ItemRegistry.metaResourceDust, 2, 3), 200, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreTin", new ItemStack(ItemRegistry.metaResourceDust, 2, 4), 200, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreLead", new ItemStack(ItemRegistry.metaResourceDust, 2, 5), 200, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreSilver", new ItemStack(ItemRegistry.metaResourceDust, 2, 6), 200, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreNickel", new ItemStack(ItemRegistry.metaResourceDust, 2, 9), 200, 100);
 
         //Ingot to dust
-        RecipesEnergizedOreTumbler.addOreDictRecipe("gemCoal", new ItemStack(ItemRegistry.metaResourceDust, 1, 0), 200);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotIron", new ItemStack(ItemRegistry.metaResourceDust, 1, 1), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotGold", new ItemStack(ItemRegistry.metaResourceDust, 1, 2), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotCopper", new ItemStack(ItemRegistry.metaResourceDust, 1, 3), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotTin", new ItemStack(ItemRegistry.metaResourceDust, 1, 4), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotLead", new ItemStack(ItemRegistry.metaResourceDust, 1, 5), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotSilver", new ItemStack(ItemRegistry.metaResourceDust, 1, 6), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotEnderium", new ItemStack(ItemRegistry.metaResourceDust, 1, 8), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotNickel", new ItemStack(ItemRegistry.metaResourceDust, 1, 9), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotInvar", new ItemStack(ItemRegistry.metaResourceDust, 1, 10), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotElectrum", new ItemStack(ItemRegistry.metaResourceDust, 1, 11), 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("gemCoal", new ItemStack(ItemRegistry.metaResourceDust, 1, 0), 200, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotIron", new ItemStack(ItemRegistry.metaResourceDust, 1, 1), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotGold", new ItemStack(ItemRegistry.metaResourceDust, 1, 2), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotCopper", new ItemStack(ItemRegistry.metaResourceDust, 1, 3), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotTin", new ItemStack(ItemRegistry.metaResourceDust, 1, 4), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotLead", new ItemStack(ItemRegistry.metaResourceDust, 1, 5), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotSilver", new ItemStack(ItemRegistry.metaResourceDust, 1, 6), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotEnderium", new ItemStack(ItemRegistry.metaResourceDust, 1, 8), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotNickel", new ItemStack(ItemRegistry.metaResourceDust, 1, 9), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotInvar", new ItemStack(ItemRegistry.metaResourceDust, 1, 10), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotElectrum", new ItemStack(ItemRegistry.metaResourceDust, 1, 11), 100, 100);
 
         //Metallurgy ores to dust
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreManganese", "dustManganese", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreEximite", "dustEximite", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreMeutoite", "dustMeutoite", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("orePrometheum", "dustPrometheum", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreDeepIron", "dustDeepIron", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreInfuscolium", "dustInfuscolium", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreOureclase", "dustOureclase", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreAstralSilver", "dustAstralSilver", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreCarmot", "dustCarmot", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreMithril", "dustMithril", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreRubracium", "dustRubracium", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreOrichalcum", "dustOrichalcum", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreAdamantine", "dustAdamantine", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreAtlarus", "dustAtlarus", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreIgnatius", "dustIgnatius", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreShadowIron", "dustShadowIron", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreLemurite", "dustLemurite", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreMidasium", "dustMidasium", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreVyroxeres", "dustVyroxeres", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreCeruclase", "dustCeruclase", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreAlduorite", "dustAlduorite", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreKalendrite", "dustKalendrite", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreVulcanite", "dustVulcanite", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreSanguinite", "dustSanguinite", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreZinc", "dustZinc", 200, 2);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("orePlatinum", "dustPlatinum", 200, 2);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreManganese", "dustManganese", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreEximite", "dustEximite", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreMeutoite", "dustMeutoite", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("orePrometheum", "dustPrometheum", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreDeepIron", "dustDeepIron", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreInfuscolium", "dustInfuscolium", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreOureclase", "dustOureclase", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreAstralSilver", "dustAstralSilver", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreCarmot", "dustCarmot", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreMithril", "dustMithril", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreRubracium", "dustRubracium", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreOrichalcum", "dustOrichalcum", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreAdamantine", "dustAdamantine", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreAtlarus", "dustAtlarus", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreIgnatius", "dustIgnatius", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreShadowIron", "dustShadowIron", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreLemurite", "dustLemurite", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreMidasium", "dustMidasium", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreVyroxeres", "dustVyroxeres", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreCeruclase", "dustCeruclase", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreAlduorite", "dustAlduorite", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreKalendrite", "dustKalendrite", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreVulcanite", "dustVulcanite", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreSanguinite", "dustSanguinite", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreZinc", "dustZinc", 200, 2, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("orePlatinum", "dustPlatinum", 200, 2, 100);
 
         //Metallurgy ingots to dust
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotManganese", "dustManganese", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotEximite", "dustEximite", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotMeutoite", "dustMeutoite", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotPrometheum", "dustPrometheum", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotDeepIron", "dustDeepIron", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotInfuscolium", "dustInfuscolium", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotOureclase", "dustOureclase", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotAstralSilver", "dustAstralSilver", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotCarmot", "dustCarmot", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotMithril", "dustMithril", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotRubracium", "dustRubracium", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotOrichalcum", "dustOrichalcum", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotAdamantine", "dustAdamantine", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotAtlarus", "dustAtlarus", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotIgnatius", "dustIgnatius", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotShadowIron", "dustShadowIron", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotLemurite", "dustLemurite", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotMidasium", "dustMidasium", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotVyroxeres", "dustVyroxeres", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotCeruclase", "dustCeruclase", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotAlduorite", "dustAlduorite", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotKalendrite", "dustKalendrite", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotVulcanite", "dustVulcanite", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotSanguinite", "dustSanguinite", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotZinc", "dustZinc", 200, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotPlatinum", "dustPlatinum", 200, 1);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotManganese", "dustManganese", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotEximite", "dustEximite", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotMeutoite", "dustMeutoite", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotPrometheum", "dustPrometheum", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotDeepIron", "dustDeepIron", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotInfuscolium", "dustInfuscolium", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotOureclase", "dustOureclase", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotAstralSilver", "dustAstralSilver", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotCarmot", "dustCarmot", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotMithril", "dustMithril", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotRubracium", "dustRubracium", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotOrichalcum", "dustOrichalcum", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotAdamantine", "dustAdamantine", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotAtlarus", "dustAtlarus", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotIgnatius", "dustIgnatius", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotShadowIron", "dustShadowIron", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotLemurite", "dustLemurite", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotMidasium", "dustMidasium", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotVyroxeres", "dustVyroxeres", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotCeruclase", "dustCeruclase", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotAlduorite", "dustAlduorite", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotKalendrite", "dustKalendrite", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotVulcanite", "dustVulcanite", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotSanguinite", "dustSanguinite", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotZinc", "dustZinc", 200, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("ingotPlatinum", "dustPlatinum", 200, 1, 100);
 
         //Ic2 ores to dust
-        RecipesEnergizedOreTumbler.addOreDictRecipe("oreUranium", "dustUranium", 200, 2);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("oreUranium", "dustUranium", 200, 2, 100);
 
         //Ae2 ores to dust
-        RecipesEnergizedOreTumbler.addOreDictRecipe("crystalCertusQuartz", "dustCertusQuartz", 100, 1);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("gemQuartz", "dustNetherQuartz", 100, 1);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("crystalCertusQuartz", "dustCertusQuartz", 100, 1, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("gemQuartz", "dustNetherQuartz", 100, 1, 100);
 
         //Other things
-        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300);
-        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200);
-        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("stone", new ItemStack(Blocks.cobblestone), 150);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("glass", new ItemStack(Blocks.sand), 100);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("cobblestone", new ItemStack(Blocks.sand), 150);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("sand", new ItemStack(Blocks.gravel), 150);
-        RecipesEnergizedOreTumbler.addOreDictRecipe("gravel", new ItemStack(Items.flint), 200);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300, 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200, 100);
+        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("stone", new ItemStack(Blocks.cobblestone), 150, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("glass", new ItemStack(Blocks.sand), 100, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("cobblestone", new ItemStack(Blocks.sand), 150, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("sand", new ItemStack(Blocks.gravel), 150, 100);
+        RecipesEnergizedOreTumbler.addOreDictRecipe("gravel", new ItemStack(Items.flint), 200, 100);
     }
 
     private static void registerMixerRecipes() {

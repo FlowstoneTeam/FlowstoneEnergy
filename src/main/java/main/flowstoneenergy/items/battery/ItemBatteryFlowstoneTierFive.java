@@ -1,8 +1,8 @@
 package main.flowstoneenergy.items.battery;
 
-import main.flowstoneenergy.utils.KeyboardHelper;
-import main.flowstoneenergy.utils.TextHelper;
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.utils.KeyboardHelper;
+import main.flowstoneenergy.core.utils.TextHelper;
+import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 

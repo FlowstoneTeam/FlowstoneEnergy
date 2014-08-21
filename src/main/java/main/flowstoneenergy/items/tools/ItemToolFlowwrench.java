@@ -2,8 +2,8 @@ package main.flowstoneenergy.items.tools;
 
 import buildcraft.api.tools.IToolWrench;
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.libs.ModInfo;
-import main.flowstoneenergy.interfaces.IFlowWrenchable;
+import main.flowstoneenergy.core.libs.ModInfo;
+import main.flowstoneenergy.core.interfaces.IFlowWrenchable;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;

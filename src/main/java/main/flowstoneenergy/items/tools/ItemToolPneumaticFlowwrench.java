@@ -1,11 +1,11 @@
 package main.flowstoneenergy.items.tools;
 
 import ic2.api.tile.IWrenchable;
-import main.flowstoneenergy.libs.ConfigHandler;
-import main.flowstoneenergy.libs.ModInfo;
-import main.flowstoneenergy.interfaces.IFlowWrenchable;
-import main.flowstoneenergy.utils.KeyboardHelper;
-import main.flowstoneenergy.utils.TextHelper;
+import main.flowstoneenergy.core.libs.ConfigHandler;
+import main.flowstoneenergy.core.libs.ModInfo;
+import main.flowstoneenergy.core.interfaces.IFlowWrenchable;
+import main.flowstoneenergy.core.utils.KeyboardHelper;
+import main.flowstoneenergy.core.utils.TextHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockButton;
 import net.minecraft.block.BlockChest;

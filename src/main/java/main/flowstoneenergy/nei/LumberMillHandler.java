@@ -2,8 +2,8 @@ package main.flowstoneenergy.nei;
 
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
-import main.flowstoneenergy.libs.ModInfo;
-import main.flowstoneenergy.client.gui.BlockGuiMachineWorkbench;
+import main.flowstoneenergy.core.libs.ModInfo;
+import main.flowstoneenergy.core.client.gui.BlockGuiMachineWorkbench;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.client.gui.inventory.GuiContainer;

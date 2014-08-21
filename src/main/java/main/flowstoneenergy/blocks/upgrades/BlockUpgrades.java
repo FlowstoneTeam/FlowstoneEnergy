@@ -2,7 +2,7 @@ package main.flowstoneenergy.blocks.upgrades;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.tileentities.upgrades.TileEntityUpgradeSpeed;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

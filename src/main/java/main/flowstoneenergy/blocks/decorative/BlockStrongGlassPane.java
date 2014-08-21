@@ -3,7 +3,7 @@ package main.flowstoneenergy.blocks.decorative;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
 

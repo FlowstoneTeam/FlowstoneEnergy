@@ -1,7 +1,7 @@
 package main.flowstoneenergy.items.tools.ender;
 
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.item.ItemAxe;
 
 public class ItemAxeEnder extends ItemAxe {

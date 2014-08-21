@@ -35,18 +35,6 @@ public class ItemBlockMachines extends ItemBlock {
                 name = "metalMixer";
                 break;
             }
-            case 5: {
-                name = "liquifier";
-                break;
-            }
-            case 6: {
-                name = "liquidInfuser";
-                break;
-            }
-            case 7: {
-                name = "autoCrafter";
-                break;
-            }
             default:
                 name = "nothing";
         }

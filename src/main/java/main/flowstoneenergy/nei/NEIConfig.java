@@ -2,7 +2,7 @@ package main.flowstoneenergy.nei;
 
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
-import main.flowstoneenergy.libs.ModInfo;
+import main.flowstoneenergy.core.libs.ModInfo;
 
 public class NEIConfig implements IConfigureNEI{
     @Override
