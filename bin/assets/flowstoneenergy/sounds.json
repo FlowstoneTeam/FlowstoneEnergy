@@ -1,5 +1,0 @@
-{
-    "robotTalk": {"catagory": "master", "sounds": [{"name": "robotTalk", "stream": false}]},
-    "robotHurt": {"catagory": "master", "sounds": [{"name": "robotHurt", "stream": false}]},
-    "robotDeath": {"catagory": "master", "sounds": [{"name": "robotDeath", "stream": false}]}
-}

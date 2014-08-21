@@ -6,9 +6,6 @@
 *.ipr
 *.iws
 /out
-gradlew
-gradlew.bat
-/gradle
 Thumbs.db
 /bin
 .classpath
