@@ -79,7 +79,6 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     public void smelt() {
         if (this.canSmelt()) {
             ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
-
             if (this.items[1] == null) {
                 this.items[1] = itemstack.copy();
             } else if (this.items[1].getItem() == itemstack.getItem()) {
@@ -114,10 +113,11 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
         return ticksLeft * scale / maxTicks;
     }
 
+
+
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-        return energy.getMaxReceive();
+        return energy.receiveEnergy(maxReceive, simulate);
     }
 
     @Override
