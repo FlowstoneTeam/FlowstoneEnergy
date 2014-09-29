@@ -28,7 +28,7 @@ if(System.getenv().DRONE_BUILD_NUMBER)
 
 minecraft {
     version = "1.7.10-10.13.0.1187"
-    assetDir = "eclipse/assets"
+    runDir = "run"
 }
 repositories{
 	maven {
@@ -42,9 +42,9 @@ repositories{
 }
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-	compile "codechicken:NotEnoughItems:1.7.2-1.0.1:dev"
-	compile "com.mod-buildcraft:buildcraft:6.0.16"
-	compile "net.industrial-craft:industrialcraft-2:2.1.470-experimental:api"
+	compile "codechicken:NotEnoughItems:1.7.10-1.0.3.56:dev"
+	compile "com.mod-buildcraft:buildcraft:6.0.18:dev"
+	compile "net.industrial-craft:industrialcraft-2:2.2.647-experimental:api"
 }
 processResources
 {
