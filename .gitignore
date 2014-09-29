@@ -10,3 +10,5 @@ Thumbs.db
 /bin
 .classpath
 .project
+.settings/
+/run
