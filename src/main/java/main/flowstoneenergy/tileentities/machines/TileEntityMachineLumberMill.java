@@ -60,6 +60,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
 //energy.getEnergyStored() > r.getPowerRequired()
         if (worldObj.isRemote)return;
         Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
+
         if(items[0] != null && r != null && (r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() > items[1].stackSize + 6)|| items[1].stackSize == 0) {
             if(ticksLeft >= maxTicks ){
                 energy.extractEnergy(r.getPowerRequired(), true);
@@ -95,8 +96,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
 
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-        return energy.getMaxReceive();
+        return energy.receiveEnergy(maxReceive, simulate);
     }
 
     @Override

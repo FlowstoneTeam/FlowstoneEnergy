@@ -105,7 +105,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
 
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-        return 100;
+        return energy.receiveEnergy(maxReceive, simulate);
     }
 
     @Override
@@ -115,12 +115,12 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
 
     @Override
     public int getEnergyStored(ForgeDirection from) {
-        return 0;
+        return energy.getEnergyStored();
     }
 
     @Override
     public int getMaxEnergyStored(ForgeDirection from) {
-        return 32000;
+        return energy.getMaxEnergyStored();
     }
 
     @Override
