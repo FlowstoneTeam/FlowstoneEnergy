@@ -56,30 +56,20 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     @Override
     public void updateEntity() {
         super.updateEntity();
-
-        if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
-            if (r != null) {
-                maxTicks = r.getTime();
-            }
-        }
-        if (ticksLeft < maxTicks && RecipesLumberMill.getRecipeFromStack(items[0]) != null) {
-            Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
-            if (items[1] == null || (r.getOutput().isItemEqual(items[1]) && r.getOutput().getMaxStackSize() > items[1].stackSize + 4) && r.getPowerRequired() < getEnergyStored(ForgeDirection.UNKNOWN)) {
-                ticksLeft++;
-                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
-            } else {
-                ticksLeft = 0;
+//(r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() > items[1].stackSize + 6)|| items[1].stackSize == 0
+//energy.getEnergyStored() > r.getPowerRequired()
+        if (worldObj.isRemote)return;
+        Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
+        if(items[0] != null && r != null && (r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() > items[1].stackSize + 6)|| items[1].stackSize == 0) {
+            if(ticksLeft >= maxTicks ){
+                energy.extractEnergy(r.getPowerRequired(), true);
+                smelt();
                 resetTimeAndTexture();
+            }else{
+                ticksLeft++;
             }
-        }
-        if (RecipesLumberMill.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
-            ticksLeft = 0;
+        }else{
             resetTimeAndTexture();
-        }
-        if (ticksLeft == maxTicks) {
-            ticksLeft = 0;
-            smelt();
         }
     }
 
@@ -105,7 +95,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
 
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-        return 100;
+        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+        return energy.getMaxReceive();
     }
 
     @Override
@@ -115,12 +106,12 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
 
     @Override
     public int getEnergyStored(ForgeDirection from) {
-        return 0;
+        return energy.getEnergyStored();
     }
 
     @Override
     public int getMaxEnergyStored(ForgeDirection from) {
-        return 32000;
+        return energy.getMaxEnergyStored();
     }
 
     @Override

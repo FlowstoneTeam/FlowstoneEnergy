@@ -1,5 +1,6 @@
 package main.flowstoneenergy.tileentities.machines;
 
+import cofh.api.energy.EnergyStorage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -18,6 +19,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public int ticksLeft = 0;
     public int maxTicks = 0;
     public int divisionFactor = 0;
+    public EnergyStorage energy = new EnergyStorage(32000, 1000);
 
     @Override
     public void openInventory() {
@@ -101,7 +103,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
         super.readFromNBT(tagCompound);
         NBTTagList nbttaglist = tagCompound.getTagList("Items", 10);
         this.items = new ItemStack[this.getSizeInventory()];
-
+        energy.readFromNBT(tagCompound);
         facing = tagCompound.getInteger("facing");
         ticksLeft = tagCompound.getInteger("ticksLeft");
 
@@ -119,7 +121,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
         NBTTagList nbttaglist = new NBTTagList();
-
+        energy.writeToNBT(tagCompound);
         for (int i = 0; i < this.items.length; ++i) {
             if (this.items[i] != null) {
                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();
