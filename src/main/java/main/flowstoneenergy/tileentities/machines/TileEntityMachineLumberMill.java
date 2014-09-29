@@ -61,7 +61,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
         if (worldObj.isRemote)return;
         Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
 
-        if(items[0] != null && r != null && (r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() > items[1].stackSize + 6)|| items[1].stackSize == 0) {
+        if(items != null && items[0] != null && items[1] != null && r != null && r.getOutput() != null && ((r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() > items[1].stackSize + 6)|| items[1].stackSize == 0)) {
             if(ticksLeft >= maxTicks ){
                 energy.extractEnergy(r.getPowerRequired(), true);
                 smelt();
