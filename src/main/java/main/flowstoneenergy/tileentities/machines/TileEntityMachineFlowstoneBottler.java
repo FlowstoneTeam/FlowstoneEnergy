@@ -8,6 +8,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase implements IEnergyHandler {
 
+
+
+
     @SuppressWarnings("unused")
     private String field_145958_o;
 

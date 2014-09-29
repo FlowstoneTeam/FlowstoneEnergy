@@ -1,5 +1,6 @@
 package main.flowstoneenergy.tileentities.machines;
 
+import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import net.minecraft.item.ItemStack;
@@ -10,6 +11,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
 
     @SuppressWarnings("unused")
     private String field_145958_o;
+
 
     public TileEntityMachineHeatedOven() {
         items = new ItemStack[2];
@@ -55,28 +57,25 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     @Override
     public void updateEntity() {
         super.updateEntity();
-
-        if (items[0] != null) {
-
-            if (this.canSmelt()) {
-                ticksLeft++;
-                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
-            } else {
-                ticksLeft = 0;
+        if (worldObj.isRemote) return;
+        if (items[0] != null  && this.canSmelt() && energy.getEnergyStored() >= 1600) {
+            if (ticksLeft == maxTicks) {
+                smelt();
+                energy.extractEnergy(1600, true);
                 resetTimeAndTexture();
             }
-
-            if (ticksLeft == maxTicks) {
-                ticksLeft = 0;
-                smelt();
+            else{
+                ticksLeft++;
             }
         }
-
+        else{
+            ticksLeft = 0;
+        }
         if (this.items[0] == null && ticksLeft > 0) {
             resetTimeAndTexture();
         }
     }
-
+//&& energy.getEnergyStored() >= 1600
     public void smelt() {
         if (this.canSmelt()) {
             ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
@@ -117,7 +116,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
 
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-        return 100;
+        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+        return energy.getMaxReceive();
     }
 
     @Override
@@ -127,12 +127,12 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
 
     @Override
     public int getEnergyStored(ForgeDirection from) {
-        return 0;
+        return energy.getEnergyStored();
     }
 
     @Override
     public int getMaxEnergyStored(ForgeDirection from) {
-        return 32000;
+        return energy.getMaxEnergyStored();
     }
 
     @Override
