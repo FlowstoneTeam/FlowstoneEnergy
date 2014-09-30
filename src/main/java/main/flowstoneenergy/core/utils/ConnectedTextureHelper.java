@@ -6,112 +6,132 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
 public class ConnectedTextureHelper {
-
-	private static int getIconNumber(int side, boolean shouldConnectNorth, boolean shouldConnectSouth, boolean shouldConnectEast, boolean shouldConnectWest, boolean shouldConnectTop, boolean shouldConnectBottom) {
-		boolean connectsUp = shouldConnectNorth;
-    	boolean connectsDown = shouldConnectSouth;
-    	boolean connectsRight = shouldConnectEast;
-    	boolean connectsLeft = shouldConnectWest;
-    	
-    	switch(side) {
-    		//bottom
-    		case 0:
-    			connectsUp = shouldConnectEast;
-    			connectsDown = shouldConnectWest;
-    			connectsLeft = shouldConnectNorth;
-    			connectsRight = shouldConnectSouth;
-    			break;
-    		//top
-    		case 1:
-    			connectsUp = shouldConnectEast;
-    			connectsDown = shouldConnectWest;
-    			connectsLeft = shouldConnectNorth;
-    			connectsRight = shouldConnectSouth;
-    			break;
-    			
-    		//east
-    		case 2:
-    			connectsUp = shouldConnectTop;
-    			connectsDown = shouldConnectBottom;
-    			connectsRight = shouldConnectNorth;
-    			connectsLeft = shouldConnectSouth;
-    			break;
-    		
-    		//west
-    		case 3:
-    			connectsUp = shouldConnectTop;
-    			connectsDown = shouldConnectBottom;
-    			connectsRight = shouldConnectSouth;
-    			connectsLeft = shouldConnectNorth;
-    			break;
-    			
-    		//north
-    		case 4:
-    			connectsUp = shouldConnectTop;
-    			connectsDown = shouldConnectBottom;
-    			connectsLeft = shouldConnectEast;
-    			connectsRight = shouldConnectWest;
-    			break;
-    			
-    		//south
-    		case 5:
-    			connectsUp = shouldConnectTop;
-    			connectsDown = shouldConnectBottom;
-    			connectsLeft = shouldConnectWest;
-    			connectsRight = shouldConnectEast;
-    		break;
-    	}
-    	
-    	if(connectsUp && connectsDown && connectsLeft && connectsRight) {
-    		return 15;
-		}
-		if(!connectsUp && connectsDown && connectsLeft && connectsRight) {
-			return 12;
-		}
-		if(connectsUp && !connectsDown && connectsLeft && connectsRight) {
-			return 11;
-		}
-		if(connectsUp && connectsDown && !connectsLeft && connectsRight) {
-			return 13;
-		}
-		if(connectsUp && connectsDown && connectsLeft && !connectsRight) {
-			return 14;
-		}
-		if(!connectsUp && !connectsDown && connectsLeft && connectsRight) {
-			return 5;
-		}
-		if(!connectsUp && connectsDown && !connectsLeft && connectsRight) {
-			return 9;
-		}
-		if(!connectsUp && connectsDown && connectsLeft && !connectsRight) {
-			return 10;
-		}
-		if(connectsUp && !connectsDown && !connectsLeft && connectsRight) {
-			return 7;
-		}
-		if(connectsUp && !connectsDown && connectsLeft && !connectsRight) {
-			return 8;
-		}
-		if(connectsUp && connectsDown && !connectsLeft && !connectsRight) {
-			return 6;
-		}
-		if(!connectsUp && !connectsDown && !connectsLeft && connectsRight) {
-			return 3;
-		}
-		if(!connectsUp && connectsDown && !connectsLeft && !connectsRight) {
-			return 1;
-		}
-		if(!connectsDown && !connectsDown && connectsLeft && !connectsRight) {
-			return 4;
-		}
-		if(connectsUp && !connectsDown && !connectsLeft && !connectsRight) {
-			return 2;
-		}
-		if(!connectsUp && !connectsDown && !connectsLeft && !connectsRight) {
-			return 0;
-		}
+	private static int[] textureIDs = new int[256];
+	
+	/*
+	 * THIS IS A TEMPORARY MEASURE UNTIL WE HAVE FANCY CONNECTED TEXTURES, 
+	 * AT WHICH POINT IN TIME THIS WILL BE REPLACED WITH CONSTANTS!!!
+	 * 
+	 * --Candi<3
+	 */
+	
+	static
+	{
+		int counter = 0;
 		
-		return -1;
+		for( int a = 0; a < 2; a++ )
+		{
+			for( int b = 0; b < 2; b++ )
+			{
+				for( int c = 0; c < 2; c++ )
+				{
+					for( int d = 0; d < 2; d++ )
+					{
+						for( int e = 0; e < 2; e++ )
+						{
+							for( int f = 0; f < 2; f++ )
+							{
+								for( int g = 0; g < 2; g++ )
+								{
+									for( int h = 0; h < 2; h++ )
+									{
+										String s = a + "" + b + "" + c + "" + d + "" + e + "" + f + "" + g + "" + h;
+										int texture = 0;
+										
+										boolean down = s.charAt( 1 ) == '0';
+										boolean right = s.charAt( 3 ) == '0';
+										boolean left = s.charAt( 4 ) == '0';
+										boolean up = s.charAt( 6 ) == '0';
+										
+										if( up && down && left && right )
+										{
+											textureIDs[counter] = 0;
+										}
+										
+										if( up && !down && left && right )
+										{
+											textureIDs[counter] = 1;
+										}
+										
+										if( !up && down && left && right )
+										{
+											textureIDs[counter] = 2;
+										}
+										
+										if( up && down && left && !right )
+										{
+											textureIDs[counter] = 3;
+										}
+										
+										if( up && down && !left && right )
+										{
+											textureIDs[counter] = 4;
+										}
+										
+										if( up && down && !left && !right )
+										{
+											textureIDs[counter] = 5;
+										}
+										
+										if( !up && !down && left && right )
+										{
+											textureIDs[counter] = 6;
+										}
+										
+										if( !up && down && left && !right )
+										{
+											textureIDs[counter] = 7;
+										}
+										
+										if( !up && down && !left && right )
+										{
+											textureIDs[counter] = 8;
+										}
+										
+										if( up && !down && left && !right )
+										{
+											textureIDs[counter] = 9;
+										}
+										
+										if( up && !down && !left && right )
+										{
+											textureIDs[counter] = 10;
+										}
+										
+										if( !up && down && !left && !right )
+										{
+											textureIDs[counter] = 11;
+										}
+										
+										if( up && !down && !left && !right )
+										{
+											textureIDs[counter] = 12;
+										}
+										
+										if( !up && !down && left && !right )
+										{
+											textureIDs[counter] = 13;
+										}
+										
+										if( !up && !down && !left && right )
+										{
+											textureIDs[counter] = 14;
+										}
+										
+										if( !up && !down && !left && !right )
+										{
+											textureIDs[counter] = 15;
+										}
+										
+										counter++;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	public static IIcon getConnectedBlockTexture(IBlockAccess blockAccess, int x, int y, int z, int side, IIcon[] icons, Block callingBlock) {
@@ -119,43 +139,71 @@ public class ConnectedTextureHelper {
             return icons[0];
         }
         
-        boolean shouldConnectSouth = false, shouldConnectNorth = false, shouldConnectEast = false, shouldConnectWest = false, shouldConnectTop = false, shouldConnectBottom = false;
+        boolean[] occupied = new boolean[8];
         
-            if (shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlock(x - 1, y, z), blockAccess.getBlockMetadata(x - 1, y, z), callingBlock)) {
-                shouldConnectNorth = true;
-            }
-
-            if (shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlock(x + 1, y, z), blockAccess.getBlockMetadata(x + 1, y, z), callingBlock)) {
-                shouldConnectSouth = true;
-            }
-
-            if (shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlock(x, y, z - 1), blockAccess.getBlockMetadata(x, y, z - 1), callingBlock)) {
-                shouldConnectEast = true;
-            }
-
-            if (shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlock(x, y, z + 1), blockAccess.getBlockMetadata(x, y, z + 1), callingBlock)) {
-                shouldConnectWest = true;
-            }
-            
-            if (shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlock(x, y + 1, z), blockAccess.getBlockMetadata(x, y + 1, z), callingBlock)) {
-                shouldConnectTop = true;
-            }
-            
-            if (shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlock(x, y - 1, z), blockAccess.getBlockMetadata(x, y - 1, z), callingBlock)) {
-                shouldConnectBottom = true;
-            }
-
-            int icon = ConnectedTextureHelper.getIconNumber(side, shouldConnectNorth, shouldConnectSouth, shouldConnectEast, shouldConnectWest, shouldConnectTop, shouldConnectBottom);
-    		
-            if(icon > -1) {
-            	return icons[icon];
-            } else {
-            	return icons[0];
-            }
-    }
-    
-    private static boolean shouldConnectToBlock(IBlockAccess blockAccess, int x, int y, int z, Block block, int metadata, Block callingBlock) {
-        return block == callingBlock;
-    }
-	
+        for( int i = 0; i < occupied.length; i++ )
+        {
+        	occupied[i] = false;
+        }
+        
+        switch( side )
+        {
+        	case 0:
+        	case 1:
+        		occupied[0] = Block.getIdFromBlock(blockAccess.getBlock(x - 1, y, z - 1)) == Block.getIdFromBlock( callingBlock );
+                occupied[1] = Block.getIdFromBlock(blockAccess.getBlock(x, y, z - 1)) == Block.getIdFromBlock( callingBlock );
+                occupied[2] = Block.getIdFromBlock(blockAccess.getBlock(x + 1, y, z - 1)) == Block.getIdFromBlock( callingBlock );
+                occupied[3] = Block.getIdFromBlock(blockAccess.getBlock(x - 1, y, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[4] = Block.getIdFromBlock(blockAccess.getBlock(x + 1, y, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[5] = Block.getIdFromBlock(blockAccess.getBlock(x - 1, y, z + 1)) == Block.getIdFromBlock( callingBlock );
+                occupied[6] = Block.getIdFromBlock(blockAccess.getBlock(x, y, z + 1)) == Block.getIdFromBlock( callingBlock );
+                occupied[7] = Block.getIdFromBlock(blockAccess.getBlock(x + 1, y, z + 1)) == Block.getIdFromBlock( callingBlock );
+        		break;
+        		
+        	case 2:
+        	case 3:
+        		occupied[0] = Block.getIdFromBlock(blockAccess.getBlock(x + (side == 2 ? 1 : - 1), y + 1, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[1] = Block.getIdFromBlock(blockAccess.getBlock(x, y + 1, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[2] = Block.getIdFromBlock(blockAccess.getBlock(x + (side == 3 ? 1 : - 1), y + 1, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[3] = Block.getIdFromBlock(blockAccess.getBlock(x + (side == 2 ? 1 : - 1), y, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[4] = Block.getIdFromBlock(blockAccess.getBlock(x + (side == 3 ? 1 : - 1), y, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[5] = Block.getIdFromBlock(blockAccess.getBlock(x + (side == 2 ? 1 : - 1), y - 1, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[6] = Block.getIdFromBlock(blockAccess.getBlock(x, y - 1, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[7] = Block.getIdFromBlock(blockAccess.getBlock(x + (side == 3 ? 1 : - 1), y - 1, z)) == Block.getIdFromBlock( callingBlock );
+        		break;
+        		
+        	case 4:
+        	case 5:
+        		occupied[0] = Block.getIdFromBlock(blockAccess.getBlock(x, y + 1, z + (side == 5 ? 1 : - 1))) == Block.getIdFromBlock( callingBlock );
+                occupied[1] = Block.getIdFromBlock(blockAccess.getBlock(x, y + 1, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[2] = Block.getIdFromBlock(blockAccess.getBlock(x, y + 1, z + (side == 4 ? 1 : - 1))) == Block.getIdFromBlock( callingBlock );
+                occupied[3] = Block.getIdFromBlock(blockAccess.getBlock(x, y, z + (side == 5 ? 1 : - 1))) == Block.getIdFromBlock( callingBlock );
+                occupied[4] = Block.getIdFromBlock(blockAccess.getBlock(x, y, z + (side == 4 ? 1 : - 1))) == Block.getIdFromBlock( callingBlock );
+                occupied[5] = Block.getIdFromBlock(blockAccess.getBlock(x, y - 1, z + (side == 5 ? 1 : - 1))) == Block.getIdFromBlock( callingBlock );
+                occupied[6] = Block.getIdFromBlock(blockAccess.getBlock(x, y - 1, z)) == Block.getIdFromBlock( callingBlock );
+                occupied[7] = Block.getIdFromBlock(blockAccess.getBlock(x, y - 1, z + (side == 4 ? 1 : - 1))) == Block.getIdFromBlock( callingBlock );
+        		break;
+        }
+        
+        int textureID = 0;
+        
+        for( int i = 0; i < occupied.length; i++ )
+        {
+        	if( occupied[i] )
+        	{
+        		textureID += Math.pow( 2, i );
+        	}
+        }
+        
+        if( textureID > 0 && textureID < textureIDs.length )
+        {
+        	System.out.println( x + "," + y + "," + z + " @ Side " + side + " = " + textureID );
+        	
+        	return icons[textureIDs[textureID]];
+        }
+        else
+        {
+        	return icons[0];
+        }
+    }	
 }
