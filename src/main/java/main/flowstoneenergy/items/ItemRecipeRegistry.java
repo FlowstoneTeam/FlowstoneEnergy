@@ -57,7 +57,7 @@ public class ItemRecipeRegistry {
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3), "   ", "   ", "CCC", 'C', Items.clay_ball);
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 1), " S ", "S S", "  C", 'S', Items.string, 'C', new ItemStack(Items.dye, 1, 3));
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 2), " I ", " I ", " I ", 'I', Items.iron_ingot);
-        GameRegistry.addRecipe(new ItemStack(ItemRegistry.tea), " S ", " U ", "MCT", 'S', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 2), 'U', Items.sugar, 'M', Items.milk_bucket, 'C', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), 'T', new ItemStack(ItemRegistry.metaResourceUtensil, 1, 1));
+
     }
 
     private static void registerShapelessRecipes() {
@@ -96,8 +96,7 @@ public class ItemRecipeRegistry {
         OreDictHandler.furnaceOreDictRecipes("dustInvar", new ItemStack(ItemRegistry.metaResourceIngot, 1, 6), 0.5F);
         OreDictHandler.furnaceOreDictRecipes("dustElectrum", new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 0.5F);
 
-        //raw to cooked smelting recipes (vanilla furnace)
-        GameRegistry.addSmelting(ItemRegistry.rawBacon, new ItemStack(ItemRegistry.cookedBacon), 0.35F);
+
     }
 
     private static void registerTumblerRecipes() {
@@ -188,8 +187,6 @@ public class ItemRecipeRegistry {
 
         //Other things
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300, 100);
-        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.porkchop), new ItemStack(ItemRegistry.rawBacon), 200, 100);
-        RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.cooked_porkchop), new ItemStack(ItemRegistry.cookedBacon), 200, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("stone", new ItemStack(Blocks.cobblestone), 150, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("glass", new ItemStack(Blocks.sand), 100, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("cobblestone", new ItemStack(Blocks.sand), 150, 100);
