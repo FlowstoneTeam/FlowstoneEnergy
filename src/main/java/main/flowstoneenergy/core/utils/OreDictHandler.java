@@ -21,8 +21,8 @@ public class OreDictHandler {
         OreDictionary.registerOre("dustTin", new ItemStack(ItemRegistry.metaResourceDust, 1, 4));
         OreDictionary.registerOre("dustLead", new ItemStack(ItemRegistry.metaResourceDust, 1, 5));
         OreDictionary.registerOre("dustSilver", new ItemStack(ItemRegistry.metaResourceDust, 1, 6));
-        //OreDictionary.registerOre("dustTinyEnderium", new ItemStack(ItemRegistry.metaResourceDust, 1, 7));
-        //OreDictionary.registerOre("dustEnderium", new ItemStack(ItemRegistry.metaResourceDust, 1, 8));
+        OreDictionary.registerOre("dustTinyEnder", new ItemStack(ItemRegistry.metaResourceDust, 1, 7));
+        OreDictionary.registerOre("dustEnder", new ItemStack(ItemRegistry.metaResourceDust, 1, 8));
         OreDictionary.registerOre("dustNickel", new ItemStack(ItemRegistry.metaResourceDust, 1, 9));
         OreDictionary.registerOre("dustInvar", new ItemStack(ItemRegistry.metaResourceDust, 1, 10));
         OreDictionary.registerOre("dustElectrum", new ItemStack(ItemRegistry.metaResourceDust, 1, 11));
@@ -32,7 +32,7 @@ public class OreDictHandler {
         OreDictionary.registerOre("ingotTin", new ItemStack(ItemRegistry.metaResourceIngot, 1, 1));
         OreDictionary.registerOre("ingotLead", new ItemStack(ItemRegistry.metaResourceIngot, 1, 2));
         OreDictionary.registerOre("ingotSilver", new ItemStack(ItemRegistry.metaResourceIngot, 1, 3));
-        //OreDictionary.registerOre("ingotEnderium", new ItemStack(ItemRegistry.metaResourceIngot, 1, 4));
+        OreDictionary.registerOre("ingotEnder", new ItemStack(ItemRegistry.metaResourceIngot, 1, 4));
         OreDictionary.registerOre("ingotNickel", new ItemStack(ItemRegistry.metaResourceIngot, 1, 5));
         OreDictionary.registerOre("ingotInvar", new ItemStack(ItemRegistry.metaResourceIngot, 1, 6));
         OreDictionary.registerOre("ingotElectrum", new ItemStack(ItemRegistry.metaResourceIngot, 1, 7));
@@ -66,7 +66,7 @@ public class OreDictHandler {
         OreDictionary.registerOre("gearTin", new ItemStack(ItemRegistry.metaResourceGear, 1, 7));
         OreDictionary.registerOre("gearLead", new ItemStack(ItemRegistry.metaResourceGear, 1, 8));
         OreDictionary.registerOre("gearSilver", new ItemStack(ItemRegistry.metaResourceGear, 1, 9));
-        //OreDictionary.registerOre("gearEnderium", new ItemStack(ItemRegistry.metaResourceGear, 1, 10));
+        OreDictionary.registerOre("gearEnder", new ItemStack(ItemRegistry.metaResourceGear, 1, 10));
         OreDictionary.registerOre("gearElectrum", new ItemStack(ItemRegistry.metaResourceGear, 1, 11));
         OreDictionary.registerOre("gearNickel", new ItemStack(ItemRegistry.metaResourceGear, 1, 12));
         OreDictionary.registerOre("gearInvar", new ItemStack(ItemRegistry.metaResourceGear, 1, 13));
