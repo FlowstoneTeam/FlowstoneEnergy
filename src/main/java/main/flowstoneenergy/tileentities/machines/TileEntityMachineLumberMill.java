@@ -12,6 +12,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     private String field_145958_o;
 
     public TileEntityMachineLumberMill() {
+        maxTicks = 100;
         items = new ItemStack[2];
     }
 
@@ -56,37 +57,33 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     @Override
     public void updateEntity() {
         super.updateEntity();
-//(r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() > items[1].stackSize + 6)|| items[1].stackSize == 0
-//energy.getEnergyStored() > r.getPowerRequired()
+
         if (worldObj.isRemote)return;
+
         Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
-
-        if(items != null && items[0] != null && items[1] != null && r != null && r.getOutput() != null && ((r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() > items[1].stackSize + 6)) && energy.getEnergyStored() >= r.getPowerRequired()) {
+        if(items != null && items[0] != null && items[1] != null && r != null && r.getOutput() != null && ((r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() >= items[1].stackSize + 6)) && energy.getEnergyStored() >= r.getPowerRequired()) {
             if(ticksLeft >= maxTicks ){
                 energy.extractEnergy(r.getPowerRequired(), true);
                 smelt();
                 resetTimeAndTexture();
-                ticksLeft = 0;
             }else{
                 ticksLeft++;
-
             }
         }else{
             resetTimeAndTexture();
-            ticksLeft = 0;
         }
+
         if(items != null && items[0] != null && items[1] == null && r != null &&energy.getEnergyStored() >= r.getPowerRequired()) {
+
             if(ticksLeft >= maxTicks ){
                 energy.extractEnergy(r.getPowerRequired(), true);
                 smelt();
                 resetTimeAndTexture();
-                ticksLeft = 0;
             }else{
                 ticksLeft++;
             }
         }else{
             resetTimeAndTexture();
-            ticksLeft = 0;
         }
     }
 

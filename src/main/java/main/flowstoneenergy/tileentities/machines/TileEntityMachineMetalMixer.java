@@ -12,6 +12,7 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
     private String field_145958_o;
 
     public TileEntityMachineMetalMixer() {
+        maxTicks = 100;
         items = new ItemStack[4];
     }
 
@@ -58,11 +59,11 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
     public void updateEntity() {
         super.updateEntity();
         Recipe2_1 r = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]);
-        if(items[0] != null && items[1] != null && r != null && (items[2] != null || items[3] != null) && (r.getOutput().isItemEqual(items[2]) && items[2].getMaxStackSize() > items[2].stackSize + 2) && energy.getEnergyStored() >= 2000){
+        if(items[0] != null && items[1] != null && r != null && (items[2] != null || items[3] != null) && (r.getOutput().isItemEqual(items[2]) && items[2].getMaxStackSize() >= items[2].stackSize + 2) && energy.getEnergyStored() >= 2000){
             if(ticksLeft >= maxTicks){
-                mixMetals();
                 energy.extractEnergy(2000, true);
                 ticksLeft = 0;
+                mixMetals();
                 resetTimeAndTexture();
             }else{
                 ticksLeft++;
@@ -74,16 +75,17 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
 
         if(items[0] != null && items[1] != null && r != null && items[2] == null && items[3] == null && energy.getEnergyStored() >= 2000){
             if(ticksLeft >= maxTicks){
-                mixMetals();
+                this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
                 energy.extractEnergy(2000, true);
                 ticksLeft = 0;
-                resetTimeAndTexture();
+                mixMetals();
+                ticksLeft = 0;
             }else{
                 ticksLeft++;
             }
-        }  else{
-        ticksLeft = 0;
-    }
+        }  else {
+            ticksLeft = 0;
+        }
 
     }
 

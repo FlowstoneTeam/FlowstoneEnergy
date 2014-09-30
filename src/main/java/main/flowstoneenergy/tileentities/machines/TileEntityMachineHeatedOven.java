@@ -69,11 +69,9 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
             }
         }
         else{
-            ticksLeft = 0;
-        }
-        if (this.items[0] == null && ticksLeft > 0) {
             resetTimeAndTexture();
         }
+
     }
 //&& energy.getEnergyStored() >= 1600
     public void smelt() {
