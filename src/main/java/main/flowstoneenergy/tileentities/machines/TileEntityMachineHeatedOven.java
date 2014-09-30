@@ -2,7 +2,9 @@ package main.flowstoneenergy.tileentities.machines;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;
+import main.flowstoneenergy.blocks.upgrades.BlockUpgrades;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -16,6 +18,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     public TileEntityMachineHeatedOven() {
         items = new ItemStack[2];
         maxTicks = 150;
+        energyRequired = 1600;
+        energyCapacity = 32000;
     }
 
     @Override
@@ -58,7 +62,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     public void updateEntity() {
         super.updateEntity();
         if (worldObj.isRemote) return;
-        if (items[0] != null  && this.canSmelt() && energy.getEnergyStored() >= 1600) {
+        if (items[0] != null  && this.canSmelt() && energy.getEnergyStored() >= energyRequired) {
             if (ticksLeft == maxTicks) {
                 smelt();
                 energy.extractEnergy(1600, true);
@@ -109,6 +113,12 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
             return 0;
         }
         return ticksLeft * scale / maxTicks;
+    }
+
+    public void getUpgrade(){
+        if (worldObj.getBlock(xCoord, yCoord+1, zCoord) instanceof BlockUpgrades){
+
+        }
     }
 
 
