@@ -3,4 +3,4 @@ FlowstoneEnergy [![Build Status](https://travis-ci.org/FlowstoneTeam/FlowstoneEn
 
 The newest energy mod. (now in bacon flavour)
 
-BEING REBORN BY GLASSMAKER, CANDICE & KRIS1432
+BEING REBORN BY GLASSMAKER, IMDUTCH21,CANDICE & KRIS1432
