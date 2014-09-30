@@ -13,20 +13,20 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockStrongGlassPane extends BlockPane{
+public class BlockStrongGlassPane extends BlockPane {
 
-	protected IIcon[] icons = new IIcon[16];
-	
-	public BlockStrongGlassPane() {
-		super(ModInfo.MODID + ":decorative/strongGlass_0", ModInfo.MODID + ":blockedingots/blockLead", Material.glass, true);
-		this.setStepSound(soundTypeGlass);
-		this.setBlockName(ModInfo.MODID + ".strong.glass.pane");
-		this.setBlockTextureName(ModInfo.MODID + ":decorative/strongGlass_0");
-		this.setCreativeTab(FlowstoneEnergy.blockTab);
-		this.setHardness(0.5F);
-	}
+    protected IIcon[] icons = new IIcon[16];
 
-	@SideOnly(Side.CLIENT)
+    public BlockStrongGlassPane() {
+        super(ModInfo.MODID + ":decorative/strongGlass_0", ModInfo.MODID + ":blockedingots/blockLead", Material.glass, true);
+        this.setStepSound(soundTypeGlass);
+        this.setBlockName(ModInfo.MODID + ".strong.glass.pane");
+        this.setBlockTextureName(ModInfo.MODID + ":decorative/strongGlass_0");
+        this.setCreativeTab(FlowstoneEnergy.blockTab);
+        this.setHardness(0.5F);
+    }
+
+    @SideOnly(Side.CLIENT)
     public int getRenderBlockPass() {
         return 1;
     }
@@ -39,10 +39,10 @@ public class BlockStrongGlassPane extends BlockPane{
         return false;
     }
 
-	/*public boolean shouldSideBeRendered() {
-        return true;
-    }*/
-    
+    /*
+     * public boolean shouldSideBeRendered() { return true; }
+     */
+
     @Override
     public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
         Block b1 = blockAccess.getBlock(x, y, z);
@@ -51,22 +51,22 @@ public class BlockStrongGlassPane extends BlockPane{
         }
         return super.shouldSideBeRendered(blockAccess, x, y, z, side);
     }
-	
+
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(IBlockAccess blockAccess, int x, int y, int z, int side) {
-    	return blockAccess.getBlockMetadata(x, y, z) == 15 ? icons[0] : ConnectedTextureHelper.getConnectedBlockTexture(blockAccess, x, y, z, side, icons, this);
+        return blockAccess.getBlockMetadata(x, y, z) == 15 ? icons[0] : ConnectedTextureHelper.getConnectedBlockTexture(blockAccess, x, y, z, side, icons, this);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon func_150097_e() {
-    	return icons[0];
+        return icons[0];
     }
-    
+
     @Override
     public void registerBlockIcons(IIconRegister ir) {
-    	super.registerBlockIcons( ir );
+        super.registerBlockIcons(ir);
         blockIcon = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_0");
         icons[0] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_0");
         icons[1] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_1");
