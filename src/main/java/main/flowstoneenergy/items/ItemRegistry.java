@@ -8,10 +8,6 @@ import main.flowstoneenergy.items.flowarmor.ItemArmorFlowBoots;
 import main.flowstoneenergy.items.flowarmor.ItemArmorFlowChestplate;
 import main.flowstoneenergy.items.flowarmor.ItemArmorFlowHelm;
 import main.flowstoneenergy.items.flowarmor.ItemArmorFlowLeggings;
-import main.flowstoneenergy.items.food.FoodBacon;
-import main.flowstoneenergy.items.food.FoodCookedBacon;
-import main.flowstoneenergy.items.food.FoodTea;
-import main.flowstoneenergy.items.food.ItemMetaResourceUtensil;
 import main.flowstoneenergy.items.tools.*;
 import main.flowstoneenergy.items.tools.electrum.*;
 import main.flowstoneenergy.items.tools.ender.*;
@@ -61,11 +57,6 @@ public class ItemRegistry {
     public static Item metaResourceDust;
     public static Item metaResourceIngot;
     public static Item metaResourceGear;
-
-    //food
-    public static Item rawBacon;
-    public static Item cookedBacon;
-    public static Item tea;
 
     //utensils
     public static Item metaResourceUtensil;
@@ -133,17 +124,6 @@ public class ItemRegistry {
         flowHelm = new ItemArmorFlowHelm(flowfield, 0, 0);
         GameRegistry.registerItem(flowHelm, flowHelm.getUnlocalizedName());
 
-        //food
-        cookedBacon = new FoodCookedBacon();
-        GameRegistry.registerItem(cookedBacon, cookedBacon.getUnlocalizedName());
-        rawBacon = new FoodBacon();
-        GameRegistry.registerItem(rawBacon, rawBacon.getUnlocalizedName());
-        tea = new FoodTea();
-        GameRegistry.registerItem(tea, tea.getUnlocalizedName());
-
-        //utensils
-        metaResourceUtensil = new ItemMetaResourceUtensil().setUnlocalizedName("itemMetadataResourceUtensil");
-        GameRegistry.registerItem(metaResourceUtensil, "ItemMetadataResourceUtensil");
 
         //misc
         flowstoneBucket = new ItemFlowstoneBucket(BlockRegistry.flowstoneBlock);

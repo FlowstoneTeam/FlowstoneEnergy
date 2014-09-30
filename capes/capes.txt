@@ -1,9 +1,0 @@
-poppypoppop:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
-speedynutty68:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
-tombenpotter:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
-mrcomputerghost:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/compcape.png
-kris1432:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
-othlon:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
-founderio:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png
-theorangegenius:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/orangecape.png
-oobihaxorz:https://raw.githubusercontent.com/FlowstoneTeam/FlowstoneEnergy/master/capes/cape.png

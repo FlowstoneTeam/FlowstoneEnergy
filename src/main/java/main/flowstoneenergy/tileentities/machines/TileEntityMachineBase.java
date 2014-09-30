@@ -18,8 +18,10 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public int facing;
     public int ticksLeft = 0;
     public int maxTicks = 0;
+    public int energyRequired = 0;
+    public int energyCapacity = 32000;
     public int divisionFactor = 0;
-    public EnergyStorage energy = new EnergyStorage(32000, 1000);
+    public EnergyStorage energy = new EnergyStorage(energyCapacity, 1000);
 
     @Override
     public void openInventory() {

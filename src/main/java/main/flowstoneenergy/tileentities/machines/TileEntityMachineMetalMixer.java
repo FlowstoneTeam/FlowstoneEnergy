@@ -12,6 +12,7 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
     private String field_145958_o;
 
     public TileEntityMachineMetalMixer() {
+        maxTicks = 100;
         items = new ItemStack[4];
     }
 
@@ -57,32 +58,35 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
     @Override
     public void updateEntity() {
         super.updateEntity();
-
-        if (items[0] != null && items[1] != null && ticksLeft == 0) {
-            Recipe2_1 r = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]);
-            if (r != null) {
-                maxTicks = r.getTime();
-            }
-        }
-
-        if (ticksLeft < maxTicks && RecipesMetalMixer.getRecipeFromStack(items[0], items[1]) != null) {
-            Recipe2_1 r = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]);
-            if (items[2] == null || items[3] == null || (r.getOutput().getItem().equals(items[2].getItem()) && r.getOutput().getMaxStackSize() > items[3].stackSize)) {
-                ticksLeft++;
-                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
-            } else {
+        Recipe2_1 r = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]);
+        if(items[0] != null && items[1] != null && r != null && (items[2] != null || items[3] != null) && (r.getOutput().isItemEqual(items[2]) && items[2].getMaxStackSize() >= items[2].stackSize + 2) && energy.getEnergyStored() >= 2000){
+            if(ticksLeft >= maxTicks){
+                energy.extractEnergy(2000, true);
                 ticksLeft = 0;
+                mixMetals();
                 resetTimeAndTexture();
+            }else{
+                ticksLeft++;
             }
-        }
-        if (RecipesMetalMixer.getRecipeFromStack(items[0], items[1]) == null && ticksLeft > 0) {
+
+        } else{
             ticksLeft = 0;
-            resetTimeAndTexture();
         }
-        if (ticksLeft == maxTicks && maxTicks != 0) {
+
+        if(items[0] != null && items[1] != null && r != null && items[2] == null && items[3] == null && energy.getEnergyStored() >= 2000){
+            if(ticksLeft >= maxTicks){
+                this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+                energy.extractEnergy(2000, true);
+                ticksLeft = 0;
+                mixMetals();
+                ticksLeft = 0;
+            }else{
+                ticksLeft++;
+            }
+        }  else {
             ticksLeft = 0;
-            mixMetals();
         }
+
     }
 
     private void mixMetals() {

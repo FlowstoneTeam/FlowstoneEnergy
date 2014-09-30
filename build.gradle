@@ -41,7 +41,6 @@ repositories{
 	}
 }
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
 	compile "codechicken:NotEnoughItems:1.7.10-1.0.3.56:dev"
 	compile "com.mod-buildcraft:buildcraft:6.0.18:dev"
 	compile "net.industrial-craft:industrialcraft-2:2.2.647-experimental:api"
