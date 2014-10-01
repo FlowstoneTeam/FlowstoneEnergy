@@ -10,7 +10,7 @@ import net.minecraftforge.common.util.ForgeDirection;
  * @see IEnergySource
  * @see IEnergyConductor
  * 
- * See ic2/buildcraft.cofh.ic2.api/energy/usage.txt for an overall description of the energy net buildcraft.cofh.ic2.api.
+ * See ic2/api/energy/usage.txt for an overall description of the energy net api.
  */
 public interface IEnergyEmitter extends IEnergyTile {
 	/**

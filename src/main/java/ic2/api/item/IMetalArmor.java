@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 /**
- * armor items implementing this can be considered metal armor.
+ * Armor items implementing this can be considered metal armor.
  * 
  * Currently used for determining which boots can be used to slide up a magnetic pole.
  */
@@ -12,7 +12,7 @@ public interface IMetalArmor {
 	/**
 	 * Determine if the given armor piece is metal armor.
 	 * 
-	 * @param itemstack armor piece as worn by the player
+	 * @param itemstack Armor piece as worn by the player
 	 * @param player The player
 	 * @return Whether the armor piece is metal armor
 	 */

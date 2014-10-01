@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
  * Some blocks/items can be disabled by a config setting, so it's recommended to check if they're null first.
  * 
  * Getting the associated Block/Item for an ItemStack x:
- *   blocks: Block.blocksList[x.itemID]
+ *   Blocks: Block.blocksList[x.itemID]
  *   Items: x.getItem()
  */
 public final class IC2Items {
@@ -42,22 +42,22 @@ public final class IC2Items {
 	/* Possible values:
 
 	// ores
-	  copperOre; 			// Copper Ore block, currently not meta sensitive, meta in ItemStack set to 0, ore dictionary: oreCopper, null with enableWorldGenOreCopper=false
-	  tinOre; 			// Tin Ore block, currently not meta sensitive, meta in ItemStack set to 0, ore dictionary: oreTin, null with enableWorldGenOreTin=false
-	  uraniumOre; 		// Tin Ore block, currently not meta sensitive, meta in ItemStack set to 0, ore dictionary: oreUranium, null with enableWorldGenOreUranium=false
-	  leadOre;            // Lead Ore Block, currently not meta sensitive,  meta in ItemStack set to 0, ore dictionary: oreLead, null with enableWorldGenOreLead=false
+	  copperOre; 			// Copper Ore block, currently not meta sensitive, meta in ItemStack set to 0, ore dictionary: oreCopper, null with enableWorldGenOreCopper = false
+	  tinOre; 			// Tin Ore block, currently not meta sensitive, meta in ItemStack set to 0, ore dictionary: oreTin, null with enableWorldGenOreTin = false
+	  uraniumOre; 		// Tin Ore block, currently not meta sensitive, meta in ItemStack set to 0, ore dictionary: oreUranium, null with enableWorldGenOreUranium = false
+	  leadOre;            // Lead Ore Block, currently not meta sensitive,  meta in ItemStack set to 0, ore dictionary: oreLead, null with enableWorldGenOreLead = false
 
 	// rubber related
 
-	  Rubber wood block, meta reflects the state, meta in ItemStack set to 0, ore dictionary: woodRubber (with meta 0), null with enableWorldGenTreeRubber=false
+	  Rubber wood block, meta reflects the state, meta in ItemStack set to 0, ore dictionary: woodRubber (with meta 0), null with enableWorldGenTreeRubber = false
 	  dropped (as an item)  -> metadata 0
 	  block, no resin spot  -> metadata 0 or 1
 	  block, wet resin spot -> metadata 2-5 (according to the side)
 	  block, dry resin spot -> metadata 8-11 (wet state + 6)
 
 	  rubberWood;
-	  rubberLeaves; 		// Rubber Leaves block, currently not meta sensitive, meta in ItemStack set to 0, null with enableWorldGenTreeRubber=false
-	  rubberSapling; 		// Rubber Sapling block, currently not meta sensitive, meta in ItemStack set to 0, null with enableWorldGenTreeRubber=false
+	  rubberLeaves; 		// Rubber Leaves block, currently not meta sensitive, meta in ItemStack set to 0, null with enableWorldGenTreeRubber = false
+	  rubberSapling; 		// Rubber Sapling block, currently not meta sensitive, meta in ItemStack set to 0, null with enableWorldGenTreeRubber = false
 	  resinSheet; 		// Resin Sheet block, currently not meta sensitive
 	  rubberTrampoline; 	// Rubber Trampoline block, meta reflects internal state, meta in ItemStack set to 0
 
@@ -152,11 +152,11 @@ public final class IC2Items {
 	  luminator; 			// Passive (dark) Luminator block, meta = facing
 	  activeLuminator; 	// Active (bright) Luminator block, meta = facing
 	  centrifuge;         // Centrifuge block, meta sensitive
-	  metalformer;         // MetalFormer block ,meta sensitive
-	  orewashingplant;    // Ore Wasching Plant,Meta sensitive
-	  patternstorage;    // Pattern Storage,Meta sensitive
-	  scanner;           // Scanner,Meta sensitive
-	  replicator;           // Replicator,Meta sensitive
+	  metalformer;         // MetalFormer block , meta sensitive
+	  orewashingplant;    // Ore Wasching Plant, Meta sensitive
+	  patternstorage;    // Pattern Storage, Meta sensitive
+	  scanner;           // Scanner, Meta sensitive
+	  replicator;           // Replicator, Meta sensitive
 
 	  miningPipe; 		// Mining Pipe block, currently not meta sensitive, meta in ItemStack set to 0
 	  miningPipeTip; 		// Mining Pipe Tip block, currently not meta sensitive, meta in ItemStack set to 0
@@ -333,22 +333,22 @@ public final class IC2Items {
 	  hazmatLeggings; 	// Hazmat Leggings item, meta = damage value
 	  hazmatBoots; 		// Hazmat Boots item, meta = damage value
 
-	  bronzeHelmet; 		// Bronze Helmet armor item, meta = damage value
-	  bronzeChestplate; 	// Bronze Chestplate armor item, meta = damage value
-	  bronzeLeggings; 	// Bronze Leggings armor item, meta = damage value
-	  bronzeBoots; 		// Bronze Boots armor item, meta = damage value
+	  bronzeHelmet; 		// Bronze Helmet Armor item, meta = damage value
+	  bronzeChestplate; 	// Bronze Chestplate Armor item, meta = damage value
+	  bronzeLeggings; 	// Bronze Leggings Armor item, meta = damage value
+	  bronzeBoots; 		// Bronze Boots Armor item, meta = damage value
 
-	  compositeArmor; 	// Composite armor item, meta = damage value for charge level
+	  compositeArmor; 	// Composite Armor item, meta = damage value for charge level
 
-	  nanoHelmet; 		// Nano Helmet armor item, meta = damage value for charge level
+	  nanoHelmet; 		// Nano Helmet Armor item, meta = damage value for charge level
 	  nanoBodyarmor; 		// Nano Bodyarmor item, meta = damage value for charge level
-	  nanoLeggings; 		// Nano Leggings armor item, meta = damage value for charge level
-	  nanoBoots; 			// Nano Boots armor item, meta = damage value for charge level
+	  nanoLeggings; 		// Nano Leggings Armor item, meta = damage value for charge level
+	  nanoBoots; 			// Nano Boots Armor item, meta = damage value for charge level
 
-	  quantumHelmet; 		// Quantum Helmet armor item, meta = damage value for charge level
+	  quantumHelmet; 		// Quantum Helmet Armor item, meta = damage value for charge level
 	  quantumBodyarmor; 	// Quantum Bodyarmor item, meta = damage value for charge level
-	  quantumLeggings; 	// Quantum Leggings armor item, meta = damage value for charge level
-	  quantumBoots; 		// Quantum Boots armor item, meta = damage value for charge level
+	  quantumLeggings; 	// Quantum Leggings Armor item, meta = damage value for charge level
+	  quantumBoots; 		// Quantum Boots Armor item, meta = damage value for charge level
 
 	  jetpack; 			// Jetpack item, meta = damage value for fuel level
 	  electricJetpack; 	// Electric Jetpack item, meta = damage value for charge level
@@ -538,7 +538,6 @@ public final class IC2Items {
 	  denseplateobsidian;              // Metal dense plate item, meta sensitive
 
 
-
 	// upgrade modules
 	  overclockerUpgrade;		// overclocker upgrade item, meta sensitive
 	  transformerUpgrade;		// transformer upgrade item, meta sensitive
@@ -588,7 +587,7 @@ public final class IC2Items {
 		if (pkg != null) {
 			String packageName = pkg.getName();
 
-			return packageName.substring(0, packageName.length() - ".buildcraft.cofh.ic2.api.item".length());
+			return packageName.substring(0, packageName.length() - ".api.item".length());
 		}
 
 		return "ic2";

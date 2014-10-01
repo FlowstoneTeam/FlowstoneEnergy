@@ -165,7 +165,7 @@ public final class NetworkHelper {
 		if (pkg != null) {
 			String packageName = pkg.getName();
 
-			return packageName.substring(0, packageName.length() - ".buildcraft.cofh.ic2.api.network".length());
+			return packageName.substring(0, packageName.length() - ".api.network".length());
 		}
 
 		return "ic2";

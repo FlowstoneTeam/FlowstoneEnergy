@@ -35,15 +35,10 @@ repositories{
 		name = "chickenbones"
 		url = "http://chickenbones.net/maven"
 	}
-	maven {
-		name = "ic2"
-		url = "http://maven.ic2.player.to"
-	}
 }
 dependencies {
 	compile "codechicken:NotEnoughItems:1.7.10-1.0.3.56:dev"
 	compile "com.mod-buildcraft:buildcraft:6.0.18:dev"
-	compile "net.industrial-craft:industrialcraft-2:2.2.647-experimental:api"
 }
 processResources
 {
