@@ -58,45 +58,54 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     public void updateEntity() {
         super.updateEntity();
 
-        if (worldObj.isRemote)return;
+        if (worldObj.isRemote) return;
 
-        Recipe1_1 r = RecipesLumberMill.getRecipeFromStack(items[0]);
-        if(items != null && items[0] != null && items[1] != null && r != null && r.getOutput() != null && ((r.getOutput().isItemEqual(items[1]) && items[1].getMaxStackSize() >= items[1].stackSize + 6)) && energy.getEnergyStored() >= r.getPowerRequired()) {
-            if(ticksLeft >= maxTicks ){
-                energy.extractEnergy(r.getPowerRequired(), true);
-                smelt();
+        if (canSaw()) {
+
+            if (ticksLeft >= maxTicks) {
+                saw();
                 resetTimeAndTexture();
-            }else{
+            } else {
                 ticksLeft++;
+                markDirty();
             }
-        }else{
-            resetTimeAndTexture();
-        }
-
-        if(items != null && items[0] != null && items[1] == null && r != null &&energy.getEnergyStored() >= r.getPowerRequired()) {
-
-            if(ticksLeft >= maxTicks ){
-                energy.extractEnergy(r.getPowerRequired(), true);
-                smelt();
-                resetTimeAndTexture();
-            }else{
-                ticksLeft++;
-            }
-        }else{
+        } else {
             resetTimeAndTexture();
         }
     }
 
-    private void smelt() {
-        if (RecipesLumberMill.getRecipeFromStack(items[0]) == null) return;
-        ItemStack res = RecipesLumberMill.getRecipeFromStack(items[0]).getOutput();
-        if (items[1] == null)
-            items[1] = res.copy();
-        else
-            items[1].stackSize += res.stackSize;
+    private boolean canSaw() {
+        if (items[0] == null) return false;
 
+        Recipe1_1 recipe = RecipesLumberMill.getRecipeFromStack(items[0]);
+        if (recipe.getInput() == null || recipe.getOutput() == null)
+            return false;
+
+        ItemStack output = recipe.getOutput();
+        if (items[1] != null && !output.isItemEqual(items[1])) return false;
+
+        if (items[1] != null && output.getMaxStackSize() < items[1].stackSize + output.stackSize)
+            return false;
+
+        int recipeEnergy = recipe.getPowerRequired();
+        int availableEnergy = energy.extractEnergy(recipeEnergy, true);
+        if (recipeEnergy <= 0 || (availableEnergy - recipeEnergy) < 0)
+            return false;
+
+        return true;
+    }
+
+    private void saw() {
+        Recipe1_1 recipe = RecipesLumberMill.getRecipeFromStack(items[0]);
+        if (recipe == null) return;
+        ItemStack res = RecipesLumberMill.getRecipeFromStack(items[0]).getOutput();
+        if (items[1] == null) items[1] = res.copy();
+        else items[1].stackSize += res.stackSize;
 
         items[0].stackSize--;
+
+        energy.extractEnergy(recipe.getPowerRequired(), false);
+
         if (items[0].stackSize <= 0) {
             items[0] = null;
         }
