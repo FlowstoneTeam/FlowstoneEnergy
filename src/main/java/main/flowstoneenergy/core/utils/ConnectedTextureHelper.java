@@ -166,8 +166,6 @@ public class ConnectedTextureHelper {
         }
 
         if (textureID > 0 && textureID < textureIDs.length) {
-            System.out.println(x + "," + y + "," + z + " @ Side " + side + " = " + textureID);
-
             return icons[textureIDs[textureID]];
         } else {
             return icons[0];
