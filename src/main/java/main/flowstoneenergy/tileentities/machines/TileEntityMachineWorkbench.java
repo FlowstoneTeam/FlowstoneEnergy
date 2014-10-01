@@ -13,6 +13,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
 
     public TileEntityMachineWorkbench() {
         items = new ItemStack[4];
+        energy.setMaxExtract(2000);
     }
 
     @Override
@@ -95,6 +96,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
                     items[i] = null;
                 }
             }
+            energy.extractEnergy(2000, false);
         }
     }
 
