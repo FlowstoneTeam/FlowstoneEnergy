@@ -1,6 +1,7 @@
 package main.flowstoneenergy.tileentities.machines;
 
 import cofh.api.energy.EnergyStorage;
+import main.flowstoneenergy.blocks.upgrades.BlockUpgrades;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -21,7 +22,16 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public int energyRequired = 0;
     public int energyCapacity = 32000;
     public int divisionFactor = 0;
+    public int upgradeCheckTimer = 0;
     public EnergyStorage energy = new EnergyStorage(energyCapacity, 1000);
+
+    public boolean[] Upgrade0 = new boolean[5];
+    public boolean[] Upgrade1 = new boolean[5];
+    public boolean[] Upgrade2 = new boolean[5];
+    public boolean[] Upgrade3 = new boolean[5];
+    public boolean[] Upgrade4 = new boolean[5];
+    public boolean[] Upgrade5 = new boolean[5];
+
 
     @Override
     public void openInventory() {
@@ -160,6 +170,161 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
             return;
         }
         this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
+    }
+
+
+    public void getUpgrade(){
+
+        for(int i = 0; i < Upgrade0.length; i++) {
+            Upgrade0[i] = false;
+            Upgrade1[i] = false;
+            Upgrade2[i] = false;
+            Upgrade3[i] = false;
+            Upgrade4[i] = false;
+            Upgrade5[i] = false;
+        }
+
+
+
+        upgradeCheckTimer = 0;
+        //up
+        if (worldObj.getBlockMetadata(xCoord, yCoord+1, zCoord) == 0 && worldObj.getBlock(xCoord, yCoord+1, zCoord) instanceof BlockUpgrades){
+            Upgrade0[0] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord+1, zCoord) == 1 && worldObj.getBlock(xCoord, yCoord+1, zCoord) instanceof BlockUpgrades){
+            Upgrade1[0] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord+1, zCoord) == 2 && worldObj.getBlock(xCoord, yCoord+1, zCoord) instanceof BlockUpgrades){
+            Upgrade2[0] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord+1, zCoord) == 3 && worldObj.getBlock(xCoord, yCoord+1, zCoord) instanceof BlockUpgrades){
+            Upgrade3[0] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord+1, zCoord) == 4 && worldObj.getBlock(xCoord, yCoord+1, zCoord) instanceof BlockUpgrades){
+            Upgrade4[0] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord+1, zCoord) == 5 && worldObj.getBlock(xCoord, yCoord+1, zCoord) instanceof BlockUpgrades){
+            Upgrade5[0] = true;
+        }
+        //down
+        if (worldObj.getBlockMetadata(xCoord, yCoord-1, zCoord) == 0 && worldObj.getBlock(xCoord, yCoord-1, zCoord) instanceof BlockUpgrades){
+            Upgrade0[1] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord-1, zCoord) == 1 && worldObj.getBlock(xCoord, yCoord-1, zCoord) instanceof BlockUpgrades){
+            Upgrade1[1] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord-1, zCoord) == 2 && worldObj.getBlock(xCoord, yCoord-1, zCoord) instanceof BlockUpgrades){
+            Upgrade2[1] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord-1, zCoord) == 3 && worldObj.getBlock(xCoord, yCoord-1, zCoord) instanceof BlockUpgrades){
+            Upgrade3[1] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord-1, zCoord) == 4 && worldObj.getBlock(xCoord, yCoord-1, zCoord) instanceof BlockUpgrades){
+            Upgrade4[1] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord-1, zCoord) == 5 && worldObj.getBlock(xCoord, yCoord-1, zCoord) instanceof BlockUpgrades){
+            Upgrade5[1] = true;
+        }
+        //north
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord-1) == 0 && worldObj.getBlock(xCoord, yCoord, zCoord-1) instanceof BlockUpgrades){
+            Upgrade0[2] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord-1) == 1 && worldObj.getBlock(xCoord, yCoord, zCoord-1) instanceof BlockUpgrades){
+            Upgrade1[2] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord-1) == 2 && worldObj.getBlock(xCoord, yCoord, zCoord-1) instanceof BlockUpgrades){
+            Upgrade2[2] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord-1) == 3 && worldObj.getBlock(xCoord, yCoord, zCoord-1) instanceof BlockUpgrades){
+            Upgrade3[2] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord-1) == 4 && worldObj.getBlock(xCoord, yCoord, zCoord-1) instanceof BlockUpgrades){
+            Upgrade4[2] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord-1) == 5 && worldObj.getBlock(xCoord, yCoord, zCoord-1) instanceof BlockUpgrades){
+            Upgrade5[2] = true;
+        }
+        //east
+        if (worldObj.getBlockMetadata(xCoord+1, yCoord, zCoord) == 0 && worldObj.getBlock(xCoord+1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade0[3] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord+1, yCoord, zCoord) == 1 && worldObj.getBlock(xCoord+1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade1[3] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord+1, yCoord, zCoord) == 2 && worldObj.getBlock(xCoord+1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade2[3] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord+1, yCoord, zCoord) == 3 && worldObj.getBlock(xCoord+1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade3[3] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord+1, yCoord, zCoord) == 4 && worldObj.getBlock(xCoord+1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade4[3] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord+1, yCoord, zCoord) == 5 && worldObj.getBlock(xCoord+1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade5[3] = true;
+        }
+        //south
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord+1) == 0 && worldObj.getBlock(xCoord, yCoord, zCoord+1) instanceof BlockUpgrades){
+            Upgrade0[4] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord+1) == 1 && worldObj.getBlock(xCoord, yCoord, zCoord+1) instanceof BlockUpgrades){
+            Upgrade1[4] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord+1) == 2 && worldObj.getBlock(xCoord, yCoord, zCoord+1) instanceof BlockUpgrades){
+            Upgrade2[4] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord+1) == 3 && worldObj.getBlock(xCoord, yCoord, zCoord+1) instanceof BlockUpgrades){
+            Upgrade3[4] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord+1) == 4 && worldObj.getBlock(xCoord, yCoord, zCoord+1) instanceof BlockUpgrades){
+            Upgrade4[4] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord+1) == 5 && worldObj.getBlock(xCoord, yCoord, zCoord+1) instanceof BlockUpgrades){
+            Upgrade5[4] = true;
+        }
+        //west
+        if (worldObj.getBlockMetadata(xCoord-1, yCoord, zCoord) == 0 && worldObj.getBlock(xCoord-1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade0[5] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord-1, yCoord, zCoord) == 1 && worldObj.getBlock(xCoord-1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade1[5] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord-1, yCoord, zCoord) == 2 && worldObj.getBlock(xCoord-1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade2[5] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord-1, yCoord, zCoord) == 3 && worldObj.getBlock(xCoord-1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade3[5] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord-1, yCoord, zCoord) == 4 && worldObj.getBlock(xCoord-1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade4[5] = true;
+        }
+        if (worldObj.getBlockMetadata(xCoord-1, yCoord, zCoord) == 5 && worldObj.getBlock(xCoord-1, yCoord, zCoord) instanceof BlockUpgrades){
+            Upgrade5[5] = true;
+        }
+
+
+        if(Upgrade0[0] || Upgrade0[1] || Upgrade0[2] || Upgrade0[3] || Upgrade0[4] || Upgrade0[5]){
+
+        }
+        if(Upgrade2[0] || Upgrade2[1] || Upgrade2[2] || Upgrade2[3] || Upgrade2[4] || Upgrade2[5]){
+
+        }
+        if(Upgrade3[0] || Upgrade3[1] || Upgrade3[2] || Upgrade3[3] || Upgrade3[4] || Upgrade3[5]){
+
+        }
+
+        //* if(Upgrade0 > 0){
+        //    ticksLeft = ticksLeft - (ticksLeft/100*(25*Upgrade0));
+        //    System.out.println(ticksLeft);
+        //}
+        //if(Upgrade2 > 0){
+        //    energyCapacity = 32000 + (32000/100*(10*energyCapacity));
+        //    System.out.println(energyCapacity);
+        //}
+        //if(Upgrade3 > 0){
+        //    energyRequired = energyRequired - (energyRequired/100*(15*energyRequired));
+        //    System.out.println(energyRequired);
+        //}
     }
 }
 

@@ -5,7 +5,7 @@ import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.tileentities.machines.*;
 import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
-import main.flowstoneenergy.tileentities.upgrades.*;
+
 
 public class TERegistry {
 
@@ -16,7 +16,6 @@ public class TERegistry {
         GameRegistry.registerTileEntity(TileEntityMachineMetalMixer.class, ModInfo.MODID + ":" + "tileEntityMetalMixer");
         GameRegistry.registerTileEntity(TileEntityMachineWorkbench.class, ModInfo.MODID + ":" + "tileEntityMachineWorkbench");
         GameRegistry.registerTileEntity(TileEntityMachineLumberMill.class, ModInfo.MODID + ":" + "tileEntityMachineLumberMill");
-        GameRegistry.registerTileEntity(TileEntityUpgradeSpeed.class, ModInfo.MODID + ":" + "tileEntityUpgradeSpeed");
         GameRegistry.registerTileEntity(TileEntityItemPipe.class, ModInfo.MODID + ":" + "tileEntityFluidPipe");
         GameRegistry.registerTileEntity(TileEntityFluidPipe.class, ModInfo.MODID + ":" + "tileEntityItemPipe");
     }

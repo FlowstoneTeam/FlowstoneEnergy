@@ -62,6 +62,12 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     public void updateEntity() {
         super.updateEntity();
         if (worldObj.isRemote) return;
+        if(upgradeCheckTimer >= 20){
+            getUpgrade();
+        } else {
+            upgradeCheckTimer++;
+        }
+
         if (items[0] != null  && this.canSmelt() && energy.getEnergyStored() >= energyRequired) {
             if (ticksLeft == maxTicks) {
                 smelt();
@@ -74,6 +80,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
         else{
             resetTimeAndTexture();
         }
+
 
     }
 //&& energy.getEnergyStored() >= 1600
@@ -114,13 +121,6 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
         }
         return ticksLeft * scale / maxTicks;
     }
-
-    public void getUpgrade(){
-        if (worldObj.getBlock(xCoord, yCoord+1, zCoord) instanceof BlockUpgrades){
-
-        }
-    }
-
 
 
     @Override

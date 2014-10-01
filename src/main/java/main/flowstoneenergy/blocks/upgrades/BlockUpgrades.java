@@ -3,14 +3,11 @@ package main.flowstoneenergy.blocks.upgrades;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import main.flowstoneenergy.core.libs.ModInfo;
-import main.flowstoneenergy.tileentities.upgrades.TileEntityUpgradeSpeed;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -61,28 +58,7 @@ public class BlockUpgrades extends BlockUpgradeBase {
         }
     }
 
-    @Override
-    public TileEntity createNewTileEntity(World world, int meta) {
-        if (meta == 0) {
-            return new TileEntityUpgradeSpeed();
-        }
-        if (meta == 1) {
-            return null;
-        }
-        if (meta == 2) {
-            return null;
-        }
-        if (meta == 3) {
-            return null;
-        }
-        if (meta == 4) {
-            return null;
-        }
-        if (meta == 5) {
-            return null;
-        }
-        return super.createTileEntity(world, meta);
-    }
+
 
     @Override
     public int damageDropped(int meta) {
