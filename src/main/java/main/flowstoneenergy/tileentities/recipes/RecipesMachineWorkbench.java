@@ -90,7 +90,7 @@ public class RecipesMachineWorkbench {
         List<Recipe3_1> out = new ArrayList<Recipe3_1>();
         if (stack == null) return null;
         for (Recipe3_1 r : recipe31List) {
-            if (r.getInput1().getItem().equals(stack.getItem()) || r.getInput2().getItem().equals(stack.getItem()) || r.getInput3().equals(stack.getItem()))
+            if (r.getInput1().isItemEqual(stack) || r.getInput2().isItemEqual(stack) || r.getInput3().isItemEqual(stack))
                 out.add(r);
         }
         return out.toArray(new Recipe3_1[0]);

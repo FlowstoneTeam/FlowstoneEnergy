@@ -69,7 +69,7 @@ public class RecipesMetalMixer {
         List<Recipe2_1> out = new ArrayList<Recipe2_1>();
         if (stack == null) return null;
         for (Recipe2_1 r : recipe21List) {
-            if (r.getInput1().getItem().equals(stack.getItem()) || r.getInput2().getItem().equals(stack.getItem()))
+            if (r.getInput1().isItemEqual(stack) || r.getInput2().isItemEqual(stack))
                 out.add(r);
         }
         return out.toArray(new Recipe2_1[0]);

@@ -61,7 +61,7 @@ public class RecipesLumberMill {
         if (stack == null) return null;
         for (Recipe1_1 r : recipe11List)
         {
-            if (r.getInput().getItem().equals(stack.getItem()))
+            if (r.getInput().isItemEqual(stack))
                 out.add(r);
         }
         return out.toArray(new Recipe1_1[0]);
