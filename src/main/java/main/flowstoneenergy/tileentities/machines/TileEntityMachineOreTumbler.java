@@ -3,7 +3,6 @@ package main.flowstoneenergy.tileentities.machines;
 import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
-import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -87,16 +86,16 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
     private void oreDouble() {
         if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
             ItemStack res = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput();
-            if (items[1] == null)
-                items[1] = res.copy();
-            else
-                items[1].stackSize += res.stackSize;
-
+            if (items[1] == null) items[1] = res.copy();
+            else items[1].stackSize += res.stackSize;
 
             items[0].stackSize--;
+            energy.extractEnergy(4000, false);
+
             if (items[0].stackSize <= 0) {
                 items[0] = null;
             }
+
         }
     }
 

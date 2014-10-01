@@ -65,7 +65,6 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
         if (items[0] != null  && this.canSmelt() && energy.getEnergyStored() >= energyRequired) {
             if (ticksLeft == maxTicks) {
                 smelt();
-                energy.extractEnergy(1600, true);
                 resetTimeAndTexture();
             }
             else{
@@ -92,6 +91,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
             if (this.items[0].stackSize <= 0) {
                 this.items[0] = null;
             }
+            energy.extractEnergy(1600, false);
         }
     }
 
