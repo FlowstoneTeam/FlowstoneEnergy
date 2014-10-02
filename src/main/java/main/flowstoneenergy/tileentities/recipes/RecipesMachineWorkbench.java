@@ -53,22 +53,34 @@ public class RecipesMachineWorkbench {
         if (stack1 == null || stack2 == null || stack3 == null)
             return null;
         for (Recipe3_1 r : recipe31List) {
-            if (r.getInput1().getItem().equals(stack1.getItem()) && r.getInput2().getItem().equals(stack2.getItem()) && r.getInput3().getItem().equals(stack3.getItem()) && r.getInput1().getItemDamage() == stack1.getItemDamage() && r.getInput2().getItemDamage() == stack2.getItemDamage() && r.getInput3().getItemDamage() == stack3.getItemDamage()) {
+            if (r.getInput1().getItem().equals(stack1.getItem()) && r.getInput2().getItem().equals(stack2.getItem()) && r.getInput3().getItem().equals(stack3.getItem())
+                    && r.getInput1().getItemDamage() == stack1.getItemDamage() && r.getInput2().getItemDamage() == stack2.getItemDamage()
+                    && r.getInput3().getItemDamage() == stack3.getItemDamage()) {
                 return r;
             }
-            if (r.getInput1().getItem().equals(stack1.getItem()) && r.getInput2().getItem().equals(stack3.getItem()) && r.getInput3().getItem().equals(stack2.getItem()) && r.getInput1().getItemDamage() == stack1.getItemDamage() && r.getInput2().getItemDamage() == stack3.getItemDamage() && r.getInput3().getItemDamage() == stack2.getItemDamage()) {
+            if (r.getInput1().getItem().equals(stack1.getItem()) && r.getInput2().getItem().equals(stack3.getItem()) && r.getInput3().getItem().equals(stack2.getItem())
+                    && r.getInput1().getItemDamage() == stack1.getItemDamage() && r.getInput2().getItemDamage() == stack3.getItemDamage()
+                    && r.getInput3().getItemDamage() == stack2.getItemDamage()) {
                 return r;
             }
-            if (r.getInput1().getItem().equals(stack2.getItem()) && r.getInput2().getItem().equals(stack1.getItem()) && r.getInput3().getItem().equals(stack3.getItem()) && r.getInput1().getItemDamage() == stack2.getItemDamage() && r.getInput2().getItemDamage() == stack1.getItemDamage() && r.getInput3().getItemDamage() == stack3.getItemDamage()) {
+            if (r.getInput1().getItem().equals(stack2.getItem()) && r.getInput2().getItem().equals(stack1.getItem()) && r.getInput3().getItem().equals(stack3.getItem())
+                    && r.getInput1().getItemDamage() == stack2.getItemDamage() && r.getInput2().getItemDamage() == stack1.getItemDamage()
+                    && r.getInput3().getItemDamage() == stack3.getItemDamage()) {
                 return r;
             }
-            if (r.getInput1().getItem().equals(stack3.getItem()) && r.getInput2().getItem().equals(stack2.getItem()) && r.getInput3().getItem().equals(stack1.getItem()) && r.getInput1().getItemDamage() == stack3.getItemDamage() && r.getInput2().getItemDamage() == stack2.getItemDamage() && r.getInput3().getItemDamage() == stack1.getItemDamage()) {
+            if (r.getInput1().getItem().equals(stack3.getItem()) && r.getInput2().getItem().equals(stack2.getItem()) && r.getInput3().getItem().equals(stack1.getItem())
+                    && r.getInput1().getItemDamage() == stack3.getItemDamage() && r.getInput2().getItemDamage() == stack2.getItemDamage()
+                    && r.getInput3().getItemDamage() == stack1.getItemDamage()) {
                 return r;
             }
-            if (r.getInput1().getItem().equals(stack3.getItem()) && r.getInput2().getItem().equals(stack1.getItem()) && r.getInput3().getItem().equals(stack2.getItem()) && r.getInput1().getItemDamage() == stack3.getItemDamage() && r.getInput2().getItemDamage() == stack1.getItemDamage() && r.getInput3().getItemDamage() == stack2.getItemDamage()) {
+            if (r.getInput1().getItem().equals(stack3.getItem()) && r.getInput2().getItem().equals(stack1.getItem()) && r.getInput3().getItem().equals(stack2.getItem())
+                    && r.getInput1().getItemDamage() == stack3.getItemDamage() && r.getInput2().getItemDamage() == stack1.getItemDamage()
+                    && r.getInput3().getItemDamage() == stack2.getItemDamage()) {
                 return r;
             }
-            if (r.getInput1().getItem().equals(stack2.getItem()) && r.getInput2().getItem().equals(stack3.getItem()) && r.getInput3().getItem().equals(stack1.getItem()) && r.getInput1().getItemDamage() == stack2.getItemDamage() && r.getInput3().getItemDamage() == stack3.getItemDamage() && r.getInput3().getItemDamage() == stack1.getItemDamage()) {
+            if (r.getInput1().getItem().equals(stack2.getItem()) && r.getInput2().getItem().equals(stack3.getItem()) && r.getInput3().getItem().equals(stack1.getItem())
+                    && r.getInput1().getItemDamage() == stack2.getItemDamage() && r.getInput3().getItemDamage() == stack3.getItemDamage()
+                    && r.getInput3().getItemDamage() == stack1.getItemDamage()) {
                 return r;
             }
         }
