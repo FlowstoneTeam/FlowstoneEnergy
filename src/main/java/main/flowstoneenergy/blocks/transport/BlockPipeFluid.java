@@ -21,12 +21,12 @@ public class BlockPipeFluid extends BlockMachineBox implements IFlowWrenchable {
         this.setBlockName(ModInfo.MODID + ".fluid.pipe");
         this.setBlockTextureName(ModInfo.MODID + ":transport/fluidPipeIcon");
         this.setHardness(7);
-        this.setBlockBounds(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 1 - 11 *  pixel / 2, 1 - 11 *  pixel / 2, 1 - 11 *  pixel / 2);
+        this.setBlockBounds(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2);
     }
 
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         TileEntityFluidPipe pipe = (TileEntityFluidPipe) world.getTileEntity(x, y, z);
-        
+
         if (pipe != null) {
             float minX = 11 * pixel / 2 - (pipe.connections[5] != null ? (11 * pixel / 2) : 0);
             float minZ = 11 * pixel / 2 - (pipe.connections[2] != null ? (11 * pixel / 2) : 0);

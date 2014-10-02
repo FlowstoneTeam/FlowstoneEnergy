@@ -32,35 +32,35 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
     public void registerBlockIcons(IIconRegister icon) {
         this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
-        //ore tumbler
+        // ore tumbler
         this.frontOn[0] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front_Active");
         this.frontOff[0] = icon.registerIcon(ModInfo.MODID + ":machines/oreTumbler_Front");
         this.top[0] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[0] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
         this.sideIcon[0] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
-        //flowstone bottler
+        // flowstone bottler
         this.frontOn[1] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front_Active");
         this.frontOff[1] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front");
         this.top[1] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[1] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
         this.sideIcon[1] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
-        //heated oven
+        // heated oven
         this.frontOn[2] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front_Active");
         this.frontOff[2] = icon.registerIcon(ModInfo.MODID + ":machines/furnace_Front");
         this.top[2] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[2] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
         this.sideIcon[2] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
-        //lumber mill
+        // lumber mill
         this.frontOn[3] = icon.registerIcon(ModInfo.MODID + ":machines/lumberMill_Front_Active");
         this.frontOff[3] = icon.registerIcon(ModInfo.MODID + ":machines/lumberMill_Front");
         this.top[3] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[3] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
         this.sideIcon[3] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
-        //metal mixer
+        // metal mixer
         this.frontOn[4] = icon.registerIcon(ModInfo.MODID + ":machines/metalMixer_Front_Active");
         this.frontOff[4] = icon.registerIcon(ModInfo.MODID + ":machines/metalMixer_Front");
         this.top[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
@@ -68,8 +68,8 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.sideIcon[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	@SideOnly(Side.CLIENT)
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
         for (int i = 0; i <= 4; i++) {
             list.add(new ItemStack(id, 1, i));

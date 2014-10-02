@@ -17,7 +17,7 @@ public class LumberMillRecipeHelper {
     public static Item getRequiredItemInput() {
         if (OreDictionary.getOres("plankWood").size() != 0) {
             for (int i = 0; i <= OreDictionary.getOres("plankWood").size(); i++) {
-                
+
             }
         }
         return null;

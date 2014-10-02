@@ -27,9 +27,11 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
-        if (slot != 0) return false;
+        if (slot != 0)
+            return false;
         for (Recipe1_1 r : RecipesEnergizedOreTumbler.recipe11List) {
-            if (r.getInput().getItem().equals(stack.getItem())) return true;
+            if (r.getInput().getItem().equals(stack.getItem()))
+                return true;
         }
         return false;
     }
@@ -86,8 +88,10 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
     private void oreDouble() {
         if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
             ItemStack res = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]).getOutput();
-            if (items[1] == null) items[1] = res.copy();
-            else items[1].stackSize += res.stackSize;
+            if (items[1] == null)
+                items[1] = res.copy();
+            else
+                items[1].stackSize += res.stackSize;
 
             items[0].stackSize--;
             energy.extractEnergy(4000, false);
@@ -100,7 +104,8 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
     }
 
     public int getScaledProgress(int scale) {
-        if (maxTicks == 0) return 0;
+        if (maxTicks == 0)
+            return 0;
         return ticksLeft * scale / maxTicks;
     }
 

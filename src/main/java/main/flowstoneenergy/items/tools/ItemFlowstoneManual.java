@@ -38,7 +38,7 @@ public class ItemFlowstoneManual extends Item {
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         currentIcon = icon[1];
-        player.openGui(FlowstoneEnergy.instance, 9, world, (int)player.posX, (int)player.posY, (int)player.posZ);
+        player.openGui(FlowstoneEnergy.instance, 9, world, (int) player.posX, (int) player.posY, (int) player.posZ);
         return itemStack;
     }
 

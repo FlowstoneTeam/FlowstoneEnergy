@@ -62,8 +62,8 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
         }
 
         if (ticksLeft < maxTicks && RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]) != null) {
-            if (items[3] == null || (RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItem().equals(items[3].getItem())
-                    && RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItemDamage() == items[3].getItemDamage())) {
+            if (items[3] == null
+                    || (RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItem().equals(items[3].getItem()) && RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItemDamage() == items[3].getItemDamage())) {
                 ticksLeft++;
                 worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
             } else {
@@ -82,7 +82,8 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
     }
 
     private void createMachine() {
-        if (items[0] == null || items[1] == null || items[2] == null) return;
+        if (items[0] == null || items[1] == null || items[2] == null)
+            return;
         if (RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]) != null) {
             ItemStack res = RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput();
             if (items[3] == null)
@@ -101,7 +102,8 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
     }
 
     public int getScaledProgress(int scale) {
-        if (maxTicks == 0) return 0;
+        if (maxTicks == 0)
+            return 0;
         return ticksLeft * scale / maxTicks;
     }
 

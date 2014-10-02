@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockMachineWorkbench extends BlockMachineSidedTexture{
+public class BlockMachineWorkbench extends BlockMachineSidedTexture {
 
     public BlockMachineWorkbench() {
         this.setLightOpacity(0);
@@ -21,43 +21,36 @@ public class BlockMachineWorkbench extends BlockMachineSidedTexture{
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
-    {
-        if (!world.isRemote)
-        {
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+        if (!world.isRemote) {
             player.openGui(FlowstoneEnergy.instance, 4, world, x, y, z);
         }
         return true;
     }
 
     @Override
-    public int getRenderType()
-    {
+    public int getRenderType() {
         return -1;
     }
 
     @Override
-    public boolean isOpaqueCube()
-    {
+    public boolean isOpaqueCube() {
         return false;
     }
 
     @Override
-    public boolean renderAsNormalBlock()
-    {
+    public boolean renderAsNormalBlock() {
         return false;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister icon)
-    {
+    public void registerBlockIcons(IIconRegister icon) {
         this.blockIcon = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int var2)
-    {
+    public TileEntity createNewTileEntity(World world, int var2) {
         return new TileEntityMachineWorkbench();
     }
 }

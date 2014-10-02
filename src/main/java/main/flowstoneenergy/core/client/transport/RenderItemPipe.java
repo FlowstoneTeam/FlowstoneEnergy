@@ -49,7 +49,8 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
 
     public void drawCore(TileEntity tileEntity) {
         Tessellator tessellator = Tessellator.instance;
-        tessellator.startDrawingQuads(); {
+        tessellator.startDrawingQuads();
+        {
             tessellator.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2, 5 * texturePixel, 5 * texturePixel);
             tessellator.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 5 * texturePixel, 0 * texturePixel);
             tessellator.addVertexWithUV(11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 0 * texturePixel, 0 * texturePixel);
@@ -117,10 +118,11 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
 
     public void drawConnection(ForgeDirection direction) {
         Tessellator tessellator = Tessellator.instance;
-        tessellator.startDrawingQuads(); {
+        tessellator.startDrawingQuads();
+        {
             GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-            if(direction.equals(ForgeDirection.UP)) {
-                //rotate
+            if (direction.equals(ForgeDirection.UP)) {
+                // rotate
             } else if (direction.equals(ForgeDirection.DOWN)) {
                 GL11.glRotatef(180, 1, 0, 0);
             } else if (direction.equals(ForgeDirection.SOUTH)) {
@@ -179,8 +181,8 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
         tessellator.draw();
 
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-        if(direction.equals(ForgeDirection.UP)) {
-            //rotate
+        if (direction.equals(ForgeDirection.UP)) {
+            // rotate
         } else if (direction.equals(ForgeDirection.DOWN)) {
             GL11.glRotatef(-180, 1, 0, 0);
         } else if (direction.equals(ForgeDirection.SOUTH)) {
@@ -197,7 +199,8 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
 
     public void drawStraight(ForgeDirection direction) {
         Tessellator tessellator = Tessellator.instance;
-        tessellator.startDrawingQuads(); {
+        tessellator.startDrawingQuads();
+        {
             GL11.glTranslatef(0.5F, 0.5F, 0.5F);
             if (direction.equals(ForgeDirection.SOUTH) || direction.equals(ForgeDirection.NORTH)) {
                 GL11.glRotatef(90, 1, 0, 0);

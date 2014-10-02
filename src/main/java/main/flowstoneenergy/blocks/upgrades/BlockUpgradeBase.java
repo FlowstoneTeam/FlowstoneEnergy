@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 
 public class BlockUpgradeBase extends BlockContainer {
     public IIcon icon[] = new IIcon[16];
+
     public BlockUpgradeBase() {
         super(Material.iron);
         this.setCreativeTab(FlowstoneEnergy.blockTab);

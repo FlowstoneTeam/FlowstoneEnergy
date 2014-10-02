@@ -25,11 +25,11 @@ public class RenderMachineWorkbench extends TileEntitySpecialRenderer {
         Minecraft.getMinecraft().renderEngine.bindTexture(text);
         GL11.glPushMatrix();
         GL11.glRotatef(180F, 90.0F, 0.0F, 90.0F);
-        this.model.render((Entity)null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+        this.model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
         GL11.glPopMatrix();
         GL11.glPopMatrix();
     }
 
-    public void renderAll(){
+    public void renderAll() {
     }
 }

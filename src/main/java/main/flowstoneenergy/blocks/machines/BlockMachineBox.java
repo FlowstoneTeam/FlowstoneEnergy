@@ -40,7 +40,8 @@ public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
-        return par1IBlockAccess.getBlockMetadata(par2, par3, par4) == 15 ? icons[0] : ConnectedTextureHelper.getConnectedBlockTexture(par1IBlockAccess, par2, par3, par4, par5, icons, this);
+        return par1IBlockAccess.getBlockMetadata(par2, par3, par4) == 15 ? icons[0]
+                : ConnectedTextureHelper.getConnectedBlockTexture(par1IBlockAccess, par2, par3, par4, par5, icons, this);
     }
 
     @Override

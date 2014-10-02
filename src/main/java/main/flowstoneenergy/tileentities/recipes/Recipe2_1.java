@@ -12,10 +12,14 @@ public class Recipe2_1 {
     /**
      * Creates a new recipe with 2 inputs and one output.
      *
-     * @param input1 1st Input item stack
-     * @param input2 2nd Input item stack
-     * @param output Output item stack
-     * @param time   Time in ticks
+     * @param input1
+     *            1st Input item stack
+     * @param input2
+     *            2nd Input item stack
+     * @param output
+     *            Output item stack
+     * @param time
+     *            Time in ticks
      */
     public Recipe2_1(ItemStack input1, ItemStack input2, ItemStack output, int time) {
         this.input1 = input1.copy();

@@ -12,7 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntitySecureChest extends TileEntity implements ISidedInventory {
 
-    public byte[] sideCache = { 0, 0, 0, 0, 0, 0 };
+    public byte[] sideCache = {0, 0, 0, 0, 0, 0};
     public ItemStack[] items;
     public int facing;
     public int ticksLeft = 0;
@@ -44,13 +44,15 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
 
     @Override
     public ItemStack getStackInSlot(int var1) {
-        if (var1 > items.length) return null;
+        if (var1 > items.length)
+            return null;
         return items[var1];
     }
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
-        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false
+                : par1EntityPlayer.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
     }
 
     public void resetTimeAndTexture() {
@@ -170,7 +172,9 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
         if (worldObj.isRemote) {
             return;
         }
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update block + TE via Network
+        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update
+                                                                  // block + TE
+                                                                  // via Network
     }
 
     @Override

@@ -20,7 +20,7 @@ public class EntityEventHandler {
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
         final Entity entity = event.entity;
         if (!event.world.isRemote && entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer)entity;
+            EntityPlayer player = (EntityPlayer) entity;
             NBTTagCompound persistTag = PlayerHelper.getModPlayerPersistTag(player, "FlowstoneEnergy");
 
             boolean shouldGiveManual = ItemRegistry.manual != null && !persistTag.getBoolean(GIVEN_GUIDE_TAG);
@@ -42,7 +42,7 @@ public class EntityEventHandler {
         EntityItem entityitem = new EntityItem(worldObj, x + d0, y + d1, z + d2, stack);
         entityitem.delayBeforeCanPickup = 1;
         if (stack.hasTagCompound()) {
-            entityitem.getEntityItem().setTagCompound((NBTTagCompound)stack.getTagCompound().copy());
+            entityitem.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
         }
         worldObj.spawnEntityInWorld(entityitem);
         return entityitem;

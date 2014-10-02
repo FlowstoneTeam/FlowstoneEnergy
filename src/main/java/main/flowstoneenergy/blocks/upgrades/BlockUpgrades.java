@@ -50,15 +50,13 @@ public class BlockUpgrades extends BlockUpgradeBase {
         return icon[0];
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
         for (int i = 0; i <= 5; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
-
-
 
     @Override
     public int damageDropped(int meta) {

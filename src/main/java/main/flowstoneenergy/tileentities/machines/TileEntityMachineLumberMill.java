@@ -28,9 +28,11 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
-        if (slot != 0) return false;
+        if (slot != 0)
+            return false;
         for (Recipe1_1 r : RecipesLumberMill.recipe11List) {
-            if (r.getInput().getItem().equals(stack.getItem())) return true;
+            if (r.getInput().getItem().equals(stack.getItem()))
+                return true;
         }
         return false;
     }
@@ -58,7 +60,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     public void updateEntity() {
         super.updateEntity();
 
-        if (worldObj.isRemote) return;
+        if (worldObj.isRemote)
+            return;
 
         if (canSaw()) {
 
@@ -75,14 +78,16 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     }
 
     private boolean canSaw() {
-        if (items[0] == null) return false;
+        if (items[0] == null)
+            return false;
 
         Recipe1_1 recipe = RecipesLumberMill.getRecipeFromStack(items[0]);
         if (recipe.getInput() == null || recipe.getOutput() == null)
             return false;
 
         ItemStack output = recipe.getOutput();
-        if (items[1] != null && !output.isItemEqual(items[1])) return false;
+        if (items[1] != null && !output.isItemEqual(items[1]))
+            return false;
 
         if (items[1] != null && output.getMaxStackSize() < items[1].stackSize + output.stackSize)
             return false;
@@ -97,10 +102,13 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
 
     private void saw() {
         Recipe1_1 recipe = RecipesLumberMill.getRecipeFromStack(items[0]);
-        if (recipe == null) return;
+        if (recipe == null)
+            return;
         ItemStack res = RecipesLumberMill.getRecipeFromStack(items[0]).getOutput();
-        if (items[1] == null) items[1] = res.copy();
-        else items[1].stackSize += res.stackSize;
+        if (items[1] == null)
+            items[1] = res.copy();
+        else
+            items[1].stackSize += res.stackSize;
 
         items[0].stackSize--;
 
@@ -112,7 +120,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     }
 
     public int getScaledProgress(int scale) {
-        if (maxTicks == 0) return 0;
+        if (maxTicks == 0)
+            return 0;
         return ticksLeft * scale / maxTicks;
     }
 

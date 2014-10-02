@@ -36,7 +36,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
         super();
         this.setUnlocalizedName(ModInfo.MODID + ".pneumatic.flowwrench");
         this.setTextureName(ModInfo.MODID + ":tools/pneumaticFlowwrench");
-	    this.setMaxStackSize(1);
+        this.setMaxStackSize(1);
         shiftRotations.add(BlockLever.class);
         shiftRotations.add(BlockButton.class);
         shiftRotations.add(BlockChest.class);
@@ -55,25 +55,25 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
-	    if(!KeyboardHelper.isShiftDown()) {
-		    list.add(TextHelper.shiftForMoreInfo);
-	    } else {
-			list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));
-		    list.add(" ");
-		    list.add(TextHelper.ITALIC + TextHelper.localize("info.fe.tooltip.installed"));
-		    if(icInstalled) {
-				list.add(TextHelper.localize("info.fe.tooltip.installed.ic2"));
-		    }
-		    if(aeInstalled) {
-			    list.add(TextHelper.localize("info.fe.tooltip.installed.ae"));
-		    }
-		    if(bcInstalled) {
-			    list.add(TextHelper.localize("info.fe.tooltip.installed.bc"));
-		    }
-		    if(eiInstalled) {
-			    list.add(TextHelper.localize("info.fe.tooltip.installed.ei"));
-		    }
-	    }
+        if (!KeyboardHelper.isShiftDown()) {
+            list.add(TextHelper.shiftForMoreInfo);
+        } else {
+            list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));
+            list.add(" ");
+            list.add(TextHelper.ITALIC + TextHelper.localize("info.fe.tooltip.installed"));
+            if (icInstalled) {
+                list.add(TextHelper.localize("info.fe.tooltip.installed.ic2"));
+            }
+            if (aeInstalled) {
+                list.add(TextHelper.localize("info.fe.tooltip.installed.ae"));
+            }
+            if (bcInstalled) {
+                list.add(TextHelper.localize("info.fe.tooltip.installed.bc"));
+            }
+            if (eiInstalled) {
+                list.add(TextHelper.localize("info.fe.tooltip.installed.ei"));
+            }
+        }
     }
 
     @Override
@@ -88,7 +88,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
 
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int hitSide, float hitX, float hitY, float hitZ) {
-        //FE
+        // FE
         Block block = world.getBlock(x, y, z);
         int meta = world.getBlockMetadata(x, y, z);
         TileEntity te = world.getTileEntity(x, y, z);
@@ -101,7 +101,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
                 itemStack.damageItem(1, player);
             }
         }
-        //IC2
+        // IC2
         if (icInstalled || ConfigHandler.debugMode) {
             if (te instanceof IWrenchable) {
                 IWrenchable wrenchable = (IWrenchable) te;
@@ -133,7 +133,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
             }
         }
 
-        //BC/AE2
+        // BC/AE2
         if (bcInstalled || ConfigHandler.debugMode) {
             if (block == null) {
                 return false;

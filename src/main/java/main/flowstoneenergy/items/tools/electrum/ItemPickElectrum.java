@@ -6,10 +6,10 @@ import net.minecraft.item.ItemPickaxe;
 
 public class ItemPickElectrum extends ItemPickaxe {
 
-	public ItemPickElectrum(ToolMaterial material) {
-		super(material);
-		this.setCreativeTab(FlowstoneEnergy.tab);
-		this.setUnlocalizedName(ModInfo.MODID + ".electrum.pickaxe");
-		this.setTextureName(ModInfo.MODID + ":tools/electrumPickaxe");
-	}
+    public ItemPickElectrum(ToolMaterial material) {
+        super(material);
+        this.setCreativeTab(FlowstoneEnergy.tab);
+        this.setUnlocalizedName(ModInfo.MODID + ".electrum.pickaxe");
+        this.setTextureName(ModInfo.MODID + ":tools/electrumPickaxe");
+    }
 }

@@ -4,7 +4,7 @@ import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import main.flowstoneenergy.core.libs.ModInfo;
 
-public class NEIConfig implements IConfigureNEI{
+public class NEIConfig implements IConfigureNEI {
     @Override
     public void loadConfig() {
         API.registerRecipeHandler(new MachineWorkbenchHandler());

@@ -1,4 +1,3 @@
-
 package main.flowstoneenergy.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -18,21 +17,21 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemRegistry {
 
-    //Tool Materials
+    // Tool Materials
     public static final ToolMaterial ender = EnumHelper.addToolMaterial("ENDER_TOOL_MATERIAL", Integer.MAX_VALUE, 2000, 16.0F, 12, 45);
     public static final ToolMaterial electrum = EnumHelper.addToolMaterial("ELECTRUM_TOOL_MATERIAL", 4, 1000, 12.0F, 8, 25);
 
-    //armour materials
+    // armour materials
     public static final ArmorMaterial flowfield = EnumHelper.addArmorMaterial("flowfield", -1, new int[]{1, 2, 3, 4}, 0);
 
-    //batteries
+    // batteries
     public static Item tierOne;
     public static Item tierTwo;
     public static Item tierThree;
     public static Item tierFour;
     public static Item tierFive;
 
-    //tools
+    // tools
     public static Item flowwrench;
     public static Item pneumaticFlowwrench;
     public static Item enderSword;
@@ -47,26 +46,26 @@ public class ItemRegistry {
     public static Item electrumShovel;
     public static Item manual;
 
-    //armour
+    // armour
     public static Item flowBoots;
     public static Item flowLeggings;
     public static Item flowChestplate;
     public static Item flowHelm;
 
-    //resources
+    // resources
     public static Item metaResourceDust;
     public static Item metaResourceIngot;
     public static Item metaResourceGear;
 
-    //utensils
+    // utensils
     public static Item metaResourceUtensil;
 
-    //misc
+    // misc
     public static Item flowstoneBucket;
     public static Item fluidBlazeBucket;
 
     public static void registerItems() {
-        //Metadata Item
+        // Metadata Item
         metaResourceDust = new ItemMetaResourceDust().setUnlocalizedName("itemMetadataResourceDust");
         GameRegistry.registerItem(metaResourceDust, "ItemMetadataResourceDust");
         metaResourceIngot = new ItemMetaResourceIngots().setUnlocalizedName("itemMetadataResourceIngot");
@@ -74,7 +73,7 @@ public class ItemRegistry {
         metaResourceGear = new ItemMetaResourceGears().setUnlocalizedName("itemMetadataResourceGear");
         GameRegistry.registerItem(metaResourceGear, "ItemMetadataResourceGear");
 
-        //batteries
+        // batteries
         tierOne = new ItemBatteryFlowstoneTierOne();
         GameRegistry.registerItem(tierOne, tierOne.getUnlocalizedName());
         tierTwo = new ItemBatteryFlowstoneTierTwo();
@@ -86,7 +85,7 @@ public class ItemRegistry {
         tierFive = new ItemBatteryFlowstoneTierFive();
         GameRegistry.registerItem(tierFive, tierFive.getUnlocalizedName());
 
-        //tools
+        // tools
         flowwrench = new ItemToolFlowwrench();
         GameRegistry.registerItem(flowwrench, flowwrench.getUnlocalizedName());
         pneumaticFlowwrench = new ItemToolPneumaticFlowwrench();
@@ -114,7 +113,7 @@ public class ItemRegistry {
         manual = new ItemFlowstoneManual();
         GameRegistry.registerItem(manual, manual.getUnlocalizedName());
 
-        //armour
+        // armour
         flowBoots = new ItemArmorFlowBoots(flowfield, 0, 3);
         GameRegistry.registerItem(flowBoots, flowBoots.getUnlocalizedName());
         flowLeggings = new ItemArmorFlowLeggings(flowfield, 0, 2);
@@ -124,8 +123,7 @@ public class ItemRegistry {
         flowHelm = new ItemArmorFlowHelm(flowfield, 0, 0);
         GameRegistry.registerItem(flowHelm, flowHelm.getUnlocalizedName());
 
-
-        //misc
+        // misc
         flowstoneBucket = new ItemFlowstoneBucket(BlockRegistry.flowstoneBlock);
         GameRegistry.registerItem(flowstoneBucket, flowstoneBucket.getUnlocalizedName());
         fluidBlazeBucket = new ItemLiquidBlazeBucket(BlockRegistry.fluidBlazeBlock);

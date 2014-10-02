@@ -18,12 +18,12 @@ import java.util.List;
 
 public class ItemArmorFlowBoots extends ItemArmor {
 
-	private int maxFE = 10000;
-	public int currentFE = 0;
+    private int maxFE = 10000;
+    public int currentFE = 0;
 
     public ItemArmorFlowBoots(ArmorMaterial material, int renderIndex, int armorType) {
         super(material, renderIndex, armorType);
-	    this.setCreativeTab(FlowstoneEnergy.tab);
+        this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".flow.boots");
         this.setTextureName(ModInfo.MODID + ":armor/flowBoots");
     }
@@ -53,15 +53,15 @@ public class ItemArmorFlowBoots extends ItemArmor {
         return ModInfo.MODID + ":textures/armor/flowstoneArmor.png";
     }
 
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    @Override
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
-		if(!KeyboardHelper.isShiftDown()) {
-			list.add(TextHelper.shiftForMoreInfo);
-		} else {
-			list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));
-			list.add("More information should come soon.");
-		}
-	}
+        if (!KeyboardHelper.isShiftDown()) {
+            list.add(TextHelper.shiftForMoreInfo);
+        } else {
+            list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));
+            list.add("More information should come soon.");
+        }
+    }
 }

@@ -20,7 +20,7 @@ public class BlockSecureChest extends BlockContainer {
         this.setCreativeTab(FlowstoneEnergy.blockTab);
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
         for (int i = 0; i <= 6; i++) {

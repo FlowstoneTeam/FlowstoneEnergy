@@ -4,19 +4,19 @@ import net.minecraftforge.common.config.Configuration;
 
 public class ConfigHandler {
 
-	//Categories
-	public static String general = "General";
-	public static String enchant = "Enchantments";
-	public static String oreConfig = "Ore Configuration";
+    // Categories
+    public static String general = "General";
+    public static String enchant = "Enchantments";
+    public static String oreConfig = "Ore Configuration";
 
-	//Options
+    // Options
     public static boolean useFECopper;
     public static boolean useFETin;
     public static boolean useFELead;
     public static boolean useFESilver;
     public static boolean useFENickel;
     public static boolean useFEApalite;
-	public static boolean useConnectedTextures;
+    public static boolean useConnectedTextures;
     public static int teleEnchant;
     public static boolean debugMode;
     public static boolean drawInsidePipes;
@@ -24,15 +24,15 @@ public class ConfigHandler {
     public static void configOptions(Configuration config) {
         config.load();
 
-		//General
-	    debugMode = config.get(general, "Enable debug mode", false).getBoolean(debugMode);
-	    useConnectedTextures = config.get(general, "Enable connected textures for machines", true).getBoolean(useConnectedTextures);
+        // General
+        debugMode = config.get(general, "Enable debug mode", false).getBoolean(debugMode);
+        useConnectedTextures = config.get(general, "Enable connected textures for machines", true).getBoolean(useConnectedTextures);
         drawInsidePipes = config.get(general, "Enable inside of pipes", true).getBoolean(drawInsidePipes);
-	    
-	    //Enchantments
-	    teleEnchant = config.get(enchant, "Teleport Enchanment Id", 40).getInt(teleEnchant);
-	    
-	    //Ores
+
+        // Enchantments
+        teleEnchant = config.get(enchant, "Teleport Enchanment Id", 40).getInt(teleEnchant);
+
+        // Ores
         useFECopper = config.get(oreConfig, "Enable Flowstone Energy copper generation", true).getBoolean(useFECopper);
         useFETin = config.get(oreConfig, "Enable Flowstone Energy tin generation", true).getBoolean(useFETin);
         useFELead = config.get(oreConfig, "Enable Flowstone Energy lead generation", true).getBoolean(useFELead);
@@ -40,6 +40,7 @@ public class ConfigHandler {
         useFENickel = config.get(oreConfig, "Enable Flowstone Energy nickel generation", true).getBoolean(useFENickel);
         useFEApalite = config.get(oreConfig, "Enable Flowstone Energy apalite generation", true).getBoolean(useFEApalite);
 
-        if (config.hasChanged()) config.save();
+        if (config.hasChanged())
+            config.save();
     }
 }

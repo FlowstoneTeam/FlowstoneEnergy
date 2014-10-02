@@ -12,9 +12,12 @@ public class Recipe1_1 {
     /**
      * Creates a recipe with 1 input and one output
      *
-     * @param input  Input item stack
-     * @param output Output item stack
-     * @param time   Time in ticks
+     * @param input
+     *            Input item stack
+     * @param output
+     *            Output item stack
+     * @param time
+     *            Time in ticks
      */
     public Recipe1_1(ItemStack input, ItemStack output, int time, int powerRequired) {
         this.input = input.copy();
@@ -22,7 +25,6 @@ public class Recipe1_1 {
         this.time = time;
         this.powerRequired = powerRequired;
     }
-
 
     public ItemStack getInput() {
         return input;
@@ -36,6 +38,7 @@ public class Recipe1_1 {
         return time;
     }
 
-    public int getPowerRequired() { return powerRequired; }
+    public int getPowerRequired() {
+        return powerRequired;
+    }
 }
-

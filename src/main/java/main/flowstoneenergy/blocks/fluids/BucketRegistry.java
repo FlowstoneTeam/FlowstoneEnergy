@@ -9,10 +9,10 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
 public class BucketRegistry {
-	public static void registerBucket() {
+    public static void registerBucket() {
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(BlockRegistry.flowstone.getName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.flowstoneBucket), new ItemStack(Items.bucket));
         BucketHandler.INSTANCE.buckets.put(BlockRegistry.flowstoneBlock, ItemRegistry.flowstoneBucket);
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(BlockRegistry.fluidBlaze.getName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ItemRegistry.fluidBlazeBucket), new ItemStack(Items.bucket));
         BucketHandler.INSTANCE.buckets.put(BlockRegistry.fluidBlazeBlock, ItemRegistry.fluidBlazeBucket);
-	}
+    }
 }

@@ -71,16 +71,16 @@ public class ItemMetaResourceGears extends Item {
                 break;
             }
             case 11: {
-            	name = "itemGearElectrum";
-            	break;
+                name = "itemGearElectrum";
+                break;
             }
             case 12: {
-            	name = "itemGearNickel";
-            	break;
+                name = "itemGearNickel";
+                break;
             }
             case 13: {
-            	name = "itemGearInvar";
-            	break;
+                name = "itemGearInvar";
+                break;
             }
 
             default:

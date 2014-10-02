@@ -19,49 +19,49 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockRegistry {
 
-    //machines
+    // machines
     public static Block machineBox;
     public static Block machineWorkbench;
     public static Block machines;
-    
-    //decorative
+
+    // decorative
     public static Block strongGlass;
     public static Block strongGlassPane;
-    
-    //other
+
+    // other
     public static Block ingotStorage;
     public static Block aplite;
     public static Block upgrades;
 
-    //pipes
+    // pipes
     public static Block itemPipe;
     public static Block fluidPipe;
 
-    //ores
+    // ores
     public static Block blockOres;
-    
-    //fluids
+
+    // fluids
     public static Fluid flowstone;
     public static Block flowstoneBlock;
     public static Fluid fluidBlaze;
     public static Block fluidBlazeBlock;
 
     public static void registerBlocks() {
-        //machines
+        // machines
         machineBox = new BlockMachineBox();
         GameRegistry.registerBlock(machineBox, machineBox.getUnlocalizedName());
         machineWorkbench = new BlockMachineWorkbench();
         GameRegistry.registerBlock(machineWorkbench, machineWorkbench.getUnlocalizedName());
         machines = new BlockMachines().setBlockName("blockMachines");
         GameRegistry.registerBlock(machines, ItemBlockMachines.class, "BlockMachines");
-        
-        //decorative
+
+        // decorative
         strongGlass = new BlockStrongGlass();
         GameRegistry.registerBlock(strongGlass, strongGlass.getUnlocalizedName());
         strongGlassPane = new BlockStrongGlassPane();
         GameRegistry.registerBlock(strongGlassPane, strongGlassPane.getUnlocalizedName());
 
-        //other
+        // other
         ingotStorage = new BlockIngotStorage().setBlockName("blockIngotStorage");
         GameRegistry.registerBlock(ingotStorage, ItemBlockIngotStorage.class, "BlockIngotStorage");
         aplite = new BlockAplite().setBlockName("blockAplite");
@@ -69,17 +69,17 @@ public class BlockRegistry {
         upgrades = new BlockUpgrades().setBlockName("blockUpgrades");
         GameRegistry.registerBlock(upgrades, ItemBlockUpgrades.class, "BlockUpgrades");
 
-        //items
+        // items
         itemPipe = new BlockPipeItem();
         GameRegistry.registerBlock(itemPipe, itemPipe.getUnlocalizedName());
         fluidPipe = new BlockPipeFluid();
         GameRegistry.registerBlock(fluidPipe, fluidPipe.getUnlocalizedName());
 
-        //ores
+        // ores
         blockOres = new BlockOres();
         GameRegistry.registerBlock(blockOres, ItemBlockOres.class, blockOres.getUnlocalizedName());
-        
-        //fluids
+
+        // fluids
         flowstone = new Fluid("flowstone");
         FluidRegistry.registerFluid(flowstone);
         flowstoneBlock = new BlockFlowstone(flowstone);

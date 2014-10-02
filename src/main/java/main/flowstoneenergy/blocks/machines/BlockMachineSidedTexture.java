@@ -26,7 +26,7 @@ public abstract class BlockMachineSidedTexture extends BlockMachineBox {
     public IIcon frontOff;
 
     @SuppressWarnings("unused")
-	@Override
+    @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         TileEntityMachineBase tile = (TileEntityMachineBase) world.getTileEntity(x, y, z);
 
@@ -65,10 +65,14 @@ public abstract class BlockMachineSidedTexture extends BlockMachineBox {
         int facing = MathHelper.floor_double(entity.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
         TileEntityMachineBase tile = (TileEntityMachineBase) world.getTileEntity(x, y, z);
 
-        if (facing == 0) tile.facing = 2;
-        else if (facing == 1) tile.facing = 5;
-        else if (facing == 2) tile.facing = 3;
-        else if (facing == 3) tile.facing = 4;
+        if (facing == 0)
+            tile.facing = 2;
+        else if (facing == 1)
+            tile.facing = 5;
+        else if (facing == 2)
+            tile.facing = 3;
+        else if (facing == 3)
+            tile.facing = 4;
     }
 
     private void dropItems(World world, int x, int y, int z) {

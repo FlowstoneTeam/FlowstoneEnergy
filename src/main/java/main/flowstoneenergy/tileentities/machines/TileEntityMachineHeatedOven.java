@@ -14,7 +14,6 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     @SuppressWarnings("unused")
     private String field_145958_o;
 
-
     public TileEntityMachineHeatedOven() {
         items = new ItemStack[2];
         maxTicks = 150;
@@ -34,8 +33,10 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
-        if (slot != 0) return false;
-        if (FurnaceRecipes.smelting().getSmeltingResult(stack) != null) return true;
+        if (slot != 0)
+            return false;
+        if (FurnaceRecipes.smelting().getSmeltingResult(stack) != null)
+            return true;
         return false;
     }
 
@@ -61,36 +62,38 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     @Override
     public void updateEntity() {
         super.updateEntity();
-        if (worldObj.isRemote) return;
-        if(upgradeCheckTimer >= 20){
+        if (worldObj.isRemote)
+            return;
+        if (upgradeCheckTimer >= 20) {
             getUpgrade();
         } else {
             upgradeCheckTimer++;
         }
 
-        if (items[0] != null  && this.canSmelt() && energy.getEnergyStored() >= energyRequired) {
+        if (items[0] != null && this.canSmelt() && energy.getEnergyStored() >= energyRequired) {
             if (ticksLeft == maxTicks) {
                 smelt();
                 resetTimeAndTexture();
-            }
-            else{
+            } else {
                 ticksLeft++;
             }
-        }
-        else{
+        } else {
             resetTimeAndTexture();
         }
 
-
     }
-//&& energy.getEnergyStored() >= 1600
+
+    // && energy.getEnergyStored() >= 1600
     public void smelt() {
         if (this.canSmelt()) {
             ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
             if (this.items[1] == null) {
                 this.items[1] = itemstack.copy();
             } else if (this.items[1].getItem() == itemstack.getItem()) {
-                this.items[1].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+                this.items[1].stackSize += itemstack.stackSize; // Forge BugFix:
+                                                                // Results may
+                                                                // have multiple
+                                                                // items
             }
 
             --this.items[0].stackSize;
@@ -107,9 +110,12 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
             return false;
         } else {
             ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
-            if (itemstack == null) return false;
-            if (this.items[1] == null) return true;
-            if (!this.items[1].isItemEqual(itemstack)) return false;
+            if (itemstack == null)
+                return false;
+            if (this.items[1] == null)
+                return true;
+            if (!this.items[1].isItemEqual(itemstack))
+                return false;
             int result = items[1].stackSize + itemstack.stackSize;
             return result <= getInventoryStackLimit() && result <= this.items[1].getMaxStackSize();
         }
@@ -121,7 +127,6 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
         }
         return ticksLeft * scale / maxTicks;
     }
-
 
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {

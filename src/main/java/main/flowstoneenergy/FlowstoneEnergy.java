@@ -37,7 +37,7 @@ import org.apache.logging.log4j.Logger;
 public class FlowstoneEnergy {
     public static CreativeTabs blockTab = new BlockCreativeTab("FlowstoneEnergyBlocks");
     public static CreativeTabs tab = new CreativeTab("FlowstoneEnergyItems");
-	public static Logger logger = LogManager.getLogger(ModInfo.NAME);
+    public static Logger logger = LogManager.getLogger(ModInfo.NAME);
 
     @Instance("flowstoneenergy")
     public static FlowstoneEnergy instance;

@@ -31,7 +31,7 @@ public class TileEntityItemPipe extends TileEntityPipeBase {
     }
 
     public void updateConnections() {
-        //DO NOT MAKE THESE ELSE IF STATEMENTS, IT BREAKS IT. I TRIED - Poppy
+        // DO NOT MAKE THESE ELSE IF STATEMENTS, IT BREAKS IT. I TRIED - Poppy
         if (isPipe(xCoord, yCoord + 1, zCoord)) {
             connections[0] = ForgeDirection.UP;
         } else {
@@ -84,13 +84,16 @@ public class TileEntityItemPipe extends TileEntityPipeBase {
 
     @Override
     public boolean isOpposite(ForgeDirection firstDirection, ForgeDirection secondDirection) {
-        if (firstDirection.equals(ForgeDirection.NORTH) && secondDirection.equals(ForgeDirection.SOUTH) || firstDirection.equals(ForgeDirection.SOUTH) && secondDirection.equals(ForgeDirection.NORTH)) {
+        if (firstDirection.equals(ForgeDirection.NORTH) && secondDirection.equals(ForgeDirection.SOUTH) || firstDirection.equals(ForgeDirection.SOUTH)
+                && secondDirection.equals(ForgeDirection.NORTH)) {
             return true;
         }
-        if (firstDirection.equals(ForgeDirection.EAST) && secondDirection.equals(ForgeDirection.WEST) || firstDirection.equals(ForgeDirection.WEST) && secondDirection.equals(ForgeDirection.EAST)) {
+        if (firstDirection.equals(ForgeDirection.EAST) && secondDirection.equals(ForgeDirection.WEST) || firstDirection.equals(ForgeDirection.WEST)
+                && secondDirection.equals(ForgeDirection.EAST)) {
             return true;
         }
-        if (firstDirection.equals(ForgeDirection.DOWN) && secondDirection.equals(ForgeDirection.UP) || firstDirection.equals(ForgeDirection.UP) && secondDirection.equals(ForgeDirection.DOWN)) {
+        if (firstDirection.equals(ForgeDirection.DOWN) && secondDirection.equals(ForgeDirection.UP) || firstDirection.equals(ForgeDirection.UP)
+                && secondDirection.equals(ForgeDirection.DOWN)) {
             return true;
         }
 

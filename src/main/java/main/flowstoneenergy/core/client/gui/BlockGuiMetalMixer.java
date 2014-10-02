@@ -31,8 +31,7 @@ public class BlockGuiMetalMixer extends GuiContainer {
     }
 
     @Override
-    protected void drawGuiContainerBackgroundLayer(float var1, int var2,
-                                                   int var3) {
+    protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
         GL11.glColor4f(1F, 1F, 1F, 1F);
 
         Minecraft.getMinecraft().getTextureManager().bindTexture(metalMixerGui);

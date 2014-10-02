@@ -30,7 +30,8 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
-        if (slot != 0 || slot != 1) return false;
+        if (slot != 0 || slot != 1)
+            return false;
         for (Recipe2_1 r : RecipesMetalMixer.recipe21List) {
             if (r.getInput1().isItemEqual(stack) || r.getInput2().isItemEqual(stack))
                 return true;
@@ -78,44 +79,57 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
 
     private boolean canMix() {
 
-        if (items[0] == null || items[1] == null) return false;
+        if (items[0] == null || items[1] == null)
+            return false;
 
         Recipe2_1 recipe = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]);
-        if (recipe == null || recipe.getOutput() == null) return false;
+        if (recipe == null || recipe.getOutput() == null)
+            return false;
 
         ItemStack output = recipe.getOutput();
         boolean suitableForOutput1 = (items[2] != null && output.isItemEqual(items[2]) || items[2] == null);
         boolean suitableForOutput2 = (items[3] != null && output.isItemEqual(items[3]) || items[3] == null);
-        if (!suitableForOutput1 || !suitableForOutput2) return false;
+        if (!suitableForOutput1 || !suitableForOutput2)
+            return false;
 
         int totalAvailableSpace = output.getMaxStackSize() * 2;
         if (suitableForOutput1) {
-            if (items[2] != null) totalAvailableSpace -= items[2].stackSize;
+            if (items[2] != null)
+                totalAvailableSpace -= items[2].stackSize;
         } else {
             totalAvailableSpace -= output.getMaxStackSize();
         }
 
         if (suitableForOutput2) {
-            if (items[3] != null) totalAvailableSpace -= items[3].stackSize;
+            if (items[3] != null)
+                totalAvailableSpace -= items[3].stackSize;
         } else {
             totalAvailableSpace -= output.getMaxStackSize();
         }
 
-        if (totalAvailableSpace < output.stackSize) return false;
+        if (totalAvailableSpace < output.stackSize)
+            return false;
 
         int availableEnergy = energy.extractEnergy(energyRequired, true);
-        if (availableEnergy < energyRequired) return false;
+        if (availableEnergy < energyRequired)
+            return false;
 
         return true;
     }
 
     private void mixMetals() {
-        if (items[0] == null || items[1] == null) return;
+        if (items[0] == null || items[1] == null)
+            return;
         ItemStack res = RecipesMetalMixer.getRecipeFromStack(items[0], items[1]).getOutput();
-        if (items[2] == null) items[2] = res.copy();
-        else if (items[2].stackSize == res.getMaxStackSize()) if (items[3] == null) items[3] = res.copy();
-        else items[3].stackSize += res.stackSize;
-        else items[2].stackSize += res.stackSize;
+        if (items[2] == null)
+            items[2] = res.copy();
+        else if (items[2].stackSize == res.getMaxStackSize())
+            if (items[3] == null)
+                items[3] = res.copy();
+            else
+                items[3].stackSize += res.stackSize;
+        else
+            items[2].stackSize += res.stackSize;
 
         items[0].stackSize--;
         if (items[0].stackSize <= 0) {
@@ -130,7 +144,8 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
     }
 
     public int getScaledProgress(int scale) {
-        if (maxTicks == 0) return 0;
+        if (maxTicks == 0)
+            return 0;
         return ticksLeft * scale / maxTicks;
     }
 

@@ -6,7 +6,6 @@ import main.flowstoneenergy.tileentities.machines.*;
 import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
 
-
 public class TERegistry {
 
     public static void registerTileEntities() {

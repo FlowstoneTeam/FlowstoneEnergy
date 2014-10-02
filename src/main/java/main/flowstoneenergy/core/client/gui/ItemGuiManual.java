@@ -18,7 +18,7 @@ import java.util.List;
 import static org.lwjgl.opengl.GL11.glColor4f;
 
 @SideOnly(Side.CLIENT)
-public class ItemGuiManual extends GuiScreen{
+public class ItemGuiManual extends GuiScreen {
     static ResourceLocation gui = new ResourceLocation(ModInfo.MODID, "textures/guis/book.png");
 
     private static final int BOOK_BTN_NEXT = 0;
@@ -54,15 +54,15 @@ public class ItemGuiManual extends GuiScreen{
 
         buttonList.add(next = new GuiButtonPageChange(BOOK_BTN_NEXT, bookXStart + WIDTH - 26, 210, false));
         buttonList.add(prev = new GuiButtonPageChange(BOOK_BTN_PREV, bookXStart + 10, 210, true));
-        //buttonList.add(blocks = new GuiButtonPageChange(BOOK_BTN_BL, bookXStart + 20, 210, false));
+        // buttonList.add(blocks = new GuiButtonPageChange(BOOK_BTN_BL,
+        // bookXStart + 20, 210, false));
 
         updateButtons();
     }
 
     @Override
     protected void actionPerformed(GuiButton button) {
-        switch (button.id)
-        {
+        switch (button.id) {
             case BOOK_BTN_NEXT:
                 pageIndex++;
                 break;
@@ -73,8 +73,7 @@ public class ItemGuiManual extends GuiScreen{
         updateButtons();
     }
 
-    private void updateButtons()
-    {
+    private void updateButtons() {
         this.next.visible = (this.pageIndex < this.bookTotalPages - 1);
         this.prev.visible = this.pageIndex > 0;
     }
@@ -107,21 +106,51 @@ public class ItemGuiManual extends GuiScreen{
 
     public void drawForeground() {
         switch (pageIndex) {
-            case 0: drawStartScreen(); break;
-            case 1: drawIndexPage(); break;
-            case 2: drawScreenTwo(); break;
-            case 3: drawScreenThree(); break;
-            case 4: drawScreenFour(); break;
-            case 5: drawScreenFive(); break;
-            case 6: drawScreenSix(); break;
-            case 7: drawScreenSeven(); break;
-            case 8: drawScreenEight(); break;
-            case 9: drawScreenNine(); break;
-            case 10: drawScreenTen(); break;
-            case 11: drawScreenEleven(); break;
-            case 12: drawScreenTwelve(); break;
-            case 13: drawScreenThirteen(); break;
-            case 14: drawScreenFourteen(); break;
+            case 0:
+                drawStartScreen();
+                break;
+            case 1:
+                drawIndexPage();
+                break;
+            case 2:
+                drawScreenTwo();
+                break;
+            case 3:
+                drawScreenThree();
+                break;
+            case 4:
+                drawScreenFour();
+                break;
+            case 5:
+                drawScreenFive();
+                break;
+            case 6:
+                drawScreenSix();
+                break;
+            case 7:
+                drawScreenSeven();
+                break;
+            case 8:
+                drawScreenEight();
+                break;
+            case 9:
+                drawScreenNine();
+                break;
+            case 10:
+                drawScreenTen();
+                break;
+            case 11:
+                drawScreenEleven();
+                break;
+            case 12:
+                drawScreenTwelve();
+                break;
+            case 13:
+                drawScreenThirteen();
+                break;
+            case 14:
+                drawScreenFourteen();
+                break;
         }
     }
 
@@ -130,7 +159,7 @@ public class ItemGuiManual extends GuiScreen{
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.main"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.main"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
         fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
@@ -143,8 +172,8 @@ public class ItemGuiManual extends GuiScreen{
         fontRendererObj.drawString(TextHelper.localize("gui.manual.info.index.1"), bookXStart + 20, 60, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
-	
-	private void drawScreenTwo() {
+
+    private void drawScreenTwo() {
         fontRendererObj.drawString(TextHelper.localize("gui.manual.title.2"), bookXStart + 55, 20, 0x000000);
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
@@ -152,7 +181,7 @@ public class ItemGuiManual extends GuiScreen{
         fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.2"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
         fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
-	}
+    }
 
     private void drawScreenThree() {
         fontRendererObj.drawString(TextHelper.localize("gui.manual.title.3"), bookXStart + 42, 20, 0x000000);
@@ -169,7 +198,7 @@ public class ItemGuiManual extends GuiScreen{
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.4"), bookXStart + 20, 60, WIDTH-40, 0x000000);
+        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.4"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
         fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
@@ -253,7 +282,7 @@ public class ItemGuiManual extends GuiScreen{
         fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
-    
+
     private void drawScreenThirteen() {
         fontRendererObj.drawString(TextHelper.localize("gui.manual.title.13"), bookXStart + 23, 20, 0x000000);
 
@@ -274,8 +303,7 @@ public class ItemGuiManual extends GuiScreen{
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
-    public class GuiButtonPageChange extends GuiButton
-    {
+    public class GuiButtonPageChange extends GuiButton {
         private final boolean previous;
 
         public GuiButtonPageChange(int id, int x, int y, boolean previous) {

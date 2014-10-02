@@ -8,9 +8,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase implements IEnergyHandler {
 
-
-
-
     @SuppressWarnings("unused")
     private String field_145958_o;
 
@@ -30,9 +27,11 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
-        if (slot != 0) return false;
+        if (slot != 0)
+            return false;
         for (Recipe1_1 r : RecipesFlowstoneBottler.recipe11List) {
-            if (r.getInput().getItem().equals(stack.getItem())) return true;
+            if (r.getInput().getItem().equals(stack.getItem()))
+                return true;
         }
         return false;
     }
@@ -86,13 +85,13 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
     }
 
     private void smelt() {
-        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null) return;
+        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null)
+            return;
         ItemStack res = RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput();
         if (items[1] == null)
             items[1] = res.copy();
         else
             items[1].stackSize += res.stackSize;
-
 
         items[0].stackSize--;
         if (items[0].stackSize <= 0) {
@@ -101,7 +100,8 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
     }
 
     public int getScaledProgress(int scale) {
-        if (maxTicks == 0) return 0;
+        if (maxTicks == 0)
+            return 0;
         return ticksLeft * scale / maxTicks;
     }
 

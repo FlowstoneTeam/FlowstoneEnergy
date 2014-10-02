@@ -15,7 +15,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 public class ItemRecipeRegistry {
 
     private static void registerShapedRecipes() {
-        //tool recipes (vanilla crafting recipe)
+        // tool recipes (vanilla crafting recipe)
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.flowwrench), new Object[]{"X X", " Y ", " X ", 'X', "ingotLead", 'Y', "gearStone"}));
 
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.enderSword), new Object[]{" X ", " X ", " Y ", 'X', "ingotEnder", 'Y', "stickWood"}));
@@ -36,7 +36,7 @@ public class ItemRecipeRegistry {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.tierFour), new Object[]{" R ", "EBE", "ERE", 'R', Items.redstone, 'E', "ingotElectrum", 'B', ItemRegistry.tierThree}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.tierFive), new Object[]{" R ", "EBE", "ERE", 'R', Items.redstone, 'E', "ingotEnder", 'B', ItemRegistry.tierFour}));
 
-        //gear recipes (vanilla crafting recipe)
+        // gear recipes (vanilla crafting recipe)
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 0), new Object[]{" X ", "XXX", " X ", 'X', "stickWood"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 1), new Object[]{" X ", "XYX", " X ", 'X', "stone", 'Y', "gearWood"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 2), new Object[]{" X ", "XYX", " X ", 'X', "ingotIron", 'Y', "gearWood"}));
@@ -52,7 +52,7 @@ public class ItemRecipeRegistry {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 12), new Object[]{" X ", "XYX", " X ", 'X', "ingotNickel", 'Y', "gearWood"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 13), new Object[]{" X ", "XYX", " X ", 'X', "ingotInvar", 'Y', "gearWood"}));
 
-        //food recipes
+        // food recipes
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), "C C", " C ", "   ", 'C', Items.clay_ball);
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3), "   ", "   ", "CCC", 'C', Items.clay_ball);
         GameRegistry.addRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 1), " S ", "S S", "  C", 'S', Items.string, 'C', new ItemStack(Items.dye, 1, 3));
@@ -61,10 +61,10 @@ public class ItemRecipeRegistry {
     }
 
     private static void registerShapelessRecipes() {
-        //manual recipe
+        // manual recipe
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ItemRegistry.manual), "ingotCopper", "ingotLead", new ItemStack(Items.book)));
 
-        //ender dust recipe
+        // ender dust recipe
         GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceDust, 1, 8), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), new ItemStack(ItemRegistry.metaResourceDust, 1, 7));
 
         GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.metaResourceUtensil, 1, 0), new ItemStack(ItemRegistry.metaResourceUtensil, 1, 4), new ItemStack(ItemRegistry.metaResourceUtensil, 1, 3));
@@ -77,14 +77,14 @@ public class ItemRecipeRegistry {
     }
 
     private static void registerSmeltingRecipes() {
-        //Block to ingot smelting recipes (vanilla furnace)
+        // Block to ingot smelting recipes (vanilla furnace)
         OreDictHandler.furnaceOreDictRecipes("oreCopper", new ItemStack(ItemRegistry.metaResourceIngot, 1, 0), 0.7F);
         OreDictHandler.furnaceOreDictRecipes("oreTin", new ItemStack(ItemRegistry.metaResourceIngot, 1, 1), 0.7F);
         OreDictHandler.furnaceOreDictRecipes("oreLead", new ItemStack(ItemRegistry.metaResourceIngot, 1, 2), 1.0F);
         OreDictHandler.furnaceOreDictRecipes("oreSilver", new ItemStack(ItemRegistry.metaResourceIngot, 1, 3), 1.0F);
         OreDictHandler.furnaceOreDictRecipes("oreNickel", new ItemStack(ItemRegistry.metaResourceIngot, 1, 5), 1.0F);
 
-        //Dust to ingot smelting recipes (vanilla furnace)
+        // Dust to ingot smelting recipes (vanilla furnace)
         OreDictHandler.furnaceOreDictRecipes("dustIron", new ItemStack(Items.iron_ingot), 0.35F);
         OreDictHandler.furnaceOreDictRecipes("dustGold", new ItemStack(Items.gold_ingot), 0.5F);
         OreDictHandler.furnaceOreDictRecipes("dustCopper", new ItemStack(ItemRegistry.metaResourceIngot, 1, 0), 0.35F);
@@ -96,11 +96,10 @@ public class ItemRecipeRegistry {
         OreDictHandler.furnaceOreDictRecipes("dustInvar", new ItemStack(ItemRegistry.metaResourceIngot, 1, 6), 0.5F);
         OreDictHandler.furnaceOreDictRecipes("dustElectrum", new ItemStack(ItemRegistry.metaResourceIngot, 1, 7), 0.5F);
 
-
     }
 
     private static void registerTumblerRecipes() {
-        //Ores to dust
+        // Ores to dust
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreIron", new ItemStack(ItemRegistry.metaResourceDust, 2, 1), 200, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreGold", new ItemStack(ItemRegistry.metaResourceDust, 2, 2), 200, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreCopper", new ItemStack(ItemRegistry.metaResourceDust, 2, 3), 200, 100);
@@ -109,7 +108,7 @@ public class ItemRecipeRegistry {
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreSilver", new ItemStack(ItemRegistry.metaResourceDust, 2, 6), 200, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreNickel", new ItemStack(ItemRegistry.metaResourceDust, 2, 9), 200, 100);
 
-        //Ingot to dust
+        // Ingot to dust
         RecipesEnergizedOreTumbler.addOreDictRecipe("gemCoal", new ItemStack(ItemRegistry.metaResourceDust, 1, 0), 200, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotIron", new ItemStack(ItemRegistry.metaResourceDust, 1, 1), 100, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotGold", new ItemStack(ItemRegistry.metaResourceDust, 1, 2), 100, 100);
@@ -122,7 +121,7 @@ public class ItemRecipeRegistry {
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotInvar", new ItemStack(ItemRegistry.metaResourceDust, 1, 10), 100, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotElectrum", new ItemStack(ItemRegistry.metaResourceDust, 1, 11), 100, 100);
 
-        //Metallurgy ores to dust
+        // Metallurgy ores to dust
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreManganese", "dustManganese", 200, 2, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreEximite", "dustEximite", 200, 2, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreMeutoite", "dustMeutoite", 200, 2, 100);
@@ -150,7 +149,7 @@ public class ItemRecipeRegistry {
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreZinc", "dustZinc", 200, 2, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("orePlatinum", "dustPlatinum", 200, 2, 100);
 
-        //Metallurgy ingots to dust
+        // Metallurgy ingots to dust
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotManganese", "dustManganese", 200, 1, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotEximite", "dustEximite", 200, 1, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotMeutoite", "dustMeutoite", 200, 1, 100);
@@ -178,14 +177,14 @@ public class ItemRecipeRegistry {
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotZinc", "dustZinc", 200, 1, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("ingotPlatinum", "dustPlatinum", 200, 1, 100);
 
-        //Ic2 ores to dust
+        // Ic2 ores to dust
         RecipesEnergizedOreTumbler.addOreDictRecipe("oreUranium", "dustUranium", 200, 2, 100);
 
-        //Ae2 ores to dust
+        // Ae2 ores to dust
         RecipesEnergizedOreTumbler.addOreDictRecipe("crystalCertusQuartz", "dustCertusQuartz", 100, 1, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("gemQuartz", "dustNetherQuartz", 100, 1, 100);
 
-        //Other things
+        // Other things
         RecipesEnergizedOreTumbler.addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ItemRegistry.metaResourceDust, 1, 7), 300, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("stone", new ItemStack(Blocks.cobblestone), 150, 100);
         RecipesEnergizedOreTumbler.addOreDictRecipe("glass", new ItemStack(Blocks.sand), 100, 100);
@@ -196,7 +195,7 @@ public class ItemRecipeRegistry {
 
     private static void registerMixerRecipes() {
 
-	    //Ingot to ingot
+        // Ingot to ingot
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "ingotNickel", new ItemStack(ItemRegistry.metaResourceIngot, 2, 6), 300);
         RecipesMetalMixer.addOreDictRecipe("dustIron", "dustNickel", new ItemStack(ItemRegistry.metaResourceDust, 2, 10), 200);
         RecipesMetalMixer.addOreDictRecipe("ingotGold", "ingotSilver", new ItemStack(ItemRegistry.metaResourceIngot, 2, 7), 300);
@@ -204,7 +203,7 @@ public class ItemRecipeRegistry {
         RecipesMetalMixer.addOreDictRecipe("oreGold", "oreSilver", new ItemStack(ItemRegistry.metaResourceIngot, 4, 7), 300);
         RecipesMetalMixer.addOreDictRecipe("oreIron", "oreNickel", new ItemStack(ItemRegistry.metaResourceIngot, 4, 6), 300);
 
-	    //TiCo Ingot to ingot
+        // TiCo Ingot to ingot
         RecipesMetalMixer.addOreDictRecipe("ingotCobalt", "ingotArdite", "ingotManyullyn", 300, 1);
 
         RecipesMetalMixer.addOreDictRecipe("ingotCopper", "ingotTin", "ingotBronze", 200, 2);
@@ -213,10 +212,10 @@ public class ItemRecipeRegistry {
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "ingotGold", "ingotAngmallen", 200, 2);
         RecipesMetalMixer.addOreDictRecipe("ingotIron", "gemCoal", "ingotSteel", 200, 1);
 
-        //Metallurgy recipes
+        // Metallurgy recipes
         RecipesMetalMixer.addOreDictRecipe("ingotAtlarus", "ingotAdamantine", "ingotTartarite", 200, 2);
 
-	    //Tico Ore to ingot
+        // Tico Ore to ingot
         RecipesMetalMixer.addOreDictRecipe("oreCobalt", "oreArdite", "ingotManyullyn", 300, 2);
 
         RecipesMetalMixer.addOreDictRecipe("oreCopper", "oreTin", "ingotBronze", 200, 4);

@@ -74,7 +74,8 @@ public class MetalMixerHandler extends TemplateRecipeHandler {
 
     @Override
     public void loadUsageRecipes(String inputId, Object... ingredients) {
-        if (ingredients.length == 0) return;
+        if (ingredients.length == 0)
+            return;
         if ("item".equals(inputId)) {
             for (Recipe2_1 r : RecipesMetalMixer.getRecipesFromStack((ItemStack) ingredients[0]))
                 arecipes.add(new CachedMetalMixerRecipe(r));
@@ -106,25 +107,24 @@ public class MetalMixerHandler extends TemplateRecipeHandler {
         }
         int var = (int) (completion * (direction % 2 == 0 ? w : h));
 
-        switch (direction)
-        {
-            case 0://right
+        switch (direction) {
+            case 0:// right
                 this.drawTexturedModalRect(x, y, tx, ty, var, h, w, h);
                 break;
-            case 1://down
+            case 1:// down
                 this.drawTexturedModalRect(x, y, tx, ty, w, var, w, h);
                 break;
-            case 2://left
+            case 2:// left
                 this.drawTexturedModalRect(x + w - var, y, tx + w - var, ty, var, h, w, h);
                 break;
-            case 3://up
+            case 3:// up
                 this.drawTexturedModalRect(x, y + h - var, tx, ty + h - var, w, var, w, h);
                 break;
         }
     }
 
     @Override
-    public  void loadTransferRects() {
+    public void loadTransferRects() {
         RecipeTransferRect rect = new RecipeTransferRect(new Rectangle(77, 25, 24, 17), "allMWB");
         transferRects.add(rect);
         List<Class<? extends GuiContainer>> guis = new ArrayList<Class<? extends GuiContainer>>();

@@ -12,7 +12,6 @@ import net.minecraft.util.IIcon;
 
 import java.util.List;
 
-
 public class ItemMetaResourceDust extends Item {
 
     public IIcon[] icon = new IIcon[500];

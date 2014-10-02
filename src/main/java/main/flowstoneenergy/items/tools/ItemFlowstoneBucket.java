@@ -8,7 +8,7 @@ import net.minecraft.item.ItemBucket;
 
 public class ItemFlowstoneBucket extends ItemBucket {
 
-    public ItemFlowstoneBucket(Block block) { 
+    public ItemFlowstoneBucket(Block block) {
         super(block);
         this.maxStackSize = 1;
         this.setContainerItem(Items.bucket);

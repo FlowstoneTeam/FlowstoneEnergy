@@ -23,11 +23,11 @@ public class ItemBatteryFlowstoneTierFour extends ItemBatteryFlowstoneTierOne {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        if(!KeyboardHelper.isShiftDown()) {
-		    list.add(TextHelper.shiftForMoreInfo);
-	    } else {
-		    list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));
-		    list.add(TextHelper.localize("info.fe.tooltip.use") + " " + TextHelper.localize("info.fe.control.sneak") + " " + TextHelper.localize("info.fe.tooltip.activate"));
-	    }
+        if (!KeyboardHelper.isShiftDown()) {
+            list.add(TextHelper.shiftForMoreInfo);
+        } else {
+            list.add(TextHelper.GREEN + currentFE + "/" + maxFE + TextHelper.localize("info.fe.tooltip.stored"));
+            list.add(TextHelper.localize("info.fe.tooltip.use") + " " + TextHelper.localize("info.fe.control.sneak") + " " + TextHelper.localize("info.fe.tooltip.activate"));
+        }
     }
 }
