@@ -25,12 +25,12 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public int upgradeCheckTimer = 0;
     public EnergyStorage energy = new EnergyStorage(energyCapacity, 1000);
 
-    public boolean[] Upgrade0 = new boolean[5];
-    public boolean[] Upgrade1 = new boolean[5];
-    public boolean[] Upgrade2 = new boolean[5];
-    public boolean[] Upgrade3 = new boolean[5];
-    public boolean[] Upgrade4 = new boolean[5];
-    public boolean[] Upgrade5 = new boolean[5];
+    public boolean[] Upgrade0 = new boolean[6];
+    public boolean[] Upgrade1 = new boolean[6];
+    public boolean[] Upgrade2 = new boolean[6];
+    public boolean[] Upgrade3 = new boolean[6];
+    public boolean[] Upgrade4 = new boolean[6];
+    public boolean[] Upgrade5 = new boolean[6];
 
 
     @Override
