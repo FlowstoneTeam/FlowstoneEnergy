@@ -6,107 +6,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
 public class ConnectedTextureHelper {
-    private static int[] textureIDs = new int[256];
+    private static int[] textureIDs = {0, 0, 12, 12, 0, 0, 12, 12, 1, 1, 4, 13, 1, 1, 4, 13, 3, 3, 5, 5, 3, 3, 15, 15, 2, 2, 7, 31, 2, 2, 29, 14, 0, 0, 12, 12, 0, 0, 12, 12, 1, 1, 4, 13, 1, 1, 4, 13, 3, 3, 5, 5, 3, 3, 15, 15, 2, 2, 7, 31, 2, 2, 29, 14, 36, 36, 24, 24, 36, 36, 24, 24, 16, 16, 6, 28, 16, 16, 6, 28, 17, 17, 19, 19, 17, 17, 43, 43, 18, 18, 46, 9, 18, 18, 21, 22, 36, 36, 24, 24, 36, 36, 24, 24, 37, 37, 30, 25, 37, 37, 30, 25, 17, 17, 19, 19, 17, 17, 43, 43, 40, 40, 8, 23, 40, 40, 34, 45, 0, 0, 12, 12, 0, 0, 12, 12, 1, 1, 4, 13, 1, 1, 4, 13, 3, 3, 5, 5, 3, 3, 15, 15, 2, 2, 7, 31, 2, 2, 29, 14, 0, 0, 12, 12, 0, 0, 12, 12, 1, 1, 4, 13, 1, 1, 4, 13, 3, 3, 5, 5, 3, 3, 15, 15, 2, 2, 7, 31, 2, 2, 29, 14, 36, 36, 24, 24, 36, 36, 24, 24, 16, 16, 6, 28, 16, 16, 6, 28, 39, 39, 41, 41, 39, 39, 27, 27, 42, 42, 20, 35, 42, 42, 10, 44, 36, 36, 24, 24, 36, 36, 24, 24, 37, 37, 30, 25, 37, 37, 30, 25, 39, 39, 41, 41, 39, 39, 27, 27, 38, 38, 11, 33, 38, 38, 32, 26};
 
-    /*
-     * THIS IS A TEMPORARY MEASURE UNTIL WE HAVE FANCY CONNECTED TEXTURES, AT
-     * WHICH POINT IN TIME THIS WILL BE REPLACED WITH CONSTANTS!!!
-     * 
-     * --Candi<3
-     */
-
-    static {
-        int counter = 0;
-
-        for (int a = 0; a < 2; a++) {
-            for (int b = 0; b < 2; b++) {
-                for (int c = 0; c < 2; c++) {
-                    for (int d = 0; d < 2; d++) {
-                        for (int e = 0; e < 2; e++) {
-                            for (int f = 0; f < 2; f++) {
-                                for (int g = 0; g < 2; g++) {
-                                    for (int h = 0; h < 2; h++) {
-                                        String s = a + "" + b + "" + c + "" + d + "" + e + "" + f + "" + g + "" + h;
-
-                                        boolean down = s.charAt(1) == '0';
-                                        boolean right = s.charAt(3) == '0';
-                                        boolean left = s.charAt(4) == '0';
-                                        boolean up = s.charAt(6) == '0';
-
-                                        if (up && down && left && right) {
-                                            textureIDs[counter] = 0;
-                                        }
-
-                                        if (up && !down && left && right) {
-                                            textureIDs[counter] = 1;
-                                        }
-
-                                        if (!up && down && left && right) {
-                                            textureIDs[counter] = 2;
-                                        }
-
-                                        if (up && down && left && !right) {
-                                            textureIDs[counter] = 3;
-                                        }
-
-                                        if (up && down && !left && right) {
-                                            textureIDs[counter] = 4;
-                                        }
-
-                                        if (up && down && !left && !right) {
-                                            textureIDs[counter] = 5;
-                                        }
-
-                                        if (!up && !down && left && right) {
-                                            textureIDs[counter] = 6;
-                                        }
-
-                                        if (!up && down && left && !right) {
-                                            textureIDs[counter] = 7;
-                                        }
-
-                                        if (!up && down && !left && right) {
-                                            textureIDs[counter] = 8;
-                                        }
-
-                                        if (up && !down && left && !right) {
-                                            textureIDs[counter] = 9;
-                                        }
-
-                                        if (up && !down && !left && right) {
-                                            textureIDs[counter] = 10;
-                                        }
-
-                                        if (!up && down && !left && !right) {
-                                            textureIDs[counter] = 11;
-                                        }
-
-                                        if (up && !down && !left && !right) {
-                                            textureIDs[counter] = 12;
-                                        }
-
-                                        if (!up && !down && left && !right) {
-                                            textureIDs[counter] = 13;
-                                        }
-
-                                        if (!up && !down && !left && right) {
-                                            textureIDs[counter] = 14;
-                                        }
-
-                                        if (!up && !down && !left && !right) {
-                                            textureIDs[counter] = 15;
-                                        }
-
-                                        counter++;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     public static IIcon getConnectedBlockTexture(IBlockAccess blockAccess, int x, int y, int z, int side, IIcon[] icons, Block callingBlock) {
         if (!ConfigHandler.useConnectedTextures) {
@@ -156,14 +57,16 @@ public class ConnectedTextureHelper {
                 occupied[7] = Block.getIdFromBlock(blockAccess.getBlock(x, y - 1, z + (side == 4 ? 1 : -1))) == Block.getIdFromBlock(callingBlock);
                 break;
         }
-
+        
         int textureID = 0;
-
-        for (int i = 0; i < occupied.length; i++) {
-            if (occupied[i]) {
-                textureID += Math.pow(2, i);
-            }
+        String textureIDString = "";
+        
+        for( boolean b : occupied )
+        {
+            textureIDString += (b)?("1"):("0");
         }
+        
+        textureID = Integer.parseInt( textureIDString, 2 );
 
         if (textureID > 0 && textureID < textureIDs.length) {
             return icons[textureIDs[textureID]];

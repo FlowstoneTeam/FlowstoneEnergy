@@ -15,7 +15,8 @@ import net.minecraft.world.World;
 
 public class BlockStrongGlass extends Block {
 
-    protected IIcon[] icons = new IIcon[16];
+    public static final int NUMBER_OF_ICONS = 47;
+    protected IIcon[] icons = new IIcon[NUMBER_OF_ICONS];
 
     public BlockStrongGlass() {
         super(Material.iron);
@@ -57,22 +58,11 @@ public class BlockStrongGlass extends Block {
     @Override
     public void registerBlockIcons(IIconRegister ir) {
         blockIcon = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_0");
-        icons[0] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_0");
-        icons[1] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_1");
-        icons[2] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_2");
-        icons[3] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_3");
-        icons[4] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_4");
-        icons[5] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_5");
-        icons[6] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_6");
-        icons[7] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_7");
-        icons[8] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_8");
-        icons[9] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_9");
-        icons[10] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_10");
-        icons[11] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_11");
-        icons[12] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_12");
-        icons[13] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_13");
-        icons[14] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_14");
-        icons[15] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_15");
+        
+        for( int i = 0; i < NUMBER_OF_ICONS; i++ )
+        {
+            icons[i] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_" + i);
+        }
     }
 
     @Override
