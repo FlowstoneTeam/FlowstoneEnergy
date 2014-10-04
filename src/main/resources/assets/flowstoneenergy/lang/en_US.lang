@@ -169,6 +169,7 @@ info.fe.control.sneak=Sneaking
 
 MANUAL TITLES
 gui.manual.title.main=Home
+gui.manual.title.index=Index
 gui.manual.title.2=Machine Box
 gui.manual.title.3=Machine Workbench
 gui.manual.title.4=Energized Ore Tumbler
@@ -185,6 +186,7 @@ gui.manual.title.14=Flowmatic Flowtions Generator
 
 MANUAL PAGES
 gui.manual.info.main=Welcome to the Flowstone Energy Mod! The newest energy mod, all about Flowstone! (Fluid Glowstone). Each page in this book will give a brief description of what each component of the mod does, the rest is up to you the player to work out! This mod works best with NEI, Flowstone Mixtures (a.k.a Lucky Drinks), Steam Tech, IC2, Applied Energistics 2 and Buildcraft.
+gui.manual.info.index.1=This is the page where you will be able to navigate between page. It is not working at the moment, sorry for the inconvenience
 gui.manual.info.2=The Machine Box, is the basis of all machines and is required to make all the machines. The machine box doesn't do much... it's just there... Did I forget to mention it has connected textures?
 gui.manual.info.3=The Machine Workbench, or MWB for short, is the first machine you will need to get started in Flowstone Energy. You use this machine to craft the other machines by adding two gears to a machine box. The MWB has three inputs, the left is for a gear, the middle is for the machine box, and the right is for the other gear, it also has one output slot, but the MWB is not only for machines, it is also how you create the Pneumatic Flowwrench.
 gui.manual.info.4=The Energized Ore Tumbler is a machine that is used to, double ores it takes the base ores and smashes it up and turns it into dusts which can be smelted into ingots thereby doubling the ore processing system. Simply place a piece of ore into the input slot and wait for the processing to finish then put the dusts into some form of furnace. NOTE: If you have Tinker's Construct or Metallurgy mods installed their ores will work in this machine, producing the corresponding dusts.
