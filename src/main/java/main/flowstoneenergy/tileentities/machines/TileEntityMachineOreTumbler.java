@@ -13,6 +13,7 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
 
     public TileEntityMachineOreTumbler() {
         items = new ItemStack[2];
+        this.energy.setMaxExtract(2000);
     }
 
     @Override
@@ -65,7 +66,8 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
                 maxTicks = r.getTime() - (r.getTime() * divisionFactor);
             }
         }
-        if (ticksLeft < maxTicks && RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null) {
+        int availablePower = this.energy.extractEnergy(2000, true);
+        if (ticksLeft < maxTicks && RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null && availablePower >= 2000) {
             Recipe1_1 r = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]);
             if (items[1] == null || (r.getOutput().isItemEqual(items[1]) && r.getOutput().getMaxStackSize() > items[1].stackSize)) {
                 ticksLeft++;
@@ -94,7 +96,7 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
                 items[1].stackSize += res.stackSize;
 
             items[0].stackSize--;
-            energy.extractEnergy(4000, false);
+            energy.extractEnergy(2000, false);
 
             if (items[0].stackSize <= 0) {
                 items[0] = null;
@@ -111,7 +113,10 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
 
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-        return energy.receiveEnergy(maxReceive, simulate);
+        int recived = energy.receiveEnergy(maxReceive, simulate);
+        if (!simulate)
+            this.markDirty();
+        return recived;
     }
 
     @Override

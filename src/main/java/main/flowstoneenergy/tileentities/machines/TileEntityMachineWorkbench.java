@@ -109,7 +109,10 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
 
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-        return energy.receiveEnergy(maxReceive, simulate);
+        int received = energy.receiveEnergy(maxReceive, simulate);
+        if (!simulate)
+            this.markDirty();
+        return received;
     }
 
     @Override
