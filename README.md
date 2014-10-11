@@ -12,3 +12,6 @@ Developer - imdutch
 Texture Artist - Kris1432
 
 Texture Artist - TheOrangeGenius
+
+This project is licensed under the MIT License.
+Check License.md for more info
