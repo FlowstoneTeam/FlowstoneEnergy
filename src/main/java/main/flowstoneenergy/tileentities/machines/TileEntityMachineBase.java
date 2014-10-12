@@ -168,9 +168,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     @Override
     public void markDirty() {
         super.markDirty(); // Mark dirty for gamesave
-        if (worldObj.isRemote) {
-            return;
-        }
+
         this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update
                                                                   // block + TE
                                                                   // via Network

@@ -60,9 +60,6 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     public void updateEntity() {
         super.updateEntity();
 
-        if (worldObj.isRemote)
-            return;
-
         if (canSaw()) {
 
             if (ticksLeft >= maxTicks) {

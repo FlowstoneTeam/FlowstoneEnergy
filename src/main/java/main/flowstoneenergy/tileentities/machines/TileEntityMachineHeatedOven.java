@@ -62,8 +62,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     @Override
     public void updateEntity() {
         super.updateEntity();
-        if (worldObj.isRemote)
-            return;
+
         if (upgradeCheckTimer >= 20) {
             getUpgrade();
         } else {
