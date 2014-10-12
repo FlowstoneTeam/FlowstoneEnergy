@@ -25,6 +25,7 @@ tile.blockUpgrades.creative.name=Creative Upgrade
 PIPES
 tile.flowstoneenergy.fluid.pipe.name=Fluid Pipe [Tier: 1]
 tile.flowstoneenergy.item.pipe.name=Item Pipe [Tier: 1]
+tile.flowstoneenergy.power.pipe.name=Power Pipe [Tier: 1]
 
 BLOCKS
 tile.blockIngotStorage.copper.name=Copper Block

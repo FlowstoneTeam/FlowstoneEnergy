@@ -10,6 +10,7 @@ import main.flowstoneenergy.blocks.machines.BlockMachineWorkbench;
 import main.flowstoneenergy.blocks.machines.BlockMachines;
 import main.flowstoneenergy.blocks.transport.BlockPipeFluid;
 import main.flowstoneenergy.blocks.transport.BlockPipeItem;
+import main.flowstoneenergy.blocks.transport.BlockPipePower;
 import main.flowstoneenergy.blocks.upgrades.BlockUpgrades;
 import main.flowstoneenergy.items.blocks.*;
 import net.minecraft.block.Block;
@@ -33,9 +34,10 @@ public class BlockRegistry {
     public static Block aplite;
     public static Block upgrades;
 
-    // pipes
+    // transport
     public static Block itemPipe;
     public static Block fluidPipe;
+    public static Block powerPipe;
 
     // ores
     public static Block blockOres;
@@ -69,11 +71,13 @@ public class BlockRegistry {
         upgrades = new BlockUpgrades().setBlockName("blockUpgrades");
         GameRegistry.registerBlock(upgrades, ItemBlockUpgrades.class, "BlockUpgrades");
 
-        // items
+        // transport
         itemPipe = new BlockPipeItem();
         GameRegistry.registerBlock(itemPipe, itemPipe.getUnlocalizedName());
         fluidPipe = new BlockPipeFluid();
         GameRegistry.registerBlock(fluidPipe, fluidPipe.getUnlocalizedName());
+        powerPipe = new BlockPipePower();
+        GameRegistry.registerBlock(powerPipe, powerPipe.getUnlocalizedName());
 
         // ores
         blockOres = new BlockOres();
