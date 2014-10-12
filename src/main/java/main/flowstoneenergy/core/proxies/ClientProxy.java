@@ -29,7 +29,6 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityItemPipe.class, new RenderItemPipe());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFluidPipe.class, new RenderFluidPipe());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlockRegistry.machineWorkbench), new CustomItemRenderer());
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlockRegistry.itemPipe), new CustomItemRenderer());
     }
 
 }
