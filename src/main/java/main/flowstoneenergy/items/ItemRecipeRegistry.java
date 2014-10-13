@@ -1,17 +1,16 @@
 package main.flowstoneenergy.items;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.core.utils.OreDictHandler;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
-import main.flowstoneenergy.core.utils.OreDictHandler;
-import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemRecipeRegistry {
 
