@@ -25,11 +25,11 @@ public class ItemRegistry {
     public static final ArmorMaterial flowfield = EnumHelper.addArmorMaterial("flowfield", -1, new int[]{1, 2, 3, 4}, 0);
 
     // batteries
-    public static Item tierOne;
-    public static Item tierTwo;
-    public static Item tierThree;
-    public static Item tierFour;
-    public static Item tierFive;
+    public static ItemBatteryFlowstoneBase tierOne;
+    public static ItemBatteryFlowstoneBase tierTwo;
+    public static ItemBatteryFlowstoneBase tierThree;
+    public static ItemBatteryFlowstoneBase tierFour;
+    public static ItemBatteryFlowstoneBase tierFive;
 
     // tools
     public static Item flowwrench;

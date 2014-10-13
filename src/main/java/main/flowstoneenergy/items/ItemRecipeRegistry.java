@@ -6,6 +6,7 @@ import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import main.flowstoneenergy.core.utils.OreDictHandler;
+import main.flowstoneenergy.items.battery.ItemBatteryFlowstoneBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -30,11 +31,11 @@ public class ItemRecipeRegistry {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.electrumAxe), new Object[]{"XX ", "XY ", " Y ", 'X', "ingotElectrum", 'Y', "stickWood"}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.electrumHoe), new Object[]{"XX ", " Y ", " Y ", 'X', "ingotElectrum", 'Y', "stickWood"}));
 
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.tierOne), new Object[]{" R ", "RIR", "ICI", 'R', Items.redstone, 'I', "ingotIron", 'C', "ingotCopper"}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.tierTwo), new Object[]{" R ", "LBL", "LRL", 'R', Items.redstone, 'L', "ingotLead", 'B', ItemRegistry.tierOne}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.tierThree), new Object[]{" R ", "IBI", "IRI", 'R', Items.redstone, 'I', "ingotInvar", 'B', ItemRegistry.tierTwo}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.tierFour), new Object[]{" R ", "EBE", "ERE", 'R', Items.redstone, 'E', "ingotElectrum", 'B', ItemRegistry.tierThree}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.tierFive), new Object[]{" R ", "EBE", "ERE", 'R', Items.redstone, 'E', "ingotEnder", 'B', ItemRegistry.tierFour}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemRegistry.tierOne.createItemStack(), new Object[]{" R ", "RIR", "ICI", 'R', Items.redstone, 'I', "ingotIron", 'C', "ingotCopper"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemRegistry.tierTwo.createItemStack(), new Object[]{" R ", "LBL", "LRL", 'R', Items.redstone, 'L', "ingotLead", 'B', ItemRegistry.tierOne}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemRegistry.tierThree.createItemStack(), new Object[]{" R ", "IBI", "IRI", 'R', Items.redstone, 'I', "ingotInvar", 'B', ItemRegistry.tierTwo}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemRegistry.tierFour.createItemStack(), new Object[]{" R ", "EBE", "ERE", 'R', Items.redstone, 'E', "ingotElectrum", 'B', ItemRegistry.tierThree}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemRegistry.tierFive.createItemStack(), new Object[]{" R ", "EBE", "ERE", 'R', Items.redstone, 'E', "ingotEnder", 'B', ItemRegistry.tierFour}));
 
         // gear recipes (vanilla crafting recipe)
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemRegistry.metaResourceGear, 1, 0), new Object[]{" X ", "XXX", " X ", 'X', "stickWood"}));
