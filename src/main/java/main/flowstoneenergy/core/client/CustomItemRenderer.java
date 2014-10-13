@@ -3,6 +3,7 @@ package main.flowstoneenergy.core.client;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import main.flowstoneenergy.core.client.blocks.ModelMachineWorkbench;
 import main.flowstoneenergy.core.libs.ModInfo;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
@@ -32,29 +33,30 @@ public class CustomItemRenderer implements IItemRenderer {
     // DON'T TOUCH THESE NUMBERS IT TOOK POPPY AN HOUR TO GET IT RIGHT
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+        if (item == null || item.getItem() == null)
+            return;
+
+        if (Block.getBlockFromItem(item.getItem()) != BlockRegistry.machineWorkbench)
+            return;
+
         switch (type) {
-            case ENTITY: { // item entity
-                if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
-                    renderWorkbench(0.5F, 15F, -0.5F, 0.09F);
-                return;
-            }
-            case EQUIPPED: { // third person in hand
-                if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
-                    renderWorkbench(2F, 15F, 5F, 0.10F);
-                return;
-            }
-            case EQUIPPED_FIRST_PERSON: { // first person in hand
-                if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
-                    renderWorkbench(1F, 19F, 7F, 0.08F);
-                return;
-            }
-            case INVENTORY: { // the item in inventories
-                if (item.getItem() == new ItemStack(BlockRegistry.machineWorkbench).getItem())
-                    renderWorkbench(-0.01F, 10F, 0.0F, 0.1F);
-                return;
-            }
+            case ENTITY: // item entity
+                renderWorkbench(0.5F, 15F, -0.5F, 0.09F);
+                break;
+
+            case EQUIPPED: // third person in hand
+                renderWorkbench(2F, 15F, 5F, 0.10F);
+                break;
+
+            case EQUIPPED_FIRST_PERSON: // first person in hand
+                renderWorkbench(1F, 19F, 7F, 0.08F);
+                break;
+
+            case INVENTORY: // the item in inventories
+                renderWorkbench(-0.01F, 10F, 0.0F, 0.1F);
+                break;
+
             default:
-                return;
         }
 
     }
