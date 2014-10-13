@@ -169,7 +169,8 @@ public class ItemGuiManual extends GuiScreen {
 
         boolean unicode = fontRendererObj.getUnicodeFlag();
         fontRendererObj.setUnicodeFlag(true);
-        fontRendererObj.drawString(TextHelper.localize("gui.manual.info.index.1"), bookXStart + 20, 60, 0x000000);
+        fontRendererObj.drawSplitString(TextHelper.localize("gui.manual.info.index.1"), bookXStart + 20, 60, WIDTH - 40, 0x000000);
+        fontRendererObj.drawString((pageIndex + 1) + "/" + (bookTotalPages), bookXStart + 82, 215, 0x000000);
         fontRendererObj.setUnicodeFlag(unicode);
     }
 
