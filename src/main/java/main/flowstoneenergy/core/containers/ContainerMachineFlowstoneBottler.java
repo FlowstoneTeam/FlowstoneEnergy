@@ -1,5 +1,6 @@
 package main.flowstoneenergy.core.containers;
 
+import main.flowstoneenergy.core.slots.SlotCharging;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineFlowstoneBottler;
 import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +26,7 @@ public class ContainerMachineFlowstoneBottler extends Container {
     }
 
     private void createSlots(TileEntityMachineFlowstoneBottler tile, EntityPlayer player) {
-        addSlotToContainer(new Slot(tile, 0, 52, 16));
+        addSlotToContainer(new SlotCharging(tile, 0, 52, 16));
         addSlotToContainer(new SlotFurnace(player, tile, 1, 129, 34));
     }
 
