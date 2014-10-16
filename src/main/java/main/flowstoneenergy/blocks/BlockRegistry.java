@@ -5,6 +5,7 @@ import main.flowstoneenergy.blocks.decorative.BlockStrongGlass;
 import main.flowstoneenergy.blocks.decorative.BlockStrongGlassPane;
 import main.flowstoneenergy.blocks.fluids.BlockFlowstone;
 import main.flowstoneenergy.blocks.fluids.BlockFluidBlaze;
+import main.flowstoneenergy.blocks.generators.BlockGenerator;
 import main.flowstoneenergy.blocks.machines.BlockMachineBox;
 import main.flowstoneenergy.blocks.machines.BlockMachineWorkbench;
 import main.flowstoneenergy.blocks.machines.BlockMachines;
@@ -47,6 +48,9 @@ public class BlockRegistry {
     public static Block flowstoneBlock;
     public static Fluid fluidBlaze;
     public static Block fluidBlazeBlock;
+    
+    // generators
+    public static Block generator;
 
     public static void registerBlocks() {
         // machines
@@ -95,5 +99,9 @@ public class BlockRegistry {
         fluidBlazeBlock = new BlockFluidBlaze(fluidBlaze);
         GameRegistry.registerBlock(fluidBlazeBlock, fluidBlazeBlock.getUnlocalizedName());
         fluidBlaze.setUnlocalizedName(fluidBlazeBlock.getUnlocalizedName());
+        
+        // generator
+        generator = new BlockGenerator();
+        GameRegistry.registerBlock(generator, ItemBlockGenerators.class, generator.getUnlocalizedName());
     }
 }

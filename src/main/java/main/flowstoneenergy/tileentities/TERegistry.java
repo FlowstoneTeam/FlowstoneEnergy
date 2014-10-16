@@ -2,6 +2,10 @@ package main.flowstoneenergy.tileentities;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.core.libs.ModInfo;
+import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorCoal;
+import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorFlowstone;
+import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorLava;
+import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorSolar;
 import main.flowstoneenergy.tileentities.machines.*;
 import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
@@ -17,5 +21,9 @@ public class TERegistry {
         GameRegistry.registerTileEntity(TileEntityMachineLumberMill.class, ModInfo.MODID + ":" + "tileEntityMachineLumberMill");
         GameRegistry.registerTileEntity(TileEntityItemPipe.class, ModInfo.MODID + ":" + "tileEntityFluidPipe");
         GameRegistry.registerTileEntity(TileEntityFluidPipe.class, ModInfo.MODID + ":" + "tileEntityItemPipe");
+        GameRegistry.registerTileEntity(TileEntityGeneratorCoal.class, ModInfo.MODID + ":" + "tileEntityGeneratorCoal");
+        GameRegistry.registerTileEntity(TileEntityGeneratorFlowstone.class, ModInfo.MODID + ":" + "tileEntityGeneratorFlowstone");
+        GameRegistry.registerTileEntity(TileEntityGeneratorLava.class, ModInfo.MODID + ":" + "tileEntityGeneratorLava");
+        GameRegistry.registerTileEntity(TileEntityGeneratorSolar.class, ModInfo.MODID + ":" + "tileEntityGeneratorSolar");
     }
 }
