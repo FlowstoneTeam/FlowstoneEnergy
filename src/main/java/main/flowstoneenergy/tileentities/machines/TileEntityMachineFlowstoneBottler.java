@@ -1,5 +1,6 @@
 package main.flowstoneenergy.tileentities.machines;
 
+import cofh.api.energy.IEnergyContainerItem;
 import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
@@ -10,6 +11,7 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
 
     @SuppressWarnings("unused")
     private String field_145958_o;
+    private int ratePerTick = 50;
 
     public TileEntityMachineFlowstoneBottler() {
         items = new ItemStack[2];
@@ -27,13 +29,16 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
+        if (stack == null || stack.getItem() == null)
+            return false;
+
         if (slot != 0)
             return false;
-        for (Recipe1_1 r : RecipesFlowstoneBottler.recipe11List) {
-            if (r.getInput().getItem().equals(stack.getItem()))
-                return true;
-        }
-        return false;
+
+        if (stack.getItem() instanceof IEnergyContainerItem)
+            return true;
+        else
+            return false;
     }
 
     @Override
@@ -59,43 +64,51 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
     public void updateEntity() {
         super.updateEntity();
 
-        if (items[0] != null && ticksLeft == 0) {
-            Recipe1_1 r = RecipesFlowstoneBottler.getRecipeFromStack(items[0]);
-            if (r != null && r.getPowerRequired() < getEnergyStored(ForgeDirection.UNKNOWN)) {
-                maxTicks = r.getTime();
-            }
-        }
-        if (ticksLeft < maxTicks && RecipesFlowstoneBottler.getRecipeFromStack(items[0]) != null) {
-            if (items[1] == null || RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput().getItem().equals(items[1].getItem())) {
-                ticksLeft++;
-                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
-            } else {
-                ticksLeft = 0;
-                resetTimeAndTexture();
-            }
-        }
-        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
+        if ((items[0] == null) || (items[0].getItem() == null)) {
             ticksLeft = 0;
+            maxTicks = 0;
             resetTimeAndTexture();
+            return;
         }
-        if (ticksLeft == maxTicks) {
+
+        if (items[0].getItem() instanceof IEnergyContainerItem && items[1] == null) {
+
+            IEnergyContainerItem energyContainer = (IEnergyContainerItem) items[0].getItem();
+
+            int maxCap = energyContainer.getEnergyStored(items[0]);
+            maxTicks = maxCap / ratePerTick;
+
+            chargeItem();
+
+            ticksLeft++;
+
+            markDirty();
+
+        } else {
             ticksLeft = 0;
-            smelt();
+            maxTicks = 0;
+            resetTimeAndTexture();
         }
     }
 
-    private void smelt() {
-        if (RecipesFlowstoneBottler.getRecipeFromStack(items[0]) == null)
-            return;
-        ItemStack res = RecipesFlowstoneBottler.getRecipeFromStack(items[0]).getOutput();
-        if (items[1] == null)
-            items[1] = res.copy();
-        else
-            items[1].stackSize += res.stackSize;
+    private void chargeItem() {
 
-        items[0].stackSize--;
-        if (items[0].stackSize <= 0) {
-            items[0] = null;
+        IEnergyContainerItem energyContainer = (IEnergyContainerItem) items[0].getItem();
+
+        int extracted = energy.extractEnergy(ratePerTick, true);
+        extracted = energyContainer.receiveEnergy(items[0], extracted, true);
+        extracted = energy.extractEnergy(extracted, false);
+        energyContainer.receiveEnergy(items[0], extracted, false);
+
+        if (extracted <= 0) {
+            ticksLeft = 0;
+            resetTimeAndTexture();
+            if (items[1] == null)
+                items[1] = items[0].copy();
+            items[0].stackSize--;
+            if (items[0].stackSize <= 0) {
+                items[0] = null;
+            }
         }
     }
 

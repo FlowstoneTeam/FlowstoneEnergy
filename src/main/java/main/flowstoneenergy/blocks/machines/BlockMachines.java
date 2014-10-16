@@ -40,7 +40,7 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.sideIcon[0] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
 
         // flowstone bottler
-        this.frontOn[1] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front_Active");
+        this.frontOn[1] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front_Activate");
         this.frontOff[1] = icon.registerIcon(ModInfo.MODID + ":machines/flowstoneBottler_Front");
         this.top[1] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[1] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
