@@ -39,7 +39,7 @@ public class FlowstoneEnergy {
     public static CreativeTabs tab = new CreativeTab("FlowstoneEnergyItems");
     public static Logger logger = LogManager.getLogger(ModInfo.NAME);
 
-    @Instance("flowstoneenergy")
+    @Instance(ModInfo.MODID)
     public static FlowstoneEnergy instance;
     Configuration config;
 
