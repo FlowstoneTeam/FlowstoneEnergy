@@ -66,12 +66,19 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.top[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
         this.bottom[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
         this.sideIcon[4] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
+
+        // cooler
+        this.frontOn[5] = icon.registerIcon(ModInfo.MODID + ":machines/cooler_Front_Active");
+        this.frontOff[5] = icon.registerIcon(ModInfo.MODID + ":machines/cooler_Front");
+        this.top[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Top");
+        this.bottom[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
+        this.sideIcon[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
-        for (int i = 0; i <= 4; i++) {
+        for (int i = 0; i <= 5; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
@@ -92,6 +99,9 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         }
         if (meta == 4) {
             return new TileEntityMachineMetalMixer();
+        }
+        if (meta == 5) {
+            return new TileEntityMachineCooler();
         }
         return super.createTileEntity(world, meta);
     }

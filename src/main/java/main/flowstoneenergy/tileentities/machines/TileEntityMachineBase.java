@@ -11,6 +11,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.fluids.FluidTank;
 
 public abstract class TileEntityMachineBase extends TileEntity implements ISidedInventory {
 
@@ -24,6 +25,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public int divisionFactor = 0;
     public int upgradeCheckTimer = 0;
     public EnergyStorage energy = new EnergyStorage(energyCapacity, 1000);
+    public FluidTank tank = new FluidTank(10000);
 
     public boolean[] Upgrade0 = new boolean[6];
     public boolean[] Upgrade1 = new boolean[6];
