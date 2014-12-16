@@ -282,12 +282,6 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench implements I
         return true;
     }
 
-    /* IScrewdriver (Project:Red) */
-    @Override
-    public void damageScrewdriver(World world, EntityPlayer player) {
-
-    }
-
     /* IToolCrowbar (RailCraft) */
     @Override
     public boolean canWhack(EntityPlayer player, ItemStack crowbar, int x, int y, int z) {
