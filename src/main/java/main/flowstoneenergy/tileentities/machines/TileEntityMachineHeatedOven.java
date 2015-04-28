@@ -64,7 +64,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
         super.updateEntity();
 
         if (upgradeCheckTimer >= 20) {
-            getUpgrade();
+            getUpgrades();
         } else {
             upgradeCheckTimer++;
         }
