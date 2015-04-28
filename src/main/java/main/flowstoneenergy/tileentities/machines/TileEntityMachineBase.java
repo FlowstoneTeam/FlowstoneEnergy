@@ -2,6 +2,7 @@ package main.flowstoneenergy.tileentities.machines;
 
 import cofh.api.energy.EnergyStorage;
 import main.flowstoneenergy.blocks.upgrades.BlockUpgrades;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -11,6 +12,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidTank;
 
 public abstract class TileEntityMachineBase extends TileEntity implements ISidedInventory {
@@ -27,12 +29,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public EnergyStorage energy = new EnergyStorage(energyCapacity, 1000);
     public FluidTank tank = new FluidTank(10000);
 
-    public boolean[] Upgrade0 = new boolean[6];
-    public boolean[] Upgrade1 = new boolean[6];
-    public boolean[] Upgrade2 = new boolean[6];
-    public boolean[] Upgrade3 = new boolean[6];
-    public boolean[] Upgrade4 = new boolean[6];
-    public boolean[] Upgrade5 = new boolean[6];
+    public int[] upgrades;
 
     @Override
     public void openInventory() {
@@ -176,155 +173,81 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
                                                                   // via Network
     }
 
-    public void getUpgrade() {
-
-        for (int i = 0; i < Upgrade0.length; i++) {
-            Upgrade0[i] = false;
-            Upgrade1[i] = false;
-            Upgrade2[i] = false;
-            Upgrade3[i] = false;
-            Upgrade4[i] = false;
-            Upgrade5[i] = false;
+    //use this in the onUpdate() function
+    public void getUpgrades() {
+        for (int i = 0; i < ForgeDirection.VALID_DIRECTIONS.length; i++) {
+            upgrades[i] = -1;
+            ForgeDirection direction = ForgeDirection.VALID_DIRECTIONS[i];
+            Block block = worldObj.getBlock(this.xCoord + direction.offsetX, this.yCoord + direction.offsetY, this.zCoord + direction.offsetZ);
+            if (block instanceof BlockUpgrades) {
+                upgrades[i] = block.getDamageValue(worldObj, this.xCoord + direction.offsetX, this.yCoord + direction.offsetY, this.zCoord + direction.offsetZ);
+            }
         }
-
-        upgradeCheckTimer = 0;
-        // up
-        if (worldObj.getBlockMetadata(xCoord, yCoord + 1, zCoord) == 0 && worldObj.getBlock(xCoord, yCoord + 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade0[0] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord + 1, zCoord) == 1 && worldObj.getBlock(xCoord, yCoord + 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade1[0] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord + 1, zCoord) == 2 && worldObj.getBlock(xCoord, yCoord + 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade2[0] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord + 1, zCoord) == 3 && worldObj.getBlock(xCoord, yCoord + 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade3[0] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord + 1, zCoord) == 4 && worldObj.getBlock(xCoord, yCoord + 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade4[0] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord + 1, zCoord) == 5 && worldObj.getBlock(xCoord, yCoord + 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade5[0] = true;
-        }
-        // down
-        if (worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord) == 0 && worldObj.getBlock(xCoord, yCoord - 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade0[1] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord) == 1 && worldObj.getBlock(xCoord, yCoord - 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade1[1] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord) == 2 && worldObj.getBlock(xCoord, yCoord - 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade2[1] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord) == 3 && worldObj.getBlock(xCoord, yCoord - 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade3[1] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord) == 4 && worldObj.getBlock(xCoord, yCoord - 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade4[1] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord) == 5 && worldObj.getBlock(xCoord, yCoord - 1, zCoord) instanceof BlockUpgrades) {
-            Upgrade5[1] = true;
-        }
-        // north
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord - 1) == 0 && worldObj.getBlock(xCoord, yCoord, zCoord - 1) instanceof BlockUpgrades) {
-            Upgrade0[2] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord - 1) == 1 && worldObj.getBlock(xCoord, yCoord, zCoord - 1) instanceof BlockUpgrades) {
-            Upgrade1[2] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord - 1) == 2 && worldObj.getBlock(xCoord, yCoord, zCoord - 1) instanceof BlockUpgrades) {
-            Upgrade2[2] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord - 1) == 3 && worldObj.getBlock(xCoord, yCoord, zCoord - 1) instanceof BlockUpgrades) {
-            Upgrade3[2] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord - 1) == 4 && worldObj.getBlock(xCoord, yCoord, zCoord - 1) instanceof BlockUpgrades) {
-            Upgrade4[2] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord - 1) == 5 && worldObj.getBlock(xCoord, yCoord, zCoord - 1) instanceof BlockUpgrades) {
-            Upgrade5[2] = true;
-        }
-        // east
-        if (worldObj.getBlockMetadata(xCoord + 1, yCoord, zCoord) == 0 && worldObj.getBlock(xCoord + 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade0[3] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord + 1, yCoord, zCoord) == 1 && worldObj.getBlock(xCoord + 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade1[3] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord + 1, yCoord, zCoord) == 2 && worldObj.getBlock(xCoord + 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade2[3] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord + 1, yCoord, zCoord) == 3 && worldObj.getBlock(xCoord + 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade3[3] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord + 1, yCoord, zCoord) == 4 && worldObj.getBlock(xCoord + 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade4[3] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord + 1, yCoord, zCoord) == 5 && worldObj.getBlock(xCoord + 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade5[3] = true;
-        }
-        // south
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord + 1) == 0 && worldObj.getBlock(xCoord, yCoord, zCoord + 1) instanceof BlockUpgrades) {
-            Upgrade0[4] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord + 1) == 1 && worldObj.getBlock(xCoord, yCoord, zCoord + 1) instanceof BlockUpgrades) {
-            Upgrade1[4] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord + 1) == 2 && worldObj.getBlock(xCoord, yCoord, zCoord + 1) instanceof BlockUpgrades) {
-            Upgrade2[4] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord + 1) == 3 && worldObj.getBlock(xCoord, yCoord, zCoord + 1) instanceof BlockUpgrades) {
-            Upgrade3[4] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord + 1) == 4 && worldObj.getBlock(xCoord, yCoord, zCoord + 1) instanceof BlockUpgrades) {
-            Upgrade4[4] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord + 1) == 5 && worldObj.getBlock(xCoord, yCoord, zCoord + 1) instanceof BlockUpgrades) {
-            Upgrade5[4] = true;
-        }
-        // west
-        if (worldObj.getBlockMetadata(xCoord - 1, yCoord, zCoord) == 0 && worldObj.getBlock(xCoord - 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade0[5] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord - 1, yCoord, zCoord) == 1 && worldObj.getBlock(xCoord - 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade1[5] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord - 1, yCoord, zCoord) == 2 && worldObj.getBlock(xCoord - 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade2[5] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord - 1, yCoord, zCoord) == 3 && worldObj.getBlock(xCoord - 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade3[5] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord - 1, yCoord, zCoord) == 4 && worldObj.getBlock(xCoord - 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade4[5] = true;
-        }
-        if (worldObj.getBlockMetadata(xCoord - 1, yCoord, zCoord) == 5 && worldObj.getBlock(xCoord - 1, yCoord, zCoord) instanceof BlockUpgrades) {
-            Upgrade5[5] = true;
-        }
-
-        if (Upgrade0[0] || Upgrade0[1] || Upgrade0[2] || Upgrade0[3] || Upgrade0[4] || Upgrade0[5]) {
-
-        }
-        if (Upgrade2[0] || Upgrade2[1] || Upgrade2[2] || Upgrade2[3] || Upgrade2[4] || Upgrade2[5]) {
-
-        }
-        if (Upgrade3[0] || Upgrade3[1] || Upgrade3[2] || Upgrade3[3] || Upgrade3[4] || Upgrade3[5]) {
-
-        }
-
-        // * if(Upgrade0 > 0){
-        // ticksLeft = ticksLeft - (ticksLeft/100*(25*Upgrade0));
-        // System.out.println(ticksLeft);
-        // }
-        // if(Upgrade2 > 0){
-        // energyCapacity = 32000 + (32000/100*(10*energyCapacity));
-        // System.out.println(energyCapacity);
-        // }
-        // if(Upgrade3 > 0){
-        // energyRequired = energyRequired -
-        // (energyRequired/100*(15*energyRequired));
-        // System.out.println(energyRequired);
-        // }
     }
+
+    //use this to get the amount of upgrades the block has around it
+    //input "speed" for speed upgrade, "itemCap" for item capacity, "energyCap" for energy capacity
+    //"efficiency" for efficiency upgrade, "amount" for item amount upgrade, "creative" for creative upgrade
+    public int getUpgrade(String upgradeName) {
+        int speed = 0; //speed upgrade
+        int itemCapacity = 0; //item capacity upgrade
+        int energyCapacity = 0; //energy capacity upgrade
+        int efficiency = 0; //energy efficiency upgrade
+        int amount = 0; //item amount upgrade
+        int creative = 0; //creative upgrade
+        for(int upgrade : upgrades)
+        {
+            switch(upgrade)
+            {
+                case -1:
+                {
+                    break;
+                }
+                case 0:
+                {
+                    speed += 1;
+                    break;
+                }
+                case 1:
+                {
+                    itemCapacity += 1;
+                    break;
+                }
+                case 2:
+                {
+                    energyCapacity += 1;
+                    break;
+                }
+                case 3:
+                {
+                    efficiency += 1;
+                    break;
+                }
+                case 4:
+                {
+                    amount += 1;
+                    break;
+                }
+                default:
+                {
+                    creative += 1;
+                    break;
+                }
+            }
+        }
+        if( upgradeName.equals("speed")) {
+            return speed;
+        } else if(upgradeName.equals("itemCap")){
+            return itemCapacity;
+        } else if(upgradeName.equals("energyCap")){
+            return energyCapacity;
+        } else if(upgradeName.equals("efficiency")){
+            return efficiency;
+        } else if(upgradeName.equals("amount")){
+            return amount;
+        } else if (upgradeName.equals("creative")) {
+            return creative;
+        } else return 0;
+    }
+
 }
