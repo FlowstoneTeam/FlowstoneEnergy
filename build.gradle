@@ -27,7 +27,7 @@ if(System.getenv().DRONE_BUILD_NUMBER)
 }
 
 minecraft {
-    version = "1.7.10-10.13.0.1208"
+    version = "1.7.10-10.13.3.1395-1710ls"
     runDir = "run"
 }
 repositories{
