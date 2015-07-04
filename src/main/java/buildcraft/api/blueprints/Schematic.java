@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2011-2014, SpaceToad and the BuildCraft Team
+ * Copyright (c) 2011-2015, SpaceToad and the BuildCraft Team
  * http://www.mod-buildcraft.com
  *
- * BuildCraft is distributed under the terms of the Minecraft Mod Public
- * License 1.0, or MMPL. Please check the contents of the license located in
- * http://www.mod-buildcraft.com/MMPL-1.0.txt
+ * The BuildCraft API is distributed under the terms of the MIT License.
+ * Please check the contents of the license, which should be located
+ * as "LICENSE.API" in the BuildCraft source code distribution.
  */
 package buildcraft.api.blueprints;
 
@@ -34,9 +34,8 @@ import buildcraft.api.core.IInvSlot;
  * buildcraft.core.schematics.
  */
 public abstract class Schematic {
-
 	/**
-	 * blocks are build in various stages, in order to make sure that a block
+	 * Blocks are build in various stages, in order to make sure that a block
 	 * can indeed be placed, and that it's unlikely to disturb other blocks.
 	 */
 	public static enum BuildingStage {
@@ -86,7 +85,7 @@ public abstract class Schematic {
 			}
 
 			if (stack.getItemDamage() >= stack.getMaxDamage()) {
-				slot.decreaseStackInSlot();
+				slot.decreaseStackInSlot(1);
 			}
 		} else {
 			if (stack.stackSize >= req.stackSize) {
@@ -152,7 +151,7 @@ public abstract class Schematic {
 	 * y, z} on the world. For blocks, block and meta fields will be initialized
 	 * automatically.
 	 */
-	public void writeToBlueprint(IBuilderContext context, int x, int y, int z) {
+	public void initializeFromObjectAt(IBuilderContext context, int x, int y, int z) {
 
 	}
 
@@ -160,14 +159,14 @@ public abstract class Schematic {
 	 * Places the block in the world, at the location specified in the slot,
 	 * using the stack in parameters
 	 */
-	public void writeToWorld(IBuilderContext context, int x, int y, int z, LinkedList<ItemStack> stacks) {
+	public void placeInWorld(IBuilderContext context, int x, int y, int z, LinkedList<ItemStack> stacks) {
 
 	}
 
 	/**
 	 * Write specific requirements coming from the world to the blueprint.
 	 */
-	public void writeRequirementsToBlueprint(IBuilderContext context, int x, int y, int z) {
+	public void storeRequirements(IBuilderContext context, int x, int y, int z) {
 
 	}
 
@@ -176,7 +175,7 @@ public abstract class Schematic {
 	 * requirements are met, they will be removed all at once from the builder,
 	 * before calling writeToWorld.
 	 */
-	public void writeRequirementsToWorld(IBuilderContext context, LinkedList<ItemStack> requirements) {
+	public void getRequirementsForPlacement(IBuilderContext context, LinkedList<ItemStack> requirements) {
 
 	}
 
@@ -184,11 +183,13 @@ public abstract class Schematic {
 	 * Returns the amount of energy required to build this slot, depends on the
 	 * stacks selected for the build.
 	 */
-	public double getEnergyRequirement(LinkedList<ItemStack> stacksUsed) {
-		double result = 0;
+	public int getEnergyRequirement(LinkedList<ItemStack> stacksUsed) {
+		int result = 0;
 
-		for (ItemStack s : stacksUsed) {
-			result += s.stackSize * SchematicRegistry.BUILD_ENERGY;
+		if (stacksUsed != null) {
+			for (ItemStack s : stacksUsed) {
+				result += s.stackSize * BuilderAPI.BUILD_ENERGY;
+			}
 		}
 
 		return result;
@@ -263,14 +264,22 @@ public abstract class Schematic {
 	/**
 	 * Saves this schematic to the blueprint NBT.
 	 */
-	public void writeToNBT(NBTTagCompound nbt, MappingRegistry registry) {
+	public void writeSchematicToNBT(NBTTagCompound nbt, MappingRegistry registry) {
 
 	}
 
 	/**
 	 * Loads this schematic from the blueprint NBT.
 	 */
-	public void readFromNBT(NBTTagCompound nbt, MappingRegistry registry) {
+	public void readSchematicFromNBT(NBTTagCompound nbt, MappingRegistry registry) {
 
+	}
+
+	/**
+	 * Returns the number of cycles to wait after building this schematic. Tiles
+	 * and entities typically require more wait, around 5 cycles.
+	 */
+	public int buildTime() {
+		return 1;
 	}
 }

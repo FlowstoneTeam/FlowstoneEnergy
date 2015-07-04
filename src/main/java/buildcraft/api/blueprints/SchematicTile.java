@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2011-2014, SpaceToad and the BuildCraft Team
+ * Copyright (c) 2011-2015, SpaceToad and the BuildCraft Team
  * http://www.mod-buildcraft.com
  *
- * BuildCraft is distributed under the terms of the Minecraft Mod Public
- * License 1.0, or MMPL. Please check the contents of the license located in
- * http://www.mod-buildcraft.com/MMPL-1.0.txt
+ * The BuildCraft API is distributed under the terms of the MIT License.
+ * Please check the contents of the license, which should be located
+ * as "LICENSE.API" in the BuildCraft source code distribution.
  */
 package buildcraft.api.blueprints;
 
@@ -46,25 +46,21 @@ public class SchematicTile extends SchematicBlock {
 	 * Places the block in the world, at the location specified in the slot.
 	 */
 	@Override
-	public void writeToWorld(IBuilderContext context, int x, int y, int z, LinkedList<ItemStack> stacks) {
-		super.writeToWorld(context, x, y, z, stacks);
+	public void placeInWorld(IBuilderContext context, int x, int y, int z, LinkedList<ItemStack> stacks) {
+		super.placeInWorld(context, x, y, z, stacks);
 
 		if (block.hasTileEntity(meta)) {
-			TileEntity tile = context.world().getTileEntity(x, y, z);
-
 			tileNBT.setInteger("x", x);
 			tileNBT.setInteger("y", y);
 			tileNBT.setInteger("z", z);
 
-			if (tile != null) {
-				tile.readFromNBT(tileNBT);
-			}
+			context.world().setTileEntity(x, y, z, TileEntity.createAndLoadEntity(tileNBT));
 		}
 	}
 
 	@Override
-	public void writeToBlueprint(IBuilderContext context, int x, int y, int z) {
-		super.writeToBlueprint(context, x, y, z);
+	public void initializeFromObjectAt(IBuilderContext context, int x, int y, int z) {
+		super.initializeFromObjectAt(context, x, y, z);
 
 		if (block.hasTileEntity(meta)) {
 			TileEntity tile = context.world().getTileEntity(x, y, z);
@@ -72,12 +68,13 @@ public class SchematicTile extends SchematicBlock {
 			if (tile != null) {
 				tile.writeToNBT(tileNBT);
 			}
+			tileNBT = (NBTTagCompound) tileNBT.copy();
 		}
 	}
 
 	@Override
-	public void writeRequirementsToBlueprint(IBuilderContext context, int x, int y, int z) {
-		super.writeRequirementsToBlueprint(context, x, y, z);
+	public void storeRequirements(IBuilderContext context, int x, int y, int z) {
+		super.storeRequirements(context, x, y, z);
 
 		if (block.hasTileEntity(meta)) {
 			TileEntity tile = context.world().getTileEntity(x, y, z);
@@ -100,16 +97,21 @@ public class SchematicTile extends SchematicBlock {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt, MappingRegistry registry) {
-		super.writeToNBT(nbt, registry);
+	public void writeSchematicToNBT(NBTTagCompound nbt, MappingRegistry registry) {
+		super.writeSchematicToNBT(nbt, registry);
 
 		nbt.setTag("blockCpt", tileNBT);
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound nbt,	MappingRegistry registry) {
-		super.readFromNBT(nbt, registry);
+	public void readSchematicFromNBT(NBTTagCompound nbt,	MappingRegistry registry) {
+		super.readSchematicFromNBT(nbt, registry);
 
 		tileNBT = nbt.getCompoundTag("blockCpt");
+	}
+
+	@Override
+	public int buildTime() {
+		return 5;
 	}
 }

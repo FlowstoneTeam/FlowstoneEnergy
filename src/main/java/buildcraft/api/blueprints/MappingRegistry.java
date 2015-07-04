@@ -1,16 +1,20 @@
 /**
- * Copyright (c) 2011-2014, SpaceToad and the BuildCraft Team
+ * Copyright (c) 2011-2015, SpaceToad and the BuildCraft Team
  * http://www.mod-buildcraft.com
  *
- * BuildCraft is distributed under the terms of the Minecraft Mod Public
- * License 1.0, or MMPL. Please check the contents of the license located in
- * http://www.mod-buildcraft.com/MMPL-1.0.txt
+ * The BuildCraft API is distributed under the terms of the MIT License.
+ * Please check the contents of the license, which should be located
+ * as "LICENSE.API" in the BuildCraft source code distribution.
  */
 package buildcraft.api.blueprints;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
+import java.util.HashSet;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
+import org.apache.logging.log4j.Level;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -19,7 +23,10 @@ import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagShort;
-
+import cpw.mods.fml.common.FMLModContainer;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
 import net.minecraftforge.common.util.Constants;
 
 import buildcraft.api.core.BCLog;
@@ -210,7 +217,7 @@ public class MappingRegistry {
 
 		// Then, look at the nbt compound contained in this nbt (even if it's a
 		// stack) and checks for stacks in it.
-		for (Object keyO : nbt.func_150296_c()) {
+		for (Object keyO : new HashSet(nbt.func_150296_c())) {
 			String key = (String) keyO;
 
 			if (nbt.getTag(key) instanceof NBTTagCompound) {
@@ -242,8 +249,14 @@ public class MappingRegistry {
 
 		for (Block b : idToBlock) {
 			NBTTagCompound sub = new NBTTagCompound();
-			sub.setString("name",
-					Block.blockRegistry.getNameForObject(b));
+			if (b != null) {
+				String name = Block.blockRegistry.getNameForObject(b);
+				if (name == null || name.length() == 0) {
+					BCLog.logger.error("Block " + b.getUnlocalizedName() + " (" + b.getClass().getName() + ") has an empty registry name! This is a bug!");
+				} else {
+					sub.setString("name", name);
+				}
+			}
 			blocksMapping.appendTag(sub);
 		}
 
@@ -253,8 +266,14 @@ public class MappingRegistry {
 
 		for (Item i : idToItem) {
 			NBTTagCompound sub = new NBTTagCompound();
-			sub.setString("name",
-					Item.itemRegistry.getNameForObject(i));
+			if (i != null) {
+				String name = Item.itemRegistry.getNameForObject(i);
+				if (name == null || name.length() == 0) {
+					BCLog.logger.error("Item " + i.getUnlocalizedName() + " (" + i.getClass().getName() + ") has an empty registry name! This is a bug!");
+				} else {
+					sub.setString("name", name);
+				}
+			}
 			itemsMapping.appendTag(sub);
 		}
 
@@ -269,6 +288,41 @@ public class MappingRegistry {
 		}
 
 		nbt.setTag("entitiesMapping", entitiesMapping);
+
+//		System.out.println("[W] idToItem size : " + idToItem.size());
+//		for (Item i : idToItem) {
+//			System.out.println("- " + (i != null ? i.toString() : "null"));
+//		}
+	}
+
+	private Object getMissingMappingFromFML(boolean isBlock, String name, int i) {
+		String modName = name.split(":")[0];
+		if (Loader.isModLoaded(modName)) {
+			try {
+				FMLMissingMappingsEvent.MissingMapping mapping = new FMLMissingMappingsEvent.MissingMapping(
+						(isBlock ? '\u0001' : '\u0020') + name, i
+				);
+				ListMultimap<String, FMLMissingMappingsEvent.MissingMapping> missingMapping
+						= ArrayListMultimap.create();
+				missingMapping.put(modName, mapping);
+				FMLMissingMappingsEvent event = new FMLMissingMappingsEvent(missingMapping);
+				for (ModContainer container : Loader.instance().getModList()) {
+					if (container instanceof FMLModContainer) {
+						event.applyModContainer(container);
+						((FMLModContainer) container).handleModStateEvent(event);
+						if (mapping.getAction() != FMLMissingMappingsEvent.Action.DEFAULT) {
+							break;
+						}
+					}
+				}
+				if (mapping.getAction() == FMLMissingMappingsEvent.Action.REMAP) {
+					return mapping.getTarget();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
 
 	public void read (NBTTagCompound nbt) {
@@ -277,15 +331,32 @@ public class MappingRegistry {
 
 		for (int i = 0; i < blocksMapping.tagCount(); ++i) {
 			NBTTagCompound sub = blocksMapping.getCompoundTagAt(i);
+			if (!sub.hasKey("name")) {
+				// Keeping the order correct
+				idToBlock.add(null);
+				BCLog.logger.log(Level.WARN, "Can't load a block - corrupt blueprint!");
+				continue;
+			}
 			String name = sub.getString("name");
-			Block b = (Block) Block.blockRegistry.getObject(name);
+			Block b = null;
 
+			if (!Block.blockRegistry.containsKey(name) && name.contains(":")) {
+				b = (Block) getMissingMappingFromFML(true, name, i);
+				if (b != null) {
+					BCLog.logger.info("Remapped " + name + " to " + Block.blockRegistry.getNameForObject(b));
+				}
+			}
+			
+			if (b == null && Block.blockRegistry.containsKey(name)) {
+				b = (Block) Block.blockRegistry.getObject(name);
+			}
+			
 			if (b != null) {
 				registerBlock(b);
 			} else {
 				// Keeping the order correct
 				idToBlock.add(null);
-				BCLog.logger.log(Level.WARNING, "Can't load block " + name);
+				BCLog.logger.log(Level.WARN, "Can't load block " + name);
 			}
 		}
 
@@ -294,15 +365,33 @@ public class MappingRegistry {
 
 		for (int i = 0; i < itemsMapping.tagCount(); ++i) {
 			NBTTagCompound sub = itemsMapping.getCompoundTagAt(i);
-			String name = sub.getString("name");
-			Item item = (Item) Item.itemRegistry.getObject(name);
+			if (!sub.hasKey("name")) {
+				// Keeping the order correct
+				idToItem.add(null);
+				BCLog.logger.log(Level.WARN, "Can't load an item - corrupt blueprint!");
+				continue;
+			}
 
+			String name = sub.getString("name");
+			Item item = null;
+
+			if (!Item.itemRegistry.containsKey(name) && name.contains(":")) {
+				item = (Item) getMissingMappingFromFML(false, name, i);
+				if (item != null) {
+					BCLog.logger.info("Remapped " + name + " to " + Item.itemRegistry.getNameForObject(item));
+				}
+			}
+
+			if (item == null && Item.itemRegistry.containsKey(name)) {
+				item = (Item) Item.itemRegistry.getObject(name);
+			}
+			
 			if (item != null) {
 				registerItem(item);
 			} else {
 				// Keeping the order correct
 				idToItem.add(null);
-				BCLog.logger.log(Level.WARNING, "Can't load item " + name);
+				BCLog.logger.log(Level.WARN, "Can't load item " + name);
 			}
 		}
 
@@ -325,8 +414,13 @@ public class MappingRegistry {
 			} else {
 				// Keeping the order correct
 				idToEntity.add(null);
-				BCLog.logger.log(Level.WARNING, "Can't load entity " + name);
+				BCLog.logger.log(Level.WARN, "Can't load entity " + name);
 			}
 		}
+
+//		System.out.println("[R] idToItem size : " + idToItem.size());
+//		for (Item i : idToItem) {
+//			System.out.println("- " + (i != null ? i.toString() : "null"));
+//		}
 	}
 }

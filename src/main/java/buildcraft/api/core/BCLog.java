@@ -1,20 +1,22 @@
 /**
- * Copyright (c) 2011-2014, SpaceToad and the BuildCraft Team
+ * Copyright (c) 2011-2015, SpaceToad and the BuildCraft Team
  * http://www.mod-buildcraft.com
  *
- * BuildCraft is distributed under the terms of the Minecraft Mod Public
- * License 1.0, or MMPL. Please check the contents of the license located in
- * http://www.mod-buildcraft.com/MMPL-1.0.txt
+ * The BuildCraft API is distributed under the terms of the MIT License.
+ * Please check the contents of the license, which should be located
+ * as "LICENSE.API" in the BuildCraft source code distribution.
  */
 package buildcraft.api.core;
 
 import java.lang.reflect.Method;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public final class BCLog {
 
-	public static final Logger logger = Logger.getLogger("Buildcraft");
+	public static final Logger logger = LogManager.getLogger("BuildCraft");
 
 	/**
 	 * Deactivate constructor
@@ -23,15 +25,13 @@ public final class BCLog {
 	}
 
 	public static void initLog() {
-		// TODO: check if the code below is still useful and remove otherwise.
-		//logger.setParent(FMLLog.getLogger());
 
 		logger.info("Starting BuildCraft " + getVersion());
-		logger.info("Copyright (c) SpaceToad, 2011");
+		logger.info("Copyright (c) SpaceToad, 2011-2015");
 		logger.info("http://www.mod-buildcraft.com");
 	}
 
-	public static void logErrorAPI(String mod, Throwable error, Class classFile) {
+	public static void logErrorAPI(String mod, Throwable error, Class<?> classFile) {
 		StringBuilder msg = new StringBuilder(mod);
 		msg.append(" API error, please update your mods. Error: ").append(error);
 		StackTraceElement[] stackTrace = error.getStackTrace();
@@ -39,12 +39,12 @@ public final class BCLog {
 			msg.append(", ").append(stackTrace[0]);
 		}
 
-		logger.log(Level.SEVERE, msg.toString());
+		logger.log(Level.ERROR, msg.toString());
 
 		if (classFile != null) {
 			msg = new StringBuilder(mod);
 			msg.append(" API error: ").append(classFile.getSimpleName()).append(" is loaded from ").append(classFile.getProtectionDomain().getCodeSource().getLocation());
-			logger.log(Level.SEVERE, msg.toString());
+			logger.log(Level.ERROR, msg.toString());
 		}
 	}
 
