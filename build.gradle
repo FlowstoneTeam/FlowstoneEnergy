@@ -40,7 +40,6 @@ dependencies {
 	compile "codechicken:CodeChickenLib:1.7.10-1.1.3.138:dev"
 	compile "codechicken:CodeChickenCore:1.7.10-1.0.7.46:dev"
 	compile "codechicken:NotEnoughItems:1.7.10-1.0.5.111:dev"
-	compile "com.mod-buildcraft:buildcraft:6.0.18:dev"
 }
 processResources
 {
