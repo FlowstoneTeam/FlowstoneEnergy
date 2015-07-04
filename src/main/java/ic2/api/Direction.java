@@ -36,6 +36,15 @@ public enum Direction {
 	 */
 	ZP;
 
+	private Direction() {
+		int side = ordinal() / 2;
+		int sign = getSign();
+
+		xOffset = side == 0 ? sign : 0;
+		yOffset = side == 1 ? sign : 0;
+		zOffset = side == 2 ? sign : 0;
+	}
+
 	public static Direction fromSideValue(int side) {
 		return directions[(side + 2) % 6];
 	}
@@ -83,7 +92,7 @@ public enum Direction {
 
 	/**
 	 * Get the inverse of this direction (XN -> XP, XP -> XN, etc.)
-	 * 
+	 *
 	 * @return Inverse direction
 	 */
 	public Direction getInverse() {
@@ -92,7 +101,7 @@ public enum Direction {
 
 	/**
 	 * Convert this direction to a Minecraft side value.
-	 * 
+	 *
 	 * @return Minecraft side value
 	 */
 	public int toSideValue() {
@@ -111,6 +120,10 @@ public enum Direction {
 	public ForgeDirection toForgeDirection() {
 		return ForgeDirection.getOrientation(toSideValue());
 	}
+
+	public final int xOffset;
+	public final int yOffset;
+	public final int zOffset;
 
 	public static final Direction[] directions = Direction.values();
 }
