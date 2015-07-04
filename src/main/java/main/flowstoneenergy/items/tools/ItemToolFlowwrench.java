@@ -1,5 +1,7 @@
 package main.flowstoneenergy.items.tools;
 
+import cpw.mods.fml.common.Optional.Interface;
+import cpw.mods.fml.common.Optional.Method;
 import buildcraft.api.tools.IToolWrench;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
@@ -13,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+@Interface(iface = "buildcraft.api.tools.IToolWrench", modid = "BuildCraft|Core")
 public class ItemToolFlowwrench extends Item implements IToolWrench {
 
     public ItemToolFlowwrench() {
@@ -44,11 +47,13 @@ public class ItemToolFlowwrench extends Item implements IToolWrench {
     }
 
     @Override
+    @Method(modid = "BuildCraft|Core")
     public boolean canWrench(EntityPlayer player, int x, int y, int z) {
         return true;
     }
 
     @Override
+    @Method(modid = "BuildCraft|Core")
     public void wrenchUsed(EntityPlayer player, int x, int y, int z) {
     }
 }

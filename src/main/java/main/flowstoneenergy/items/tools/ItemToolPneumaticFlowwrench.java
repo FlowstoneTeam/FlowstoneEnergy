@@ -77,16 +77,6 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
     }
 
     @Override
-    public boolean canWrench(EntityPlayer player, int x, int y, int z) {
-        return true;
-    }
-
-    @Override
-    public void wrenchUsed(EntityPlayer player, int x, int y, int z) {
-
-    }
-
-    @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int hitSide, float hitX, float hitY, float hitZ) {
         // FE
         Block block = world.getBlock(x, y, z);
