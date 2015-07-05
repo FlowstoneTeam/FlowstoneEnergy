@@ -19,6 +19,7 @@ public class TERegistry {
         GameRegistry.registerTileEntity(TileEntityMachineMetalMixer.class, ModInfo.MODID + ":" + "tileEntityMetalMixer");
         GameRegistry.registerTileEntity(TileEntityMachineWorkbench.class, ModInfo.MODID + ":" + "tileEntityMachineWorkbench");
         GameRegistry.registerTileEntity(TileEntityMachineLumberMill.class, ModInfo.MODID + ":" + "tileEntityMachineLumberMill");
+        GameRegistry.registerTileEntity(TileEntityMachineCooler.class, ModInfo.MODID + ":" + "tileEntityCooler");
         GameRegistry.registerTileEntity(TileEntityItemPipe.class, ModInfo.MODID + ":" + "tileEntityFluidPipe");
         GameRegistry.registerTileEntity(TileEntityFluidPipe.class, ModInfo.MODID + ":" + "tileEntityItemPipe");
         GameRegistry.registerTileEntity(TileEntityGeneratorCoal.class, ModInfo.MODID + ":" + "tileEntityGeneratorCoal");
