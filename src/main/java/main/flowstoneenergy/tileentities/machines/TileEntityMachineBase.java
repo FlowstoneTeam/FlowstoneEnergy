@@ -29,7 +29,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public EnergyStorage energy = new EnergyStorage(energyCapacity, 1000);
     public FluidTank tank = new FluidTank(10000);
 
-    public int[] upgrades;
+    public int[] upgrades = new int[6];
 
     @Override
     public void openInventory() {
