@@ -30,6 +30,8 @@ minecraft {
     version = "1.7.10-10.13.4.1448-1.7.10"
     runDir = "run"
 }
+// TODO: Enable after update
+/*
 repositories{
 	maven {
 		name = "chickenbones"
@@ -41,6 +43,7 @@ dependencies {
 	compile "codechicken:CodeChickenCore:1.7.10-1.0.7.46:dev"
 	compile "codechicken:NotEnoughItems:1.7.10-1.0.5.111:dev"
 }
+*/
 processResources
 {
     // replace stuff in mcmod.info, nothing else

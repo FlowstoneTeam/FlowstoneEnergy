@@ -1,6 +1,6 @@
 package main.flowstoneenergy.items.tools;
 
-import ic2.api.tile.IWrenchable;
+//import ic2.api.tile.IWrenchable;
 import main.flowstoneenergy.core.libs.ConfigHandler;
 import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.core.interfaces.IFlowWrenchable;
@@ -92,6 +92,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
             }
         }
         // IC2
+        /*
         if (icInstalled || ConfigHandler.debugMode) {
             if (te instanceof IWrenchable) {
                 IWrenchable wrenchable = (IWrenchable) te;
@@ -122,6 +123,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
                 }
             }
         }
+        */
 
         // BC/AE2
         if (bcInstalled || ConfigHandler.debugMode) {

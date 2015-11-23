@@ -2,7 +2,7 @@ package main.flowstoneenergy.items.battery;
 
 import java.util.List;
 
-import cofh.api.energy.IEnergyContainerItem;
+//import cofh.api.energy.IEnergyContainerItem;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.utils.KeyboardHelper;
 import main.flowstoneenergy.core.utils.TextHelper;
@@ -14,7 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class ItemBatteryFlowstoneBase extends Item implements IEnergyContainerItem {
+//TODO: Enable after update
+public class ItemBatteryFlowstoneBase extends Item /*implements IEnergyContainerItem */{
 
     private int maxPower = 0;
     private int currentPower = 0;
@@ -217,7 +218,8 @@ public class ItemBatteryFlowstoneBase extends Item implements IEnergyContainerIt
     }
 
     /* ************** Start IEnergyContainerItem implementation ************** */
-
+    // TODO: Enable after update
+    /*
     @Override
     public int receiveEnergy(ItemStack container, int maxReceive, boolean simulate) {
 
@@ -279,6 +281,6 @@ public class ItemBatteryFlowstoneBase extends Item implements IEnergyContainerIt
     public int getMaxEnergyStored(ItemStack container) {
         return getMaxPower(container);
     }
-
+     */
     /* ************** End IEnergyContainerItem implementation ************** */
 }

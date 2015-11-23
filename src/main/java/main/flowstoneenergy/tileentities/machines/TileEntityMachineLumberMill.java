@@ -1,12 +1,13 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import cofh.api.energy.IEnergyHandler;
+//import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMachineLumberMill extends TileEntityMachineBase implements IEnergyHandler {
+//TODO: Enable after update
+public class TileEntityMachineLumberMill extends TileEntityMachineBase /*implements IEnergyHandler*/ {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -90,9 +91,12 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
             return false;
 
         int recipeEnergy = recipe.getPowerRequired();
+        // TODO: Enable after update
+        /*
         int availableEnergy = energy.extractEnergy(recipeEnergy, true);
         if (recipeEnergy <= 0 || (availableEnergy - recipeEnergy) < 0)
             return false;
+            */
 
         return true;
     }
@@ -109,7 +113,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
 
         items[0].stackSize--;
 
-        energy.extractEnergy(recipe.getPowerRequired(), false);
+        // TODO: Enable after update
+        //energy.extractEnergy(recipe.getPowerRequired(), false);
 
         if (items[0].stackSize <= 0) {
             items[0] = null;
@@ -122,6 +127,8 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
         return ticksLeft * scale / maxTicks;
     }
 
+    // TODO: Enable after update
+    /*
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
         return energy.receiveEnergy(maxReceive, simulate);
@@ -146,4 +153,5 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase implement
     public boolean canConnectEnergy(ForgeDirection from) {
         return true;
     }
+    */
 }

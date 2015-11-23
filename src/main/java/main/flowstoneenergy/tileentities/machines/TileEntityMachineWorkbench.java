@@ -1,19 +1,21 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import cofh.api.energy.IEnergyHandler;
+//import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import main.flowstoneenergy.tileentities.recipes.Recipe3_1;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMachineWorkbench extends TileEntityMachineBase implements IEnergyHandler {
+//TODO: Enable after update
+public class TileEntityMachineWorkbench extends TileEntityMachineBase /*implements IEnergyHandler */{
 
     @SuppressWarnings("unused")
     private String field_145958_o;
 
     public TileEntityMachineWorkbench() {
         items = new ItemStack[4];
-        energy.setMaxExtract(2000);
+        // TODO: Enable after update
+        //energy.setMaxExtract(2000);
     }
 
     @Override
@@ -97,7 +99,8 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
                     items[i] = null;
                 }
             }
-            energy.extractEnergy(2000, false);
+            // TODO: Enable after update
+            //energy.extractEnergy(2000, false);
         }
     }
 
@@ -107,6 +110,8 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
         return ticksLeft * scale / maxTicks;
     }
 
+    // TODO: Enable after update
+    /*
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
         int received = energy.receiveEnergy(maxReceive, simulate);
@@ -134,4 +139,5 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase implements
     public boolean canConnectEnergy(ForgeDirection from) {
         return true;
     }
+    */
 }

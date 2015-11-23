@@ -1,6 +1,6 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import cofh.api.energy.EnergyStorage;
+//import cofh.api.energy.EnergyStorage;
 import main.flowstoneenergy.blocks.upgrades.BlockUpgrades;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +26,8 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public int energyCapacity = 32000;
     public int divisionFactor = 0;
     public int upgradeCheckTimer = 0;
-    public EnergyStorage energy = new EnergyStorage(energyCapacity, 1000);
+    // TODO: Enable after update
+    //public EnergyStorage energy = new EnergyStorage(energyCapacity, 1000);
     public FluidTank tank = new FluidTank(10000);
 
     public int[] upgrades = new int[6];
@@ -116,7 +117,8 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
         super.readFromNBT(tagCompound);
         NBTTagList nbttaglist = tagCompound.getTagList("Items", 10);
         this.items = new ItemStack[this.getSizeInventory()];
-        energy.readFromNBT(tagCompound);
+        // TODO: Enable after update
+        //energy.readFromNBT(tagCompound);
         facing = tagCompound.getInteger("facing");
         ticksLeft = tagCompound.getInteger("ticksLeft");
 
@@ -134,7 +136,8 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
         NBTTagList nbttaglist = new NBTTagList();
-        energy.writeToNBT(tagCompound);
+        // TODO: Enable after update
+        //energy.writeToNBT(tagCompound);
         for (int i = 0; i < this.items.length; ++i) {
             if (this.items[i] != null) {
                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();

@@ -1,3 +1,5 @@
+// TODO: Enable after update
+/*
 package main.flowstoneenergy.nei;
 
 import codechicken.nei.api.API;
@@ -30,3 +32,4 @@ public class NEIConfig implements IConfigureNEI {
         return ModInfo.VERSION;
     }
 }
+*/

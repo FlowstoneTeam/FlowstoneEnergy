@@ -1,13 +1,14 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import cofh.api.energy.IEnergyContainerItem;
-import cofh.api.energy.IEnergyHandler;
+/*import cofh.api.energy.IEnergyContainerItem;
+import cofh.api.energy.IEnergyHandler;*/
 import main.flowstoneenergy.tileentities.recipes.RecipesFlowstoneBottler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase implements IEnergyHandler {
+//TODO: Enable after update
+public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase /*implements IEnergyHandler*/ {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -35,8 +36,9 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
         if (slot != 0)
             return false;
 
-        if (stack.getItem() instanceof IEnergyContainerItem)
-            return true;
+        // TODO: Enable after update
+        /*if (stack.getItem() instanceof IEnergyContainerItem)
+            return true;*/
         else
             return false;
     }
@@ -71,6 +73,8 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
             return;
         }
 
+        // TODO: Enable after update
+        /*
         if (items[0].getItem() instanceof IEnergyContainerItem && items[1] == null) {
 
             IEnergyContainerItem energyContainer = (IEnergyContainerItem) items[0].getItem();
@@ -84,15 +88,17 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
 
             markDirty();
 
-        } else {
+        } else {*/
             ticksLeft = 0;
             maxTicks = 0;
             resetTimeAndTexture();
-        }
+        //}
     }
 
     private void chargeItem() {
 
+        // TODO: Enable after update
+        /*
         IEnergyContainerItem energyContainer = (IEnergyContainerItem) items[0].getItem();
 
         int extracted = energy.extractEnergy(ratePerTick, true);
@@ -109,7 +115,7 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
             if (items[0].stackSize <= 0) {
                 items[0] = null;
             }
-        }
+        }*/
     }
 
     public int getScaledProgress(int scale) {
@@ -118,6 +124,8 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
         return ticksLeft * scale / maxTicks;
     }
 
+    // TODO: Enable after update
+    /*
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
         return energy.receiveEnergy(maxReceive, simulate);
@@ -142,4 +150,5 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase imp
     public boolean canConnectEnergy(ForgeDirection from) {
         return true;
     }
+    */
 }

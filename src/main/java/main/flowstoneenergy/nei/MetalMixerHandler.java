@@ -1,3 +1,5 @@
+// TODO: Enable after update
+/*
 package main.flowstoneenergy.nei;
 
 import codechicken.nei.PositionedStack;
@@ -132,3 +134,4 @@ public class MetalMixerHandler extends TemplateRecipeHandler {
         RecipeTransferRectHandler.registerRectsToGuis(guis, transferRects);
     }
 }
+*/

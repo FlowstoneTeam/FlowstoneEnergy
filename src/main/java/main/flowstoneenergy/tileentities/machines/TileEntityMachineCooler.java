@@ -1,6 +1,6 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import cofh.api.energy.IEnergyHandler;
+//import cofh.api.energy.IEnergyHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
@@ -8,7 +8,8 @@ import net.minecraftforge.fluids.*;
 /**
  * Created by Bart on 14-11-2014.
  */
-public class TileEntityMachineCooler extends TileEntityMachineBase implements IEnergyHandler, IFluidHandler {
+//TODO: Enable after update
+public class TileEntityMachineCooler extends TileEntityMachineBase implements /*IEnergyHandler,*/ IFluidHandler {
 
     public TileEntityMachineCooler() {
         items = new ItemStack[2];
@@ -17,7 +18,8 @@ public class TileEntityMachineCooler extends TileEntityMachineBase implements IE
         energyCapacity = 32000;
     }
 
-
+    // TODO: Enable after update
+    /*
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
         return energy.getMaxReceive();
@@ -42,7 +44,7 @@ public class TileEntityMachineCooler extends TileEntityMachineBase implements IE
     public boolean canConnectEnergy(ForgeDirection from) {
         return true;
     }
-
+    */
     @Override
     public int fill(ForgeDirection from, FluidStack resource, boolean doFill) {
         this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);

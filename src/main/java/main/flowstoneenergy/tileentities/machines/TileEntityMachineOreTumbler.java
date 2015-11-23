@@ -1,19 +1,21 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import cofh.api.energy.IEnergyHandler;
+//import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.RecipesEnergizedOreTumbler;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMachineOreTumbler extends TileEntityMachineBase implements IEnergyHandler {
+//TODO: Enable after update
+public class TileEntityMachineOreTumbler extends TileEntityMachineBase /*implements IEnergyHandler*/ {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
 
     public TileEntityMachineOreTumbler() {
         items = new ItemStack[2];
-        this.energy.setMaxExtract(2000);
+        // TODO: Enable after update
+        //this.energy.setMaxExtract(2000);
     }
 
     @Override
@@ -66,7 +68,8 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
                 maxTicks = r.getTime() - (r.getTime() * divisionFactor);
             }
         }
-        int availablePower = this.energy.extractEnergy(2000, true);
+        // TODO: Enable after update
+        /*int availablePower = this.energy.extractEnergy(2000, true);
         if (ticksLeft < maxTicks && RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null && availablePower >= 2000) {
             Recipe1_1 r = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]);
             if (items[1] == null || (r.getOutput().isItemEqual(items[1]) && r.getOutput().getMaxStackSize() > items[1].stackSize)) {
@@ -76,7 +79,7 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
                 ticksLeft = 0;
                 resetTimeAndTexture();
             }
-        }
+        }*/
         if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();
@@ -96,7 +99,8 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
                 items[1].stackSize += res.stackSize;
 
             items[0].stackSize--;
-            energy.extractEnergy(2000, false);
+            // TODO: Enable after update
+            //energy.extractEnergy(2000, false);
 
             if (items[0].stackSize <= 0) {
                 items[0] = null;
@@ -111,6 +115,8 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
         return ticksLeft * scale / maxTicks;
     }
 
+    // TODO: Enable after update
+    /*
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
         int recived = energy.receiveEnergy(maxReceive, simulate);
@@ -138,4 +144,5 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase implement
     public boolean canConnectEnergy(ForgeDirection from) {
         return true;
     }
+    */
 }

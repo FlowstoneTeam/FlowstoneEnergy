@@ -48,10 +48,13 @@ public class BlockGuiOreTumbler extends GuiContainer {
         int i1 = this.te.getScaledProgress(24);
         this.drawTexturedModalRect(xStart + 81, yStart + 34, 176, 14, i1 + 1, 16);
 
+        // TODO: Enable after update
+        /*
         int powerBarHeight = this.te.getEnergyStored(ForgeDirection.UNKNOWN) * 50 / this.te.getMaxEnergyStored(ForgeDirection.UNKNOWN);
         int powerBarY = yStart + 10 + 51 - powerBarHeight;
         if (powerBarHeight > 0)
             this.drawTexturedModalRect(xStart + 12, powerBarY, 177, 32, 12, powerBarHeight);
+        */
     }
 
     @Override
@@ -61,6 +64,8 @@ public class BlockGuiOreTumbler extends GuiContainer {
         int xStart = (width - xSize) / 2;
         int yStart = (height - ySize) / 2;
 
+        // TODO: Enable after update
+        /*
         if ((xStart + 12 <= mouseX) && (xStart + 24 > mouseX) && (yStart + 10 <= mouseY) && (yStart + 60 > mouseY)) {
             String energyStatus = "Energy: ";
             energyStatus += this.te.getEnergyStored(ForgeDirection.UNKNOWN) + " / " + this.te.getMaxEnergyStored(ForgeDirection.UNKNOWN);
@@ -69,5 +74,6 @@ public class BlockGuiOreTumbler extends GuiContainer {
             toolTipList.add(energyStatus);
             drawHoveringText(toolTipList, mouseX, mouseY, fontRendererObj);
         }
+        */
     }
 }

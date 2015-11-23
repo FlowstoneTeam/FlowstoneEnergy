@@ -1,7 +1,7 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyHandler;
+/*import cofh.api.energy.EnergyStorage;
+import cofh.api.energy.IEnergyHandler;*/
 import main.flowstoneenergy.blocks.upgrades.BlockUpgrades;
 import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import net.minecraft.item.Item;
@@ -9,7 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMachineHeatedOven extends TileEntityMachineBase implements IEnergyHandler {
+//TODO: Enable after update
+public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*implements IEnergyHandler */{
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -69,6 +70,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
             upgradeCheckTimer++;
         }
 
+        // TODO: Enable after update
+        /*
         if (items[0] != null && this.canSmelt() && energy.getEnergyStored() >= energyRequired) {
             if (ticksLeft == maxTicks) {
                 smelt();
@@ -76,9 +79,9 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
             } else {
                 ticksLeft++;
             }
-        } else {
+        } else {*/
             resetTimeAndTexture();
-        }
+        //}
 
     }
 
@@ -100,7 +103,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
             if (this.items[0].stackSize <= 0) {
                 this.items[0] = null;
             }
-            energy.extractEnergy(1600, false);
+            // TODO: Enable after update
+            //energy.extractEnergy(1600, false);
         }
     }
 
@@ -127,7 +131,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
         return ticksLeft * scale / maxTicks;
     }
 
-    @Override
+    // TODO: Enable after update
+    /*@Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
         return energy.receiveEnergy(maxReceive, simulate);
     }
@@ -150,5 +155,5 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase implement
     @Override
     public boolean canConnectEnergy(ForgeDirection from) {
         return true;
-    }
+    }*/
 }

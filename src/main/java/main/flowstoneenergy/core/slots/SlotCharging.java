@@ -1,6 +1,6 @@
 package main.flowstoneenergy.core.slots;
 
-import cofh.api.energy.IEnergyContainerItem;
+//import cofh.api.energy.IEnergyContainerItem;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -16,9 +16,10 @@ public class SlotCharging extends Slot {
         if (stack == null || stack.getItem() == null)
             return false;
 
-        if (stack.getItem() instanceof IEnergyContainerItem)
+     // TODO: Enable after update
+    /*    if (stack.getItem() instanceof IEnergyContainerItem)
             return true;
-        else
+        else*/
             return false;
     }
 

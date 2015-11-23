@@ -1,3 +1,5 @@
+// TODO: Enable after update
+/*
 package main.flowstoneenergy.nei;
 
 import codechicken.nei.PositionedStack;
@@ -128,3 +130,4 @@ public class LumberMillHandler extends TemplateRecipeHandler {
         TemplateRecipeHandler.RecipeTransferRectHandler.registerRectsToGuis(guis, transferRects);
     }
 }
+*/

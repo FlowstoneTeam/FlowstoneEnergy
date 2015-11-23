@@ -1,12 +1,13 @@
 package main.flowstoneenergy.tileentities.machines;
 
-import cofh.api.energy.IEnergyHandler;
+//import cofh.api.energy.IEnergyHandler;
 import main.flowstoneenergy.tileentities.recipes.Recipe2_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMachineMetalMixer extends TileEntityMachineBase implements IEnergyHandler {
+//TODO: Enable after update
+public class TileEntityMachineMetalMixer extends TileEntityMachineBase /*implements IEnergyHandler*/ {
 
     @SuppressWarnings("unused")
     private String field_145958_o;
@@ -14,7 +15,7 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
     public TileEntityMachineMetalMixer() {
         maxTicks = 100;
         energyRequired = 2000;
-        energy.setMaxExtract(2000);
+        //energy.setMaxExtract(2000);
         items = new ItemStack[4];
     }
 
@@ -110,9 +111,10 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
         if (totalAvailableSpace < output.stackSize)
             return false;
 
-        int availableEnergy = energy.extractEnergy(energyRequired, true);
+        // TODO: Enable after update
+        /* int availableEnergy = energy.extractEnergy(energyRequired, true);
         if (availableEnergy < energyRequired)
-            return false;
+            return false;*/
 
         return true;
     }
@@ -140,7 +142,8 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
             items[1] = null;
         }
 
-        energy.extractEnergy(energyRequired, false);
+        // TODO: Enable after update
+        //energy.extractEnergy(energyRequired, false);
     }
 
     public int getScaledProgress(int scale) {
@@ -149,6 +152,8 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
         return ticksLeft * scale / maxTicks;
     }
 
+    // TODO: Enable after update
+    /*
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
         return energy.receiveEnergy(maxReceive, simulate);
@@ -173,4 +178,5 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase implement
     public boolean canConnectEnergy(ForgeDirection from) {
         return true;
     }
+    */
 }
