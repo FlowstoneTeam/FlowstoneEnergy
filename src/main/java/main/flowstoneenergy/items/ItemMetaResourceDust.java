@@ -1,20 +1,18 @@
 package main.flowstoneenergy.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 import java.util.List;
 
 public class ItemMetaResourceDust extends Item {
 
-    public IIcon[] icon = new IIcon[500];
+    //public IIcon[] icon = new IIcon[500];
 
     public ItemMetaResourceDust() {
         this.setCreativeTab(FlowstoneEnergy.tab);
@@ -82,6 +80,7 @@ public class ItemMetaResourceDust extends Item {
         return getUnlocalizedName() + "." + name;
     }
 
+    /*
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister ri) {
         this.icon[0] = ri.registerIcon(ModInfo.MODID + ":dusts/coalDust");
@@ -102,10 +101,10 @@ public class ItemMetaResourceDust extends Item {
     public IIcon getIconFromDamage(int meta) {
         return this.icon[meta];
     }
+*/
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List list) {
+    public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List<ItemStack> list) {
         for (int i = 0; i <= 11; i++) {
             list.add(new ItemStack(this, 1, i));
         }

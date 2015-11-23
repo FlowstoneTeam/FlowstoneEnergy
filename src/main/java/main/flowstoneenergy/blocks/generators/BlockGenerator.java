@@ -8,28 +8,26 @@ import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorCoal;
 import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorFlowstone;
 import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorLava;
 import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorSolar;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockGenerator extends BlockMachineMetaSidedTexture {
 
     public BlockGenerator() {
-        frontOff = new IIcon[4];
+       /* frontOff = new IIcon[4];
         frontOn = new IIcon[4];
         top = new IIcon[4];
         bottom = new IIcon[4];
-        sideIcon = new IIcon[4];
-        this.setBlockName(ModInfo.MODID + ".generator");
+        sideIcon = new IIcon[4];*/
+        this.setUnlocalizedName(ModInfo.MODID + ".generator");
     }
 
-    @Override
+    /*@Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
@@ -62,18 +60,21 @@ public class BlockGenerator extends BlockMachineMetaSidedTexture {
         this.bottom[3] = iconRegister.registerIcon(ModInfo.MODID + ":generators/SolarSide");
         this.sideIcon[3] = iconRegister.registerIcon(ModInfo.MODID + ":generators/SolarSide");
 
-    }
+    }*/
 
     @Override
     @SuppressWarnings({"rawtypes", "unchecked"})
     public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-        for (int i = 0; i < frontOff.length; i++) {
+        /*for (int i = 0; i < frontOff.length; i++) {
             list.add(new ItemStack(item, 1, i));
-        }
+        }*/
+        for (int i = 0; i < 4; i++) {
+        list.add(new ItemStack(item, 1, i));
+    }
     }
 
-    @Override
-    public TileEntity createTileEntity(World world, int metadata) {
+    @Override    
+    public TileEntity createNewTileEntity(World world, int metadata) {
 
         switch (metadata) {
             case 0:
@@ -86,7 +87,7 @@ public class BlockGenerator extends BlockMachineMetaSidedTexture {
                 return new TileEntityGeneratorSolar();
         }
 
-        return super.createTileEntity(world, metadata);
+        return super.createNewTileEntity(world, metadata);
     }
 
 }

@@ -2,6 +2,8 @@ package main.flowstoneenergy.items.battery;
 
 import java.util.List;
 
+
+
 //import cofh.api.energy.IEnergyContainerItem;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.utils.KeyboardHelper;
@@ -12,6 +14,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 //TODO: Enable after update
@@ -149,10 +153,11 @@ public class ItemBatteryFlowstoneBase extends Item /*implements IEnergyContainer
     }
 
     @Override
-    public boolean onItemUseFirst(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+    public boolean onItemUseFirst(ItemStack itemStack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
         EntityRobot robot = new EntityRobot(world);
+        robot.setPosition(pos.getX(), pos.getY(), pos.getZ());
         if (!world.isRemote && player.isSneaking()) {
-            EntityRobot.setCharged();
+            robot.setCharged();
             world.updateEntity(robot);
             itemStack.setItemDamage(0);
             /**
@@ -166,8 +171,7 @@ public class ItemBatteryFlowstoneBase extends Item /*implements IEnergyContainer
     }
 
     @Override
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public void getSubItems(Item item, CreativeTabs creatvieTab, List list) {
+    public void getSubItems(Item item, CreativeTabs creatvieTab, List<ItemStack> list) {
         if (item == this) {
             list.add(this.createItemStack());
         }

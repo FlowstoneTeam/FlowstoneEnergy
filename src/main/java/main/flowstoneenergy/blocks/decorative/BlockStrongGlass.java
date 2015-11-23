@@ -6,25 +6,26 @@ import main.flowstoneenergy.core.utils.ConnectedTextureHelper;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockStrongGlass extends Block {
 
     public static final int NUMBER_OF_ICONS = 47;
-    protected IIcon[] icons = new IIcon[NUMBER_OF_ICONS];
+    //protected IIcon[] icons = new IIcon[NUMBER_OF_ICONS];
 
     public BlockStrongGlass() {
         super(Material.iron);
         this.setHardness(0.5F);
         this.setStepSound(soundTypeGlass);
         this.setCreativeTab(FlowstoneEnergy.blockTab);
-        this.setBlockName(ModInfo.MODID + ".strong.glass");
-        this.setBlockTextureName(ModInfo.MODID + ":decorative/strongGlass_0");
+        this.setUnlocalizedName(ModInfo.MODID + ".strong.glass");
+        // FIXME: switch to JSON or ISmartBlockRenderer
+        //this.setBlockTextureName(ModInfo.MODID + ":decorative/strongGlass_0");
     }
 
     @SideOnly(Side.CLIENT)
@@ -41,14 +42,15 @@ public class BlockStrongGlass extends Block {
     }
 
     @Override
-    public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
-        Block b1 = blockAccess.getBlock(x, y, z);
+    public boolean shouldSideBeRendered(IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+        Block b1 = blockAccess.getBlockState(pos).getBlock();
         if (b1 == this || b1 == BlockRegistry.strongGlass) {
             return false;
         }
-        return super.shouldSideBeRendered(blockAccess, x, y, z, side);
+        return super.shouldSideBeRendered(blockAccess, pos, side);
     }
 
+    /*
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(IBlockAccess blockAccess, int x, int y, int z, int side) {
@@ -64,9 +66,10 @@ public class BlockStrongGlass extends Block {
             icons[i] = ir.registerIcon(ModInfo.MODID + ":decorative/strongGlass_" + i);
         }
     }
-
+     */
+    
     @Override
-    public boolean canPlaceTorchOnTop(World world, int x, int y, int z) {
+    public boolean canPlaceTorchOnTop(IBlockAccess world, BlockPos pos) {
         return true;
     }
 }

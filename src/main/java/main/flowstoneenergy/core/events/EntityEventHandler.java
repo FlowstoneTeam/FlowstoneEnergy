@@ -1,6 +1,6 @@
 package main.flowstoneenergy.core.events;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.core.utils.PlayerHelper;
 import net.minecraft.entity.Entity;
@@ -40,7 +40,8 @@ public class EntityEventHandler {
         float d1 = worldObj.rand.nextFloat() * f + (1.0F - f) * 0.5F;
         float d2 = worldObj.rand.nextFloat() * f + (1.0F - f) * 0.5F;
         EntityItem entityitem = new EntityItem(worldObj, x + d0, y + d1, z + d2, stack);
-        entityitem.delayBeforeCanPickup = 1;
+        //TODO: investigate why this is needed
+        entityitem.setPickupDelay(1);
         if (stack.hasTagCompound()) {
             entityitem.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
         }

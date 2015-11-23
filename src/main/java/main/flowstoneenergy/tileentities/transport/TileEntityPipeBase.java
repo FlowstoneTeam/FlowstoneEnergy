@@ -2,33 +2,34 @@ package main.flowstoneenergy.tileentities.transport;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ITickable;
 
-public class TileEntityPipeBase extends TileEntity {
-    public ForgeDirection[] connections = new ForgeDirection[6];
+public class TileEntityPipeBase extends TileEntity implements ITickable {
+    public EnumFacing[] connections = new EnumFacing[6];
 
     @Override
-    public void updateEntity() {
-        super.updateEntity();
+    public void update() {
     }
 
     public void updateConnections() {
         return;
     }
 
-    public boolean onlyOneOpposite(ForgeDirection[] directions) {
+    public boolean onlyOneOpposite(EnumFacing[] directions) {
         return false;
     }
 
-    public boolean isOpposite(ForgeDirection firstDirection, ForgeDirection secondDirection) {
+    public boolean isOpposite(EnumFacing firstDirection, EnumFacing secondDirection) {
         return false;
     }
 
-    public boolean isValidInventory(int x, int y, int z) {
+    public boolean isValidInventory(BlockPos pos) {
         return false;
     }
 
-    public boolean isPipe(int x, int y, int z) {
+    public boolean isPipe(BlockPos pos) {
         return false;
     }
 

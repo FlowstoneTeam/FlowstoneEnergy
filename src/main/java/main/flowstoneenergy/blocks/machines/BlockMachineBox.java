@@ -1,28 +1,27 @@
 package main.flowstoneenergy.blocks.machines;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.core.utils.ConnectedTextureHelper;
 import main.flowstoneenergy.core.interfaces.IFlowWrenchable;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
 
-    protected IIcon[] icons = new IIcon[16];
+    //protected IIcon[] icons = new IIcon[16];
 
     public BlockMachineBox() {
         super(Material.iron);
-        this.setBlockName(ModInfo.MODID + ".MachineBox");
+        this.setUnlocalizedName(ModInfo.MODID + ".MachineBox");
         this.setCreativeTab(FlowstoneEnergy.blockTab);
-        this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side_0");
+        //this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side_0");
         this.setStepSound(soundTypeMetal);
         this.setHardness(7);
     }
@@ -33,10 +32,20 @@ public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World var1, int var2) {
-        return null;
+    @Deprecated
+    /**
+     *  use createTileEntity(World world, IBlockState blockState) instead
+     */
+    public TileEntity createNewTileEntity(World world, int meta) {
+        IBlockState blockState = getStateFromMeta(meta);
+        return createTileEntity(world, blockState);
     }
 
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState blockState) {
+        return null;
+    }
+/*
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
@@ -64,4 +73,5 @@ public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
         icons[14] = par1IconRegister.registerIcon(ModInfo.MODID + ":machines/machine_Side_14");
         icons[15] = par1IconRegister.registerIcon(ModInfo.MODID + ":machines/machine_Side_15");
     }
+    */
 }

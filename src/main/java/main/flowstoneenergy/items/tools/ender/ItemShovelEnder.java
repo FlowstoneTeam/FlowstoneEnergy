@@ -10,6 +10,6 @@ public class ItemShovelEnder extends ItemSpade {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".ender.shovel");
-        this.setTextureName(ModInfo.MODID + ":tools/enderShovel");
+        //this.setTextureName(ModInfo.MODID + ":tools/enderShovel");
     }
 }

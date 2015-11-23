@@ -17,8 +17,8 @@ public class RecipesMetalMixer {
     }
 
     public static void addOreDictRecipe(String ore1, String ore2, ItemStack output, int time) {
-        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
-        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        List<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        List<ItemStack> ores2 = OreDictionary.getOres(ore2);
         if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0) {
             for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
                 for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
@@ -29,7 +29,7 @@ public class RecipesMetalMixer {
     }
 
     public static void addOreDictRecipe(ItemStack input1, ItemStack input2, String output, int time, int stackSize) {
-        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        List<ItemStack> outputs = OreDictionary.getOres(output);
         if (output != null && outputs.size() > 0) {
             ItemStack outputsFinal = outputs.get(0);
             outputsFinal.stackSize = stackSize;
@@ -38,9 +38,9 @@ public class RecipesMetalMixer {
     }
 
     public static void addOreDictRecipe(String ore1, String ore2, String output, int time, int stackSize) {
-        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
-        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
-        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        List<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        List<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        List<ItemStack> outputs = OreDictionary.getOres(output);
         if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0 && output != null && outputs.size() > 0) {
             for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
                 for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {

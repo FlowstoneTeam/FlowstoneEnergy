@@ -4,24 +4,25 @@ import main.flowstoneenergy.entities.EntityRobot;
 
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class RenderRobot extends RenderLiving {
+public class RenderRobot extends RenderLiving<EntityRobot> {
     protected FlowstoneRobot model;
 
-    public RenderRobot(FlowstoneRobot model, float par2) {
-        super(model, par2);
-        shadowSize = 0.5F;
+    public RenderRobot(RenderManager renderManager, FlowstoneRobot model, float shadowSize) {
+        super(renderManager, model, shadowSize);
+        //FIXME: Remove if not needed
+        this.shadowSize = 0.5F;
         model = new FlowstoneRobot();
     }
 
-    public void renderRobot(EntityRobot robot, double x, double y, double z, float yaw, float partialTickTime) {
+    public void doRender(EntityRobot robot, double x, double y, double z, float yaw, float partialTicks) {
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x, (float) y, (float) z);
         GL11.glRotatef(180.0F - yaw, 0.0F, 1.0F, 0.0F);
@@ -33,15 +34,11 @@ public class RenderRobot extends RenderLiving {
     }
 
     @Override
-    public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime) {
-        super.doRender(entity, x, y, z, yaw, partialTickTime);
-    }
-
-    @Override
-    protected ResourceLocation getEntityTexture(Entity entity) {
-        if (EntityRobot.isCharged())
+    protected ResourceLocation getEntityTexture(EntityRobot entity) {
+        if (entity.isCharged())
             return new ResourceLocation(ModInfo.MODID + ":textures/models/FlowstoneRobot.png");
         else
             return new ResourceLocation(ModInfo.MODID + ":textures/models/FlowstoneRobot_off.png");
     }
+
 }

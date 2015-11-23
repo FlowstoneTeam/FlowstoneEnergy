@@ -10,6 +10,6 @@ public class ItemAxeEnder extends ItemAxe {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".ender.axe");
-        this.setTextureName(ModInfo.MODID + ":tools/enderAxe");
+        //this.setTextureName(ModInfo.MODID + ":tools/enderAxe");
     }
 }

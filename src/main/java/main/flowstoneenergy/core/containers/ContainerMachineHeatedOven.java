@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.inventory.SlotFurnaceOutput;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 
@@ -26,7 +26,7 @@ public class ContainerMachineHeatedOven extends Container {
 
     private void createSlots(TileEntityMachineHeatedOven tile, EntityPlayer player) {
         addSlotToContainer(new Slot(tile, 0, 52, 16));
-        addSlotToContainer(new SlotFurnace(player, tile, 1, 129, 34));
+        addSlotToContainer(new SlotFurnaceOutput(player, tile, 1, 129, 34));
     }
 
     @Override
@@ -45,7 +45,7 @@ public class ContainerMachineHeatedOven extends Container {
 
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (par2 != 0) {
-                if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null) {
+                if (FurnaceRecipes.instance().getSmeltingResult(itemstack1) != null) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return null;
                     }

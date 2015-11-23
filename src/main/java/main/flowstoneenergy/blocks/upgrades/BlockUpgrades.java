@@ -1,13 +1,12 @@
 package main.flowstoneenergy.blocks.upgrades;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.core.libs.ModInfo;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class BlockUpgrades extends BlockUpgradeBase {
     public BlockUpgrades() {
         super();
     }
-
+/*
     @Override
     public void registerBlockIcons(IIconRegister register) {
         icon[0] = register.registerIcon(ModInfo.MODID + ":upgrades/speed");
@@ -49,7 +48,7 @@ public class BlockUpgrades extends BlockUpgradeBase {
         }
         return icon[0];
     }
-
+*/
     @SuppressWarnings({"unchecked", "rawtypes"})
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item id, CreativeTabs tab, List list) {
@@ -59,7 +58,8 @@ public class BlockUpgrades extends BlockUpgradeBase {
     }
 
     @Override
-    public int damageDropped(int meta) {
+    public int damageDropped(IBlockState blockState) {
+        int meta = getMetaFromState(blockState);
         return meta;
     }
 }

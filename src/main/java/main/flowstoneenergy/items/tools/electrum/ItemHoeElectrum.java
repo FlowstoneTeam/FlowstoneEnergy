@@ -9,6 +9,6 @@ public class ItemHoeElectrum extends ItemHoe {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".electrum.hoe");
-        this.setTextureName(ModInfo.MODID + ":tools/electrumHoe");
+        //this.setTextureName(ModInfo.MODID + ":tools/electrumHoe");
     }
 }

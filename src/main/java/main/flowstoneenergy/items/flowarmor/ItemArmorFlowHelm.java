@@ -1,7 +1,7 @@
 package main.flowstoneenergy.items.flowarmor;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.core.client.armor.FlowstoneArmorModel;
@@ -25,7 +25,7 @@ public class ItemArmorFlowHelm extends ItemArmor {
         super(material, renderIndex, armorType);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".flow.helm");
-        this.setTextureName(ModInfo.MODID + ":armor/flowHelm");
+        //this.setTextureName(ModInfo.MODID + ":armor/flowHelm");
     }
 
     @Override
@@ -52,9 +52,8 @@ public class ItemArmorFlowHelm extends ItemArmor {
         return ModInfo.MODID + ":textures/armor/flowstoneArmor.png";
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean par4) {
 
         if (!KeyboardHelper.isShiftDown()) {
             list.add(TextHelper.shiftForMoreInfo);

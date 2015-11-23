@@ -9,6 +9,6 @@ public class ItemAxeElectrum extends ItemAxe {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".electrum.axe");
-        this.setTextureName(ModInfo.MODID + ":tools/electrumAxe");
+        //this.setTextureName(ModInfo.MODID + ":tools/electrumAxe");
     }
 }

@@ -6,8 +6,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.ItemStack;
 
 public class EnchantRandTele extends Enchantment {
-    public EnchantRandTele(int par1, int par2) {
-        super(par1, par2, EnumEnchantmentType.weapon);
+    public EnchantRandTele(int enchID, int enchWeight) {
+        super(enchID, null, enchWeight, EnumEnchantmentType.WEAPON);
         this.setName(ModInfo.MODID + ".randomTeleport");
     }
 

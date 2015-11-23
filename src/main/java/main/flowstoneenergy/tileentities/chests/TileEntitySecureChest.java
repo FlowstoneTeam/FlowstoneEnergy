@@ -9,8 +9,11 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.world.IWorldNameable;
 
-public class TileEntitySecureChest extends TileEntity implements ISidedInventory {
+public class TileEntitySecureChest extends TileEntity implements ISidedInventory, IWorldNameable{
 
     public byte[] sideCache = {0, 0, 0, 0, 0, 0};
     public ItemStack[] items;
@@ -20,11 +23,11 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
     public int divisionFactor = 0;
 
     @Override
-    public void openInventory() {
+    public void openInventory(EntityPlayer player) {
     }
 
     @Override
-    public void closeInventory() {
+    public void closeInventory(EntityPlayer player) {
     }
 
     @Override
@@ -51,13 +54,13 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
-        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false
-                : par1EntityPlayer.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(this.pos) != this ? false
+                : par1EntityPlayer.getDistanceSq((double) this.pos.getX() + 0.5D, (double) this.pos.getY() + 0.5D, (double) this.pos.getZ() + 0.5D) <= 64.0D;
     }
 
     public void resetTimeAndTexture() {
         ticksLeft = 0;
-        worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+        worldObj.markBlockForUpdate(this.pos);
     }
 
     @Override
@@ -70,12 +73,12 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
     }
 
     @Override
-    public String getInventoryName() {
+    public String getCommandSenderName() {
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         return false;
     }
 
@@ -151,18 +154,18 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
     }
 
     @Override
-    public final Packet getDescriptionPacket() {
+    public final Packet<?> getDescriptionPacket() {
         NBTTagCompound nbt = new NBTTagCompound();
         writeToNBT(nbt);
 
-        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
+        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(pos, 0, nbt);
 
         return packet;
     }
 
     @Override
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-        NBTTagCompound nbt = pkt.func_148857_g();
+        NBTTagCompound nbt = pkt.getNbtCompound();
         readFromNBT(nbt);
     }
 
@@ -172,23 +175,53 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
         if (worldObj.isRemote) {
             return;
         }
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update
-                                                                  // block + TE
-                                                                  // via Network
+        this.worldObj.markBlockForUpdate(pos); // Update
+                                               // block + TE
+                                               // via Network
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int i) {
+    public int[] getSlotsForFace(EnumFacing facing) {
         return new int[0];
     }
 
     @Override
-    public boolean canInsertItem(int i, ItemStack itemStack, int i2) {
+    public boolean canInsertItem(int index, ItemStack itemStack, EnumFacing facing) {
         return true;
     }
 
     @Override
-    public boolean canExtractItem(int i, ItemStack itemStack, int i2) {
+    public boolean canExtractItem(int index, ItemStack itemStack, EnumFacing facing) {
         return true;
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public IChatComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

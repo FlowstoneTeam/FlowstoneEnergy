@@ -10,6 +10,6 @@ public class ItemSwordElectrum extends ItemSword {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".electrum.sword");
-        this.setTextureName(ModInfo.MODID + ":tools/electrumSword");
+        //this.setTextureName(ModInfo.MODID + ":tools/electrumSword");
     }
 }

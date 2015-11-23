@@ -10,6 +10,6 @@ public class ItemPickElectrum extends ItemPickaxe {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".electrum.pickaxe");
-        this.setTextureName(ModInfo.MODID + ":tools/electrumPickaxe");
+        //this.setTextureName(ModInfo.MODID + ":tools/electrumPickaxe");
     }
 }

@@ -1,21 +1,20 @@
 package main.flowstoneenergy.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 import java.util.List;
 
 public class BlockIngotStorage extends Block {
-    public IIcon[] icon = new IIcon[16];
+    //public IIcon[] icon = new IIcon[16];
 
     public BlockIngotStorage() {
         super(Material.iron);
@@ -23,7 +22,7 @@ public class BlockIngotStorage extends Block {
         this.setCreativeTab(FlowstoneEnergy.blockTab);
     }
 
-    @Override
+    /*@Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister ir) {
         this.icon[0] = ir.registerIcon(ModInfo.MODID + ":blockedingots/blockCopper");
@@ -40,7 +39,7 @@ public class BlockIngotStorage extends Block {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         return this.icon[meta];
-    }
+    }*/
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
@@ -52,7 +51,7 @@ public class BlockIngotStorage extends Block {
     }
 
     @Override
-    public int damageDropped(int meta) {
-        return meta;
+    public int damageDropped(IBlockState blockState) {
+        return getMetaFromState(blockState);
     }
 }

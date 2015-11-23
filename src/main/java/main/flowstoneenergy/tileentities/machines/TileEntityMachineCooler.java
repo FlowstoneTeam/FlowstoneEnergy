@@ -2,7 +2,8 @@ package main.flowstoneenergy.tileentities.machines;
 
 //import cofh.api.energy.IEnergyHandler;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IChatComponent;
 import net.minecraftforge.fluids.*;
 
 /**
@@ -46,33 +47,33 @@ public class TileEntityMachineCooler extends TileEntityMachineBase implements /*
     }
     */
     @Override
-    public int fill(ForgeDirection from, FluidStack resource, boolean doFill) {
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    public int fill(EnumFacing from, FluidStack resource, boolean doFill) {
+        this.worldObj.markBlockForUpdate(this.pos);
         return tank.fill(resource, doFill);
     }
 
     @Override
-    public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain) {
+    public FluidStack drain(EnumFacing from, FluidStack resource, boolean doDrain) {
         return null;
     }
 
     @Override
-    public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain) {
+    public FluidStack drain(EnumFacing from, int maxDrain, boolean doDrain) {
         return null;
     }
 
     @Override
-    public boolean canFill(ForgeDirection from, Fluid fluid) {
+    public boolean canFill(EnumFacing from, Fluid fluid) {
         return (fluid == tank.getFluid().getFluid());
     }
 
     @Override
-    public boolean canDrain(ForgeDirection from, Fluid fluid) {
+    public boolean canDrain(EnumFacing from, Fluid fluid) {
         return false;
     }
 
     @Override
-    public FluidTankInfo[] getTankInfo(ForgeDirection from) {
+    public FluidTankInfo[] getTankInfo(EnumFacing from) {
         return new FluidTankInfo[]{new FluidTankInfo(tank)};
     }
 
@@ -81,33 +82,63 @@ public class TileEntityMachineCooler extends TileEntityMachineBase implements /*
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+    public int[] getSlotsForFace(EnumFacing side) {
         return new int[0];
     }
 
     @Override
-    public boolean canInsertItem(int slot, ItemStack stack, int side) {
+    public boolean canInsertItem(int slot, ItemStack stack, EnumFacing side) {
         return (slot == 1);
     }
 
     @Override
-    public boolean canExtractItem(int slot, ItemStack stack, int side) {
+    public boolean canExtractItem(int slot, ItemStack stack, EnumFacing side) {
         return (slot == 2);
     }
 
     @Override
-    public String getInventoryName() {
+    public String getCommandSenderName() {
         return "Cooler Machine";
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         return false;
     }
 
     @Override
-    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
+    public boolean isItemValidForSlot(int slotId, ItemStack itemStack) {
         return true;
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public IChatComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

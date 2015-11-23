@@ -1,6 +1,6 @@
 package main.flowstoneenergy.blocks;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.tileentities.recipes.RecipesLumberMill;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import net.minecraft.init.Blocks;

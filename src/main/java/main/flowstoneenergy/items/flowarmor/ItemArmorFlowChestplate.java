@@ -1,7 +1,7 @@
 package main.flowstoneenergy.items.flowarmor;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.core.client.armor.FlowstoneArmorModel;
@@ -26,7 +26,7 @@ public class ItemArmorFlowChestplate extends ItemArmor {
         super(material, renderIndex, armorType);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".flow.chestplate");
-        this.setTextureName(ModInfo.MODID + ":armor/flowChest");
+        //this.setTextureName(ModInfo.MODID + ":armor/flowChest");
     }
 
     @Override
@@ -52,9 +52,9 @@ public class ItemArmorFlowChestplate extends ItemArmor {
             if (ItemInUse != null && Player.getItemInUseCount() > 0) {
                 EnumAction Action = ItemInUse.getItemUseAction();
 
-                if (Action == EnumAction.block) {
+                if (Action == EnumAction.BLOCK) {
                     model.heldItemRight = 3;
-                } else if (Action == EnumAction.bow) {
+                } else if (Action == EnumAction.BOW) {
                     model.aimedBow = true;
                 }
             }
@@ -69,9 +69,8 @@ public class ItemArmorFlowChestplate extends ItemArmor {
         return ModInfo.MODID + ":textures/armor/flowstoneArmor.png";
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean par4) {
 
         if (!KeyboardHelper.isShiftDown()) {
             list.add(TextHelper.shiftForMoreInfo);

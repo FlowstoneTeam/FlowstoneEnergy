@@ -10,6 +10,6 @@ public class ItemSwordEnder extends ItemSword {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".ender.sword");
-        this.setTextureName(ModInfo.MODID + ":tools/enderSword");
+        //this.setTextureName(ModInfo.MODID + ":tools/enderSword");
     }
 }

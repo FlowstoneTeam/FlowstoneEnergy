@@ -5,11 +5,12 @@ import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.util.ForgeDirection;
+
 import org.lwjgl.opengl.GL11;
 
-public class RenderItemPipe extends TileEntitySpecialRenderer {
+public class RenderItemPipe extends TileEntitySpecialRenderer<TileEntityItemPipe> {
 
     private ResourceLocation text = new ResourceLocation(ModInfo.MODID, "textures/blocks/transport/itemPipe.png");
     float pixel = 1F / 16F;
@@ -21,12 +22,13 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
     }
 
     @Override
-    public void renderTileEntityAt(TileEntity tileEntity, double translationX, double translationY, double translationZ, float scale) {
+    public void renderTileEntityAt(TileEntityItemPipe pipe, double translationX, double translationY, double translationZ, float partialTicks, int destroyStage) {
         GL11.glTranslated(translationX, translationY, translationZ);
         GL11.glDisable(GL11.GL_LIGHTING);
         bindTexture(text);
+        //FIXME: Switch to EnumFacing
+        /*
         {
-            TileEntityItemPipe pipe = (TileEntityItemPipe) tileEntity;
             if (!pipe.onlyOneOpposite(pipe.connections)) {
                 drawCore(tileEntity);
                 for (int i = 0; i < pipe.connections.length; i++) {
@@ -43,12 +45,15 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
                 }
             }
         }
+        */
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glTranslated(-translationX, -translationY, -translationZ);
     }
 
-    public void drawCore(TileEntity tileEntity) {
-        Tessellator tessellator = Tessellator.instance;
+    public void drawCore(TileEntityItemPipe tileEntity) {
+        Tessellator tessellator = Tessellator.getInstance();
+        //FIXME: find the correct Tessellator functions
+        /*
         tessellator.startDrawingQuads();
         {
             tessellator.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2, 5 * texturePixel, 5 * texturePixel);
@@ -114,10 +119,13 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
             }
         }
         tessellator.draw();
+        */
     }
 
-    public void drawConnection(ForgeDirection direction) {
-        Tessellator tessellator = Tessellator.instance;
+    public void drawConnection(EnumFacing direction) {
+        Tessellator tessellator = Tessellator.getInstance();
+        // FIXME: find the new tessellator functions
+        /*
         tessellator.startDrawingQuads();
         {
             GL11.glTranslatef(0.5F, 0.5F, 0.5F);
@@ -180,25 +188,28 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
         }
         tessellator.draw();
 
+         */
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-        if (direction.equals(ForgeDirection.UP)) {
+        if (direction.equals(EnumFacing.UP)) {
             // rotate
-        } else if (direction.equals(ForgeDirection.DOWN)) {
+        } else if (direction.equals(EnumFacing.DOWN)) {
             GL11.glRotatef(-180, 1, 0, 0);
-        } else if (direction.equals(ForgeDirection.SOUTH)) {
+        } else if (direction.equals(EnumFacing.SOUTH)) {
             GL11.glRotatef(-90, 1, 0, 0);
-        } else if (direction.equals(ForgeDirection.NORTH)) {
+        } else if (direction.equals(EnumFacing.NORTH)) {
             GL11.glRotatef(-270, 1, 0, 0);
-        } else if (direction.equals(ForgeDirection.WEST)) {
+        } else if (direction.equals(EnumFacing.WEST)) {
             GL11.glRotatef(-90, 0, 0, 1);
-        } else if (direction.equals(ForgeDirection.EAST)) {
+        } else if (direction.equals(EnumFacing.EAST)) {
             GL11.glRotatef(-270, 0, 0, 1);
         }
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
     }
 
-    public void drawStraight(ForgeDirection direction) {
-        Tessellator tessellator = Tessellator.instance;
+    public void drawStraight(EnumFacing direction) {
+        Tessellator tessellator = Tessellator.getInstance();
+        //FIXME: find new tessellator functions
+        /*
         tessellator.startDrawingQuads();
         {
             GL11.glTranslatef(0.5F, 0.5F, 0.5F);
@@ -252,11 +263,12 @@ public class RenderItemPipe extends TileEntitySpecialRenderer {
             }
         }
         tessellator.draw();
-
+         */
+        
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-        if (direction.equals(ForgeDirection.SOUTH) || direction.equals(ForgeDirection.NORTH)) {
+        if (direction.equals(EnumFacing.SOUTH) || direction.equals(EnumFacing.NORTH)) {
             GL11.glRotatef(-90, 1, 0, 0);
-        } else if (direction.equals(ForgeDirection.WEST) || direction.equals(ForgeDirection.EAST)) {
+        } else if (direction.equals(EnumFacing.WEST) || direction.equals(EnumFacing.EAST)) {
             GL11.glRotatef(-90, 0, 0, 1);
         }
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);

@@ -17,9 +17,9 @@ public class RecipesMachineWorkbench {
     }
 
     public static void addOreDictRecipe(String ore1, String ore2, String ore3, ItemStack output, int time) {
-        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
-        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
-        ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
+        List<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        List<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        List<ItemStack> ores3 = OreDictionary.getOres(ore3);
         if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0 && ores3 != null && ores3.size() > 0) {
             for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
                 for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {
@@ -32,10 +32,10 @@ public class RecipesMachineWorkbench {
     }
 
     public static void addOreDictRecipe(String ore1, String ore2, String ore3, String output, int time, int stackSize) {
-        ArrayList<ItemStack> ores1 = OreDictionary.getOres(ore1);
-        ArrayList<ItemStack> ores2 = OreDictionary.getOres(ore2);
-        ArrayList<ItemStack> ores3 = OreDictionary.getOres(ore3);
-        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        List<ItemStack> ores1 = OreDictionary.getOres(ore1);
+        List<ItemStack> ores2 = OreDictionary.getOres(ore2);
+        List<ItemStack> ores3 = OreDictionary.getOres(ore3);
+        List<ItemStack> outputs = OreDictionary.getOres(output);
         if (ores1 != null && ores1.size() > 0 && ores2 != null && ores2.size() > 0 && ores3 != null && ores3.size() > 0 && output != null && outputs.size() > 0) {
             for (ItemStack oreList1 : OreDictionary.getOres(ore1)) {
                 for (ItemStack oreList2 : OreDictionary.getOres(ore2)) {

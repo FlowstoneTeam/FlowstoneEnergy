@@ -3,11 +3,13 @@ package main.flowstoneenergy.core.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-import cpw.mods.fml.common.eventhandler.Event.Result;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
@@ -33,11 +35,14 @@ public class BucketHandler {
 
     private ItemStack fillCustomBucket(World world, MovingObjectPosition pos) {
 
-        Block block = world.getBlock(pos.blockX, pos.blockY, pos.blockZ);
+        BlockPos blockPos = pos.getBlockPos();
+        IBlockState blockState = world.getBlockState(blockPos);
+        Block block = blockState.getBlock();
+        int metadata = block.getMetaFromState(blockState);
 
         Item bucket = buckets.get(block);
-        if (bucket != null && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) {
-            world.setBlockToAir(pos.blockX, pos.blockY, pos.blockZ);
+        if (bucket != null && metadata == 0) {
+            world.setBlockToAir(blockPos);
             return new ItemStack(bucket);
         } else
             return null;

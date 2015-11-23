@@ -1,6 +1,6 @@
 package main.flowstoneenergy.enchants;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,7 +45,7 @@ public class EnchantRandTeleHandler {
             entity.posZ += rand.nextDouble() + (rand.nextInt(5 - 0) + 0);
         else
             entity.posZ -= rand.nextDouble() + (rand.nextInt(5 - 0) + 0);
-        while (world.getBlock((int) entity.posX, (int) entity.posY - 1, (int) entity.posZ) == Blocks.air) {
+        while (world.getBlockState(entity.getPosition().down()).getBlock() == Blocks.air) {
             entity.posY -= 1;
         }
         entity.setPosition(entity.posX, entity.posY, entity.posZ);

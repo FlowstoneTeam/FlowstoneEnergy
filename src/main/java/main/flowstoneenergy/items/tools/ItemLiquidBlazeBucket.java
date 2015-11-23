@@ -12,7 +12,7 @@ public class ItemLiquidBlazeBucket extends ItemBucket {
         super(block);
         this.maxStackSize = 1;
         this.setContainerItem(Items.bucket);
-        this.setTextureName(ModInfo.MODID + ":tools/fluidBlazeBucket");
+        //this.setTextureName(ModInfo.MODID + ":tools/fluidBlazeBucket");
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".liquid.blaze.bucket");
     }

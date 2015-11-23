@@ -12,10 +12,10 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.ITickable;
 import net.minecraftforge.fluids.FluidTank;
 
-public abstract class TileEntityMachineBase extends TileEntity implements ISidedInventory {
+public abstract class TileEntityMachineBase extends TileEntity implements ISidedInventory, ITickable {
 
     public byte[] sideCache = {0, 0, 0, 0, 0, 0};
     public ItemStack[] items;
@@ -33,11 +33,11 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public int[] upgrades = new int[6];
 
     @Override
-    public void openInventory() {
+    public void openInventory(EntityPlayer player) {
     }
 
     @Override
-    public void closeInventory() {
+    public void closeInventory(EntityPlayer player) {
     }
 
     @Override
@@ -59,14 +59,14 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
-        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false
-                : par1EntityPlayer.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(this.pos) != this ? false
+                : par1EntityPlayer.getDistanceSq((double) this.pos.getX() + 0.5D, (double) this.pos.getY() + 0.5D, (double) this.pos.getZ() + 0.5D) <= 64.0D;
     }
 
     public void resetTimeAndTexture() {
         ticksLeft = 0;
         if (items[0] == null)
-            worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+            worldObj.markBlockForUpdate(this.pos);
     }
 
     @Override
@@ -152,18 +152,18 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     }
 
     @Override
-    public final Packet getDescriptionPacket() {
+    public final Packet<?> getDescriptionPacket() {
         NBTTagCompound nbt = new NBTTagCompound();
         writeToNBT(nbt);
 
-        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, nbt);
+        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(this.pos, 0, nbt);
 
         return packet;
     }
 
     @Override
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-        NBTTagCompound nbt = pkt.func_148857_g();
+        NBTTagCompound nbt = pkt.getNbtCompound();
         readFromNBT(nbt);
     }
 
@@ -171,13 +171,15 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
     public void markDirty() {
         super.markDirty(); // Mark dirty for gamesave
 
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // Update
-                                                                  // block + TE
-                                                                  // via Network
+        this.worldObj.markBlockForUpdate(this.pos); // Update
+                                                    // block + TE
+                                                    // via Network
     }
 
     //use this in the onUpdate() function
     public void getUpgrades() {
+        //TODO: fixed
+        /*
         for (int i = 0; i < ForgeDirection.VALID_DIRECTIONS.length; i++) {
             upgrades[i] = -1;
             ForgeDirection direction = ForgeDirection.VALID_DIRECTIONS[i];
@@ -186,6 +188,7 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
                 upgrades[i] = block.getDamageValue(worldObj, this.xCoord + direction.offsetX, this.yCoord + direction.offsetY, this.zCoord + direction.offsetZ);
             }
         }
+        */
     }
 
     //use this to get the amount of upgrades the block has around it
@@ -251,6 +254,12 @@ public abstract class TileEntityMachineBase extends TileEntity implements ISided
         } else if (upgradeName.equals("creative")) {
             return creative;
         } else return 0;
+    }
+    
+    @Override
+    public void update() {
+        // TODO Auto-generated method stub
+        
     }
 
 }

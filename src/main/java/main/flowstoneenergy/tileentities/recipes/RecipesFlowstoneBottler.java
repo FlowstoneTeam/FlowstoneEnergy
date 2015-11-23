@@ -4,6 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecipesFlowstoneBottler {
 
@@ -15,7 +16,7 @@ public class RecipesFlowstoneBottler {
     }
 
     public static void addOreDictRecipe(String ore, ItemStack output, int time, int powerRequired) {
-        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
+        List<ItemStack> ores = OreDictionary.getOres(ore);
         if (ores != null && ores.size() > 0) {
             for (ItemStack oreList : OreDictionary.getOres(ore)) {
                 addRecipe(oreList, output, time, powerRequired);
@@ -24,7 +25,7 @@ public class RecipesFlowstoneBottler {
     }
 
     public static void addOreDictRecipe(ItemStack input, String output, int time, int stackSize, int powerRequired) {
-        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        List<ItemStack> outputs = OreDictionary.getOres(output);
         if (outputs != null && outputs.size() > 0) {
             ItemStack outputsFinal = outputs.get(0);
             outputsFinal.stackSize = stackSize;
@@ -33,8 +34,8 @@ public class RecipesFlowstoneBottler {
     }
 
     public static void addOreDictRecipe(String ore, String output, int time, int stackSize, int powerRequired) {
-        ArrayList<ItemStack> ores = OreDictionary.getOres(ore);
-        ArrayList<ItemStack> outputs = OreDictionary.getOres(output);
+        List<ItemStack> ores = OreDictionary.getOres(ore);
+        List<ItemStack> outputs = OreDictionary.getOres(output);
         if (ores != null && ores.size() > 0 && outputs != null && outputs.size() > 0) {
             for (ItemStack oreList : OreDictionary.getOres(ore)) {
                 ItemStack outputsFinal = outputs.get(0);

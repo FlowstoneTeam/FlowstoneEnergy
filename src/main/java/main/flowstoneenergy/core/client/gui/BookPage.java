@@ -1,6 +1,5 @@
 package main.flowstoneenergy.core.client.gui;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,7 +15,7 @@ public class BookPage {
     }
 
     protected static void renderItem(RenderItem itemRenderer, int x, int y, Item block) {
-        itemRenderer.renderItemIntoGUI(Minecraft.getMinecraft().fontRenderer, Minecraft.getMinecraft().renderEngine, new ItemStack(block), x, y, false);
+        itemRenderer.renderItemIntoGUI(new ItemStack(block), x, y);
     }
 
 }

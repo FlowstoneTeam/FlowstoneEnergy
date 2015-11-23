@@ -1,11 +1,13 @@
 package main.flowstoneenergy.blocks.storage.chests;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.tileentities.chests.*;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -34,11 +36,13 @@ public class BlockSecureChest extends BlockContainer {
     }
 
     @Override
-    public TileEntity createTileEntity(World world, int meta) {
+    public TileEntity createTileEntity(World world, IBlockState blockState) {
+        int meta = getMetaFromState(blockState);
         if (meta == 0) {
             return new TileEntitySecureChestLead();
         }
 
-        return super.createTileEntity(world, meta);
+        return super.createTileEntity(world, blockState);
     }
+    
 }

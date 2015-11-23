@@ -1,17 +1,18 @@
 package main.flowstoneenergy.blocks.machines;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.tileentities.machines.*;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -19,14 +20,15 @@ import java.util.List;
 public class BlockMachines extends BlockMachineMetaSidedTexture {
 
     public BlockMachines() {
-        frontOff = new IIcon[16];
+        /*frontOff = new IIcon[16];
         frontOn = new IIcon[16];
         top = new IIcon[16];
         bottom = new IIcon[16];
-        sideIcon = new IIcon[16];
+        sideIcon = new IIcon[16];*/
         setCreativeTab(FlowstoneEnergy.blockTab);
     }
 
+    /*
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
@@ -74,6 +76,7 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.bottom[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Bottom");
         this.sideIcon[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
     }
+    */
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @SideOnly(Side.CLIENT)
@@ -84,7 +87,8 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
     }
 
     @Override
-    public TileEntity createTileEntity(World world, int meta) {
+    public TileEntity createTileEntity(World world, IBlockState blockState) {
+        int meta = getMetaFromState(blockState);
         if (meta == 0) {
             return new TileEntityMachineOreTumbler();
         }
@@ -103,13 +107,17 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         if (meta == 5) {
             return new TileEntityMachineCooler();
         }
-        return super.createTileEntity(world, meta);
+        return super.createTileEntity(world, blockState);
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-        TileEntityMachineBase tile = (TileEntityMachineBase) world.getTileEntity(x, y, z);
+        TileEntityMachineBase tile = (TileEntityMachineBase) world.getTileEntity(pos);
+
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
 
         if (!world.isRemote && tile instanceof TileEntityMachineOreTumbler) {
             player.openGui(FlowstoneEnergy.instance, 0, world, x, y, z);

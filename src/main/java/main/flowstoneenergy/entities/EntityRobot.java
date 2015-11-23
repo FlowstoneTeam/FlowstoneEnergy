@@ -1,6 +1,6 @@
 package main.flowstoneenergy.entities;
 
-import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
+import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import io.netty.buffer.ByteBuf;
 import main.flowstoneenergy.core.libs.ConfigHandler;
 import main.flowstoneenergy.core.libs.ModInfo;
@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 
 public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnData {
 
-    private static boolean charged;
-    public static int taskNum = 0;
-    public static EntityRobot instance;
+    private boolean charged;
+    public int taskNum = 0;
+    public EntityRobot instance;
 
     public EntityRobot(World world) {
         super(world);
@@ -56,11 +56,11 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
         return ModInfo.MODID + ":robotDeath";
     }
 
-    public static boolean isCharged() {
+    public boolean isCharged() {
         return charged;
     }
 
-    public static void setCharged() {
+    public void setCharged() {
         if (!charged) {
             charged = true;
             // worldObj.updateEntity(this);
@@ -75,7 +75,7 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
     }
 
     @Override
-    protected boolean isMovementCeased() {
+    protected boolean isMovementBlocked() {
         if (charged)
             return false;
         else
@@ -88,14 +88,9 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox() {
-        return boundingBox;
-    }
-
-    @Override
     public AxisAlignedBB getCollisionBox(Entity entity) {
         if (entity != riddenByEntity)
-            return entity.boundingBox;
+            return entity.getEntityBoundingBox();
         else
             return null;
     }

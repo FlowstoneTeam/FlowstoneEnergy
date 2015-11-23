@@ -1,29 +1,29 @@
 package main.flowstoneenergy.blocks.decorative;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 import java.util.List;
 
 public class BlockAplite extends Block {
-    public IIcon[] icon = new IIcon[8];
+    //public IIcon[] icon = new IIcon[8];
 
     public BlockAplite() {
         super(Material.rock);
         this.setHardness(1F);
-        this.setBlockName(ModInfo.MODID + ".aplite");
+        this.setUnlocalizedName(ModInfo.MODID + ".aplite");
         this.setCreativeTab(FlowstoneEnergy.blockTab);
     }
 
+    /*
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister ir) {
@@ -41,6 +41,7 @@ public class BlockAplite extends Block {
         return this.icon[meta];
     }
 
+*/
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
     @SideOnly(Side.CLIENT)
@@ -51,10 +52,12 @@ public class BlockAplite extends Block {
     }
 
     @Override
-    public int damageDropped(int meta) {
-        if (meta == 0) {
+    public int damageDropped(IBlockState blockState) {
+        // FIXME: make it proper
+        /*if (meta == 0) {
             return 1;
         }
-        return meta;
+        return meta;*/
+        return getMetaFromState(blockState);
     }
 }

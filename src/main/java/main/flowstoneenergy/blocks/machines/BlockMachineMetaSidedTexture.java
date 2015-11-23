@@ -1,10 +1,11 @@
 package main.flowstoneenergy.blocks.machines;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.items.tools.ItemToolFlowwrench;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineBase;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,7 +13,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -21,14 +22,16 @@ import java.util.Random;
 
 public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
 
+    /*
     public IIcon top[];
     public IIcon bottom[];
     public IIcon frontOn[];
     public IIcon sideIcon[];
     public IIcon frontOff[];
+    */
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, net.minecraft.util.EnumFacing side, float hitX, float hitY, float hitZ) {
         if (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemToolFlowwrench) {
             return false;
         } else {
@@ -36,6 +39,7 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
         }
     }
 
+    /*
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(IBlockAccess access, int x, int y, int z, int side) {
@@ -79,17 +83,19 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
         }
     }
 
+*/
+  
     @Override
-    public void breakBlock(World world, int x, int y, int z, Block par5, int par6) {
-        dropItems(world, x, y, z);
-        world.removeTileEntity(x, y, z);
-        super.breakBlock(world, x, y, z, par5, par6);
+    public void breakBlock(World world, BlockPos pos, IBlockState state) {
+        dropItems(world, pos);
+        world.removeTileEntity(pos);
+        super.breakBlock(world, pos, state);
     }
 
     @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack) {
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase entity, ItemStack itemStack) {
         int facing = MathHelper.floor_double(entity.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-        TileEntityMachineBase tile = (TileEntityMachineBase) world.getTileEntity(x, y, z);
+        TileEntityMachineBase tile = (TileEntityMachineBase) world.getTileEntity(pos);
 
         if (facing == 0)
             tile.facing = 2;
@@ -101,10 +107,10 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
             tile.facing = 4;
     }
 
-    private void dropItems(World world, int x, int y, int z) {
+    private void dropItems(World world, BlockPos pos) {
         Random rand = new Random();
 
-        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        TileEntity tileEntity = world.getTileEntity(pos);
         if (!(tileEntity instanceof IInventory)) {
             return;
         }
@@ -118,7 +124,7 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
                 float ry = rand.nextFloat() * 0.8F + 0.1F;
                 float rz = rand.nextFloat() * 0.8F + 0.1F;
 
-                EntityItem entityItem = new EntityItem(world, x + rx, y + ry, z + rz, new ItemStack(item.getItem(), item.stackSize, item.getItemDamage()));
+                EntityItem entityItem = new EntityItem(world, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz, new ItemStack(item.getItem(), item.stackSize, item.getItemDamage()));
 
                 if (item.hasTagCompound()) {
                     entityItem.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
@@ -135,7 +141,7 @@ public abstract class BlockMachineMetaSidedTexture extends BlockMachineBox {
     }
 
     @Override
-    public int damageDropped(int meta) {
-        return meta;
+    public int damageDropped(IBlockState blockState) {
+        return getMetaFromState(blockState);
     }
 }

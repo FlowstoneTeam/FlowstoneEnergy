@@ -1,7 +1,7 @@
 package main.flowstoneenergy.core.client.gui;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.items.tools.ItemFlowstoneManual;
 import main.flowstoneenergy.core.utils.TextHelper;
@@ -96,7 +96,8 @@ public class ItemGuiManual extends GuiScreen {
     @Override
     protected void keyTyped(char c, int key) {
         if (key == Keyboard.KEY_ESCAPE) {
-            ItemFlowstoneManual.currentIcon = ItemFlowstoneManual.icon[0];
+            // FIXME: change the way this is handled
+            //ItemFlowstoneManual.currentIcon = ItemFlowstoneManual.icon[0];
             mc.displayGuiScreen(null);
         }
     }

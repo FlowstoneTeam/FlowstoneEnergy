@@ -1,7 +1,8 @@
 package main.flowstoneenergy.items;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.items.battery.*;
 import main.flowstoneenergy.items.flowarmor.ItemArmorFlowBoots;
 import main.flowstoneenergy.items.flowarmor.ItemArmorFlowChestplate;
@@ -22,7 +23,7 @@ public class ItemRegistry {
     public static final ToolMaterial electrum = EnumHelper.addToolMaterial("ELECTRUM_TOOL_MATERIAL", 4, 1000, 12.0F, 8, 25);
 
     // armour materials
-    public static final ArmorMaterial flowfield = EnumHelper.addArmorMaterial("flowfield", -1, new int[]{1, 2, 3, 4}, 0);
+    public static final ArmorMaterial flowfield = EnumHelper.addArmorMaterial("flowfield", ModInfo.MODID + ":textures/armor/flowstoneArmor", -1, new int[]{1, 2, 3, 4}, 0);
 
     // batteries
     public static ItemBatteryFlowstoneBase tierOne;

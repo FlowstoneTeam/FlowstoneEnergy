@@ -7,7 +7,8 @@ import main.flowstoneenergy.tileentities.recipes.Recipe1_1;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IChatComponent;
 
 //TODO: Enable after update
 public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*implements IEnergyHandler */{
@@ -23,12 +24,12 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*impleme
     }
 
     @Override
-    public String getInventoryName() {
+    public String getCommandSenderName() {
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         return true;
     }
 
@@ -36,24 +37,24 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*impleme
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
         if (slot != 0)
             return false;
-        if (FurnaceRecipes.smelting().getSmeltingResult(stack) != null)
+        if (FurnaceRecipes.instance().getSmeltingResult(stack) != null)
             return true;
         return false;
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int side) {
+    public int[] getSlotsForFace(EnumFacing side) {
         return new int[]{0, 1};
     }
 
     @Override
-    public boolean canInsertItem(int var1, ItemStack var2, int var3) {
+    public boolean canInsertItem(int slotId, ItemStack itemStack, EnumFacing side) {
         return true;
     }
 
     @Override
-    public boolean canExtractItem(int slot, ItemStack stack, int side) {
-        return slot == 1;
+    public boolean canExtractItem(int slotId, ItemStack itemStack, EnumFacing side) {
+        return slotId == 1;
     }
 
     public void func_145951_a(String displayName) {
@@ -61,8 +62,8 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*impleme
     }
 
     @Override
-    public void updateEntity() {
-        super.updateEntity();
+    public void update() {
+        super.update();
 
         if (upgradeCheckTimer >= 20) {
             getUpgrades();
@@ -88,7 +89,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*impleme
     // && energy.getEnergyStored() >= 1600
     public void smelt() {
         if (this.canSmelt()) {
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
+            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.items[0]);
             if (this.items[1] == null) {
                 this.items[1] = itemstack.copy();
             } else if (this.items[1].getItem() == itemstack.getItem()) {
@@ -112,7 +113,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*impleme
         if (this.items[0] == null) {
             return false;
         } else {
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.items[0]);
+            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.items[0]);
             if (itemstack == null)
                 return false;
             if (this.items[1] == null)
@@ -129,6 +130,36 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*impleme
             return 0;
         }
         return ticksLeft * scale / maxTicks;
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public IChatComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     // TODO: Enable after update

@@ -1,6 +1,6 @@
 package main.flowstoneenergy.core.utils;
 
-import cpw.mods.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.IWorldGenerator;
 import main.flowstoneenergy.core.libs.ConfigHandler;
 import main.flowstoneenergy.blocks.BlockRegistry;
 import net.minecraft.init.Blocks;
@@ -13,7 +13,7 @@ import java.util.Random;
 public class GenerationHandler implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-        switch (world.provider.dimensionId) {
+        switch (world.provider.getDimensionId()) {
             case -1:
                 break;
             case 0:
@@ -35,6 +35,8 @@ public class GenerationHandler implements IWorldGenerator {
             int nickelY = rand.nextInt(22);
             int apliteY = rand.nextInt(55);
 
+            // FIXME: create BlockStates first 
+            /*
             if (ConfigHandler.useFECopper)
                 (new WorldGenMinable(BlockRegistry.blockOres, 0, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
             if (ConfigHandler.useFETin)
@@ -47,6 +49,7 @@ public class GenerationHandler implements IWorldGenerator {
                 (new WorldGenMinable(BlockRegistry.blockOres, 4, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
             if (ConfigHandler.useFEApalite)
                 (new WorldGenMinable(BlockRegistry.aplite, 0, 30, Blocks.stone)).generate(world, rand, firstBlockXCoord, apliteY, firstBlockZCoord);
+                */
         }
 
     }

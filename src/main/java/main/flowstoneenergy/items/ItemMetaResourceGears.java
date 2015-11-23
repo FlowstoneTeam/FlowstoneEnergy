@@ -1,20 +1,18 @@
 package main.flowstoneenergy.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 import java.util.List;
 
 public class ItemMetaResourceGears extends Item {
 
-    public IIcon[] icon = new IIcon[500];
+    //public IIcon[] icon = new IIcon[500];
 
     public ItemMetaResourceGears() {
         this.setCreativeTab(FlowstoneEnergy.tab);
@@ -90,6 +88,7 @@ public class ItemMetaResourceGears extends Item {
         return getUnlocalizedName() + "." + name;
     }
 
+    /*
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int meta) {
         return this.icon[meta];
@@ -112,10 +111,10 @@ public class ItemMetaResourceGears extends Item {
         this.icon[12] = ri.registerIcon(ModInfo.MODID + ":gears/gearNickel");
         this.icon[13] = ri.registerIcon(ModInfo.MODID + ":gears/gearInvar");
     }
+    */
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List list) {
+    public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List<ItemStack> list) {
         for (int i = 0; i <= 13; i++) {
             list.add(new ItemStack(this, 1, i));
         }

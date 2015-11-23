@@ -3,7 +3,8 @@ package main.flowstoneenergy.tileentities.transport;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fluids.IFluidContainerItem;
 import net.minecraftforge.fluids.IFluidHandler;
@@ -11,14 +12,14 @@ import net.minecraftforge.fluids.IFluidTank;
 
 public class TileEntityFluidPipe extends TileEntityPipeBase {
     @Override
-    public void updateEntity() {
-        super.updateEntity();
+    public void update() {
+        super.update();
         updateConnections();
     }
 
     @Override
-    public boolean onlyOneOpposite(ForgeDirection[] directions) {
-        ForgeDirection mainDirection = null;
+    public boolean onlyOneOpposite(EnumFacing[] directions) {
+        EnumFacing mainDirection = null;
         boolean isOpposite = false;
 
         for (int i = 0; i < directions.length; i++) {
@@ -38,72 +39,60 @@ public class TileEntityFluidPipe extends TileEntityPipeBase {
 
     public void updateConnections() {
         // DO NOT MAKE THESE ELSE IF STATEMENTS, IT BREAKS IT. I TRIED - Poppy
-        if (isPipe(xCoord, yCoord + 1, zCoord)) {
-            connections[0] = ForgeDirection.UP;
+        if (isPipe(this.pos.up())) {
+            connections[0] = EnumFacing.UP;
         } else {
             connections[0] = null;
         }
-        if (isPipe(xCoord, yCoord - 1, zCoord)) {
-            connections[1] = ForgeDirection.DOWN;
+        if (isPipe(this.pos.down())) {
+            connections[1] = EnumFacing.DOWN;
         } else {
             connections[1] = null;
         }
-        if (isPipe(xCoord, yCoord, zCoord - 1) || isValidInventory(xCoord, yCoord, zCoord - 1)) {
-            connections[2] = ForgeDirection.NORTH;
+        if (isPipe(this.pos.north()) || isValidInventory(this.pos.north())) {
+            connections[2] = EnumFacing.NORTH;
         } else {
             connections[2] = null;
         }
-        if (isPipe(xCoord + 1, yCoord, zCoord) || isValidInventory(xCoord + 1, yCoord, zCoord)) {
-            connections[3] = ForgeDirection.EAST;
+        if (isPipe(this.pos.east()) || isValidInventory(this.pos.east())) {
+            connections[3] = EnumFacing.EAST;
         } else {
             connections[3] = null;
         }
-        if (isPipe(xCoord, yCoord, zCoord + 1) || isValidInventory(xCoord, yCoord, zCoord + 1)) {
-            connections[4] = ForgeDirection.SOUTH;
+        if (isPipe(this.pos.south()) || isValidInventory(this.pos.south())) {
+            connections[4] = EnumFacing.SOUTH;
         } else {
             connections[4] = null;
         }
-        if (isPipe(xCoord - 1, yCoord, zCoord) || isValidInventory(xCoord - 1, yCoord, zCoord)) {
-            connections[5] = ForgeDirection.WEST;
+        if (isPipe(this.pos.west()) || isValidInventory(this.pos.west())) {
+            connections[5] = EnumFacing.WEST;
         } else {
             connections[5] = null;
         }
     }
 
+    // TODO: investigate validity
     @Override
-    public boolean isValidInventory(int x, int y, int z) {
-        if (worldObj.getTileEntity(x, y, z) != null) {
-            return worldObj.getTileEntity(x, y, z) instanceof IFluidHandler || worldObj.getTileEntity(x, y, z) instanceof IFluidTank
-                    || worldObj.getTileEntity(x, y, z) instanceof IFluidBlock || worldObj.getTileEntity(x, y, z) instanceof IFluidContainerItem;
+    public boolean isValidInventory(BlockPos pos) {
+        if (worldObj.getTileEntity(pos) != null) {
+            return worldObj.getTileEntity(pos) instanceof IFluidHandler || worldObj.getTileEntity(pos) instanceof IFluidTank
+                    || worldObj.getTileEntity(pos) instanceof IFluidBlock || worldObj.getTileEntity(pos) instanceof IFluidContainerItem;
         } else {
             return false;
         }
     }
 
     @Override
-    public boolean isPipe(int x, int y, int z) {
-        if (worldObj.getTileEntity(x, y, z) != null) {
-            return worldObj.getTileEntity(x, y, z) instanceof TileEntityFluidPipe;
+    public boolean isPipe(BlockPos pos) {
+        if (worldObj.getTileEntity(pos) != null) {
+            return worldObj.getTileEntity(pos) instanceof TileEntityFluidPipe;
         } else {
             return false;
         }
     }
 
     @Override
-    public boolean isOpposite(ForgeDirection firstDirection, ForgeDirection secondDirection) {
-        if (firstDirection.equals(ForgeDirection.NORTH) && secondDirection.equals(ForgeDirection.SOUTH) || firstDirection.equals(ForgeDirection.SOUTH)
-                && secondDirection.equals(ForgeDirection.NORTH)) {
-            return true;
-        }
-        if (firstDirection.equals(ForgeDirection.EAST) && secondDirection.equals(ForgeDirection.WEST) || firstDirection.equals(ForgeDirection.WEST)
-                && secondDirection.equals(ForgeDirection.EAST)) {
-            return true;
-        }
-        if (firstDirection.equals(ForgeDirection.DOWN) && secondDirection.equals(ForgeDirection.UP) || firstDirection.equals(ForgeDirection.UP)
-                && secondDirection.equals(ForgeDirection.DOWN)) {
-            return true;
-        }
-
-        return false;
+    public boolean isOpposite(EnumFacing firstDirection, EnumFacing secondDirection) {
+        return firstDirection.getOpposite() == secondDirection;
     }
 }

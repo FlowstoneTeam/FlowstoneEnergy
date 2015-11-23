@@ -4,7 +4,8 @@ package main.flowstoneenergy.tileentities.machines;
 import main.flowstoneenergy.tileentities.recipes.RecipesMachineWorkbench;
 import main.flowstoneenergy.tileentities.recipes.Recipe3_1;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IChatComponent;
 
 //TODO: Enable after update
 public class TileEntityMachineWorkbench extends TileEntityMachineBase /*implements IEnergyHandler */{
@@ -19,12 +20,12 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase /*implemen
     }
 
     @Override
-    public String getInventoryName() {
+    public String getCommandSenderName() {
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         return true;
     }
 
@@ -34,27 +35,28 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase /*implemen
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int var1) {
+    public int[] getSlotsForFace(EnumFacing side) {
         return null;
     }
 
     @Override
-    public boolean canInsertItem(int var1, ItemStack var2, int var3) {
+    public boolean canInsertItem(int slot, ItemStack itemStack, EnumFacing side) {
         return true;
     }
 
     @Override
-    public boolean canExtractItem(int var1, ItemStack var2, int var3) {
+    public boolean canExtractItem(int slot, ItemStack itemStack, EnumFacing side) {
         return true;
     }
 
+    // TODO: find replacement
     public void func_145951_a(String displayName) {
         this.field_145958_o = displayName;
     }
 
     @Override
-    public void updateEntity() {
-        super.updateEntity();
+    public void update() {
+        super.update();
 
         if (items[0] != null && items[1] != null && items[2] != null && ticksLeft == 0) {
             Recipe3_1 r = RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]);
@@ -67,7 +69,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase /*implemen
             if (items[3] == null
                     || (RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItem().equals(items[3].getItem()) && RecipesMachineWorkbench.getRecipeFromStack(items[0], items[1], items[2]).getOutput().getItemDamage() == items[3].getItemDamage())) {
                 ticksLeft++;
-                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+                worldObj.markBlockForUpdate(this.pos);
             } else {
                 ticksLeft = 0;
                 resetTimeAndTexture();
@@ -108,6 +110,36 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase /*implemen
         if (maxTicks == 0)
             return 0;
         return ticksLeft * scale / maxTicks;
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public IChatComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     // TODO: Enable after update

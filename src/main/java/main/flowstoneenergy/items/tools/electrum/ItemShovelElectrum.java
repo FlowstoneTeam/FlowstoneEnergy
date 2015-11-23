@@ -10,6 +10,6 @@ public class ItemShovelElectrum extends ItemSpade {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".electrum.shovel");
-        this.setTextureName(ModInfo.MODID + ":tools/electrumShovel");
+        //this.setTextureName(ModInfo.MODID + ":tools/electrumShovel");
     }
 }

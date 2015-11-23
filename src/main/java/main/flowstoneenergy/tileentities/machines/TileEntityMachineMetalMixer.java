@@ -4,7 +4,8 @@ package main.flowstoneenergy.tileentities.machines;
 import main.flowstoneenergy.tileentities.recipes.Recipe2_1;
 import main.flowstoneenergy.tileentities.recipes.RecipesMetalMixer;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IChatComponent;
 
 //TODO: Enable after update
 public class TileEntityMachineMetalMixer extends TileEntityMachineBase /*implements IEnergyHandler*/ {
@@ -20,12 +21,12 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase /*impleme
     }
 
     @Override
-    public String getInventoryName() {
+    public String getCommandSenderName() {
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         return true;
     }
 
@@ -41,17 +42,17 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase /*impleme
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int side) {
+    public int[] getSlotsForFace(EnumFacing side) {
         return new int[]{0, 1, 2, 3};
     }
 
     @Override
-    public boolean canInsertItem(int var1, ItemStack var2, int var3) {
+    public boolean canInsertItem(int slot, ItemStack itemStack, EnumFacing side) {
         return true;
     }
 
     @Override
-    public boolean canExtractItem(int slot, ItemStack stack, int side) {
+    public boolean canExtractItem(int slot, ItemStack itemStack, EnumFacing side) {
         return slot == 2 || slot == 3;
     }
 
@@ -60,8 +61,8 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase /*impleme
     }
 
     @Override
-    public void updateEntity() {
-        super.updateEntity();
+    public void update() {
+        super.update();
 
         if (canMix()) {
             if (ticksLeft >= maxTicks) {
@@ -150,6 +151,36 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase /*impleme
         if (maxTicks == 0)
             return 0;
         return ticksLeft * scale / maxTicks;
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public IChatComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     // TODO: Enable after update

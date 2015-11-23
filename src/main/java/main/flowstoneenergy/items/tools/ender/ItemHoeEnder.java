@@ -10,6 +10,6 @@ public class ItemHoeEnder extends ItemHoe {
         super(material);
         this.setCreativeTab(FlowstoneEnergy.tab);
         this.setUnlocalizedName(ModInfo.MODID + ".ender.hoe");
-        this.setTextureName(ModInfo.MODID + ":tools/enderHoe");
+        //this.setTextureName(ModInfo.MODID + ":tools/enderHoe");
     }
 }

@@ -10,13 +10,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockButton;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.BlockLever;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.*;
 
@@ -35,7 +37,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
     public ItemToolPneumaticFlowwrench() {
         super();
         this.setUnlocalizedName(ModInfo.MODID + ".pneumatic.flowwrench");
-        this.setTextureName(ModInfo.MODID + ":tools/pneumaticFlowwrench");
+        //this.setTextureName(ModInfo.MODID + ":tools/pneumaticFlowwrench");
         this.setMaxStackSize(1);
         shiftRotations.add(BlockLever.class);
         shiftRotations.add(BlockButton.class);
@@ -77,18 +79,20 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
     }
 
     @Override
-    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int hitSide, float hitX, float hitY, float hitZ) {
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, BlockPos pos, EnumFacing hitSide, float hitX, float hitY, float hitZ)  {
         // FE
-        Block block = world.getBlock(x, y, z);
-        int meta = world.getBlockMetadata(x, y, z);
-        TileEntity te = world.getTileEntity(x, y, z);
+        IBlockState blockState = world.getBlockState(pos);
+        Block block = blockState.getBlock();
+        int meta = block.getMetaFromState(blockState);
+        TileEntity te = world.getTileEntity(pos);
         if (block instanceof IFlowWrenchable) {
             if (player.isSneaking()) {
-                world.setBlock(x, y, z, Blocks.air);
+                world.setBlockToAir(pos);
                 if (!world.isRemote) {
-                    world.spawnEntityInWorld(new EntityItem(world, (double) x, (double) y, (double) z, new ItemStack(block, 1, meta)));
+                    world.spawnEntityInWorld(new EntityItem(world, (double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), new ItemStack(block, 1, meta)));
                 }
-                itemStack.damageItem(1, player);
+                //TODO: investigate if this is required
+                // itemStack.damageItem(1, player);
             }
         }
         // IC2
@@ -127,7 +131,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
 
         // BC/AE2
         if (bcInstalled || ConfigHandler.debugMode) {
-            if (block == null) {
+            if (block == Blocks.air) {
                 return false;
             }
 
@@ -135,7 +139,7 @@ public class ItemToolPneumaticFlowwrench extends ItemToolFlowwrench {
                 return false;
             }
 
-            if (block.rotateBlock(world, x, y, z, ForgeDirection.getOrientation(hitSide))) {
+            if (block.rotateBlock(world, pos, hitSide)) {
                 player.swingItem();
                 return !world.isRemote;
             }

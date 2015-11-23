@@ -1,6 +1,6 @@
 package main.flowstoneenergy.tileentities;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorCoal;
 import main.flowstoneenergy.tileentities.generators.TileEntityGeneratorFlowstone;

@@ -17,7 +17,7 @@ import main.flowstoneenergy.items.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockRegistry {
 
@@ -58,7 +58,7 @@ public class BlockRegistry {
         GameRegistry.registerBlock(machineBox, machineBox.getUnlocalizedName());
         machineWorkbench = new BlockMachineWorkbench();
         GameRegistry.registerBlock(machineWorkbench, machineWorkbench.getUnlocalizedName());
-        machines = new BlockMachines().setBlockName("blockMachines");
+        machines = new BlockMachines().setUnlocalizedName("blockMachines");
         GameRegistry.registerBlock(machines, ItemBlockMachines.class, "BlockMachines");
 
         // decorative
@@ -68,11 +68,11 @@ public class BlockRegistry {
         GameRegistry.registerBlock(strongGlassPane, strongGlassPane.getUnlocalizedName());
 
         // other
-        ingotStorage = new BlockIngotStorage().setBlockName("blockIngotStorage");
+        ingotStorage = new BlockIngotStorage().setUnlocalizedName("blockIngotStorage");
         GameRegistry.registerBlock(ingotStorage, ItemBlockIngotStorage.class, "BlockIngotStorage");
-        aplite = new BlockAplite().setBlockName("blockAplite");
+        aplite = new BlockAplite().setUnlocalizedName("blockAplite");
         GameRegistry.registerBlock(aplite, ItemBlockAplite.class, "BlockAplite");
-        upgrades = new BlockUpgrades().setBlockName("blockUpgrades");
+        upgrades = new BlockUpgrades().setUnlocalizedName("blockUpgrades");
         GameRegistry.registerBlock(upgrades, ItemBlockUpgrades.class, "BlockUpgrades");
 
         // transport
