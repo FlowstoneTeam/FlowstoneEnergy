@@ -7,5 +7,4 @@ before_script: 'chmod u+x gradlew'
 
 # Actual Script
 script:
-- './gradlew setupCIWorkspace'
-- './gradlew build'
+- './gradlew setupCIWorkspace build'
