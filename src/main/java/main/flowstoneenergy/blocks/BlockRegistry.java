@@ -55,53 +55,51 @@ public class BlockRegistry {
     public static void registerBlocks() {
         // machines
         machineBox = new BlockMachineBox();
-        GameRegistry.registerBlock(machineBox, machineBox.getUnlocalizedName());
+        GameRegistry.registerBlock(machineBox, "machine_box");
         machineWorkbench = new BlockMachineWorkbench();
-        GameRegistry.registerBlock(machineWorkbench, machineWorkbench.getUnlocalizedName());
+        GameRegistry.registerBlock(machineWorkbench, "machine_workbench");
         machines = new BlockMachines().setUnlocalizedName("blockMachines");
-        GameRegistry.registerBlock(machines, ItemBlockMachines.class, "BlockMachines");
+        GameRegistry.registerBlock(machines, ItemBlockMachines.class, "machines");
 
         // decorative
         strongGlass = new BlockStrongGlass();
-        GameRegistry.registerBlock(strongGlass, strongGlass.getUnlocalizedName());
+        GameRegistry.registerBlock(strongGlass, "strong_glass");
         strongGlassPane = new BlockStrongGlassPane();
-        GameRegistry.registerBlock(strongGlassPane, strongGlassPane.getUnlocalizedName());
+        GameRegistry.registerBlock(strongGlassPane, "strong_glass_pane");
 
         // other
         ingotStorage = new BlockIngotStorage().setUnlocalizedName("blockIngotStorage");
-        GameRegistry.registerBlock(ingotStorage, ItemBlockIngotStorage.class, "BlockIngotStorage");
+        GameRegistry.registerBlock(ingotStorage, ItemBlockIngotStorage.class, "ingot_storage");
         aplite = new BlockAplite().setUnlocalizedName("blockAplite");
-        GameRegistry.registerBlock(aplite, ItemBlockAplite.class, "BlockAplite");
+        GameRegistry.registerBlock(aplite, ItemBlockAplite.class, "aplite");
         upgrades = new BlockUpgrades().setUnlocalizedName("blockUpgrades");
-        GameRegistry.registerBlock(upgrades, ItemBlockUpgrades.class, "BlockUpgrades");
+        GameRegistry.registerBlock(upgrades, ItemBlockUpgrades.class, "upgrades");
 
         // transport
         itemPipe = new BlockPipeItem();
-        GameRegistry.registerBlock(itemPipe, itemPipe.getUnlocalizedName());
+        GameRegistry.registerBlock(itemPipe, "item_pipe");
         fluidPipe = new BlockPipeFluid();
-        GameRegistry.registerBlock(fluidPipe, fluidPipe.getUnlocalizedName());
+        GameRegistry.registerBlock(fluidPipe, "fluid_pipe");
         powerPipe = new BlockPipePower();
-        GameRegistry.registerBlock(powerPipe, powerPipe.getUnlocalizedName());
+        GameRegistry.registerBlock(powerPipe, "power_pipe");
 
         // ores
         blockOres = new BlockOres();
-        GameRegistry.registerBlock(blockOres, ItemBlockOres.class, blockOres.getUnlocalizedName());
+        GameRegistry.registerBlock(blockOres, ItemBlockOres.class, "ores");
 
         // fluids
         flowstone = new Fluid("flowstone");
         FluidRegistry.registerFluid(flowstone);
         flowstoneBlock = new BlockFlowstone(flowstone);
-        GameRegistry.registerBlock(flowstoneBlock, flowstoneBlock.getUnlocalizedName());
-        flowstone.setUnlocalizedName(flowstoneBlock.getUnlocalizedName());
+        GameRegistry.registerBlock(flowstoneBlock, "fluid_flowstone");
 
         fluidBlaze = new Fluid("fluidBlaze");
         FluidRegistry.registerFluid(fluidBlaze);
         fluidBlazeBlock = new BlockFluidBlaze(fluidBlaze);
-        GameRegistry.registerBlock(fluidBlazeBlock, fluidBlazeBlock.getUnlocalizedName());
-        fluidBlaze.setUnlocalizedName(fluidBlazeBlock.getUnlocalizedName());
+        GameRegistry.registerBlock(fluidBlazeBlock, "fluid_blaze");
         
         // generator
         generator = new BlockGenerator();
-        GameRegistry.registerBlock(generator, ItemBlockGenerators.class, generator.getUnlocalizedName());
+        GameRegistry.registerBlock(generator, ItemBlockGenerators.class, "generator");
     }
 }

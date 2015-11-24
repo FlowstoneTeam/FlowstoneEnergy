@@ -68,66 +68,66 @@ public class ItemRegistry {
     public static void registerItems() {
         // Metadata Item
         metaResourceDust = new ItemMetaResourceDust().setUnlocalizedName("itemMetadataResourceDust");
-        GameRegistry.registerItem(metaResourceDust, "ItemMetadataResourceDust");
+        GameRegistry.registerItem(metaResourceDust, "resource_dust");
         metaResourceIngot = new ItemMetaResourceIngots().setUnlocalizedName("itemMetadataResourceIngot");
-        GameRegistry.registerItem(metaResourceIngot, "ItemMetadataResourceIngot");
+        GameRegistry.registerItem(metaResourceIngot, "resource_ingot");
         metaResourceGear = new ItemMetaResourceGears().setUnlocalizedName("itemMetadataResourceGear");
-        GameRegistry.registerItem(metaResourceGear, "ItemMetadataResourceGear");
+        GameRegistry.registerItem(metaResourceGear, "resource_gear");
 
         // batteries
         tierOne = new ItemBatteryFlowstoneTierOne();
-        GameRegistry.registerItem(tierOne, tierOne.getUnlocalizedName());
+        GameRegistry.registerItem(tierOne, "battery_tier_one");
         tierTwo = new ItemBatteryFlowstoneTierTwo();
-        GameRegistry.registerItem(tierTwo, tierTwo.getUnlocalizedName());
+        GameRegistry.registerItem(tierTwo, "battery_tier_two");
         tierThree = new ItemBatteryFlowstoneTierThree();
-        GameRegistry.registerItem(tierThree, tierThree.getUnlocalizedName());
+        GameRegistry.registerItem(tierThree, "battery_tier_three");
         tierFour = new ItemBatteryFlowstoneTierFour();
-        GameRegistry.registerItem(tierFour, tierFour.getUnlocalizedName());
+        GameRegistry.registerItem(tierFour, "battery_tier_four");
         tierFive = new ItemBatteryFlowstoneTierFive();
-        GameRegistry.registerItem(tierFive, tierFive.getUnlocalizedName());
+        GameRegistry.registerItem(tierFive, "battery_tier_five");
 
         // tools
         flowwrench = new ItemToolFlowwrench();
-        GameRegistry.registerItem(flowwrench, flowwrench.getUnlocalizedName());
+        GameRegistry.registerItem(flowwrench, "flowwrench");
         pneumaticFlowwrench = new ItemToolPneumaticFlowwrench();
-        GameRegistry.registerItem(pneumaticFlowwrench, pneumaticFlowwrench.getUnlocalizedName());
+        GameRegistry.registerItem(pneumaticFlowwrench, "flowwrench_pneumatic");
         enderSword = new ItemSwordEnder(ender);
-        GameRegistry.registerItem(enderSword, enderSword.getUnlocalizedName());
+        GameRegistry.registerItem(enderSword, "ender_sword");
         enderPick = new ItemPickEnder(ender);
-        GameRegistry.registerItem(enderPick, enderPick.getUnlocalizedName());
+        GameRegistry.registerItem(enderPick, "ender_pick");
         enderHoe = new ItemHoeEnder(ender);
-        GameRegistry.registerItem(enderHoe, enderHoe.getUnlocalizedName());
+        GameRegistry.registerItem(enderHoe, "ender_hoe");
         enderShovel = new ItemShovelEnder(ender);
-        GameRegistry.registerItem(enderShovel, enderShovel.getUnlocalizedName());
+        GameRegistry.registerItem(enderShovel, "ender_shovel");
         enderAxe = new ItemAxeEnder(ender);
-        GameRegistry.registerItem(enderAxe, enderAxe.getUnlocalizedName());
+        GameRegistry.registerItem(enderAxe, "ender_axe");
         electrumSword = new ItemSwordElectrum(electrum);
-        GameRegistry.registerItem(electrumSword, electrumSword.getUnlocalizedName());
+        GameRegistry.registerItem(electrumSword, "electrum_sword");
         electrumPick = new ItemPickElectrum(electrum);
-        GameRegistry.registerItem(electrumPick, electrumPick.getUnlocalizedName());
+        GameRegistry.registerItem(electrumPick, "electrum_pick");
         electrumHoe = new ItemHoeElectrum(electrum);
-        GameRegistry.registerItem(electrumHoe, electrumHoe.getUnlocalizedName());
+        GameRegistry.registerItem(electrumHoe, "electrum_hoe");
         electrumShovel = new ItemShovelElectrum(electrum);
-        GameRegistry.registerItem(electrumShovel, electrumShovel.getUnlocalizedName());
+        GameRegistry.registerItem(electrumShovel, "electrum_shovel");
         electrumAxe = new ItemAxeElectrum(electrum);
-        GameRegistry.registerItem(electrumAxe, electrumAxe.getUnlocalizedName());
+        GameRegistry.registerItem(electrumAxe, "electrum_axe");
         manual = new ItemFlowstoneManual();
-        GameRegistry.registerItem(manual, manual.getUnlocalizedName());
+        GameRegistry.registerItem(manual, "manual");
 
         // armour
         flowBoots = new ItemArmorFlowBoots(flowfield, 0, 3);
-        GameRegistry.registerItem(flowBoots, flowBoots.getUnlocalizedName());
+        GameRegistry.registerItem(flowBoots, "flow_boots");
         flowLeggings = new ItemArmorFlowLeggings(flowfield, 0, 2);
-        GameRegistry.registerItem(flowLeggings, flowLeggings.getUnlocalizedName());
+        GameRegistry.registerItem(flowLeggings, "flow_leggings");
         flowChestplate = new ItemArmorFlowChestplate(flowfield, 0, 1);
-        GameRegistry.registerItem(flowChestplate, flowChestplate.getUnlocalizedName());
+        GameRegistry.registerItem(flowChestplate, "flow_chestplate");
         flowHelm = new ItemArmorFlowHelm(flowfield, 0, 0);
-        GameRegistry.registerItem(flowHelm, flowHelm.getUnlocalizedName());
+        GameRegistry.registerItem(flowHelm, "flow_helmet");
 
         // misc
         flowstoneBucket = new ItemFlowstoneBucket(BlockRegistry.flowstoneBlock);
-        GameRegistry.registerItem(flowstoneBucket, flowstoneBucket.getUnlocalizedName());
+        GameRegistry.registerItem(flowstoneBucket, "bucket_flowstone");
         fluidBlazeBucket = new ItemLiquidBlazeBucket(BlockRegistry.fluidBlazeBlock);
-        GameRegistry.registerItem(fluidBlazeBucket, fluidBlazeBucket.getUnlocalizedName());
+        GameRegistry.registerItem(fluidBlazeBucket, "bucket_blaze");
     }
 }
