@@ -26,11 +26,10 @@ public class RenderItemPipe extends TileEntitySpecialRenderer<TileEntityItemPipe
         GL11.glTranslated(translationX, translationY, translationZ);
         GL11.glDisable(GL11.GL_LIGHTING);
         bindTexture(text);
-        //FIXME: Switch to EnumFacing
-        /*
+        
         {
             if (!pipe.onlyOneOpposite(pipe.connections)) {
-                drawCore(tileEntity);
+                drawCore(pipe);
                 for (int i = 0; i < pipe.connections.length; i++) {
                     if (pipe.connections[i] != null) {
                         drawConnection(pipe.connections[i]);
@@ -45,7 +44,7 @@ public class RenderItemPipe extends TileEntitySpecialRenderer<TileEntityItemPipe
                 }
             }
         }
-        */
+
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glTranslated(-translationX, -translationY, -translationZ);
     }

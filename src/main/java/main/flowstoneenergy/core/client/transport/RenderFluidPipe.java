@@ -27,8 +27,6 @@ public class RenderFluidPipe extends TileEntitySpecialRenderer<TileEntityFluidPi
         GL11.glTranslated(translationX, translationY, translationZ);
         GL11.glDisable(GL11.GL_LIGHTING);
         bindTexture(text);
-        //FIXME: switch to direction
-        /*
         {
             if (!pipe.onlyOneOpposite(pipe.connections)) {
                 drawCore(pipe);
@@ -46,7 +44,6 @@ public class RenderFluidPipe extends TileEntitySpecialRenderer<TileEntityFluidPi
                 }
             }
         }
-        */
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glTranslated(-translationX, -translationY, -translationZ);
     }

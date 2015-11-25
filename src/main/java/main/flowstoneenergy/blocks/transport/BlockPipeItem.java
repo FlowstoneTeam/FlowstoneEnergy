@@ -28,8 +28,6 @@ public class BlockPipeItem extends BlockMachineBox implements IFlowWrenchable {
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state) {
         TileEntityItemPipe pipe = (TileEntityItemPipe) world.getTileEntity(pos);
 
-        // FIXME: switch to direction enum
-        /*
         if (pipe != null) {
             float minX = 11 * pixel / 2 - (pipe.connections[5] != null ? (11 * pixel / 2) : 0);
             float minZ = 11 * pixel / 2 - (pipe.connections[2] != null ? (11 * pixel / 2) : 0);
@@ -40,7 +38,6 @@ public class BlockPipeItem extends BlockMachineBox implements IFlowWrenchable {
 
             setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
         }
-        */
 
         return AxisAlignedBB.fromBounds(pos.getX() + minX, pos.getY() + minY, pos.getZ() + minZ, pos.getX() + maxX, pos.getY() + maxY, pos.getZ() + maxZ);
     }
@@ -48,9 +45,6 @@ public class BlockPipeItem extends BlockMachineBox implements IFlowWrenchable {
     @Override
     public AxisAlignedBB getSelectedBoundingBox(World world, BlockPos pos) {
         TileEntityItemPipe pipe = (TileEntityItemPipe) world.getTileEntity(pos);
-
-        // FIXME: Switch to direction enum
-        /*
         if (pipe != null) {
             float minX = 11 * pixel / 2 - (pipe.connections[5] != null ? (11 * pixel / 2) : 0);
             float minZ = 11 * pixel / 2 - (pipe.connections[2] != null ? (11 * pixel / 2) : 0);
@@ -61,7 +55,6 @@ public class BlockPipeItem extends BlockMachineBox implements IFlowWrenchable {
 
             setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
         }
-        */
 
         return AxisAlignedBB.fromBounds(pos.getX() + minX, pos.getY() + minY, pos.getZ() + minZ, pos.getX() + maxX, pos.getY() + maxY, pos.getZ()  + maxZ);
     }
