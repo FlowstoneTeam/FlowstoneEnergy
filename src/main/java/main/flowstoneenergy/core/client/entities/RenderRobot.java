@@ -20,9 +20,10 @@ public class RenderRobot extends RenderLiving<EntityRobot> {
 
     public void doRender(EntityRobot robot, double x, double y, double z, float yaw, float partialTicks) {
         GL11.glPushMatrix();
-        GL11.glTranslatef((float) x, (float) y, (float) z);
+        GL11.glTranslatef((float) x, (float) y + 1.5F, (float) z);
         GL11.glRotatef(180.0F - yaw, 0.0F, 1.0F, 0.0F);
-        GL11.glScalef(-1.0F, -1.0F, 1.0F);
+        GL11.glRotatef(180, 1, 0, 0);
+        GL11.glRotatef(180, 0, 1, 0);
 
         bindEntityTexture(robot);
         mainModel.render(robot, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);

@@ -6,8 +6,13 @@ import main.flowstoneenergy.core.libs.ConfigHandler;
 import main.flowstoneenergy.core.libs.ModInfo;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.pathfinding.PathNavigateGround;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
@@ -19,11 +24,13 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
 
     public EntityRobot(World world) {
         super(world);
+        setSize(0.8F, 1.0F);
         if (ConfigHandler.debugMode)
             charged = true;
-        setHealth(20);
-        setAIMoveSpeed(0.5F);
-        setSize(0.9F, 0.6F);
+        ((PathNavigateGround)this.getNavigator()).setAvoidsWater(true);
+        this.tasks.addTask(6, new EntityAIWander(this, 0.6D));
+        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
     }
 
     public void setTask(int taskNum) {
@@ -71,6 +78,7 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
     }
 
@@ -85,22 +93,6 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-    }
-
-    @Override
-    public AxisAlignedBB getCollisionBox(Entity entity) {
-        if (entity != riddenByEntity)
-            return entity.getEntityBoundingBox();
-        else
-            return null;
-    }
-
-    @Override
-    public void onUpdate() {
-        if (charged || ConfigHandler.debugMode) {
-            super.onUpdate();
-            setTask(taskNum);
-        }
     }
 
     @Override
@@ -128,6 +120,11 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
         charged = data.readBoolean();
     }
 
+    @Override
+    public float getEyeHeight() {
+        return 0.95F;
+    }
+    
     public void defend(World world, int radius, int damage, double x, double y, double z) {
     }
 
