@@ -114,5 +114,10 @@ public class BlockOres extends BlockOre {
         public int getMeta() {
             return meta;
         }
+        
+        @Override
+        public String toString() {
+            return this.name;
+        }
     }
 }
