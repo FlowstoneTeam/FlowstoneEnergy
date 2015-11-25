@@ -13,8 +13,10 @@ import main.flowstoneenergy.blocks.transport.BlockPipeFluid;
 import main.flowstoneenergy.blocks.transport.BlockPipeItem;
 import main.flowstoneenergy.blocks.transport.BlockPipePower;
 import main.flowstoneenergy.blocks.upgrades.BlockUpgrades;
+import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.items.blocks.*;
 import net.minecraft.block.Block;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -88,12 +90,16 @@ public class BlockRegistry {
         GameRegistry.registerBlock(blockOres, ItemBlockOres.class, "ores");
 
         // fluids
-        flowstone = new Fluid("flowstone");
+        ResourceLocation stillFlowstone = new ResourceLocation(ModInfo.MODID + ":textures/blocks/fluids/stillFlowstone.png");
+        ResourceLocation flowingFlowstone = new ResourceLocation(ModInfo.MODID + ":textures/blocks/fluids/flowingFlowstone.png");
+        flowstone = new Fluid("flowstone", stillFlowstone, flowingFlowstone);
         FluidRegistry.registerFluid(flowstone);
         flowstoneBlock = new BlockFlowstone(flowstone);
         GameRegistry.registerBlock(flowstoneBlock, "fluid_flowstone");
 
-        fluidBlaze = new Fluid("fluidBlaze");
+        ResourceLocation stillFluidBlaze = new ResourceLocation(ModInfo.MODID + ":textures/blocks/fluids/stillLiquidBlaze.png");
+        ResourceLocation flowingFluidBlaze = new ResourceLocation(ModInfo.MODID + ":textures/blocks/fluids/flowingLiquidBlaze.png");
+        fluidBlaze = new Fluid("fluidBlaze", stillFluidBlaze, flowingFluidBlaze);
         FluidRegistry.registerFluid(fluidBlaze);
         fluidBlazeBlock = new BlockFluidBlaze(fluidBlaze);
         GameRegistry.registerBlock(fluidBlazeBlock, "fluid_blaze");
