@@ -93,11 +93,9 @@ public class BlockAplite extends Block {
 
     @Override
     public int damageDropped(IBlockState blockState) {
-        // FIXME: make it proper
-        /*if (meta == 0) {
-            return 1;
+        if (blockState.getValue(TYPE) == EnumApliteTypes.ORE){
+            return EnumApliteTypes.COBBLE.getMeta();
         }
-        return meta;*/
         return getMetaFromState(blockState);
     }
     
