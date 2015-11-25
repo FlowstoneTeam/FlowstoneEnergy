@@ -65,7 +65,7 @@ public class FlowstoneEnergy {
         NetworkRegistry.INSTANCE.registerGuiHandler(FlowstoneEnergy.instance, new GuiHandler());
         MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
         PacketHandler.init();
-
+        
         proxy.load();
     }
 

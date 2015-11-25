@@ -1,0 +1,45 @@
+{
+	"forge_marker": 1,
+	"defaults":{
+		"texures":{
+			"all":"flowstoneenergy:blocks/ores/copperOre"
+		},
+		"model":"cube_all",
+		"transform":"forge:default-block"
+	},
+	"variants":{
+		"inventory":[{
+			"textures":{
+					"all":"flowstoneenergy:blocks/ores/copperOre"
+				}
+			}],
+		"type":{
+			"copper":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/ores/copperOre"
+				}
+			},
+			"tin":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/ores/tinOre"
+				}
+			},
+			"lead":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/ores/leadOre"
+				}
+			},
+			"silver":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/ores/silverOre"
+				}
+			},
+			"nickle":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/ores/nickelOre"
+					}
+			}
+		}
+		
+	}
+}
