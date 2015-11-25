@@ -66,12 +66,14 @@ public class FlowstoneEnergy {
         MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
         PacketHandler.init();
         
-        proxy.load();
+        proxy.initModels();
     }
 
     @EventHandler
     public void load(FMLInitializationEvent event) {
         FEEntityRegistry.init();
+        
+        proxy.load();
     }
 
     @EventHandler

@@ -35,17 +35,16 @@ public class ClientProxy extends CommonProxy {
     public void initRenderers() {
         super.initRenderers();
         RenderManager renderManager = FMLClientHandler.instance().getClient().getRenderManager();
-        RenderingRegistry.registerEntityRenderingHandler(EntityRobot.class, new RenderRobot(renderManager, new FlowstoneRobot(), 0.3F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityRobot.class, new RenderRobot(renderManager, new FlowstoneRobot(), 0.5F));
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMachineWorkbench.class, new RenderMachineWorkbench());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityItemPipe.class, new RenderItemPipe());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFluidPipe.class, new RenderFluidPipe());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPowerPipe.class, new RenderPowerPipe());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlockRegistry.machineWorkbench), new CustomItemRenderer());
-        
-        initModels();
     }
     
-    private void initModels() {
+    @Override
+    public void initModels() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.COPPER.getMeta(), new ModelResourceLocation("flowstoneenergy:ores", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.TIN.getMeta(), new ModelResourceLocation("flowstoneenergy:ores", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.LEAD.getMeta(), new ModelResourceLocation("flowstoneenergy:ores", "inventory"));

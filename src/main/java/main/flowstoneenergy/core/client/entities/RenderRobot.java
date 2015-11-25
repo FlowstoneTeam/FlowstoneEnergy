@@ -13,13 +13,9 @@ import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class RenderRobot extends RenderLiving<EntityRobot> {
-    protected FlowstoneRobot model;
 
     public RenderRobot(RenderManager renderManager, FlowstoneRobot model, float shadowSize) {
         super(renderManager, model, shadowSize);
-        //FIXME: Remove if not needed
-        this.shadowSize = 0.5F;
-        model = new FlowstoneRobot();
     }
 
     public void doRender(EntityRobot robot, double x, double y, double z, float yaw, float partialTicks) {
@@ -28,7 +24,8 @@ public class RenderRobot extends RenderLiving<EntityRobot> {
         GL11.glRotatef(180.0F - yaw, 0.0F, 1.0F, 0.0F);
         GL11.glScalef(-1.0F, -1.0F, 1.0F);
 
-        model.render(robot, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+        bindEntityTexture(robot);
+        mainModel.render(robot, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 
         GL11.glPopMatrix();
     }
