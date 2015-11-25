@@ -3,7 +3,9 @@ package main.flowstoneenergy.core.utils;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import main.flowstoneenergy.core.libs.ConfigHandler;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -28,6 +30,7 @@ public class GenerationHandler implements IWorldGenerator {
         for (int k = 0; k < 10; k++) {
             int firstBlockXCoord = chunkX + rand.nextInt(16);
             int firstBlockZCoord = chunkZ + rand.nextInt(16);
+            BlockPos blockPos = new BlockPos(firstBlockXCoord, 0, firstBlockZCoord);
             int tinY = rand.nextInt(40);
             int copperY = rand.nextInt(64);
             int leadY = rand.nextInt(30);
@@ -35,21 +38,19 @@ public class GenerationHandler implements IWorldGenerator {
             int nickelY = rand.nextInt(22);
             int apliteY = rand.nextInt(55);
 
-            // FIXME: create BlockStates first 
-            /*
             if (ConfigHandler.useFECopper)
-                (new WorldGenMinable(BlockRegistry.blockOres, 0, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, copperY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres.getStateFromMeta(0), 4, BlockHelper.forBlock(Blocks.stone))).generate(world, rand, blockPos.add(0, copperY, 0));
             if (ConfigHandler.useFETin)
-                (new WorldGenMinable(BlockRegistry.blockOres, 1, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, tinY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres.getStateFromMeta(1), 4, BlockHelper.forBlock(Blocks.stone))).generate(world, rand, blockPos.add(0, tinY, 0));
             if (ConfigHandler.useFELead)
-                (new WorldGenMinable(BlockRegistry.blockOres, 2, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, leadY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres.getStateFromMeta(2), 4, BlockHelper.forBlock(Blocks.stone))).generate(world, rand, blockPos.add(0, leadY, 0));
             if (ConfigHandler.useFESilver)
-                (new WorldGenMinable(BlockRegistry.blockOres, 3, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, silverY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres.getStateFromMeta(3), 4, BlockHelper.forBlock(Blocks.stone))).generate(world, rand, blockPos.add(0,silverY, 0));
             if (ConfigHandler.useFENickel)
-                (new WorldGenMinable(BlockRegistry.blockOres, 4, 4, Blocks.stone)).generate(world, rand, firstBlockXCoord, nickelY, firstBlockZCoord);
+                (new WorldGenMinable(BlockRegistry.blockOres.getStateFromMeta(4), 4, BlockHelper.forBlock(Blocks.stone))).generate(world, rand, blockPos.add(0,nickelY, 0));
             if (ConfigHandler.useFEApalite)
-                (new WorldGenMinable(BlockRegistry.aplite, 0, 30, Blocks.stone)).generate(world, rand, firstBlockXCoord, apliteY, firstBlockZCoord);
-                */
+                (new WorldGenMinable(BlockRegistry.aplite.getDefaultState(), 30, BlockHelper.forBlock(Blocks.stone))).generate(world, rand, blockPos.add(0, apliteY, 0));
+                
         }
 
     }
