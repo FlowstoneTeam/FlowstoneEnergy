@@ -28,9 +28,9 @@ public class EntityRobot extends EntityGolem implements IEntityAdditionalSpawnDa
         if (ConfigHandler.debugMode)
             charged = true;
         ((PathNavigateGround)this.getNavigator()).setAvoidsWater(true);
-        this.tasks.addTask(6, new EntityAIWander(this, 0.6D));
-        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.tasks.addTask(1, new EntityAIWander(this, 0.6D));
+        this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(3, new EntityAILookIdle(this));
     }
 
     public void setTask(int taskNum) {
