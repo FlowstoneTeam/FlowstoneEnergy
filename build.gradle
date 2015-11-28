@@ -22,7 +22,7 @@ if(System.getenv().DRONE_BUILD_NUMBER)
 }
 
 minecraft {
-    version = "1.8.8-11.14.4.1589-1.8.8"
+    version = "1.8.8-11.15.0.1592-1.8.8"
     runDir = "run"
     
     mappings = "snapshot_20151122"
