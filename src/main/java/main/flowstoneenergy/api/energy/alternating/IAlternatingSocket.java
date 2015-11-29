@@ -4,5 +4,5 @@ import net.minecraft.util.EnumFacing;
 
 public interface IAlternatingSocket {
 
-    public boolean canAttach(EnumFacing side);
+    public boolean canAttach(EnumAlternatingPhase phase, EnumFacing side);
 }
