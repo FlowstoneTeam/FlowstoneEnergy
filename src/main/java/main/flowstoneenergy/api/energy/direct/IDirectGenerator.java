@@ -4,5 +4,5 @@ import net.minecraft.util.EnumFacing;
 
 public interface IDirectGenerator extends IDirectSocket {
 
-    int extract(int flow, EnumDirectType type, EnumFacing side, boolean real);
+    int extract(int flow, int force, EnumDirectType type, EnumFacing side, boolean real);
 }

@@ -4,5 +4,5 @@ import net.minecraft.util.EnumFacing;
 
 public interface IAlternatingAppliance extends IAlternatingSocket {
 
-    int insert(int flow, EnumAlternatingPhase phase, EnumFacing side, boolean real);
+    int insert(int flow, int force, EnumAlternatingPhase phase, EnumFacing side, boolean real);
 }
