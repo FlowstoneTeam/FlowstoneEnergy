@@ -29,7 +29,7 @@ public class TileEntityGeneratorBase extends TileEntityMachineBase{
     }
 
     @Override
-    public String getCommandSenderName() {
+    public String getName() {
         // TODO Auto-generated method stub
         return null;
     }
@@ -67,6 +67,11 @@ public class TileEntityGeneratorBase extends TileEntityMachineBase{
     }
     @Override
     public IChatComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    @Override
+    public ItemStack removeStackFromSlot(int index) {
         // TODO Auto-generated method stub
         return null;
     }

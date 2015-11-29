@@ -20,7 +20,7 @@ public class TileEntityMachineWorkbench extends TileEntityMachineBase /*implemen
     }
 
     @Override
-    public String getCommandSenderName() {
+    public String getName() {
         return null;
     }
 

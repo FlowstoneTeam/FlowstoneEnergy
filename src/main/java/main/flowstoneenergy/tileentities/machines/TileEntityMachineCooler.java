@@ -97,7 +97,7 @@ public class TileEntityMachineCooler extends TileEntityMachineBase implements /*
     }
 
     @Override
-    public String getCommandSenderName() {
+    public String getName() {
         return "Cooler Machine";
     }
 

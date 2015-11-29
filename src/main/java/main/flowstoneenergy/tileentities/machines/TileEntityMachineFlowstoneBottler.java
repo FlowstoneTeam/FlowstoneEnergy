@@ -20,7 +20,7 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase /*i
     }
 
     @Override
-    public String getCommandSenderName() {
+    public String getName() {
         return null;
     }
 

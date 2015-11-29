@@ -73,7 +73,7 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
     }
 
     @Override
-    public String getCommandSenderName() {
+    public String getName() {
         return null;
     }
 
@@ -83,10 +83,10 @@ public class TileEntitySecureChest extends TileEntity implements ISidedInventory
     }
 
     @Override
-    public ItemStack getStackInSlotOnClosing(int par1) {
-        if (this.items[par1] != null) {
-            ItemStack itemstack = this.items[par1];
-            this.items[par1] = null;
+    public ItemStack removeStackFromSlot(int index) {
+        if (this.items[index] != null) {
+            ItemStack itemstack = this.items[index];
+            this.items[index] = null;
             return itemstack;
         } else {
             return null;

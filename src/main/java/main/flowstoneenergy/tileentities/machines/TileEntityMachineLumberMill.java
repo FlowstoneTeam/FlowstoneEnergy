@@ -23,7 +23,7 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase /*impleme
     }
 
     @Override
-    public String getCommandSenderName() {
+    public String getName() {
         return null;
     }
 
