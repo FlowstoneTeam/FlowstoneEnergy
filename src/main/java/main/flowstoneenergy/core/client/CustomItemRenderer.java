@@ -1,3 +1,4 @@
+/*
 package main.flowstoneenergy.core.client;
 
 import main.flowstoneenergy.blocks.BlockRegistry;
@@ -73,3 +74,4 @@ public class CustomItemRenderer implements IItemRenderer {
         GL11.glPopMatrix(); // end
     }
 }
+*/

@@ -2,7 +2,7 @@ package main.flowstoneenergy.core.proxies;
 
 import main.flowstoneenergy.blocks.BlockOres.EnumOreTypes;
 import main.flowstoneenergy.blocks.BlockRegistry;
-import main.flowstoneenergy.core.client.CustomItemRenderer;
+//import main.flowstoneenergy.core.client.CustomItemRenderer;
 import main.flowstoneenergy.core.client.blocks.RenderMachineWorkbench;
 import main.flowstoneenergy.core.client.entities.FlowstoneRobot;
 import main.flowstoneenergy.core.client.entities.RenderRobot;
