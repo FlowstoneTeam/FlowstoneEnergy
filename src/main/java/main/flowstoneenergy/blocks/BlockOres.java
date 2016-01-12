@@ -41,7 +41,7 @@ public class BlockOres extends BlockOre {
             case 3:
                 return state.withProperty(TYPE, EnumOreTypes.SILVER);
             case 4:
-                return state.withProperty(TYPE, EnumOreTypes.NICKLE);
+                return state.withProperty(TYPE, EnumOreTypes.NICKEL);
         }
         return super.getStateFromMeta(meta);
     }
@@ -96,7 +96,7 @@ public class BlockOres extends BlockOre {
         TIN("tin", 1),
         LEAD("lead", 2),
         SILVER("silver", 3),
-        NICKLE("nickle", 4);
+        NICKEL("nickel", 4);
 
         private String name;
         private int meta;

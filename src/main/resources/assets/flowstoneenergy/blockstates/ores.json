@@ -34,7 +34,7 @@
 					"all":"flowstoneenergy:blocks/ores/silverOre"
 				}
 			},
-			"nickle":{
+			"nickel":{
 				"textures":{
 					"all":"flowstoneenergy:blocks/ores/nickelOre"
 					}
