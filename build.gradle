@@ -26,21 +26,30 @@ minecraft {
     runDir = "run"
     
     mappings = "snapshot_20160112"
+    
+    useDepAts = true
 }
 // TODO: Enable after update
-/*
+
 repositories{
-	maven {
+	/*maven {
 		name = "chickenbones"
 		url = "http://chickenbones.net/maven"
-	}
+	}*/
+    
+    maven {
+        name "DVS1"
+        url "http://dvs1.progwml6.com/files/maven"
+    }
 }
 dependencies {
-	compile "codechicken:CodeChickenLib:1.7.10-1.1.3.138:dev"
+	/*compile "codechicken:CodeChickenLib:1.7.10-1.1.3.138:dev"
 	compile "codechicken:CodeChickenCore:1.7.10-1.0.7.46:dev"
-	compile "codechicken:NotEnoughItems:1.7.10-1.0.5.111:dev"
+	compile "codechicken:NotEnoughItems:1.7.10-1.0.5.111:dev"*/
+    
+    deobfCompile "mezz.jei:jei_1.8.9:2.16.1.77"
 }
-*/
+
 processResources
 {
     // replace stuff in mcmod.info, nothing else
