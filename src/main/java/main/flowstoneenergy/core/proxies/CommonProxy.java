@@ -2,7 +2,8 @@ package main.flowstoneenergy.core.proxies;
 
 public class CommonProxy {
 
-    public void load() {
+    public void preinit() {
+        initModels();
         initRenderers();
         initSounds();
     }

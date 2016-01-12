@@ -67,13 +67,15 @@ public class FlowstoneEnergy {
         PacketHandler.init();
         
         proxy.initModels();
+        
+        FEEntityRegistry.init();
+        
+        proxy.preinit();
     }
 
     @EventHandler
     public void load(FMLInitializationEvent event) {
-        FEEntityRegistry.init();
         
-        proxy.load();
     }
 
     @EventHandler

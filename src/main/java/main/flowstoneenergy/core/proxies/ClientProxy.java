@@ -5,6 +5,7 @@ import main.flowstoneenergy.blocks.BlockRegistry;
 //import main.flowstoneenergy.core.client.CustomItemRenderer;
 import main.flowstoneenergy.core.client.blocks.RenderMachineWorkbench;
 import main.flowstoneenergy.core.client.entities.FlowstoneRobot;
+import main.flowstoneenergy.core.client.entities.RenderFactoryRobot;
 import main.flowstoneenergy.core.client.entities.RenderRobot;
 import main.flowstoneenergy.core.client.transport.RenderFluidPipe;
 import main.flowstoneenergy.core.client.transport.RenderItemPipe;
@@ -34,8 +35,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void initRenderers() {
         super.initRenderers();
-        RenderManager renderManager = FMLClientHandler.instance().getClient().getRenderManager();
-        RenderingRegistry.registerEntityRenderingHandler(EntityRobot.class, new RenderRobot(renderManager, new FlowstoneRobot(), 0.5F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityRobot.class, new RenderFactoryRobot());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMachineWorkbench.class, new RenderMachineWorkbench());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityItemPipe.class, new RenderItemPipe());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFluidPipe.class, new RenderFluidPipe());
