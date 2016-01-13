@@ -3,6 +3,7 @@ package main.flowstoneenergy.core.proxies;
 import main.flowstoneenergy.blocks.BlockIngotStorage.EnumIngotStorage;
 import main.flowstoneenergy.blocks.BlockOres.EnumOreTypes;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.blocks.upgrades.BlockUpgrades.EnumUpgradeType;
 //import main.flowstoneenergy.core.client.CustomItemRenderer;
 import main.flowstoneenergy.core.client.blocks.RenderMachineWorkbench;
 import main.flowstoneenergy.core.client.entities.FlowstoneRobot;
@@ -62,6 +63,15 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.NICKEL.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/nickel", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.INVAR.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/invar", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.ELECTRUM.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/electrum", "inventory"));
+        
+        // upgrades
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.SPEED.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.ITEM_CAPACITY.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades/item_capacity", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.ENERGY_CAPACITY.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades/energy_capacity", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.ENERGY_EFFICIENCY.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades/energy_efficiency", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.PROCESS_AMOUNT.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades/process_amount", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.CREATIVE.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades/creative", "inventory"));
+        
         
     }
 

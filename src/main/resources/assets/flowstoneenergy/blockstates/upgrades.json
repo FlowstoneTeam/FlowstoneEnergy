@@ -1,0 +1,50 @@
+{
+	"forge_marker": 1,
+	"defaults":{
+		"textures":{
+			"all":"flowstoneenergy:blocks/upgrades/speed"
+		},
+		"model":"cube_all",
+		"transform":"forge:default-block"
+	},
+	"variants":{
+		"inventory":[{
+			"textures":{
+					"all":"flowstoneenergy:blocks/upgrades/speed"
+				}
+			}],
+		"type":{
+			"speed":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/upgrades/speed"
+				}
+			},
+			"item_capacity":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/upgrades/itemCapacity"
+				}
+			},
+			"energy_capacity":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/upgrades/energyCapacity"
+				}
+			},
+			"energy_efficiency":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/upgrades/energyEfficiency"
+				}
+			},
+			"process_amount":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/upgrades/processAmount"
+					}
+			},
+			"creative":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/upgrades/creative"
+					}
+			}
+		}
+		
+	}
+}

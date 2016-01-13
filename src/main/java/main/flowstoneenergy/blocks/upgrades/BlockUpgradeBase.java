@@ -1,6 +1,7 @@
 package main.flowstoneenergy.blocks.upgrades;
 
 import main.flowstoneenergy.FlowstoneEnergy;
+import main.flowstoneenergy.tileentities.machines.TileEntityUpgrade;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -31,11 +32,11 @@ public class BlockUpgradeBase extends BlockContainer {
     @Override
     @Deprecated
     public TileEntity createNewTileEntity(World world, int meta) {
-        return null;
+        return new TileEntityUpgrade();
     }
     
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
-        return null;
+        return new TileEntityUpgrade();
     }
 }
