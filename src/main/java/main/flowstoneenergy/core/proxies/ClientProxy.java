@@ -13,6 +13,7 @@ import main.flowstoneenergy.core.client.transport.RenderFluidPipe;
 import main.flowstoneenergy.core.client.transport.RenderItemPipe;
 import main.flowstoneenergy.core.client.transport.RenderPowerPipe;
 import main.flowstoneenergy.entities.EntityRobot;
+import main.flowstoneenergy.items.ItemRegistry;
 import main.flowstoneenergy.tileentities.machines.TileEntityMachineWorkbench;
 import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
@@ -47,6 +48,11 @@ public class ClientProxy extends CommonProxy {
     
     @Override
     public void initModels() {
+        initModelsBlocks();
+        initModelsItems();
+    }
+
+    private void initModelsBlocks() {
         // Ores
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.COPPER.getMeta(), new ModelResourceLocation("flowstoneenergy:ores", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.TIN.getMeta(), new ModelResourceLocation("flowstoneenergy:ore_tin", "inventory"));
@@ -72,7 +78,38 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.PROCESS_AMOUNT.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades/process_amount", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.CREATIVE.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades/creative", "inventory"));
         
+    }
+
+    private void initModelsItems() {
         
+        // Dusts
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 0, new ModelResourceLocation("flowstoneenergy:dust/coal", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 1, new ModelResourceLocation("flowstoneenergy:dust/iron", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 2, new ModelResourceLocation("flowstoneenergy:dust/gold", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 3, new ModelResourceLocation("flowstoneenergy:dust/copper", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 4, new ModelResourceLocation("flowstoneenergy:dust/tin", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 5, new ModelResourceLocation("flowstoneenergy:dust/lead", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 6, new ModelResourceLocation("flowstoneenergy:dust/silver", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 7, new ModelResourceLocation("flowstoneenergy:dust/small_ender", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 8, new ModelResourceLocation("flowstoneenergy:dust/ender", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 9, new ModelResourceLocation("flowstoneenergy:dust/nickel", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 10, new ModelResourceLocation("flowstoneenergy:dust/invar", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 11, new ModelResourceLocation("flowstoneenergy:dust/electrum", "inventory"));
+        /*
+         * this.icon[0] = ri.registerIcon(ModInfo.MODID + ":dusts/coalDust");
+        this.icon[1] = ri.registerIcon(ModInfo.MODID + ":dusts/ironDust");
+        this.icon[2] = ri.registerIcon(ModInfo.MODID + ":dusts/goldDust");
+        this.icon[3] = ri.registerIcon(ModInfo.MODID + ":dusts/copperDust");
+        this.icon[4] = ri.registerIcon(ModInfo.MODID + ":dusts/tinDust");
+        this.icon[5] = ri.registerIcon(ModInfo.MODID + ":dusts/leadDust");
+        this.icon[6] = ri.registerIcon(ModInfo.MODID + ":dusts/silverDust");
+        this.icon[7] = ri.registerIcon(ModInfo.MODID + ":dusts/smallEnderDust");
+        this.icon[8] = ri.registerIcon(ModInfo.MODID + ":dusts/enderDust");
+        this.icon[9] = ri.registerIcon(ModInfo.MODID + ":dusts/nickelDust");
+        this.icon[10] = ri.registerIcon(ModInfo.MODID + ":dusts/invarDust");
+        this.icon[11] = ri.registerIcon(ModInfo.MODID + ":dusts/electrumDust");
+         */
+
     }
 
 }
