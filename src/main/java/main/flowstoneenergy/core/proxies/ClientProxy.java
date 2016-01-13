@@ -122,6 +122,12 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 12, new ModelResourceLocation("flowstoneenergy:gear/nickel", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 13, new ModelResourceLocation("flowstoneenergy:gear/invar", "inventory"));
 
+        // Batteries
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.tierOne, 0, new ModelResourceLocation("flowstoneenergy:battery_tier_one", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.tierTwo, 0, new ModelResourceLocation("flowstoneenergy:battery_tier_two", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.tierThree, 0, new ModelResourceLocation("flowstoneenergy:battery_tier_three", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.tierFour, 0, new ModelResourceLocation("flowstoneenergy:battery_tier_four", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.tierFive, 0, new ModelResourceLocation("flowstoneenergy:battery_tier_five", "inventory"));
     }
 
 }
