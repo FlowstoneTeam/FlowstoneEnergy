@@ -1,5 +1,6 @@
 package main.flowstoneenergy.core.proxies;
 
+import main.flowstoneenergy.blocks.BlockIngotStorage.EnumIngotStorage;
 import main.flowstoneenergy.blocks.BlockOres.EnumOreTypes;
 import main.flowstoneenergy.blocks.BlockRegistry;
 //import main.flowstoneenergy.core.client.CustomItemRenderer;
@@ -45,11 +46,23 @@ public class ClientProxy extends CommonProxy {
     
     @Override
     public void initModels() {
+        // Ores
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.COPPER.getMeta(), new ModelResourceLocation("flowstoneenergy:ores", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.TIN.getMeta(), new ModelResourceLocation("flowstoneenergy:ore_tin", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.LEAD.getMeta(), new ModelResourceLocation("flowstoneenergy:ore_lead", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.SILVER.getMeta(), new ModelResourceLocation("flowstoneenergy:ore_silver", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.NICKEL.getMeta(), new ModelResourceLocation("flowstoneenergy:ore_nickle", "inventory"));
+        
+        // IngotStorage
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.COPPER.getMeta(), new ModelResourceLocation("flowstoneenergy:ingot_storage", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.TIN.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/tin", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.LEAD.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/lead", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.SILVER.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/silver", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.ENDER.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/ender", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.NICKEL.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/nickel", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.INVAR.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/invar", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.ELECTRUM.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/electrum", "inventory"));
+        
     }
 
 }
