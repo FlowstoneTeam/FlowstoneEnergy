@@ -95,7 +95,16 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 9, new ModelResourceLocation("flowstoneenergy:dust/nickel", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 10, new ModelResourceLocation("flowstoneenergy:dust/invar", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 11, new ModelResourceLocation("flowstoneenergy:dust/electrum", "inventory"));
-     
+
+        // Ingots
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 0, new ModelResourceLocation("flowstoneenergy:ingot/copper", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 1, new ModelResourceLocation("flowstoneenergy:ingot/tin", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 2, new ModelResourceLocation("flowstoneenergy:ingot/lead", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 3, new ModelResourceLocation("flowstoneenergy:ingot/silver", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 4, new ModelResourceLocation("flowstoneenergy:ingot/ender", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 5, new ModelResourceLocation("flowstoneenergy:ingot/nickel", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 6, new ModelResourceLocation("flowstoneenergy:ingot/invar", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 7, new ModelResourceLocation("flowstoneenergy:ingot/electrum", "inventory"));
 
     }
 
