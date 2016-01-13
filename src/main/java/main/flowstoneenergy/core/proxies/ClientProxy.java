@@ -151,6 +151,11 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.flowChestplate, 0, new ModelResourceLocation("flowstoneenergy:flow_chestplate", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.flowHelm, 0, new ModelResourceLocation("flowstoneenergy:flow_helmet", "inventory"));
 
+        // Misc
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.manual, 0, new ModelResourceLocation("flowstoneenergy:manual", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.flowstoneBucket, 0, new ModelResourceLocation("flowstoneenergy:bucket_flowstone", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.fluidBlazeBucket, 0, new ModelResourceLocation("flowstoneenergy:bucket_blaze", "inventory"));
+
     }
 
 }
