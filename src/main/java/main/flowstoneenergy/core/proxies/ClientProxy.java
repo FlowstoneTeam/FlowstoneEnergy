@@ -144,6 +144,13 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.electrumHoe, 0, new ModelResourceLocation("flowstoneenergy:electrum_hoe", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.electrumShovel, 0, new ModelResourceLocation("flowstoneenergy:electrum_shovel", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.electrumAxe, 0, new ModelResourceLocation("flowstoneenergy:electrum_axe", "inventory"));
+
+        // Armor
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.flowBoots, 0, new ModelResourceLocation("flowstoneenergy:flow_boots", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.flowLeggings, 0, new ModelResourceLocation("flowstoneenergy:flow_leggings", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.flowChestplate, 0, new ModelResourceLocation("flowstoneenergy:flow_chestplate", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.flowHelm, 0, new ModelResourceLocation("flowstoneenergy:flow_helmet", "inventory"));
+
     }
 
 }
