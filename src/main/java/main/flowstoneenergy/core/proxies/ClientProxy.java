@@ -95,20 +95,7 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 9, new ModelResourceLocation("flowstoneenergy:dust/nickel", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 10, new ModelResourceLocation("flowstoneenergy:dust/invar", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceDust, 11, new ModelResourceLocation("flowstoneenergy:dust/electrum", "inventory"));
-        /*
-         * this.icon[0] = ri.registerIcon(ModInfo.MODID + ":dusts/coalDust");
-        this.icon[1] = ri.registerIcon(ModInfo.MODID + ":dusts/ironDust");
-        this.icon[2] = ri.registerIcon(ModInfo.MODID + ":dusts/goldDust");
-        this.icon[3] = ri.registerIcon(ModInfo.MODID + ":dusts/copperDust");
-        this.icon[4] = ri.registerIcon(ModInfo.MODID + ":dusts/tinDust");
-        this.icon[5] = ri.registerIcon(ModInfo.MODID + ":dusts/leadDust");
-        this.icon[6] = ri.registerIcon(ModInfo.MODID + ":dusts/silverDust");
-        this.icon[7] = ri.registerIcon(ModInfo.MODID + ":dusts/smallEnderDust");
-        this.icon[8] = ri.registerIcon(ModInfo.MODID + ":dusts/enderDust");
-        this.icon[9] = ri.registerIcon(ModInfo.MODID + ":dusts/nickelDust");
-        this.icon[10] = ri.registerIcon(ModInfo.MODID + ":dusts/invarDust");
-        this.icon[11] = ri.registerIcon(ModInfo.MODID + ":dusts/electrumDust");
-         */
+     
 
     }
 
