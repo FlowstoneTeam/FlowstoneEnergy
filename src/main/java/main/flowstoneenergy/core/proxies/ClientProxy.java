@@ -106,6 +106,22 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 6, new ModelResourceLocation("flowstoneenergy:ingot/invar", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceIngot, 7, new ModelResourceLocation("flowstoneenergy:ingot/electrum", "inventory"));
 
+        // Gears
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 0, new ModelResourceLocation("flowstoneenergy:gear/wood", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 1, new ModelResourceLocation("flowstoneenergy:gear/stone", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 2, new ModelResourceLocation("flowstoneenergy:gear/iron", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 3, new ModelResourceLocation("flowstoneenergy:gear/gold", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 4, new ModelResourceLocation("flowstoneenergy:gear/quartz", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 5, new ModelResourceLocation("flowstoneenergy:gear/diamond", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 6, new ModelResourceLocation("flowstoneenergy:gear/copper", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 7, new ModelResourceLocation("flowstoneenergy:gear/tin", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 8, new ModelResourceLocation("flowstoneenergy:gear/lead", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 9, new ModelResourceLocation("flowstoneenergy:gear/silver", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 10, new ModelResourceLocation("flowstoneenergy:gear/ender", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 11, new ModelResourceLocation("flowstoneenergy:gear/electrum", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 12, new ModelResourceLocation("flowstoneenergy:gear/nickel", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.metaResourceGear, 13, new ModelResourceLocation("flowstoneenergy:gear/invar", "inventory"));
+
     }
 
 }
