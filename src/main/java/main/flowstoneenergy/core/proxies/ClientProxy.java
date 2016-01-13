@@ -128,6 +128,22 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.tierThree, 0, new ModelResourceLocation("flowstoneenergy:battery_tier_three", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.tierFour, 0, new ModelResourceLocation("flowstoneenergy:battery_tier_four", "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemRegistry.tierFive, 0, new ModelResourceLocation("flowstoneenergy:battery_tier_five", "inventory"));
+        
+        // Wrench
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.flowwrench, 0, new ModelResourceLocation("flowstoneenergy:flowwrench", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.pneumaticFlowwrench, 0, new ModelResourceLocation("flowstoneenergy:flowwrench_pneumatic", "inventory"));
+        
+        // Tools
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.enderSword, 0, new ModelResourceLocation("flowstoneenergy:ender_sword", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.enderPick, 0, new ModelResourceLocation("flowstoneenergy:ender_pick", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.enderHoe, 0, new ModelResourceLocation("flowstoneenergy:ender_hoe", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.enderShovel, 0, new ModelResourceLocation("flowstoneenergy:ender_shovel", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.enderAxe, 0, new ModelResourceLocation("flowstoneenergy:ender_axe", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.electrumSword, 0, new ModelResourceLocation("flowstoneenergy:electrum_sword", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.electrumPick, 0, new ModelResourceLocation("flowstoneenergy:electrum_pick", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.electrumHoe, 0, new ModelResourceLocation("flowstoneenergy:electrum_hoe", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.electrumShovel, 0, new ModelResourceLocation("flowstoneenergy:electrum_shovel", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ItemRegistry.electrumAxe, 0, new ModelResourceLocation("flowstoneenergy:electrum_axe", "inventory"));
     }
 
 }
