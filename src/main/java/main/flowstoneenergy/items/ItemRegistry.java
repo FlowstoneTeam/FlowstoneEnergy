@@ -58,9 +58,6 @@ public class ItemRegistry {
     public static Item metaResourceIngot;
     public static Item metaResourceGear;
 
-    // utensils
-    public static Item metaResourceUtensil;
-
     // misc
     public static Item flowstoneBucket;
     public static Item fluidBlazeBucket;
