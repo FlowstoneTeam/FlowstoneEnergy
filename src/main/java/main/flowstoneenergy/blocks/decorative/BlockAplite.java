@@ -20,7 +20,7 @@ import scala.reflect.internal.Trees.Super;
 
 public class BlockAplite extends Block {
     //public IIcon[] icon = new IIcon[8];
-    public static PropertyEnum<EnumApliteTypes> TYPE = PropertyEnum.<EnumApliteTypes>create("type", EnumApliteTypes.class);
+    public static PropertyEnum<EnumApliteTypes> TYPE = PropertyEnum.create("type", EnumApliteTypes.class);
 
     public BlockAplite() {
         super(Material.rock);
@@ -40,12 +40,14 @@ public class BlockAplite extends Block {
                 return state.withProperty(TYPE, EnumApliteTypes.COBBLE);
             case 2:
                 return state.withProperty(TYPE, EnumApliteTypes.BRICK);
-            case 4:
+            case 3:
                 return state.withProperty(TYPE, EnumApliteTypes.SMALL_BRICK);
+            case 4:
+                return state.withProperty(TYPE, EnumApliteTypes.CHISELED);
             case 5:
                 return state.withProperty(TYPE, EnumApliteTypes.BLOCK);
         }
-        return super.getStateFromMeta(meta);
+        return state;
     }
 
     @Override
@@ -122,6 +124,11 @@ public class BlockAplite extends Block {
 
         public int getMeta() {
             return this.meta;
+        }
+        
+        @Override
+        public String toString() {
+            return this.name;
         }
     }
 }

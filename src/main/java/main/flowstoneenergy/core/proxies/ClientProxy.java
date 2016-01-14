@@ -3,6 +3,7 @@ package main.flowstoneenergy.core.proxies;
 import main.flowstoneenergy.blocks.BlockIngotStorage.EnumIngotStorage;
 import main.flowstoneenergy.blocks.BlockOres.EnumOreTypes;
 import main.flowstoneenergy.blocks.BlockRegistry;
+import main.flowstoneenergy.blocks.decorative.BlockAplite.EnumApliteTypes;
 import main.flowstoneenergy.blocks.upgrades.BlockUpgrades.EnumUpgradeType;
 //import main.flowstoneenergy.core.client.CustomItemRenderer;
 import main.flowstoneenergy.core.client.blocks.RenderMachineWorkbench;
@@ -69,6 +70,14 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.NICKEL.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/nickel", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.INVAR.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/invar", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.ingotStorage),EnumIngotStorage.ELECTRUM.getMeta(), new ModelResourceLocation("flowstoneenergy:ingotstorage/electrum", "inventory"));
+        
+        // Aplite
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.aplite),EnumApliteTypes.ORE.getMeta(), new ModelResourceLocation("flowstoneenergy:aplite", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.aplite),EnumApliteTypes.COBBLE.getMeta(), new ModelResourceLocation("flowstoneenergy:aplite/cobble", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.aplite),EnumApliteTypes.BRICK.getMeta(), new ModelResourceLocation("flowstoneenergy:aplite/brick", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.aplite),EnumApliteTypes.SMALL_BRICK.getMeta(), new ModelResourceLocation("flowstoneenergy:aplite/small_brick", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.aplite),EnumApliteTypes.CHISELED.getMeta(), new ModelResourceLocation("flowstoneenergy:aplite/chiseled", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.aplite),EnumApliteTypes.BLOCK.getMeta(), new ModelResourceLocation("flowstoneenergy:aplite/block", "inventory"));
         
         // upgrades
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.upgrades),EnumUpgradeType.SPEED.getMeta(), new ModelResourceLocation("flowstoneenergy:upgrades", "inventory"));

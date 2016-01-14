@@ -1,0 +1,50 @@
+{
+	"forge_marker": 1,
+	"defaults":{
+		"textures":{
+			"all":"flowstoneenergy:blocks/ores/apliteOre"
+		},
+		"model":"cube_all",
+		"transform":"forge:default-block"
+	},
+	"variants":{
+		"inventory":[{
+			"textures":{
+					"all":"flowstoneenergy:blocks/ores/apliteOre"
+				}
+			}],
+		"type":{
+			"ore":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/ores/apliteOre"
+				}
+			},
+			"cobble":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/decorative/apliteCobble"
+				}
+			},
+			"brick":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/decorative/apliteBrick"
+				}
+			},
+			"small_brick":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/decorative/apliteSmallBrick"
+				}
+			},
+			"chiseled":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/decorative/apliteChiseled"
+					}
+			},
+			"block":{
+				"textures":{
+					"all":"flowstoneenergy:blocks/decorative/apliteBlock"
+					}
+			}
+		}
+		
+	}
+}
