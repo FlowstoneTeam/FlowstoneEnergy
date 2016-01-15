@@ -5,6 +5,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.core.utils.ConnectedTextureHelper;
+import main.flowstoneenergy.tileentities.machines.TileEntityMachineBox;
 import main.flowstoneenergy.core.interfaces.IFlowWrenchable;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -24,6 +25,7 @@ public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
         //this.setBlockTextureName(ModInfo.MODID + ":machines/machine_Side_0");
         this.setStepSound(soundTypeMetal);
         this.setHardness(7);
+        this.setDefaultState(this.blockState.getBaseState());
     }
 
     @Override
@@ -43,7 +45,12 @@ public class BlockMachineBox extends BlockContainer implements IFlowWrenchable {
 
     @Override
     public TileEntity createTileEntity(World world, IBlockState blockState) {
-        return null;
+        return new TileEntityMachineBox();
+    }
+    
+    @Override
+    public int getRenderType() {
+        return 3;
     }
 /*
     @Override

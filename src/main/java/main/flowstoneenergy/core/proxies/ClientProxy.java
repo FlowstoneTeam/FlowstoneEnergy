@@ -54,6 +54,10 @@ public class ClientProxy extends CommonProxy {
     }
 
     private void initModelsBlocks() {
+        
+        // Machines
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.machineBox),0, new ModelResourceLocation("flowstoneenergy:block/machine_box", "inventory"));
+        
         // Ores
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.COPPER.getMeta(), new ModelResourceLocation("flowstoneenergy:ores", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.blockOres),EnumOreTypes.TIN.getMeta(), new ModelResourceLocation("flowstoneenergy:ore_tin", "inventory"));
