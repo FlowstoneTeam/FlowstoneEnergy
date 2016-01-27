@@ -1,0 +1,20 @@
+{
+	"forge_marker": 1,
+	"defaults":{
+		"textures":{
+			"all":"flowstoneenergy:blocks/machines/machine_Side_0"
+		},
+		"model":"cube_all",
+		"transform":"forge:default-block"
+	},
+	"variants":{
+		"inventory":[{
+			"textures":{
+					"all":"flowstoneenergy:blocks/machines/machine_Side_0"
+				}
+			}],
+		"normal":[
+			{}
+		]
+	}
+}
