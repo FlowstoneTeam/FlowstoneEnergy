@@ -1,0 +1,22 @@
+{
+	"forge_marker": 1,
+	"defaults":{
+		"textures":{
+			"all":"flowstoneenergy:blocks/transport/powerPipeIcon"
+		},
+		"model":"cube_all",
+		"transform":"forge:default-block"
+	},
+	"variants":{
+		"inventory":[{
+			"textures":{
+					"layer0":"flowstoneenergy:blocks/transport/powerPipeIcon"
+				},
+				"model":"builtin/generated",
+				"transform":"forge:default-item"
+			}],
+		"normal":[
+			{}
+		]
+	}
+}
