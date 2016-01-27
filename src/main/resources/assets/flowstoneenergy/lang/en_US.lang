@@ -13,6 +13,7 @@ tile.blockMachines.lumberMill.name=Lumber Mill
 tile.blockMachines.liquifier.name=Item Liquifier
 tile.blockMachines.liquidInfuser.name=Liquid Infuser
 tile.blockMachines.autoCrafter.name=Auto Crafter
+tile.blockMachines.cooler.name=Cooler
 
 Generators
 tile.flowstoneenergy.generator.coal.name=Coal Generator

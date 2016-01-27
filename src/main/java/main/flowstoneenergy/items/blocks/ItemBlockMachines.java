@@ -35,6 +35,10 @@ public class ItemBlockMachines extends ItemBlock {
                 name = "metalMixer";
                 break;
             }
+            case 5:{
+                name = "cooler";
+                break;
+            }
             default:
                 name = "nothing";
         }

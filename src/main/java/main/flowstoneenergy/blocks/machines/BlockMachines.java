@@ -3,8 +3,9 @@ package main.flowstoneenergy.blocks.machines;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
-import main.flowstoneenergy.core.libs.ModInfo;
 import main.flowstoneenergy.tileentities.machines.*;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,12 +14,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class BlockMachines extends BlockMachineMetaSidedTexture {
 
+    public final static PropertyEnum<EnumMachineTypes> TYPE = PropertyEnum.create("type", EnumMachineTypes.class);
+    public final static PropertyEnum<EnumFacing> FACING = PropertyEnum.create("facing", EnumFacing.class);
     public BlockMachines() {
         /*frontOff = new IIcon[16];
         frontOn = new IIcon[16];
@@ -26,7 +30,9 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         bottom = new IIcon[16];
         sideIcon = new IIcon[16];*/
         setCreativeTab(FlowstoneEnergy.blockTab);
+        setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumMachineTypes.ORE_TUMBLER));
     }
+    
 
     /*
     @Override
@@ -77,6 +83,43 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         this.sideIcon[5] = icon.registerIcon(ModInfo.MODID + ":machines/machine_Side_0");
     }
     */
+    
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        IBlockState state = getDefaultState();
+        switch (meta)
+        {
+            case 0:
+                return state.withProperty(TYPE, EnumMachineTypes.ORE_TUMBLER);
+            case 1:
+                return state.withProperty(TYPE, EnumMachineTypes.BOTTLER);
+            case 2:
+                return state.withProperty(TYPE, EnumMachineTypes.HEATED_OVEN);
+            case 3:
+                return state.withProperty(TYPE, EnumMachineTypes.LUMBER_MILL);
+            case 4:
+                return state.withProperty(TYPE, EnumMachineTypes.METAL_MIXER);
+            case 5:
+                return state.withProperty(TYPE, EnumMachineTypes.COOLER);
+        }
+        return state;
+    }
+    
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(TYPE).getMeta();
+    }
+    
+    
+    @Override
+    protected ItemStack createStackedBlock(IBlockState state) {
+        return new ItemStack(this,1,getMetaFromState(state));
+    }
+    
+    @Override
+    protected BlockState createBlockState() {
+        return new BlockState(this, TYPE);
+    }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @SideOnly(Side.CLIENT)
@@ -132,5 +175,35 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         }
 
         return true;
+    }
+    
+    public enum EnumMachineTypes implements IStringSerializable {
+        ORE_TUMBLER("ore_tumbler", 0),
+        BOTTLER("bottler", 1),
+        HEATED_OVEN("heated_over", 2),
+        LUMBER_MILL("lumber_mill", 3),
+        METAL_MIXER("metal_mixer", 4),
+        COOLER("cooler", 5)
+        ;
+        private String name;
+        private int meta;
+        EnumMachineTypes(String name, int meta){
+            this.name = name;
+            this.meta = meta;
+        }
+
+        @Override
+        public String getName() {
+            return this.name;
+        }
+        
+        public int getMeta() {
+            return this.meta;
+        }
+        
+        @Override
+        public String toString() {
+            return this.name;
+        }
     }
 }
