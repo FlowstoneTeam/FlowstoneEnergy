@@ -67,14 +67,14 @@ public class TileEntityMachineMetalMixer extends TileEntityMachineBase /*impleme
         if (canMix()) {
             if (ticksLeft >= maxTicks) {
                 mixMetals();
-                resetTimeAndTexture();
+               // resetTimeAndTexture();
             } else {
                 ticksLeft++;
                 markDirty();
             }
 
         } else {
-            resetTimeAndTexture();
+            //resetTimeAndTexture();
         }
 
     }

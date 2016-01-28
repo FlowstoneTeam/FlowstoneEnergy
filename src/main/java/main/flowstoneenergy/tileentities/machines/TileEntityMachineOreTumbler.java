@@ -70,17 +70,17 @@ public class TileEntityMachineOreTumbler extends TileEntityMachineBase /*impleme
             }
         }
         // TODO: Enable after update
-        /*int availablePower = this.energy.extractEnergy(2000, true);
+        int availablePower = 2000;// this.energy.extractEnergy(2000, true);
         if (ticksLeft < maxTicks && RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) != null && availablePower >= 2000) {
             Recipe1_1 r = RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]);
             if (items[1] == null || (r.getOutput().isItemEqual(items[1]) && r.getOutput().getMaxStackSize() > items[1].stackSize)) {
                 ticksLeft++;
-                worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+                worldObj.markBlockForUpdate(this.pos);
             } else {
                 ticksLeft = 0;
                 resetTimeAndTexture();
             }
-        }*/
+        }
         if (RecipesEnergizedOreTumbler.getRecipeFromStack(items[0]) == null && ticksLeft > 0) {
             ticksLeft = 0;
             resetTimeAndTexture();

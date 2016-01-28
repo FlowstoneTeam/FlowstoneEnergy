@@ -70,7 +70,7 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase /*i
         if ((items[0] == null) || (items[0].getItem() == null)) {
             ticksLeft = 0;
             maxTicks = 0;
-            resetTimeAndTexture();
+            //resetTimeAndTexture();
             return;
         }
 
@@ -92,7 +92,7 @@ public class TileEntityMachineFlowstoneBottler extends TileEntityMachineBase /*i
         } else {*/
             ticksLeft = 0;
             maxTicks = 0;
-            resetTimeAndTexture();
+            //resetTimeAndTexture();
         //}
     }
 

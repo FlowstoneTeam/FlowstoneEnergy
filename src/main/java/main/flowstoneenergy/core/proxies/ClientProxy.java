@@ -10,6 +10,8 @@ import main.flowstoneenergy.core.client.blocks.RenderMachineWorkbench;
 import main.flowstoneenergy.core.client.entities.FlowstoneRobot;
 import main.flowstoneenergy.core.client.entities.RenderFactoryRobot;
 import main.flowstoneenergy.core.client.entities.RenderRobot;
+import main.flowstoneenergy.core.client.event.BakeEventHandler;
+import main.flowstoneenergy.core.client.event.TextureStitchEventHandler;
 import main.flowstoneenergy.core.client.transport.RenderFluidPipe;
 import main.flowstoneenergy.core.client.transport.RenderItemPipe;
 import main.flowstoneenergy.core.client.transport.RenderPowerPipe;
@@ -19,18 +21,25 @@ import main.flowstoneenergy.tileentities.machines.TileEntityMachineWorkbench;
 import main.flowstoneenergy.tileentities.transport.TileEntityFluidPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityItemPipe;
 import main.flowstoneenergy.tileentities.transport.TileEntityPowerPipe;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
+
+    public static ModelResourceLocation machinesBlockLocation = new ModelResourceLocation("flowstoneenergy:machines", "normal");
+    public static ModelResourceLocation machinesItemLocation = new ModelResourceLocation("flowstoneenergy:machines", "inventory");
 
     @Override
     public void initSounds() {
@@ -46,18 +55,36 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPowerPipe.class, new RenderPowerPipe());
         //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlockRegistry.machineWorkbench), new CustomItemRenderer());
     }
-    
+
     @Override
     public void initModels() {
         initModelsBlocks();
         initModelsItems();
+
+        MinecraftForge.EVENT_BUS.register(TextureStitchEventHandler.INSTANCE);
+        MinecraftForge.EVENT_BUS.register(BakeEventHandler.INSTANCE);
     }
 
     private void initModelsBlocks() {
         
         // Machines
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.machineBox),0, new ModelResourceLocation("flowstoneenergy:block/machine_box", "inventory"));
-        
+
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.machines), 0, machinesItemLocation);
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.machines), 1, machinesItemLocation);
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.machines), 2, machinesItemLocation);
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.machines), 3, machinesItemLocation);
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.machines), 4, machinesItemLocation);
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.machines), 5, machinesItemLocation);
+
+        ModelLoader.setCustomStateMapper(BlockRegistry.machines, new StateMapperBase() {
+
+            @Override
+            protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+                return machinesBlockLocation;
+            }
+        });
+
         // Pipes
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.itemPipe),0, new ModelResourceLocation("flowstoneenergy:item_pipe", "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegistry.fluidPipe),0, new ModelResourceLocation("flowstoneenergy:fluid_pipe", "inventory"));

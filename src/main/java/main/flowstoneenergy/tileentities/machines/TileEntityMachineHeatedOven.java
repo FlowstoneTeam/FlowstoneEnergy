@@ -81,7 +81,7 @@ public class TileEntityMachineHeatedOven extends TileEntityMachineBase /*impleme
                 ticksLeft++;
             }
         } else {*/
-            resetTimeAndTexture();
+            //resetTimeAndTexture();
         //}
 
     }

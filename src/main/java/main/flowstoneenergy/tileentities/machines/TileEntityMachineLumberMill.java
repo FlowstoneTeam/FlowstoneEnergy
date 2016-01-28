@@ -65,13 +65,13 @@ public class TileEntityMachineLumberMill extends TileEntityMachineBase /*impleme
 
             if (ticksLeft >= maxTicks) {
                 saw();
-                resetTimeAndTexture();
+                //resetTimeAndTexture();
             } else {
                 ticksLeft++;
                 markDirty();
             }
         } else {
-            resetTimeAndTexture();
+            //resetTimeAndTexture();
         }
     }
 

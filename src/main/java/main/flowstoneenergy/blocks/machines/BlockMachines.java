@@ -1,10 +1,16 @@
 package main.flowstoneenergy.blocks.machines;
 
+import net.minecraftforge.common.property.ExtendedBlockState;
+import net.minecraftforge.common.property.IExtendedBlockState;
+import net.minecraftforge.common.property.IUnlistedProperty;
+import net.minecraftforge.common.property.Properties;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import main.flowstoneenergy.FlowstoneEnergy;
 import main.flowstoneenergy.tileentities.machines.*;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,14 +21,22 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class BlockMachines extends BlockMachineMetaSidedTexture {
 
-    public final static PropertyEnum<EnumMachineTypes> TYPE = PropertyEnum.create("type", EnumMachineTypes.class);
-    public final static PropertyEnum<EnumFacing> FACING = PropertyEnum.create("facing", EnumFacing.class);
+    public static final PropertyEnum<EnumMachineTypes> TYPE = PropertyEnum.create("type", EnumMachineTypes.class);
+
+    public static final IUnlistedProperty<Integer>[] hiddenProperties = new IUnlistedProperty[2];
+
+    static {
+        hiddenProperties[0] = Properties.toUnlisted(PropertyInteger.create("facing", 0, 5));
+        hiddenProperties[1] = Properties.toUnlisted(PropertyInteger.create("operating", 0, 1));
+    }
+
     public BlockMachines() {
         /*frontOff = new IIcon[16];
         frontOn = new IIcon[16];
@@ -30,7 +44,7 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
         bottom = new IIcon[16];
         sideIcon = new IIcon[16];*/
         setCreativeTab(FlowstoneEnergy.blockTab);
-        setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumMachineTypes.ORE_TUMBLER));
+        //setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumMachineTypes.ORE_TUMBLER));
     }
     
 
@@ -109,16 +123,39 @@ public class BlockMachines extends BlockMachineMetaSidedTexture {
     public int getMetaFromState(IBlockState state) {
         return state.getValue(TYPE).getMeta();
     }
-    
-    
+
     @Override
     protected ItemStack createStackedBlock(IBlockState state) {
         return new ItemStack(this,1,getMetaFromState(state));
     }
-    
+
     @Override
     protected BlockState createBlockState() {
-        return new BlockState(this, TYPE);
+        IProperty<?>[] visiableProperties = {TYPE};
+
+        return new ExtendedBlockState(this, visiableProperties, hiddenProperties);
+    }
+
+    @Override
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        return state;
+    }
+
+    @Override
+    public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+        IExtendedBlockState extendedState = (IExtendedBlockState)state;
+        TileEntity tileEntity = world.getTileEntity(pos);
+        if (tileEntity != null && tileEntity instanceof TileEntityMachineBase) {
+
+            int front = ((TileEntityMachineBase)tileEntity).facing;
+            extendedState = extendedState.withProperty(hiddenProperties[0], front);
+            int operating = 0;
+            if (((TileEntityMachineBase)tileEntity).ticksLeft != 0) {
+                operating = 1;
+            }
+            extendedState = extendedState.withProperty(hiddenProperties[1], operating);
+        }
+        return extendedState;
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
